@@ -178,7 +178,7 @@ const Nav = () => {
             </div>
           </div>
         </div>
-        <div className="nav-data tab-nav">
+        <div className="tab-nav">
           <div className="tab-nav-p1">
             <div className="nav-logo-main">
               <div className="nav-logo-sub">

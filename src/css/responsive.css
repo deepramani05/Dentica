@@ -9,7 +9,7 @@
   }
 
   .tab-nav {
-    display: block!important;
+    display: block !important;
   }
 
   .main {
@@ -35,11 +35,132 @@
     font-size: 10px;
   }
 
+  .nav-logo-main {
+    width: 20%;
+  }
+
   .tab-nav-p1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 20px;
+    margin: 30px 20px 10px 20px;
+  }
+
+  .nav-menu-main {
+    width: 100%;
+    margin: 10px 20px 30px 20px;
+  }
+
+  .banner-text-head h3 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .banner-text-head h1 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+
+  .banner-text-head {
+    margin: 10px 0;
+  }
+
+  .banner-text-body {
+    margin: 10px 0;
+  }
+
+  .banner-text-body br {
+    display: none;
+  }
+
+  .banner-text-body p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .banner-btn a {
+    font-size: 10px;
+    line-height: 10px;
+    padding: 10px 15px;
+  }
+
+  .banner-btn {
+    margin: 20px 0;
+  }
+
+  .sec-title .sub-title {
+    font-size: 11px;
+    line-height: 20px;
+  }
+
+  .sec-title h1 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .sec-text p {
+    font-size: 10px;
+    line-height: 15px;
+    margin: 12px 0;
+  }
+
+  .shape {
+    display: none;
+  }
+
+  .box {
+    display: none;
+  }
+
+  .image-box {
+    width: 100%;
+    padding: 0;
+  }
+
+  .image {
+    top: 0;
+  }
+
+  .text {
+    right: 100px;
+    top: 0;
+  }
+
+  .about-p2-title h1 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .about-p2-txt p {
+    font-size: 10px;
+    line-height: 15px;
+    margin: 12px 0;
+  }
+
+  .dent-content-head a h1 {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+
+  .dent-content-txt p {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 20px 0;
+  }
+
+  .dent-content-data {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  span.home-product-sub-title {
+    font-size: 13px;
+  }
+
+  .home-product-head h1 {
+    font-size: 25px;
+    line-height: 40px;
   }
 }
 
