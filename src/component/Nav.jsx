@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import logo from "../img/Logo.png";
-import wp from "../img/whatsapp.png";
+import wp from "../img/whatsapp1.png";
 import insta from "../img/instagra.png";
 import fb from "../img/facebook.png";
 import { FaPhone } from "react-icons/fa6";
@@ -12,6 +12,8 @@ import $ from "jquery";
 import { IoClose } from "react-icons/io5";
 
 const Nav = () => {
+  const [scrolled, setScrolled] = useState(false);
+  console.log("scrolled value",scrolled);
   $(document).on("click", ".button-nav, .navigation-backdrop", function () {
     var $nav = $("#navigation-demo");
     var $hasClass = $nav.hasClass("open");
@@ -48,6 +50,35 @@ const Nav = () => {
       }
     });
   });
+  // Header postion fixed
+  useEffect(() => {
+    const handleScroll = () => {
+      const navData = document.getElementById("navData");
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > 100) {
+        navData.classList.add("fixed");
+      } else {
+        navData.classList.remove("fixed");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setScrolled(scrollTop > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="nav-main">
@@ -101,15 +132,15 @@ const Nav = () => {
             </div>
           </div>
         </div>
-        <div className="nav-data">
+        <div className="nav-data" id="navData">
           <div className="nav-logo-main">
-            <div className="nav-logo-sub">
+            <div className="nav-logo-sub nav-logo-box">
               <Link to="/">
                 <img src={logo} alt="" />
               </Link>
             </div>
           </div>
-          <div className="nav-menu-main">
+          <div className={`nav-menu-main ${scrolled ? "scrolled": " "}`}>
             <ul className="nav-menu-ul">
               <li className="nav-menu-li">
                 <Link to="/">Home</Link>
@@ -153,7 +184,7 @@ const Nav = () => {
             </ul>
           </div>
           <div className="nav-contact-main">
-            <div className="nav-contact-icon">
+            {/* <div className="nav-contact-icon">
               <div className="nav-contact-img nav-wp">
                 <a href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio">
                   <img src={wp} alt="" />
@@ -169,7 +200,7 @@ const Nav = () => {
                   <img src={fb} alt="" />
                 </a>
               </div>
-            </div>
+            </div> */}
             <div className="nav-contact-phone">
               <span>
                 <FaPhone />
