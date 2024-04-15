@@ -205,6 +205,10 @@ body {
   background-color: #fff;
 }
 
+.tab-nav {
+  display: none;
+}
+
 .mobile-view-main {
   display: none;
 }
