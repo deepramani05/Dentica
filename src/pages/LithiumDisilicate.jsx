@@ -24,7 +24,7 @@ const LithiumDisilicate = () => {
         <div className="implant-content-main">
           <div className="implant-content-p1">
             <div className="implant-p1-img">
-              <h1>Implants</h1>
+              <h1>Lithium - Disilicate</h1>
               <div className="implant-p1-img-box">
                 <img src={lithium_img} alt="" />
               </div>

@@ -1,3 +1,267 @@
+@media screen and (max-width: 1200px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu-li a {
+    font-size: 13px;
+  }
+
+  .banner-text-head h3 {
+    font-size: 25px;
+    line-height: 15px;
+  }
+
+  .banner-text-head h1 {
+    font-size: 40px;
+    line-height: 55px;
+  }
+
+  .banner-text-head {
+    margin: 10px 0;
+  }
+
+  .banner-text-body {
+    margin: 10px 0;
+  }
+
+  .banner-text-body p br {
+    display: none;
+  }
+
+  .banner-text-body p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .banner-btn a {
+    font-size: 10px;
+    line-height: 20px;
+    padding: 10px 15px;
+  }
+
+  .banner-btn {
+    margin: 20px 0;
+  }
+
+  .sec-title h1 {
+    font-size: 35px;
+    line-height: 35px;
+  }
+
+  .sec-text p {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 10px 0;
+  }
+
+  .shape {
+    display: none;
+  }
+
+  .box {
+    display: none;
+  }
+
+  .about-p1-img {
+    width: 50%;
+    margin: 50px auto;
+  }
+
+  figure.image {
+    top: 0;
+  }
+
+  .text {
+    top: 0;
+    right: 0;
+    left: 100px;
+  }
+
+  .about-p2-title h1 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .about-p2-txt p {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 10px 0;
+  }
+
+  .dent-content-head a h1 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .dent-content-txt p {
+    font-size: 16px;
+    line-height: 25px;
+    margin: 15px 0;
+  }
+
+  .dent-content-data {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .home-product-head h1 {
+    font-size: 40px;
+    line-height: 45px;
+  }
+
+  .home-product-slider-main {
+    height: 450px !important;
+  }
+
+  .home-product-slider-txt h1 {
+    font-size: 25px;
+    line-height: 25px;
+    padding: 10px 20px;
+  }
+
+  .home-product-slider-txt p {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 10px 20px;
+  }
+
+  /* .home-gallary-txt span:before {
+    left: 545px;
+  }
+
+  .home-gallary-txt span:after {
+    left: 535px;
+  } */
+
+  .home-gallary-head h1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  /* .home-msg-head-txt span:before {
+    left: 510px;
+  }
+
+  .home-msg-head-txt span:after {
+    left: 500px;
+  } */
+
+  .home-msg-sub h1 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+
+  .home-msg-input-div p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .home-msg-input-div div input,
+  textarea {
+    padding: 10px 10px;
+  }
+
+  .home-msg-input-div div svg {
+    padding: 10px 10px;
+  }
+
+  .home-msg-form-submit input {
+    font-size: 10px;
+    line-height: 20px;
+    padding: 10px 20px;
+  }
+
+  .main-footer-menu h1 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .main-footer-menu p,
+  .main-footer-menu span {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .main-footer-menu h3 {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .blog-page-data-sub {
+    width: 35%;
+  }
+
+  .benefits-data-p2-head h1 {
+    font-size: 25px;
+    line-height: 15px;
+  }
+
+  .benefits-data-p2-txt p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .benefits-data-p3 h1 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .career-page-form-head h1 {
+    font-size: 35px;
+    line-height: 35px;
+    margin: 20px 0;
+  }
+
+  .career-page-form-head p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .contact-page-touch-head h1 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .contact-icon-main {
+    font-size: 35px;
+  }
+
+  .contact-page-touch-icon a {
+    font-size: 20px;
+    line-height: 15px;
+  }
+
+  .contact-page-icon-txt p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .dental-show-content-box {
+    width: 95%;
+  }
+
+  .implant-p1-img h1 {
+    font-size: 35px;
+    line-height: 35px;
+  }
+
+  .implant-p1-img-txt p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .implant-p2-head h1 {
+    font-size: 35px;
+    line-height: 35px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  
+}
+
 @media screen and (max-width: 991px) {
   * {
     margin: 0;
@@ -10,6 +274,7 @@
 
   .tab-nav {
     display: block !important;
+    width: 97%;
   }
 
   .main {
@@ -161,6 +426,263 @@
   .home-product-head h1 {
     font-size: 25px;
     line-height: 40px;
+  }
+
+  .home-product-slider-img-sub {
+    width: 100%;
+  }
+
+  .home-product-slider-txt h1 {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 10px 10px;
+  }
+
+  .home-product-slider-txt p {
+    width: 96%;
+    font-size: 10px;
+    margin: 10px 10px;
+    line-height: 15px;
+  }
+
+  .home-product-slider-main {
+    height: 450px !important;
+  }
+
+  /* .home-gallary-txt span:before {
+    left: 405px;
+  }
+
+  .home-gallary-txt span:after {
+    left: 395px;
+  } */
+
+  .home-gallary-txt span {
+    font-size: 12px;
+    line-height: 0;
+  }
+
+  .home-gallary-head h1 {
+    font-size: 25px;
+    line-height: 20px;
+  }
+
+  .home-gallary-btn a {
+    font-size: 10px;
+    line-height: 10px;
+    padding: 10px 15px;
+  }
+
+  /* .home-msg-head-txt span:before {
+    left: 385px;
+    margin-top: 11px;
+  }
+
+  .home-msg-head-txt span:after {
+    left: 375px;
+    margin-top: 4px;
+  } */
+
+  .home-msg-head-txt span {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .home-msg-head h1 br {
+    display: none;
+  }
+
+  .home-msg-sub h1 {
+    font-size: 25px;
+    line-height: 25px;
+  }
+
+  .home-msg-input-div p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .home-msg-input-div div input,
+  textarea {
+    padding: 10px 10px;
+  }
+
+  .home-msg-input-div div svg {
+    padding: 10px 10px;
+  }
+
+  .home-msg-form-submit input {
+    font-size: 10px;
+    line-height: 15px;
+    padding: 10px 15px;
+  }
+
+  .home-msg-form-submit {
+    margin: 25px 0;
+  }
+
+  .main-footer-menu h1 {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .main-footer-menu p,
+  .main-footer-menu span {
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .main-footer-menu h3 {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .product-content-txt a {
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  .product-content-p p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .product-page-content-box {
+    height: 330px;
+  }
+
+  .product-content-img img {
+    height: 200px;
+  }
+
+  .product-content-img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .blog-page-data-sub {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .benefit-p1-content-btn a {
+    font-size: 12px;
+    line-height: 25px;
+  }
+
+  .benefit-p1-content-cat h1 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .benefit-p1-content-btn-main h1 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .benefit-p1-content-btn div {
+    margin: 10px 0;
+  }
+
+  .benefits-data-p2-head h1 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .benefits-data-p2 {
+    width: 95%;
+  }
+
+  .benefits-data-p2-txt p {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .benefits-data-p3 h1 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .benefits-data-p3-inner-box {
+    width: 45%;
+  }
+
+  .career-page-form-head h1 {
+    font-size: 30px;
+    line-height: 30px;
+    margin: 15px 0;
+  }
+
+  .career-page-form-head p {
+    font-size: 15px;
+    line-height: 25px;
+    margin: 10px 0;
+  }
+
+  .career-page-form-head p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .contact-page-touch-head h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .contact-icon-main {
+    font-size: 30px;
+    line-height: 20px;
+  }
+
+  .contact-page-touch-icon a {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .contact-page-icon-txt p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .event-page-data-sub {
+    margin: 50px auto;
+  }
+
+  .dental-show-content {
+    grid-template-columns: auto auto;
+    width: 96%;
+    gap: 20px;
+    overflow: hidden;
+    margin: 20px auto;
+  }
+
+  .dental-show-content-box {
+    width: 100%;
+    overflow: hidden;
+    height: 285px;
+  }
+
+  .dental-show-img {
+    height: 100%;
+  }
+
+  .implant-p1-img h1 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .implant-p1-img-txt p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .implant-p2-head h1 {
+    font-size: 35px;
+    line-height: 30px;
+  }
+
+  .implant-p2-img-box {
+    width: 30%;
   }
 }
 
@@ -609,26 +1131,26 @@
       sans-serif;
   }
 
-  .home-gallary-txt span:before {
+  /* .home-gallary-txt span:before {
     left: 330px;
   }
 
   .home-gallary-txt span:after {
     left: 320px;
-  }
+  } */
 
   .home-gallary-head h1 {
     font-size: 35px;
     line-height: 35px;
   }
 
-  .home-msg-head-txt span:before {
+  /* .home-msg-head-txt span:before {
     left: 295px;
   }
 
   .home-msg-head-txt span:after {
     left: 285px;
-  }
+  } */
 
   .home-msg-sub h1 {
     font-size: 35px;
@@ -1269,13 +1791,13 @@
     margin: 0 0;
   }
 
-  .home-gallary-txt span:before {
+  /* .home-gallary-txt span:before {
     left: 210px;
   }
 
   .home-gallary-txt span:after {
     left: 200px;
-  }
+  } */
 
   .home-gallary-txt span {
     font-size: 15px;
@@ -1317,13 +1839,13 @@
     font-size: 15px;
   }
 
-  .home-msg-head-txt span:before {
+  /* .home-msg-head-txt span:before {
     left: 185px;
   }
 
   .home-msg-head-txt span:after {
     left: 175px;
-  }
+  } */
 
   .home-msg-sub h1 {
     font-size: 30px;
@@ -1999,13 +2521,13 @@
     margin: 5px 0;
   }
 
-  .home-gallary-txt span:before {
+  /* .home-gallary-txt span:before {
     left: 170px;
   }
 
   .home-gallary-txt span:after {
     left: 160px;
-  }
+  } */
 
   .home-gallary-txt span {
     font-size: 12px;
@@ -2032,13 +2554,13 @@
     font-size: 12px;
   }
 
-  .home-msg-head-txt span:before {
+  /* .home-msg-head-txt span:before {
     left: 140px;
   }
 
   .home-msg-head-txt span:after {
     left: 130px;
-  }
+  } */
 
   .home-msg-sub h1 {
     font-size: 20px;
@@ -2673,13 +3195,13 @@
     margin-left: 20px;
   }
 
-  .home-gallary-txt span:after {
+  /* .home-gallary-txt span:after {
     left: 10px;
   }
 
   .home-gallary-txt span:before {
     left: 15px;
-  }
+  } */
 
   .home-gallary-head h1 {
     font-size: 35px;
@@ -2759,13 +3281,13 @@
     margin: 0;
   }
 
-  .home-msg-head-txt span:before {
+  /* .home-msg-head-txt span:before {
     left: 100px;
   }
 
   .home-msg-head-txt span:after {
     left: 90px;
-  }
+  } */
 
   .home-msg-head h1 br {
     display: none;
