@@ -1,3 +1,48 @@
+@media screen and (max-width: 991px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-data {
+    display: none;
+  }
+
+  .tab-nav {
+    display: block;
+  }
+
+  .main {
+    display: none;
+  }
+
+  .top-nav-loc p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .top-nav-data span {
+    font-size: 12px;
+  }
+
+  .top-nav-email a {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .top-nav-btn-sub a {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .tab-nav-p1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   * {
     margin: 0;

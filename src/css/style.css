@@ -19,7 +19,7 @@ body {
 .top-nav-main {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 10px 30px;
   background-color: #12448b;
 }
@@ -203,6 +203,10 @@ body {
 
 .nav-main {
   background-color: #fff;
+}
+
+.tab-nav {
+  display: none;
 }
 
 .mobile-view-main {

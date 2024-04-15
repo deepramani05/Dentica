@@ -51,7 +51,7 @@ const Nav = () => {
 
   return (
     <div className="nav-main">
-      <div className="nav-sub  sticky-header">
+      <div className="nav-sub">
         <div className="top-nav-main">
           <div className="top-nav-data">
             <div className="top-nav-loc">
@@ -178,6 +178,85 @@ const Nav = () => {
             </div>
           </div>
         </div>
+        <div className="nav-data tab-nav">
+          <div className="tab-nav-p1">
+            <div className="nav-logo-main">
+              <div className="nav-logo-sub">
+                <Link to="/">
+                  <img src={logo} alt="" />
+                </Link>
+              </div>
+            </div>
+            <div className="nav-contact-main">
+              <div className="nav-contact-icon">
+                <div className="nav-contact-img nav-wp">
+                  <a href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio">
+                    <img src={wp} alt="" />
+                  </a>
+                </div>
+                <div className="nav-contact-img nav-insta">
+                  <a href="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D">
+                    <img src={insta} alt="" />
+                  </a>
+                </div>
+                <div className="nav-contact-img nav-fb">
+                  <a href="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL">
+                    <img src={fb} alt="" />
+                  </a>
+                </div>
+              </div>
+              <div className="nav-contact-phone">
+                <span>
+                  <FaPhone />
+                </span>
+                <a href="tel:+918530101701">+91 8530101701</a>
+              </div>
+            </div>
+          </div>
+          <div className="nav-menu-main">
+            <ul className="nav-menu-ul">
+              <li className="nav-menu-li">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="nav-menu-li">
+                <Link to="/about">About</Link>
+              </li>
+              <li className="nav-menu-li dropdown">
+                <Link to="/products" className="dropbtn">
+                  Products
+                  <IoIosArrowDown />
+                </Link>
+                <div className="dropdown-content">
+                  <Link to="/products/implants">IMPLANTS </Link>
+                  <Link to="/products/lithium-disilicate">
+                    Lithium-Disilicate
+                  </Link>
+                  <Link to="/products/den-zir">Den-zir </Link>
+                  <Link to="/products/dmls-pfm">DMLS PFM </Link>
+                  <Link to="/products/removable">Removable </Link>
+                </div>
+              </li>
+              <li className="nav-menu-li">
+                <Link to="/digital-dentistry">Digital Dentistry</Link>
+              </li>
+              <li className="nav-menu-li">
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li className="nav-menu-li">
+                <Link to="/carrier">Career</Link>
+              </li>
+              <li className="nav-menu-li">
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li className="nav-menu-li">
+                <Link to="/review">Review</Link>
+              </li>
+              <li className="nav-menu-li">
+                <Link to="/events">Events</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       {/* Mobile Screen */}
 
@@ -218,7 +297,6 @@ const Nav = () => {
                   </li>
                   <li>
                     <a href="/products">Products</a>
-                    
                   </li>
                   <li>
                     <a href="/digital-dentistry">Digital Dentistry</a>
