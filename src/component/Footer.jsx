@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
           <div className="low-footer-txt">
             <p>
-              © 2023
+              © 2024
               <span>
                 <a href="/">Dentica Dental Studio</a>
               </span>
