@@ -206,7 +206,7 @@ body {
 }
 
 .tab-nav {
-  display: none;
+  display: none !important;
 }
 
 .mobile-view-main {

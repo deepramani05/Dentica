@@ -9,7 +9,7 @@
   }
 
   .tab-nav {
-    display: block;
+    display: block!important;
   }
 
   .main {
