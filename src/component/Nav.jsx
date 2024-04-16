@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/Logo.png";
 import wp from "../img/whatsapp.png";
 import insta from "../img/instagra.png";
@@ -13,7 +13,7 @@ import { IoClose } from "react-icons/io5";
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
-  console.log("scrolled value",scrolled);
+  console.log("scrolled value", scrolled);
   $(document).on("click", ".button-nav, .navigation-backdrop", function () {
     var $nav = $("#navigation-demo");
     var $hasClass = $nav.hasClass("open");
@@ -54,7 +54,8 @@ const Nav = () => {
   useEffect(() => {
     const handleScroll = () => {
       const navData = document.getElementById("navData");
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > 100) {
         navData.classList.add("fixed");
       } else {
@@ -70,7 +71,8 @@ const Nav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       setScrolled(scrollTop > 100);
     };
 
@@ -140,7 +142,7 @@ const Nav = () => {
               </Link>
             </div>
           </div>
-          <div className={`nav-menu-main ${scrolled ? "scrolled": " "}`}>
+          <div className={`nav-menu-main ${scrolled ? "scrolled" : " "}`}>
             <ul className="nav-menu-ul">
               <li className="nav-menu-li">
                 <Link to="/">Home</Link>
@@ -309,7 +311,9 @@ const Nav = () => {
           <nav>
             <div className="mobile-nav-logo">
               <div class="navigation-heading popup-nav-logo">
-                <img src={logo} alt="" />
+                <a href="/">
+                  <img src={logo} alt="" />
+                </a>
               </div>
               <div class="navigation-button">
                 <button class="button-nav">
@@ -340,11 +344,31 @@ const Nav = () => {
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
+                      <li>
+                        <a href="">
+                          Implants
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Lithium-Disilicate
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Den-
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          
+                        </a>
+                      </li>
                     </div>
                   </li>
                   <li>
