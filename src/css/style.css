@@ -366,7 +366,7 @@ body {
 }
 
 .nav-wp {
-  width: 45px;
+  width: 30px;
 }
 
 .nav-insta {
@@ -627,7 +627,7 @@ body {
   color: #ca629d;
 }
 
-/* .sec-title .sub-title:before {
+.sec-title .sub-title:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -636,7 +636,7 @@ body {
   top: 7px;
   border-radius: 50%;
   background-color: #ca629d;
-} */
+}
 
 .sec-title .sub-title {
   position: relative;
@@ -651,7 +651,7 @@ body {
   padding-left: 27px;
 }
 
-/* .sec-title .sub-title:after {
+.sec-title .sub-title:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -660,7 +660,7 @@ body {
   top: 2px;
   border-radius: 50%;
   background-color: #ca629d;
-} */
+}
 
 .sec-title h1 {
   font-size: 45px;
@@ -945,7 +945,7 @@ body {
   text-align: left;
 }
 
-/* .home-product-head .home-product-sub-title:before {
+.home-product-head .home-product-sub-title:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -954,9 +954,9 @@ body {
   background-color: #ca629d;
   left: 20px;
   margin: 10px 0 0 7px;
-} */
+}
 
-/* .home-product-head .home-product-sub-title:after {
+.home-product-head .home-product-sub-title:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -965,7 +965,7 @@ body {
   border-radius: 50%;
   background-color: #ca629d;
   margin-top: 5px;
-} */
+}
 
 span.home-product-sub-title {
   margin-left: 25px;
@@ -1067,7 +1067,7 @@ span.home-product-sub-title {
   margin: 20px 0;
 }
 
-/* .home-gallary-txt span:before {
+.home-gallary-txt span:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -1076,7 +1076,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 570px;
   margin-top: 8px;
-} */
+}
 
 .home-gallary-txt span {
   font-size: 16px;
@@ -1086,7 +1086,7 @@ span.home-product-sub-title {
   font-family: Saira, sans-serif;
 }
 
-/* .home-gallary-txt span:after {
+.home-gallary-txt span:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -1095,7 +1095,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 560px;
   margin-top: 3px;
-} */
+}
 
 .home-gallary-head {
   margin: 0 0 20px 0;
@@ -1151,7 +1151,7 @@ span.home-product-sub-title {
   margin: 10px 0;
 }
 
-/* .home-msg-head-txt span:before {
+.home-msg-head-txt span:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -1160,7 +1160,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 535px;
   margin-top: 8px;
-} */
+}
 
 .home-msg-head-txt span {
   font-size: 16px;
@@ -1170,7 +1170,7 @@ span.home-product-sub-title {
   font-family: Saira, sans-serif;
 }
 
-/* .home-msg-head-txt span:after {
+.home-msg-head-txt span:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -1179,7 +1179,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 525px;
   margin-top: 3px;
-} */
+}
 
 .home-msg-sub h1 {
   font-size: 55px;
@@ -1877,7 +1877,7 @@ textarea {
   margin: 0 20px;
 }
 
-/* .contact-page-touch-head-span span:before {
+.contact-page-touch-head-span span:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -1896,7 +1896,7 @@ textarea {
   left: 22px;
   border-radius: 50%;
   background-color: #ca629d;
-} */
+}
 
 .contact-page-touch-content {
   display: flex;
@@ -1921,7 +1921,7 @@ textarea {
 .contact-page-touch-icon a {
   text-decoration: none;
   font-size: 22px;
-  line-height: 32px;
+  font-weight: 32px;
   font-weight: 500;
   color: rgb(18, 68, 139);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import logo from "../img/Logo.png";
-import wp from "../img/whatsapp1.png";
+import wp from "../img/whatsapp.png";
 import insta from "../img/instagra.png";
 import fb from "../img/facebook.png";
 import { FaPhone } from "react-icons/fa6";
