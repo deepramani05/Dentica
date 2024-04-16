@@ -24,7 +24,7 @@ const Removable = () => {
           <div className="implant-content-p1">
             <div className="implant-p1-img">
               <h1>Removable</h1>
-              <div className="implant-p1-img-box">
+              <div className="implant-p1-img-box removable-p1-img-box">
                 <img src={removable_img} alt="" />
               </div>
             </div>
@@ -62,7 +62,7 @@ const Removable = () => {
             <div className="implant-p2-img">
               <div className="implant-p2-img-box">
                 <div className="image-container">
-                <ModalImage small={removable1} large={removable1} />
+                  <ModalImage small={removable1} large={removable1} />
                 </div>
                 {/* <div className="implant-p2-overlay"></div> */}
               </div>
