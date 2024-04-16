@@ -327,7 +327,25 @@ const Nav = () => {
                     <a href="/about">About</a>
                   </li>
                   <li>
-                    <a href="/products">Products</a>
+                    <a
+                      href="/products"
+                      class="dropdown-toggle"
+                      id="dropdownMenuButton"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Products <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </div>
                   </li>
                   <li>
                     <a href="/digital-dentistry">Digital Dentistry</a>

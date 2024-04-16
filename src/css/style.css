@@ -14,6 +14,15 @@ body {
   padding: 0;
 }
 
+/* .home-main {
+  background-image: url(https://avatars.mds.yandex.net/i?id=58d84e6510e3994ec4a04d69c770aa8b8218818a-10371233-images-thumbs&n=13);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -999;
+  opacity: 0.5;
+} */
+
 /* Navbar-top */
 
 .top-nav-main {
@@ -404,11 +413,12 @@ body {
 /* All Pages Banner */
 
 .pages-banner {
-  background-image: url("../img/page_bg.png");
+  background-image: url("../img/future.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
+  height: fit-content;
 }
 
 .pages-banner-sub {
@@ -416,6 +426,7 @@ body {
   max-width: 1450px;
   padding: 150px 15px 10px 15px;
   margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.454);
 }
 
 .pages-content-box {
@@ -1277,7 +1288,10 @@ textarea {
   gap: 20px;
   text-align: left;
   padding: 30px 15px;
-  background-color: #12448b;
+  background-image: url(../img/b.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .main-footer-p1 {
@@ -2134,6 +2148,10 @@ textarea {
   width: 100%;
 }
 
+.removable-p1-img-box {
+  width: 70% !important;
+}
+
 .implant-p1-img-box img {
   width: 100%;
 }
@@ -2152,7 +2170,8 @@ textarea {
   width: 30%;
   height: fit-content;
   margin: 50px;
-  border: 1px solid #e6ebed;
+  border: 2px solid #e6ebed;
+  border-radius: 1rem;
   padding: 10px 0;
 }
 
@@ -2164,6 +2183,7 @@ textarea {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 30px 30px;
+  text-align:center;
 }
 
 .implant-p1-link {
@@ -2228,6 +2248,8 @@ textarea {
   height: auto;
   position: relative;
   overflow: hidden;
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.15);
+  border-radius:10px;
 }
 
 .image-container img {
@@ -2541,3 +2563,4 @@ body.scrolled .back-to-top {
 .mobile-nav-content {
   background-color: #12448b;
 }
+
