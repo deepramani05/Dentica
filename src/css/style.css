@@ -30,7 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  background-color: #12448b;
+  background: linear-gradient(90deg, rgba(202,98,157,1) 29%, rgba(8,68,152,1) 100%);
 }
 
 .top-nav-data {
@@ -47,7 +47,7 @@ body {
 }
 
 .top-nav-data span {
-  color: #ca629d;
+  color: #12448b;
   margin-top: 5px;
   font-size: 20px;
 }
@@ -239,7 +239,7 @@ body {
   position: fixed;
   top:0;
   z-index: 1000;
-  background: linear-gradient(90deg, rgba(202,98,157,1) 0%, rgba(8,68,152,1) 100%);
+  background: linear-gradient(90deg, rgba(202,98,157,1) 29%, rgba(8,68,152,1) 100%);
 }
 
 .nav-logo-main {
