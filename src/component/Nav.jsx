@@ -13,43 +13,43 @@ import { IoClose } from "react-icons/io5";
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
-  console.log("scrolled value", scrolled);
+  console.log("scrolled value",scrolled);
   $(document).on("click", ".button-nav, .navigation-backdrop", function () {
     var $nav = $("#navigation-demo");
     var $hasClass = $nav.hasClass("open");
 
-    if (!$hasClass) {
-      $nav.addClass("open");
-      $("body").append("<div class='navigation-backdrop'></div>");
-    } else {
-      $nav.removeClass("open");
-      $(".navigation-backdrop").remove();
-    }
-  });
-
-  function closeForm() {
-    $(".form-popup-bg").removeClass("is-visible");
-  }
-
-  $(document).ready(function ($) {
-    /* Contact Form Interactions */
-    $("#btnOpenForm").on("click", function (event) {
-      event.preventDefault();
-
-      $(".form-popup-bg").addClass("is-visible");
-    });
-
-    //close popup when clicking x or off popup
-    $(".form-popup-bg").on("click", function (event) {
-      if (
-        $(event.target).is(".form-popup-bg") ||
-        $(event.target).is("#btnCloseForm")
-      ) {
-        event.preventDefault();
-        $(this).removeClass("is-visible");
+      if (!$hasClass) {
+        $nav.addClass("open");
+        $("body").append("<div class='navigation-backdrop'></div>");
+      } else {
+        $nav.removeClass("open");
+        $(".navigation-backdrop").remove();
       }
-    });
-  });
+    };
+
+    $(document).on("click", ".button-nav, .navigation-backdrop", handleToggleNav);
+
+    return () => {
+      $(document).off("click", ".button-nav, .navigation-backdrop", handleToggleNav);
+    };
+  }, []);
+
+  const handleCloseForm = () => {
+    $(".form-popup-bg").removeClass("is-visible");
+  };
+
+  const handleOpenForm = (event) => {
+    event.preventDefault();
+    $(".form-popup-bg").addClass("is-visible");
+  };
+
+  const handleClosePopup = (event) => {
+    if ($(event.target).is(".form-popup-bg") || $(event.target).is("#btnCloseForm")) {
+      event.preventDefault();
+      $(".form-popup-bg").removeClass("is-visible");
+    }
+  };
+
   // Header postion fixed
   useEffect(() => {
     const handleScroll = () => {
@@ -344,31 +344,11 @@ const Nav = () => {
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <li>
-                        <a href="">
-                          Implants
-                        </a>
-                      </li>
-                      <li>
-                        <a href="">
-                          Lithium-Disilicate
-                        </a>
-                      </li>
-                      <li>
-                        <a href="">
-                          Den-
-                        </a>
-                      </li>
-                      <li>
-                        <a href="">
-                          
-                        </a>
-                      </li>
-                      <li>
-                        <a href="">
-                          
-                        </a>
-                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
                     </div>
                   </li>
                   <li>

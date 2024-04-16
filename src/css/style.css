@@ -283,6 +283,7 @@ body {
   text-transform: uppercase;
   font-family: Saira, sans-serif;
 }
+
 .nav-menu-main.scrolled .nav-menu-li a {
   color: white;
 }
@@ -293,6 +294,10 @@ body {
 }
 
 
+
+.nav-menu-main.scrolled .nav-menu-li::before {
+  background-color: white;
+}
 
 .nav-menu-li {
   position: relative; /* Ensure proper positioning of the pseudo-element */
