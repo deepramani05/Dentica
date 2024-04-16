@@ -214,10 +214,6 @@ body {
   background-color: #fff;
 }
 
-.tab-nav {
-  display: none !important;
-}
-
 .mobile-view-main {
   display: none;
 }
@@ -233,9 +229,17 @@ body {
   justify-content: space-between;
   gap: 20px;
   padding: 20px 10px;
-  /* position: fixed;
+  /* position: fixed; */
   z-index: 1;
-  background-color: #fff; */
+  background-color: #fff;
+  
+}
+
+.nav-data.fixed{
+  position: fixed;
+  top:0;
+  z-index: 1000;
+  background: linear-gradient(90deg, rgba(202,98,157,1) 0%, rgba(8,68,152,1) 100%);
 }
 
 .nav-logo-main {
@@ -249,11 +253,16 @@ body {
 .nav-logo-sub img {
   width: 100%;
 }
-
+.nav-logo-box {
+  display: flex;
+  background-color: #ffffff;
+  border: 2.5px solid #12448b;
+  padding: 5px 20px;
+  border-radius: 30px;  
+}
 .nav-menu-main {
   width: 61%;
 }
-
 .nav-menu-ul {
   width: 100%;
   display: flex;
@@ -271,11 +280,16 @@ body {
   text-transform: uppercase;
   font-family: Saira, sans-serif;
 }
-
+.nav-menu-main.scrolled .nav-menu-li a {
+  color: white;
+}
 .nav-menu-li :hover {
   color: #ca629d; /* Change the color to whatever you want */
   /* border-bottom: 1px solid #ca629d; */
   transition: all 0.3s ease-in-out 0s;
+}
+.tab-nav{
+  display: none;
 }
 
 /* Product Dropdown */
@@ -361,7 +375,7 @@ body {
 }
 
 .nav-wp {
-  width: 30px;
+  width: 45px;
 }
 
 .nav-insta {
