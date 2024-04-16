@@ -30,7 +30,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  background: linear-gradient(90deg, rgba(202,98,157,1) 29%, rgba(8,68,152,1) 100%);
+  background-color: #12448b;
 }
 
 .top-nav-data {
@@ -47,7 +47,7 @@ body {
 }
 
 .top-nav-data span {
-  color: #12448b;
+  color: #ca629d;
   margin-top: 5px;
   font-size: 20px;
 }
@@ -232,14 +232,17 @@ body {
   /* position: fixed; */
   z-index: 1;
   background-color: #fff;
-  
 }
 
-.nav-data.fixed{
+.nav-data.fixed {
   position: fixed;
-  top:0;
+  top: 0;
   z-index: 1000;
-  background: linear-gradient(90deg, rgba(202,98,157,1) 29%, rgba(8,68,152,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(202, 98, 157, 1) 0%,
+    rgba(8, 68, 152, 1) 100%
+  );
 }
 
 .nav-logo-main {
@@ -258,7 +261,7 @@ body {
   background-color: #ffffff;
   border: 2.5px solid #12448b;
   padding: 5px 20px;
-  border-radius: 30px;  
+  border-radius: 30px;
 }
 .nav-menu-main {
   width: 61%;
@@ -283,12 +286,42 @@ body {
 .nav-menu-main.scrolled .nav-menu-li a {
   color: white;
 }
+
 .nav-menu-li :hover {
-  color: #ca629d; /* Change the color to whatever you want */
-  /* border-bottom: 1px solid #ca629d; */
+  color: #ca629d;
   transition: all 0.3s ease-in-out 0s;
 }
-.tab-nav{
+
+
+
+.nav-menu-li {
+  position: relative; /* Ensure proper positioning of the pseudo-element */
+}
+
+.nav-menu-li::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Position the pseudo-element at the center vertically */
+  left: 0;
+  width: 100%;
+  height: 2px; /* Height of the hover effect */
+  background-color: #12448b; /* Color of the hover effect */
+  transform: scaleX(0); /* Initially, scale the pseudo-element to 0 width */
+  transform-origin: center; /* Ensure transform origin is at the right edge */
+  transition: transform 0.3s ease-out; /* Add transition for smooth animation */
+  margin-top: 20px;
+}
+
+.nav-menu-li:hover::before {
+  transform: scaleX(1); /* Scale the pseudo-element to full width on hover */
+  transform-origin: center; /* Ensure transform origin is at the left edge */
+}
+
+
+
+
+
+.tab-nav {
   display: none;
 }
 
@@ -375,7 +408,7 @@ body {
 }
 
 .nav-wp {
-  width: 30px;
+  width: 45px;
 }
 
 .nav-insta {
@@ -427,6 +460,7 @@ body {
   padding: 150px 15px 10px 15px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.454);
+  height: -webkit-fill-available;
 }
 
 .pages-content-box {
@@ -638,7 +672,7 @@ body {
   color: #ca629d;
 }
 
-.sec-title .sub-title:before {
+/* .sec-title .sub-title:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -647,7 +681,7 @@ body {
   top: 7px;
   border-radius: 50%;
   background-color: #ca629d;
-}
+} */
 
 .sec-title .sub-title {
   position: relative;
@@ -662,7 +696,7 @@ body {
   padding-left: 27px;
 }
 
-.sec-title .sub-title:after {
+/* .sec-title .sub-title:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -671,7 +705,7 @@ body {
   top: 2px;
   border-radius: 50%;
   background-color: #ca629d;
-}
+} */
 
 .sec-title h1 {
   font-size: 45px;
@@ -956,7 +990,7 @@ body {
   text-align: left;
 }
 
-.home-product-head .home-product-sub-title:before {
+/* .home-product-head .home-product-sub-title:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -965,9 +999,9 @@ body {
   background-color: #ca629d;
   left: 20px;
   margin: 10px 0 0 7px;
-}
+} */
 
-.home-product-head .home-product-sub-title:after {
+/* .home-product-head .home-product-sub-title:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -976,7 +1010,7 @@ body {
   border-radius: 50%;
   background-color: #ca629d;
   margin-top: 5px;
-}
+} */
 
 span.home-product-sub-title {
   margin-left: 25px;
@@ -1078,7 +1112,7 @@ span.home-product-sub-title {
   margin: 20px 0;
 }
 
-.home-gallary-txt span:before {
+/* .home-gallary-txt span:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -1087,7 +1121,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 570px;
   margin-top: 8px;
-}
+} */
 
 .home-gallary-txt span {
   font-size: 16px;
@@ -1097,7 +1131,7 @@ span.home-product-sub-title {
   font-family: Saira, sans-serif;
 }
 
-.home-gallary-txt span:after {
+/* .home-gallary-txt span:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -1106,7 +1140,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 560px;
   margin-top: 3px;
-}
+} */
 
 .home-gallary-head {
   margin: 0 0 20px 0;
@@ -1162,7 +1196,7 @@ span.home-product-sub-title {
   margin: 10px 0;
 }
 
-.home-msg-head-txt span:before {
+/* .home-msg-head-txt span:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -1171,7 +1205,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 535px;
   margin-top: 8px;
-}
+} */
 
 .home-msg-head-txt span {
   font-size: 16px;
@@ -1181,7 +1215,7 @@ span.home-product-sub-title {
   font-family: Saira, sans-serif;
 }
 
-.home-msg-head-txt span:after {
+/* .home-msg-head-txt span:after {
   position: absolute;
   content: "";
   width: 6px;
@@ -1190,7 +1224,7 @@ span.home-product-sub-title {
   background-color: #ca629d;
   left: 525px;
   margin-top: 3px;
-}
+} */
 
 .home-msg-sub h1 {
   font-size: 55px;
@@ -1891,7 +1925,7 @@ textarea {
   margin: 0 20px;
 }
 
-.contact-page-touch-head-span span:before {
+/* .contact-page-touch-head-span span:before {
   position: absolute;
   content: "";
   width: 10px;
@@ -1910,7 +1944,7 @@ textarea {
   left: 22px;
   border-radius: 50%;
   background-color: #ca629d;
-}
+} */
 
 .contact-page-touch-content {
   display: flex;
@@ -1935,7 +1969,7 @@ textarea {
 .contact-page-touch-icon a {
   text-decoration: none;
   font-size: 22px;
-  font-weight: 32px;
+  line-height: 32px;
   font-weight: 500;
   color: rgb(18, 68, 139);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -2183,7 +2217,7 @@ textarea {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 30px 30px;
-  text-align:center;
+  text-align: center;
 }
 
 .implant-p1-link {
@@ -2249,7 +2283,7 @@ textarea {
   position: relative;
   overflow: hidden;
   box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.15);
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .image-container img {
@@ -2563,4 +2597,3 @@ body.scrolled .back-to-top {
 .mobile-nav-content {
   background-color: #12448b;
 }
-
