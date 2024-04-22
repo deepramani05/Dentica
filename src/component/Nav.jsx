@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/Logo.png";
 import wp from "../img/whatsapp.png";
 import insta from "../img/instagra.png";
@@ -13,7 +13,7 @@ import { IoClose } from "react-icons/io5";
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
-  
+
   useEffect(() => {
     const handleToggleNav = () => {
       const $nav = $("#navigation-demo");
@@ -28,10 +28,18 @@ const Nav = () => {
       }
     };
 
-    $(document).on("click", ".button-nav, .navigation-backdrop", handleToggleNav);
+    $(document).on(
+      "click",
+      ".button-nav, .navigation-backdrop",
+      handleToggleNav
+    );
 
     return () => {
-      $(document).off("click", ".button-nav, .navigation-backdrop", handleToggleNav);
+      $(document).off(
+        "click",
+        ".button-nav, .navigation-backdrop",
+        handleToggleNav
+      );
     };
   }, []);
 
@@ -45,7 +53,10 @@ const Nav = () => {
   };
 
   const handleClosePopup = (event) => {
-    if ($(event.target).is(".form-popup-bg") || $(event.target).is("#btnCloseForm")) {
+    if (
+      $(event.target).is(".form-popup-bg") ||
+      $(event.target).is("#btnCloseForm")
+    ) {
       event.preventDefault();
       $(".form-popup-bg").removeClass("is-visible");
     }
@@ -55,7 +66,8 @@ const Nav = () => {
   useEffect(() => {
     const handleScroll = () => {
       const navData = document.getElementById("navData");
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > 100) {
         navData.classList.add("fixed");
       } else {
@@ -71,7 +83,8 @@ const Nav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       setScrolled(scrollTop > 100);
     };
 
@@ -141,7 +154,7 @@ const Nav = () => {
               </Link>
             </div>
           </div>
-          <div className={`nav-menu-main ${scrolled ? "scrolled": " "}`}>
+          <div className={`nav-menu-main ${scrolled ? "scrolled" : " "}`}>
             <ul className="nav-menu-ul">
               <li className="nav-menu-li">
                 <Link to="/">Home</Link>
@@ -258,15 +271,6 @@ const Nav = () => {
                   Products
                   <IoIosArrowDown />
                 </Link>
-                <div className="dropdown-content">
-                  <Link to="/products/implants">IMPLANTS </Link>
-                  <Link to="/products/lithium-disilicate">
-                    Lithium-Disilicate
-                  </Link>
-                  <Link to="/products/den-zir">Den-zir </Link>
-                  <Link to="/products/dmls-pfm">DMLS PFM </Link>
-                  <Link to="/products/removable">Removable </Link>
-                </div>
               </li>
               <li className="nav-menu-li">
                 <Link to="/digital-dentistry">Digital Dentistry</Link>
@@ -328,25 +332,9 @@ const Nav = () => {
                     <a href="/about">About</a>
                   </li>
                   <li>
-                    <a
-                      href="/products"
-                      class="dropdown-toggle"
-                      id="dropdownMenuButton"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
+                    <a href="/products">
                       Products <i class="fa fa-chevron-down"></i>
                     </a>
-                    <div
-                      class="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton"
-                    >
-                      <li>IMPLANTS </li>
-                      <li>Lithium-Disilicate</li>
-                      <li>Den-zir</li>
-                      <li>DMLS PFM</li>
-                      <li>Removable</li>
-                    </div>
                   </li>
                   <li>
                     <a href="/digital-dentistry">Digital Dentistry</a>
