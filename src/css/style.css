@@ -1324,10 +1324,7 @@ textarea {
   gap: 20px;
   text-align: left;
   padding: 30px 15px;
-  background-image: url(../img/b.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #12448b;
 }
 
 .main-footer-p1 {

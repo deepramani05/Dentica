@@ -18,6 +18,7 @@ import Dentbenefit from "../pages/Dentbenefit.jsx";
 import Dentalshow from "../pages/Dentalshow.jsx";
 import Gallary from "../pages/Gallary.jsx";
 import StlFile from "../pages/StlFile.jsx";
+import Socialmedia from "../pages/Socialmedia.jsx";
 
 const AllRoutes = () => {
   return (
@@ -32,25 +33,30 @@ const AllRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/review" element={<Review />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/gallary" element={<Gallary/>}/>
-
+        <Route path="/gallary" element={<Gallary />} />
 
         <Route path="/products/implants" element={<Implants />} />
         <Route
-        path="/products/lithium-disilicate"
+          path="/products/lithium-disilicate"
           element={<LithiumDisilicate />}
         />
         <Route path="/products/den-zir" element={<DenZir />} />
         <Route path="/products/dmls-pfm" element={<DmlsPfm />} />
         <Route path="/products/removable" element={<Removable />} />
 
+        <Route
+          path="/blog/Top-5-benefits-of-digital-dentistry"
+          element={<Dentbenefit />}
+        />
 
-        <Route path='/blog/Top-5-benefits-of-digital-dentistry' element={<Dentbenefit/>} />
+        <Route
+          path="/events/gujarat-dental-show-2024"
+          element={<Dentalshow />}
+        />
 
-        <Route path="/events/gujarat-dental-show-2024" element={<Dentalshow />} />
+        <Route path="/submit-stl-file" element={<StlFile />} />
 
-        <Route path="/submit-stl-file" element={<StlFile/>}/>
-
+        <Route path="/quick-Links" element={<Socialmedia />} />
       </Routes>
     </div>
   );
