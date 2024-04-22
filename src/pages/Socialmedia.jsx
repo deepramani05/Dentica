@@ -22,9 +22,14 @@ const Socialmedia = () => {
             <div className="sociallinks-link-head">
               <h1>DDS Social Media Channels</h1>
             </div>
+            <hr />
             <div className="sociallinks-link-main">
               <div className="sociallinks-link-box">
-                <Link target="_blank" style={{ color: "rgb(59, 89, 152)" }}>
+                <Link
+                  to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
+                  target="_blank"
+                  style={{ color: "rgb(59, 89, 152)" }}
+                >
                   <span>
                     <BsFacebook />
                   </span>
@@ -32,15 +37,11 @@ const Socialmedia = () => {
                 </Link>
               </div>
               <div className="sociallinks-link-box">
-                <Link target="_blank" style={{ color: "rgb(0, 119, 181)" }}>
-                  <span>
-                    <BiLogoLinkedinSquare />
-                  </span>
-                  Linked In
-                </Link>
-              </div>
-              <div className="sociallinks-link-box">
-                <Link target="_blank" style={{ color: "rgb(195, 42, 163)" }}>
+                <Link
+                  to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
+                  target="_blank"
+                  style={{ color: "rgb(195, 42, 163)" }}
+                >
                   <span>
                     <BsInstagram />
                   </span>
@@ -48,7 +49,11 @@ const Socialmedia = () => {
                 </Link>
               </div>
               <div className="sociallinks-link-box">
-                <Link target="_blank" style={{ color: "rgb(0, 123, 255)" }}>
+                <Link
+                  to="tel:+918530101701"
+                  target="_blank"
+                  style={{ color: "rgb(0, 123, 255)" }}
+                >
                   <span>
                     <FiPhone />
                   </span>
@@ -56,7 +61,11 @@ const Socialmedia = () => {
                 </Link>
               </div>
               <div className="sociallinks-link-box">
-                <Link target="_blank" style={{ color: "rgb(37, 211, 102)" }}>
+                <Link
+                  to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
+                  target="_blank"
+                  style={{ color: "rgb(37, 211, 102)" }}
+                >
                   <span>
                     <ImWhatsapp />
                   </span>
