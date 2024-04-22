@@ -31,15 +31,15 @@ const Socialmedia = () => {
                   Facebook
                 </Link>
               </div>
-              <div className="sociallinks-link-box">
+              {/* <div className="sociallinks-link-box special">
                 <Link target="_blank" style={{ color: "rgb(0, 119, 181)" }}>
                   <span>
                     <BiLogoLinkedinSquare />
                   </span>
                   Linked In
                 </Link>
-              </div>
-              <div className="sociallinks-link-box">
+              </div> */}
+              <div className="sociallinks-link-box special">
                 <Link target="_blank" style={{ color: "rgb(195, 42, 163)" }}>
                   <span>
                     <BsInstagram />
@@ -55,7 +55,7 @@ const Socialmedia = () => {
                   Phone
                 </Link>
               </div>
-              <div className="sociallinks-link-box">
+              <div className="sociallinks-link-box special">
                 <Link target="_blank" style={{ color: "rgb(37, 211, 102)" }}>
                   <span>
                     <ImWhatsapp />
