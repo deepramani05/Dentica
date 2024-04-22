@@ -45,8 +45,6 @@ const Socialmedia = () => {
                 </Link>
               </div> */}
               <div className="sociallinks-link-box special">
-                <Link target="_blank" style={{ color: "rgb(195, 42, 163)" }}>
-              <div className="sociallinks-link-box">
                 <Link
                   to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
                   target="_blank"
@@ -71,8 +69,6 @@ const Socialmedia = () => {
                 </Link>
               </div>
               <div className="sociallinks-link-box special">
-                <Link target="_blank" style={{ color: "rgb(37, 211, 102)" }}>
-              <div className="sociallinks-link-box">
                 <Link
                   to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
                   target="_blank"
