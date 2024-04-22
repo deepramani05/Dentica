@@ -2631,10 +2631,17 @@ body.scrolled .back-to-top {
 .sociallinks-link {
   margin: 30px auto;
   width: fit-content;
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
   padding: 30px 50px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+}
+
+.sociallinks-link hr {
+  border: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.125);
 }
 
 .sociallinks-link-box a {
@@ -2675,6 +2682,10 @@ body.scrolled .back-to-top {
   font-family: montserrat, sans-serif;
 }
 
+.sociallinks-link-head {
+  margin-bottom: 20px;
+}
+
 .sociallinks-link-head h1 {
   font-size: 32px;
   line-height: 38px;
@@ -2686,3 +2697,4 @@ body.scrolled .back-to-top {
 .sociallinks-link-main {
   margin: 40px 0;
 }
+
