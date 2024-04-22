@@ -31,7 +31,11 @@ body {
   justify-content: space-between;
   padding: 10px 30px;
   background-color: #12448b;
-  background: linear-gradient(90deg, rgba(202,98,157,1) 29%, rgba(8,68,152,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(202, 98, 157, 1) 29%,
+    rgba(8, 68, 152, 1) 100%
+  );
 }
 
 .top-nav-data {
@@ -239,7 +243,11 @@ body {
   position: fixed;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(90deg, rgba(202,98,157,1) 29%, rgba(8,68,152,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(202, 98, 157, 1) 29%,
+    rgba(8, 68, 152, 1) 100%
+  );
 }
 
 .nav-logo-main {
@@ -290,8 +298,6 @@ body {
   transition: all 0.3s ease-in-out 0s;
 }
 
-
-
 .nav-menu-main.scrolled .nav-menu-li::before {
   background-color: white;
 }
@@ -318,10 +324,6 @@ body {
   transform: scaleX(1); /* Scale the pseudo-element to full width on hover */
   transform-origin: center; /* Ensure transform origin is at the left edge */
 }
-
-
-
-
 
 .tab-nav {
   display: none;
@@ -2595,4 +2597,55 @@ body.scrolled .back-to-top {
 
 .mobile-nav-content {
   background-color: #12448b;
+}
+
+/* SocialMedia Links Page */
+
+.sociallinks-sub {
+  margin: 50px 0;
+}
+
+.sociallinks-link {
+  margin: 30px auto;
+  width: fit-content;
+  border: 1px solid rgba(0,0,0,.125);
+  padding: 30px 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.sociallinks-link-box a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: montserrat, sans-serif;
+}
+
+.sociallinks-link-box a span {
+  margin-top: 3px;
+}
+
+.sociallinks-head-txt h3 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  color: rgb(51, 51, 51);
+  font-family: montserrat, sans-serif;
+}
+
+.sociallinks-link-head h1 {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 700;
+  color: rgb(202, 98, 157);
+  font-family: lato, sans-serif;
+}
+
+.sociallinks-link-main {
+  margin: 40px 0;
 }

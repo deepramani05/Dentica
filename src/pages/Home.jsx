@@ -32,16 +32,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  // const backToTopButton = document.querySelector(".back-to-top");
-
-  // window.addEventListener("scroll", () => {
-  //   if (window.scrollY > 100) {
-  //     document.body.classList.add("scrolled");
-  //   } else {
-  //     document.body.classList.remove("scrolled");
-  //   }
-  // });
-
   return (
     <div className="home-main">
       <section className="banner-section">
@@ -376,7 +366,7 @@ const Home = () => {
                   </div>
                   <div className="home-product-mobile-content-box">
                     <div className="home-product-mobile-img-box">
-                      <a  href="/products/lithium-disilicate">
+                      <a href="/products/lithium-disilicate">
                         <div className="home-product-mobile-img">
                           <img src={prod_slider2} alt="" />
                         </div>
