@@ -2483,6 +2483,7 @@ textarea {
   bottom: 20px;
   right: 20px;
   background-color: #12448b;
+  border:3px solid #ca629d;
   color: #fff;
   padding: 15px 20px;
   border-radius: 30px;
@@ -2692,8 +2693,18 @@ body.scrolled .back-to-top {
   font-weight: 700;
   color: rgb(202, 98, 157);
   font-family: lato, sans-serif;
+  animation: slideInText 1s ease forwards;
 }
-
+@keyframes slideInText {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .sociallinks-link-main {
   margin: 40px 0;
 }
