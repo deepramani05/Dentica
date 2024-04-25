@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -11,6 +11,44 @@ import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name:"",
+    email: "",
+    mobile_number: "",
+    subject:"",
+    message:""
+  });
+
+  const handleChange = (e) =>{
+    const { name, value } = e.target;
+    setFormData({...formData,[name]: value});
+  };
+
+  const handleSubmit = async (e) =>{
+    console.log(formData);
+    e.preventDefault();
+    try{
+      const formDataSend = new FormData();
+      formDataSend.append("name",formData.name);
+      formDataSend.append("email",formData.email);
+      formDataSend.append("mobile_number",formData.mobile_number);
+      formDataSend.append("subject",formData.subject);
+      formDataSend.append("message",formData.message);
+  
+      const response = await fetch("https://denticadentalstudio.com/api/contactus",{
+        method: "POST",
+        body: formDataSend
+      });
+      if (response.ok){
+        console.log("Data Saved Successfully");
+      }else{
+        console.error("Something Went to Wrong!");
+      }
+    }catch (error){
+     console.error("Network error: ", error); 
+    }
+  };
+
   return (
     <div className="contact-main">
       <div className="contact-sub">
@@ -126,12 +164,18 @@ const Contact = () => {
                   </h1>
                 </div>
                 <div className="home-msg-form-main">
-                  <form className="home-msg-form">
+                  <form className="home-msg-form" onSubmit={handleSubmit}>
                     <div className="home-msg-form-p1">
                       <div className="home-msg-input-div">
                         <p>Name</p>
                         <div>
-                          <input type="text" placeholder="Name" />
+                          <input 
+                            type="text" 
+                            placeholder="Name"
+                            value={formData.name}
+                            name="name" 
+                            onChange={handleChange}
+                            />
                           <span>
                             <FaUser />
                           </span>
@@ -140,7 +184,13 @@ const Contact = () => {
                       <div className="home-msg-input-div">
                         <p>Email</p>
                         <div>
-                          <input type="text" placeholder="Email" />
+                          <input 
+                            type="text" 
+                            placeholder="Email"
+                            value={formData.email}
+                            name="email"
+                            onChange={handleChange}
+                            />
                           <span>
                             <IoIosMail />
                           </span>
@@ -151,7 +201,13 @@ const Contact = () => {
                       <div className="home-msg-input-div">
                         <p>Phone</p>
                         <div>
-                          <input type="text" placeholder="Phone" />
+                          <input 
+                            type="text" 
+                            placeholder="Phone" 
+                            value={formData.mobile_number}
+                            name="mobile_number"
+                            onChange={handleChange}
+                          />
                           <span>
                             <FaPhone />
                           </span>
@@ -160,7 +216,13 @@ const Contact = () => {
                       <div className="home-msg-input-div">
                         <p>Subject</p>
                         <div>
-                          <input type="text" placeholder="Subject" />
+                          <input 
+                            type="text" 
+                            placeholder="Subject"
+                            value={formData.subject}
+                            name="subject"
+                            onChange={handleChange}
+                            />
                           <span>
                             <FaBook />
                           </span>
@@ -171,7 +233,14 @@ const Contact = () => {
                       <div className="home-msg-input-div home-msg-txt-area">
                         <p>Message</p>
                         <div>
-                          <textarea id="" cols="30" rows="10"></textarea>
+                          <textarea 
+                            id="" 
+                            cols="30" 
+                            rows="10"
+                            value={formData.message}
+                            name="message"
+                            onChange={handleChange}
+                            />
                           <span>
                             <FaTextWidth />
                           </span>
