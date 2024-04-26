@@ -26,6 +26,10 @@ const Career = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
+        if (!formData.file) {
+          console.error("File is required.");
+          return;
+        }
       const formDataToSend = new FormData();
       formDataToSend.append("name",formData.name);
       formDataToSend.append("email",formData.email);
@@ -142,7 +146,11 @@ const Career = () => {
                     <div className="home-msg-input-div home-msg-txt-area">
                       <p>File Input</p>
                       <div>
-                        <input type="file" />
+                        <input 
+                        type="file"
+                        name="file"
+                        onChange={(e)=> handleChange(e)}
+                        />
                       </div>
                     </div>
                   </div>

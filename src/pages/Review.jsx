@@ -132,7 +132,7 @@ const Review = () => {
                         type="file"
                         name="image"
                         // value={formData.image}
-                        onChange={handleChange}
+                        onChange={(e)=>handleChange(e)}
                       />
                       {/* <span>
                         <FaTextWidth />
