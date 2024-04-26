@@ -9,6 +9,7 @@ import { IoIosMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,8 +42,22 @@ const Contact = () => {
       });
       if (response.ok){
         console.log("Data Saved Successfully");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Review Submitted successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }else{
         console.error("Something Went to Wrong!");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something Went to Wrong!",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     }catch (error){
      console.error("Network error: ", error); 

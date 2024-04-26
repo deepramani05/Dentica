@@ -6,6 +6,7 @@ import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const Career = () => {
   const [formData, setFormData]= useState({
@@ -44,8 +45,22 @@ const Career = () => {
 
       if (response.ok){
         console.log("Application submitted successfully");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Review Submitted successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }else{
         console.log("Failed to submit application");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Failed to submit application",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     }catch (error){
       console.error("Network error:", error);

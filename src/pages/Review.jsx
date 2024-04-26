@@ -5,6 +5,7 @@ import { FaPhone } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
 import { error } from "jquery";
+import Swal from "sweetalert2";
 
 const Review = () => {
   const [formData, setFormData] = useState({
@@ -37,8 +38,22 @@ const Review = () => {
       });
       if (response.ok){
         console.log("Review Submitted success");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Review Submitted successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }else{  
         console.log("Failed to submit");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Failed to submit",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     }catch (err) {
       console.error("Network error: " ,error);
