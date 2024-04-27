@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import lithium_img from "../img/product_content-1.jpg";
 import lithium1 from "../img/lithium_img1.png";
 import lithium2 from "../img/lithium_img2.png";
 import ModalImage from "react-modal-image";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const LithiumDisilicate = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="lithium-main">
-      <div className="lithium-sub">
+      <div className="lithium-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner lithium-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box implant-banner-box">

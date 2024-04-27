@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import denzir_img from "../img/product_content-4.jpg";
 import denzir1 from "../img/denzir1.png";
 import ModalImage from "react-modal-image";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const DenZir = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="denzir-main">
-      <div className="denzir-sub">
+      <div className="denzir-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner denzir-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box implant-banner-box">

@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import implant_img from "../img/product_content-3.jpg";
 import implant1 from "../img/implant_img.png";
 import implant2 from "../img/home_product-1.jpg";
 import ModalImage from "react-modal-image";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Implants = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="implant-main">
-      <div className="implant-sub">
+      <div className="implant-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner implant-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box implant-banner-box">

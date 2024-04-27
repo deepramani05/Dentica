@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import event_img from "../img/event_img.jpg";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Event = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="event-main">
-      <div className="event-sub">
+      <div className="event-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">
@@ -26,7 +33,7 @@ const Event = () => {
             </div>
             <div className="blog-page-content-main-txt">
               <div className="blog-page-data-txt">
-                <Link to='/events/gujarat-dental-show-2024'>
+                <Link to="/events/gujarat-dental-show-2024">
                   <h1>Gujarat Dental Show 2024</h1>
                 </Link>
               </div>

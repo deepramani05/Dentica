@@ -1,28 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa";
-import { FaTextWidth } from "react-icons/fa";
 import { error } from "jquery";
 import Swal from "sweetalert2";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Review = () => {
   const [formData, setFormData] = useState({
-    name:"",
-    mobile_number:"",
-    review:"",
-    image:""  
+    name: "",
+    mobile_number: "",
+    review: "",
+    image: "",
   });
 
-  const handleChange =(e) =>{
-    if (e.target.name === "image"){
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const handleChange = (e) => {
+    if (e.target.name === "image") {
       setFormData({ ...formData, image: e.target.files[0] });
-    }else{
-      setFormData({ ...formData, [e.target.name]: e.target.value});
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
     }
   };
-  const handleSubmit = async (e) =>{
+  const handleSubmit = async (e) => {
     console.log(formData);
     e.preventDefault();
     try {
@@ -32,37 +38,40 @@ const Review = () => {
       formDataSend.append("review", formData.review);
       formDataSend.append("image", formData.image);
 
-      const response = await fetch(`https://denticadentalstudio.com/api/review`,{
-        method: "POST",
-        body: formDataSend
-      });
-      if (response.ok){
+      const response = await fetch(
+        `https://denticadentalstudio.com/api/review`,
+        {
+          method: "POST",
+          body: formDataSend,
+        }
+      );
+      if (response.ok) {
         console.log("Review Submitted success");
         Swal.fire({
           position: "center",
           icon: "success",
           title: "Review Submitted successfully",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
-      }else{  
+      } else {
         console.log("Failed to submit");
         Swal.fire({
           position: "center",
           icon: "error",
           title: "Failed to submit",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
       }
-    }catch (err) {
-      console.error("Network error: " ,error);
+    } catch (err) {
+      console.error("Network error: ", error);
     }
   };
 
   return (
     <div className="review-main">
-      <div className="reviwe-sub">
+      <div className="reviwe-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">
@@ -83,7 +92,7 @@ const Review = () => {
                 <span>SEND A MESSAGE</span>
               </div>
               <h1>
-              Share Your Experience with <br /> Dentica Dental Studio
+                Share Your Experience with <br /> Dentica Dental Studio
               </h1>
             </div>
             <div className="home-msg-form-main">
@@ -92,10 +101,10 @@ const Review = () => {
                   <div className="home-msg-input-div">
                     <p>Name</p>
                     <div>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         placeholder="Enter Name Here ..."
-                        value={formData.name} 
+                        value={formData.name}
                         name="name"
                         onChange={handleChange}
                       />
@@ -107,13 +116,13 @@ const Review = () => {
                   <div className="home-msg-input-div">
                     <p>Phone</p>
                     <div>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         name="mobile_number"
                         placeholder="Enter Contact Nuber Here ..."
-                        value={formData.mobile_number} 
+                        value={formData.mobile_number}
                         onChange={handleChange}
-                        />
+                      />
                       <span>
                         <FaPhone />
                       </span>
@@ -124,15 +133,15 @@ const Review = () => {
                   <div className="home-msg-input-div home-msg-txt-area">
                     <p>Subject</p>
                     <div>
-                      <textarea 
-                        type="text" 
+                      <textarea
+                        type="text"
                         name="review"
-                        placeholder="Tell us about your visit - your feedback matters"  
-                        cols="30" 
-                        rows="5" 
+                        placeholder="Tell us about your visit - your feedback matters"
+                        cols="30"
+                        rows="5"
                         value={formData.review}
                         onChange={handleChange}
-                        />
+                      />
                       <span>
                         <FaBook />
                       </span>
@@ -143,11 +152,11 @@ const Review = () => {
                   <div className="home-msg-input-div home-msg-txt-area">
                     <p>File Input</p>
                     <div>
-                      <input 
+                      <input
                         type="file"
                         name="image"
                         // value={formData.image}
-                        onChange={(e)=>handleChange(e)}
+                        onChange={(e) => handleChange(e)}
                       />
                       {/* <span>
                         <FaTextWidth />

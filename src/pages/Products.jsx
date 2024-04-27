@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import prod_content1 from "../img/product_content-1.jpg";
 import prod_content2 from "../img/product_content-2.png";
@@ -6,10 +6,19 @@ import prod_content3 from "../img/product_content-3.jpg";
 import prod_content4 from "../img/product_content-4.jpg";
 import prod_content5 from "../img/product_content-5.jpg";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Products = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+
   return (
     <div className="product-page-main">
-      <div className="product-page-sub">
+      <div className="product-page-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">

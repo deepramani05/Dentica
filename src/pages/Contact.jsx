@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -11,62 +11,72 @@ import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
 import Swal from "sweetalert2";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name:"",
+    name: "",
     email: "",
     mobile_number: "",
-    subject:"",
-    message:""
+    subject: "",
+    message: "",
   });
 
-  const handleChange = (e) =>{
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({...formData,[name]: value});
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) =>{
+  const handleSubmit = async (e) => {
     console.log(formData);
     e.preventDefault();
-    try{
+    try {
       const formDataSend = new FormData();
-      formDataSend.append("name",formData.name);
-      formDataSend.append("email",formData.email);
-      formDataSend.append("mobile_number",formData.mobile_number);
-      formDataSend.append("subject",formData.subject);
-      formDataSend.append("message",formData.message);
-  
-      const response = await fetch("https://denticadentalstudio.com/api/contactus",{
-        method: "POST",
-        body: formDataSend
-      });
-      if (response.ok){
+      formDataSend.append("name", formData.name);
+      formDataSend.append("email", formData.email);
+      formDataSend.append("mobile_number", formData.mobile_number);
+      formDataSend.append("subject", formData.subject);
+      formDataSend.append("message", formData.message);
+
+      const response = await fetch(
+        "https://denticadentalstudio.com/api/contactus",
+        {
+          method: "POST",
+          body: formDataSend,
+        }
+      );
+      if (response.ok) {
         console.log("Data Saved Successfully");
         Swal.fire({
           position: "center",
           icon: "success",
           title: "Review Submitted successfully",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
-      }else{
+      } else {
         console.error("Something Went to Wrong!");
         Swal.fire({
           position: "center",
           icon: "error",
           title: "Something Went to Wrong!",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
       }
-    }catch (error){
-     console.error("Network error: ", error); 
+    } catch (error) {
+      console.error("Network error: ", error);
     }
   };
 
   return (
     <div className="contact-main">
-      <div className="contact-sub">
+      <div className="contact-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">
@@ -184,13 +194,13 @@ const Contact = () => {
                       <div className="home-msg-input-div">
                         <p>Name</p>
                         <div>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             placeholder="Name"
                             value={formData.name}
-                            name="name" 
+                            name="name"
                             onChange={handleChange}
-                            />
+                          />
                           <span>
                             <FaUser />
                           </span>
@@ -199,13 +209,13 @@ const Contact = () => {
                       <div className="home-msg-input-div">
                         <p>Email</p>
                         <div>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             placeholder="Email"
                             value={formData.email}
                             name="email"
                             onChange={handleChange}
-                            />
+                          />
                           <span>
                             <IoIosMail />
                           </span>
@@ -216,9 +226,9 @@ const Contact = () => {
                       <div className="home-msg-input-div">
                         <p>Phone</p>
                         <div>
-                          <input 
-                            type="text" 
-                            placeholder="Phone" 
+                          <input
+                            type="text"
+                            placeholder="Phone"
                             value={formData.mobile_number}
                             name="mobile_number"
                             onChange={handleChange}
@@ -231,13 +241,13 @@ const Contact = () => {
                       <div className="home-msg-input-div">
                         <p>Subject</p>
                         <div>
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             placeholder="Subject"
                             value={formData.subject}
                             name="subject"
                             onChange={handleChange}
-                            />
+                          />
                           <span>
                             <FaBook />
                           </span>
@@ -248,14 +258,14 @@ const Contact = () => {
                       <div className="home-msg-input-div home-msg-txt-area">
                         <p>Message</p>
                         <div>
-                          <textarea 
-                            id="" 
-                            cols="30" 
+                          <textarea
+                            id=""
+                            cols="30"
                             rows="10"
                             value={formData.message}
                             name="message"
                             onChange={handleChange}
-                            />
+                          />
                           <span>
                             <FaTextWidth />
                           </span>

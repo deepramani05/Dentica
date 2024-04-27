@@ -31,10 +31,17 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Home = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="home-main">
-      <section className="banner-section">
+      <section className="banner-section" data-aos="fade-up" data-aos-duration="2000">
         <div className="banner-main">
           <div className="overlay"></div>
           <div className="banner-data">
@@ -58,7 +65,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="about-section">
+      <section className="about-section" data-aos="fade-up" data-aos-duration="2000">
         <div className="about-sub">
           <div className="about-p1">
             <div className="about-p1-txt">
@@ -173,7 +180,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-dent-section">
+      <section className="home-dent-section" data-aos="fade-up" data-aos-duration="2000">
         <div className="home-dent-main">
           <div className="home-dent-sub">
             <div className="dent-image-column">
@@ -216,7 +223,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-product-section">
+      <section className="home-product-section" data-aos="fade-up" data-aos-duration="2000">
         <div className="home-product-main">
           <div className="home-product-sub">
             <div className="home-product-head">
@@ -439,7 +446,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-gallery-section">
+      <section className="home-gallery-section" data-aos="fade-up" data-aos-duration="2000">
         <div className="home-gallary-main">
           <div className="home-gallary-sub">
             <div className="home-gallary-head">
@@ -579,7 +586,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-msg-section">
+      <section className="home-msg-section" data-aos="fade-up" data-aos-duration="2000">
         <div className="home-msg-main">
           <div className="home-msg-sub">
             <div className="home-msg-head">

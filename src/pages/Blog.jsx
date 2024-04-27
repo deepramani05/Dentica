@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import blog_img from "../img/dent_page.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Blog = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="blog-page-main">
-      <div className="blog-page-sub">
+      <div
+        className="blog-page-sub"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">
@@ -34,7 +46,9 @@ const Blog = () => {
               </div>
               <div className="blog-page-data-btn">
                 <h1>09 August, 2023</h1>
-                <Link to='/blog/Top-5-benefits-of-digital-dentistry'>Read More</Link>
+                <Link to="/blog/Top-5-benefits-of-digital-dentistry">
+                  Read More
+                </Link>
               </div>
             </div>
           </div>

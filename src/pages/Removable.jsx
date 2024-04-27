@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import removable_img from "../img/product_content-2.png";
 import removable1 from "../img/home_product-5.jpg";
 import ModalImage from "react-modal-image";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Removable = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+
   return (
     <div className="removable-main">
-      <div className="removable-sub">
+      <div
+        className="removable-sub"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+        >
         <div className="pages-banner removable-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box implant-banner-box">

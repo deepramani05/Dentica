@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import box1 from '../img/thumb_box-1.png';
-import box2 from '../img/thumb_box-2.png';
-import box3 from '../img/thumb_box-3.png';
-import about_center from '../img/home_about-center.png'
+import box1 from "../img/thumb_box-1.png";
+import box2 from "../img/thumb_box-2.png";
+import box3 from "../img/thumb_box-3.png";
+import about_center from "../img/home_about-center.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="about-page-main">
-      <div className="about-page-sub">
+      <div
+        className="about-page-sub"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">
@@ -23,7 +33,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="about-page-content">  
+        <div className="about-page-content">
           <div className="about-p1 about-page-p1-main">
             <div className="about-p1-txt">
               <div className="sec-title">
