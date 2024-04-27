@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/style.css";
 import logo from "../img/Logo.png";
 import wp from "../img/whatsapp.png";
@@ -8,6 +8,16 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="footer-main">
       <div className="footer-sub">
@@ -16,44 +26,44 @@ const Footer = () => {
             <div className="main-footer-p1-content">
               <h1>Products</h1>
               <hr className="footer-hr" />
-              <Link to='/products/implants'>
+              <Link to='/products/implants' onClick={handleNavClick}>
                 <p>Implants</p>
               </Link>
-              <Link to='/products/lithium-disilicate'>
+              <Link to='/products/lithium-disilicate' onClick={handleNavClick}>
                 <p>Lithium-Disilicate</p>
               </Link>
-              <Link to='/products/den-zir'>
+              <Link to='/products/den-zir' onClick={handleNavClick}>
                 <p>Den-zir</p>
               </Link>
-              <Link to='/products/dmls-pfm'>
+              <Link to='/products/dmls-pfm' onClick={handleNavClick}>
                 <p>DMLS PFM</p>
               </Link>
-              <Link to='/products/removable'>
+              <Link to='/products/removable' onClick={handleNavClick}>
                 <p>Removable</p>
               </Link>
             </div>
             <div className="main-footer-p1-content">
               <h1>Useful Links</h1>
               <hr className="footer-hr" />
-              <Link to='/about'>
+              <Link to='/about' onClick={handleNavClick}>
                 <p>About</p>
               </Link>
-              <Link to='/carrier'>
+              <Link to='/carrier' onClick={handleNavClick}>
                 <p>Career</p>
               </Link>
-              <Link to='/review'>
+              <Link to='/review' onClick={handleNavClick}>
                 <p>Review</p>
               </Link>
-              <Link to='/blog'>
+              <Link to='/blog' onClick={handleNavClick}>
                 <p>Blog</p>
               </Link>
-              <Link to='/contact'>
+              <Link to='/contact' onClick={handleNavClick}>
                 <p>Contact</p>
               </Link>
-              <Link to='/gallary'>
+              <Link to='/gallary' onClick={handleNavClick}>
                 <p>Gallery</p>
               </Link>
-              <Link to='/digital-dentistry'>
+              <Link to='/digital-dentistry' onClick={handleNavClick}>
                 <p>Digital-dentistry</p>
               </Link>
             </div>
@@ -119,15 +129,15 @@ const Footer = () => {
         </div>
         <div className="footer-low">
           <div className="low-footer-img">
-            <a href="/">
+            <Link to="/" onClick={handleNavClick} >
               <img src={logo} alt="" />
-            </a>
+            </Link>
           </div>
           <div className="low-footer-txt">
             <p>
               © 2024
               <span>
-                <a href="/">Dentica Dental Studio</a>
+                <Link to="/" onClick={handleNavClick}>Dentica Dental Studio</Link>
               </span>
               Dentica Dental Studio
             </p>

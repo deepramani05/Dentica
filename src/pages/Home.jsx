@@ -45,12 +45,12 @@ const Home = () => {
         <div className="banner-main">
           <div className="overlay"></div>
           <div className="banner-data">
-            <div className="banner-text-head">
+            <div className="banner-text-head" data-aos="fade-down" data-aos-duration="3000">
               <h3>Smile Bright With</h3>
               <h1>Dentica Dental Studio</h1>
             </div>
             <hr />
-            <div className="banner-text-body">
+            <div className="banner-text-body" data-aos="fade-up" data-aos-duration="3000">
               <p>
                 Enhance your smile with Dentica Dental Studio, where quality
                 meets compassionate care. Our <br /> experienced team offers

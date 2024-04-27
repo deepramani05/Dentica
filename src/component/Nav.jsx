@@ -94,6 +94,13 @@ const Nav = () => {
     };
   }, []);
 
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="nav-main">
       <div className="nav-sub">
@@ -149,7 +156,7 @@ const Nav = () => {
         <div className="nav-data" id="navData">
           <div className="nav-logo-main">
             <div className="nav-logo-sub nav-logo-box">
-              <Link to="/">
+              <Link to="/" onClick={handleNavClick}>
                 <img src={logo} alt="" />
               </Link>
             </div>
@@ -157,64 +164,78 @@ const Nav = () => {
           <div className={`nav-menu-main ${scrolled ? "scrolled" : " "}`}>
             <ul className="nav-menu-ul">
               <li className="nav-menu-li">
-                <Link to="/">Home</Link>
+                <Link to="/" onClick={handleNavClick}>
+                  Home
+                </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/about">About</Link>
+                <Link to="/about" onClick={handleNavClick}>
+                  About
+                </Link>
               </li>
               <li className="nav-menu-li dropdown">
-                <Link to="/products" className="dropbtn">
+                <Link
+                  to="/products"
+                  className="dropbtn"
+                  onClick={handleNavClick}
+                >
                   Products
                   <IoIosArrowDown />
                 </Link>
                 <div className="dropdown-content">
-                  <Link to="/products/implants">IMPLANTS </Link>
-                  <Link to="/products/lithium-disilicate">
+                  <Link to="/products/implants" onClick={handleNavClick}>
+                    IMPLANTS{" "}
+                  </Link>
+                  <Link
+                    to="/products/lithium-disilicate"
+                    onClick={handleNavClick}
+                  >
                     Lithium-Disilicate
                   </Link>
-                  <Link to="/products/den-zir">Den-zir </Link>
-                  <Link to="/products/dmls-pfm">DMLS PFM </Link>
-                  <Link to="/products/removable">Removable </Link>
+                  <Link to="/products/den-zir" onClick={handleNavClick}>
+                    Den-zir{" "}
+                  </Link>
+                  <Link to="/products/dmls-pfm" onClick={handleNavClick}>
+                    DMLS PFM{" "}
+                  </Link>
+                  <Link to="/products/removable" onClick={handleNavClick}>
+                    Removable{" "}
+                  </Link>
                 </div>
               </li>
               <li className="nav-menu-li">
-                <Link to="/digital-dentistry">Digital Dentistry</Link>
+                <Link to="/digital-dentistry" onClick={handleNavClick}>
+                  Digital Dentistry
+                </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/blog">Blog</Link>
+                <Link to="/blog" onClick={handleNavClick}>
+                  Blog
+                </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/carrier">Career</Link>
+                <Link to="/carrier" onClick={handleNavClick}>
+                  Career
+                </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" onClick={handleNavClick}>
+                  Contact
+                </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/review">Review</Link>
+                <Link to="/review" onClick={handleNavClick}>
+                  Review
+                </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/events">Events</Link>
+                <Link to="/events" onClick={handleNavClick}>
+                  Events
+                </Link>
               </li>
             </ul>
           </div>
           <div className="nav-contact-main">
-            {/* <div className="nav-contact-icon">
-              <div className="nav-contact-img nav-wp">
-                <a href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio">
-                  <img src={wp} alt="" />
-                </a>
-              </div>
-              <div className="nav-contact-img nav-insta">
-                <a href="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D">
-                  <img src={insta} alt="" />
-                </a>
-              </div>
-              <div className="nav-contact-img nav-fb">
-                <a href="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL">
-                  <img src={fb} alt="" />
-                </a>
-              </div>
-            </div> */}
             <div className="nav-contact-phone">
               <span>
                 <FaPhone />
@@ -223,6 +244,8 @@ const Nav = () => {
             </div>
           </div>
         </div>
+
+        {/* Tablet Screen */}
         <div className="tab-nav">
           <div className="tab-nav-p1">
             <div className="nav-logo-main">
