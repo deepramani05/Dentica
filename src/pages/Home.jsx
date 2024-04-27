@@ -35,9 +35,19 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Home = () => {
+
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="home-main">
@@ -59,7 +69,7 @@ const Home = () => {
                 and comforting environment..
               </p>
               <div className="banner-btn">
-                <Link to="/about">READ MORE</Link>
+                <Link to="/about" onClick={handleNavClick}>READ MORE</Link>
               </div>
             </div>
           </div>
@@ -186,7 +196,7 @@ const Home = () => {
             <div className="dent-image-column">
               <div className="dent-img-box">
                 <div className="dent-img-main">
-                  <Link to="/digital-dentistry">
+                  <Link to="/digital-dentistry" onClick={handleNavClick}>
                     <img src={dent} alt="" />
                   </Link>
                 </div>
@@ -246,13 +256,13 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/implants">
+                          <Link to="/products/implants" onClick={handleNavClick}>
                             <img src={prod_slider1} alt="" />
                           </Link>
                         </div>
                       </div>
                       <div className="home-product-slider-txt">
-                        <Link to="/products/implants">
+                        <Link to="/products/implants" onClick={handleNavClick}>
                           <h1>Implants</h1>
                         </Link>
                         <p>
@@ -268,13 +278,13 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/lithium-disilicate">
+                          <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
                             <img src={prod_slider2} alt="" />
                           </Link>
                         </div>
                       </div>
                       <div className="home-product-slider-txt">
-                        <Link to="/products/lithium-disilicate">
+                        <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
                           <h1>Lithium-Disilicate</h1>
                         </Link>
                         <p>
@@ -290,13 +300,13 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/den-zir">
+                          <Link to="/products/den-zir" onClick={handleNavClick}>
                             <img src={prod_slider3} alt="" />
                           </Link>
                         </div>
                       </div>
                       <div className="home-product-slider-txt">
-                        <Link to="/products/den-zir">
+                        <Link to="/products/den-zir" onClick={handleNavClick}>
                           <h1>Den-zir</h1>
                         </Link>
                         <p>
@@ -312,13 +322,13 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/dmls-pfm">
+                          <Link to="/products/dmls-pfm" onClick={handleNavClick}>
                             <img src={prod_slider4} alt="" />
                           </Link>
                         </div>
                       </div>
                       <div className="home-product-slider-txt">
-                        <Link to="/products/dmls-pfm">
+                        <Link to="/products/dmls-pfm" onClick={handleNavClick}>
                           <h1>DMLS PFM</h1>
                         </Link>
                         <p>
@@ -333,13 +343,13 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/removable">
+                          <Link to="/products/removable" onClick={handleNavClick}>
                             <img src={prod_slider5} alt="" />
                           </Link>
                         </div>
                       </div>
                       <div className="home-product-slider-txt">
-                        <Link to="/products/removable">
+                        <Link to="/products/removable" onClick={handleNavClick}>
                           <h1>Removable</h1>
                         </Link>
                         <p>
@@ -355,12 +365,12 @@ const Home = () => {
                 <div className="home-product-mobile-sub">
                   <div className="home-product-mobile-content-box">
                     <div className="home-product-mobile-img-box">
-                      <a href="/products/implants">
+                      <Link to="/products/implants" onClick={handleNavClick}>
                         <div className="home-product-mobile-img">
                           <img src={prod_slider1} alt="" />
                         </div>
                         <h1>Implants</h1>
-                      </a>
+                      </Link>
                     </div>
                     <div className="home-product-mobile-txt">
                       <p>
@@ -373,12 +383,12 @@ const Home = () => {
                   </div>
                   <div className="home-product-mobile-content-box">
                     <div className="home-product-mobile-img-box">
-                      <a href="/products/lithium-disilicate">
+                      <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
                         <div className="home-product-mobile-img">
                           <img src={prod_slider2} alt="" />
                         </div>
                         <h1>Lithium-Disilicate</h1>
-                      </a>
+                      </Link>
                     </div>
                     <div className="home-product-mobile-txt">
                       <p>
@@ -391,12 +401,12 @@ const Home = () => {
                   </div>
                   <div className="home-product-mobile-content-box">
                     <div className="home-product-mobile-img-box">
-                      <a href="/products/den-zir">
+                      <Link to="/products/den-zir" onClick={handleNavClick}>
                         <div className="home-product-mobile-img">
                           <img src={prod_slider3} alt="" />
                         </div>
                         <h1>Den-zir</h1>
-                      </a>
+                      </Link>
                     </div>
                     <div className="home-product-mobile-txt">
                       <p>
@@ -409,12 +419,12 @@ const Home = () => {
                   </div>
                   <div className="home-product-mobile-content-box">
                     <div className="home-product-mobile-img-box">
-                      <a href="/products/dmls-pfm">
+                      <Link to="/products/dmls-pfm" onClick={handleNavClick}>
                         <div className="home-product-mobile-img">
                           <img src={prod_slider4} alt="" />
                         </div>
                         <h1>DMLS PFM</h1>
-                      </a>
+                      </Link>
                     </div>
                     <div className="home-product-mobile-txt">
                       <p>
@@ -426,12 +436,12 @@ const Home = () => {
                   </div>
                   <div className="home-product-mobile-content-box">
                     <div className="home-product-mobile-img-box">
-                      <a href="/products/removable">
+                      <Link to="/products/removable" onClick={handleNavClick}>
                         <div className="home-product-mobile-img">
                           <img src={prod_slider5} alt="" />
                         </div>
                         <h1>Removable</h1>
-                      </a>
+                      </Link>
                     </div>
                     <div className="home-product-mobile-txt">
                       <p>
@@ -516,7 +526,7 @@ const Home = () => {
                 </Swiper>
               </div>
               <div className="home-gallary-btn">
-                <Link to="/gallary">SEE MORE</Link>
+                <Link to="/gallary" onClick={handleNavClick}>SEE MORE</Link>
               </div>
             </div>
             <div className="mobile-home-gallary-content">
@@ -580,7 +590,7 @@ const Home = () => {
                 </Swiper>
               </div>
               <div className="home-gallary-btn">
-                <Link to="/gallary">SEE MORE</Link>
+                <Link to="/gallary" onClick={handleNavClick}>SEE MORE</Link>
               </div>
             </div>
           </div>

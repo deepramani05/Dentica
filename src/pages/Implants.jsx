@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import implant_img from "../img/product_content-3.jpg";
 import implant1 from "../img/implant_img.png";
@@ -10,9 +10,18 @@ import "aos/dist/aos.css";
 
 const Implants = () => {
 
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="implant-main">
@@ -22,7 +31,7 @@ const Implants = () => {
             <div className="pages-content-box implant-banner-box">
               <ul className="pages-ul">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/" onClick={handleNavClick}>Home</Link>
                 </li>
                 <li>Implants</li>
               </ul>
@@ -53,25 +62,25 @@ const Implants = () => {
               <h1>Our products</h1>
               <div className="implant-p1-link-sub">
                 <div className="implant-p1-link">
-                  <Link to="/products/lithium-disilicate">
+                  <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
                     Lithium-Disilicate
                   </Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link">
-                  <Link to="/products/removable">Removable</Link>
+                  <Link to="/products/removable" onClick={handleNavClick}>Removable</Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link im">
-                  <Link to="/products/implants">Implants</Link>
+                  <Link to="/products/implants" onClick={handleNavClick}>Implants</Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link">
-                  <Link to="/products/den-zir">Den-zir</Link>
+                  <Link to="/products/den-zir" onClick={handleNavClick}>Den-zir</Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link">
-                  <Link to="/products/dmls-pfm">DMLS PFM</Link>
+                  <Link to="/products/dmls-pfm" onClick={handleNavClick}>DMLS PFM</Link>
                 </div>
               </div>
             </div>
