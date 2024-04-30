@@ -101,6 +101,10 @@ const Nav = () => {
     });
   };
 
+  const handleWarrantySubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="nav-main">
       <div className="nav-sub">
@@ -143,7 +147,7 @@ const Nav = () => {
                     <input type="text" placeholder="Enter Authentication Id" />
                   </div>
                   <div className="verify-form-submit">
-                    <button>Submit</button>
+                    <button onClick={handleWarrantySubmit}>Submit</button>
                   </div>
                 </div>
               </div>
