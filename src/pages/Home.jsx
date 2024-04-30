@@ -35,7 +35,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Home = () => {
-
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -51,16 +50,28 @@ const Home = () => {
 
   return (
     <div className="home-main">
-      <section className="banner-section" data-aos="fade-up" data-aos-duration="2000">
+      <section
+        className="banner-section"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="banner-main">
           <div className="overlay"></div>
           <div className="banner-data">
-            <div className="banner-text-head" data-aos="fade-down" data-aos-duration="3000">
+            <div
+              className="banner-text-head"
+              data-aos="fade-down"
+              data-aos-duration="3000"
+            >
               <h3>Smile Bright With</h3>
               <h1>Dentica Dental Studio</h1>
             </div>
             <hr />
-            <div className="banner-text-body" data-aos="fade-up" data-aos-duration="3000">
+            <div
+              className="banner-text-body"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
               <p>
                 Enhance your smile with Dentica Dental Studio, where quality
                 meets compassionate care. Our <br /> experienced team offers
@@ -69,13 +80,19 @@ const Home = () => {
                 and comforting environment..
               </p>
               <div className="banner-btn">
-                <Link to="/about" onClick={handleNavClick}>READ MORE</Link>
+                <Link to="/about" onClick={handleNavClick}>
+                  READ MORE
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="about-section" data-aos="fade-up" data-aos-duration="2000">
+      <section
+        className="about-section"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="about-sub">
           <div className="about-p1">
             <div className="about-p1-txt">
@@ -190,7 +207,11 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-dent-section" data-aos="fade-up" data-aos-duration="2000">
+      <section
+        className="home-dent-section"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="home-dent-main">
           <div className="home-dent-sub">
             <div className="dent-image-column">
@@ -233,7 +254,11 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-product-section" data-aos="fade-up" data-aos-duration="2000">
+      <section
+        className="home-product-section"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="home-product-main">
           <div className="home-product-sub">
             <div className="home-product-head">
@@ -256,7 +281,10 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/implants" onClick={handleNavClick}>
+                          <Link
+                            to="/products/implants"
+                            onClick={handleNavClick}
+                          >
                             <img src={prod_slider1} alt="" />
                           </Link>
                         </div>
@@ -278,13 +306,19 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
+                          <Link
+                            to="/products/lithium-disilicate"
+                            onClick={handleNavClick}
+                          >
                             <img src={prod_slider2} alt="" />
                           </Link>
                         </div>
                       </div>
                       <div className="home-product-slider-txt">
-                        <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
+                        <Link
+                          to="/products/lithium-disilicate"
+                          onClick={handleNavClick}
+                        >
                           <h1>Lithium-Disilicate</h1>
                         </Link>
                         <p>
@@ -322,7 +356,10 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/dmls-pfm" onClick={handleNavClick}>
+                          <Link
+                            to="/products/dmls-pfm"
+                            onClick={handleNavClick}
+                          >
                             <img src={prod_slider4} alt="" />
                           </Link>
                         </div>
@@ -343,7 +380,10 @@ const Home = () => {
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
-                          <Link to="/products/removable" onClick={handleNavClick}>
+                          <Link
+                            to="/products/removable"
+                            onClick={handleNavClick}
+                          >
                             <img src={prod_slider5} alt="" />
                           </Link>
                         </div>
@@ -383,7 +423,10 @@ const Home = () => {
                   </div>
                   <div className="home-product-mobile-content-box">
                     <div className="home-product-mobile-img-box">
-                      <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
+                      <Link
+                        to="/products/lithium-disilicate"
+                        onClick={handleNavClick}
+                      >
                         <div className="home-product-mobile-img">
                           <img src={prod_slider2} alt="" />
                         </div>
@@ -456,7 +499,11 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="home-gallery-section" data-aos="fade-up" data-aos-duration="2000">
+      <section
+        className="home-gallery-section"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="home-gallary-main">
           <div className="home-gallary-sub">
             <div className="home-gallary-head">
@@ -526,7 +573,9 @@ const Home = () => {
                 </Swiper>
               </div>
               <div className="home-gallary-btn">
-                <Link to="/gallary" onClick={handleNavClick}>SEE MORE</Link>
+                <Link to="/gallary" onClick={handleNavClick}>
+                  SEE MORE
+                </Link>
               </div>
             </div>
             <div className="mobile-home-gallary-content">
@@ -590,13 +639,54 @@ const Home = () => {
                 </Swiper>
               </div>
               <div className="home-gallary-btn">
-                <Link to="/gallary" onClick={handleNavClick}>SEE MORE</Link>
+                <Link to="/gallary" onClick={handleNavClick}>
+                  SEE MORE
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="home-msg-section" data-aos="fade-up" data-aos-duration="2000">
+      <section>
+        <div className="home-review-main">
+          <div className="home-review-sub">
+            <div className="home-review-head">
+              <h3>REVIEW</h3>
+              <h1>Doctor's Review</h1>
+            </div>
+            <div className="home-review-content">
+              <div className="home-review-content-box">
+                <Swiper
+                  slidesPerView={3}
+                  spaceBetween={30}
+                  loop={true}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[Pagination]}
+                  className="mySwiper"
+                >
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>Slide 2</SwiperSlide>
+                  <SwiperSlide>Slide 3</SwiperSlide>
+                  <SwiperSlide>Slide 4</SwiperSlide>
+                </Swiper>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        className="home-msg-section"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="home-msg-main">
           <div className="home-msg-sub">
             <div className="home-msg-head">
