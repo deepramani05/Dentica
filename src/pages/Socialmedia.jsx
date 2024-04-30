@@ -23,63 +23,43 @@ const Socialmedia = () => {
               <h1>DDS Social Media Channels</h1>
             </div>
             <hr />
-            <div className="sociallinks-link-main">
-              <div className="sociallinks-link-box">
-                <Link
-                  to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
-                  target="_blank"
-                  style={{ color: "rgb(59, 89, 152)" }}
-                >
-                  <span>
-                    <BsFacebook />
-                  </span>
-                  Facebook
-                </Link>
-              </div>
-              {/* <div className="sociallinks-link-box special">
-                <Link target="_blank" style={{ color: "rgb(0, 119, 181)" }}>
-                  <span>
-                    <BiLogoLinkedinSquare />
-                  </span>
-                  Linked In
-                </Link>
-              </div> */}
-              <div className="sociallinks-link-box special">
-                <Link
-                  to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
-                  target="_blank"
-                  style={{ color: "rgb(195, 42, 163)" }}
-                >
-                  <span>
-                    <BsInstagram />
-                  </span>
-                  Instagram
-                </Link>
-              </div>
-              <div className="sociallinks-link-box">
-                <Link
-                  to="tel:+918530101701"
-                  target="_blank"
-                  style={{ color: "rgb(0, 123, 255)" }}
-                >
-                  <span>
-                    <FiPhone />
-                  </span>
-                  Phone
-                </Link>
-              </div>
-              <div className="sociallinks-link-box special">
-                <Link
-                  to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
-                  target="_blank"
-                  style={{ color: "rgb(37, 211, 102)" }}
-                >
-                  <span>
-                    <ImWhatsapp />
-                  </span>
-                  Whatsapp
-                </Link>
-              </div>
+            <div class="social-menu">
+              <ul>
+                <li>
+                  <Link
+                    to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
+                    target="blank"
+                  >
+                    <i class="fab">
+                      <BsFacebook />
+                    </i>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
+                    target="blank"
+                  >
+                    <i class="fab">
+                      <BsInstagram />
+                    </i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="tel:+918530101701" target="blank">
+                    <i class="fab">
+                      <FiPhone />
+                    </i>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio">
+                    <i class="fab fa-codepen" target="blank">
+                      <ImWhatsapp />
+                    </i>
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
