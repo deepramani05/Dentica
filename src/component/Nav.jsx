@@ -168,12 +168,12 @@ const Nav = () => {
           <div className={`nav-menu-main ${scrolled ? "scrolled" : " "}`}>
             <ul className="nav-menu-ul">
               <li className="nav-menu-li">
-                <Link to="/" onClick={handleNavClick}>
-                  Home
+                <Link to="/" onClick={handleNavClick} title="Home">
+                  Home 
                 </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/about" onClick={handleNavClick}>
+                <Link to="/about" onClick={handleNavClick} title="About-Us">
                   About
                 </Link>
               </li>
@@ -182,58 +182,60 @@ const Nav = () => {
                   to="/products"
                   className="dropbtn"
                   onClick={handleNavClick}
+                  title="Products"
                 >
                   Products
                   <IoIosArrowDown />
                 </Link>
                 <div className="dropdown-content">
-                  <Link to="/products/implants" onClick={handleNavClick}>
+                  <Link to="/products/implants" onClick={handleNavClick} title="Implants">
                     IMPLANTS{" "}
                   </Link>
                   <Link
                     to="/products/lithium-disilicate"
                     onClick={handleNavClick}
+                    title="Lithium-Disilicate"
                   >
                     Lithium-Disilicate
                   </Link>
-                  <Link to="/products/den-zir" onClick={handleNavClick}>
+                  <Link to="/products/den-zir" onClick={handleNavClick} title="Dez-zir">
                     Den-zir{" "}
                   </Link>
-                  <Link to="/products/dmls-pfm" onClick={handleNavClick}>
+                  <Link to="/products/dmls-pfm" onClick={handleNavClick} title="DMLS PFM">
                     DMLS PFM{" "}
                   </Link>
-                  <Link to="/products/removable" onClick={handleNavClick}>
+                  <Link to="/products/removable" onClick={handleNavClick} title="Removable">
                     Removable{" "}
                   </Link>
                 </div>
               </li>
               <li className="nav-menu-li">
-                <Link to="/digital-dentistry" onClick={handleNavClick}>
+                <Link to="/digital-dentistry" onClick={handleNavClick} title="Digital Dentistry">
                   Digital Dentistry
                 </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/blog" onClick={handleNavClick}>
+                <Link to="/blog" onClick={handleNavClick} title="Blog">
                   Blog
                 </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/carrier" onClick={handleNavClick}>
+                <Link to="/carrier" onClick={handleNavClick} title="Career">
                   Career
                 </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/contact" onClick={handleNavClick}>
+                <Link to="/contact" onClick={handleNavClick} title="Contact">
                   Contact
                 </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/review" onClick={handleNavClick}>
+                <Link to="/review" onClick={handleNavClick} title="Review">
                   Review
                 </Link>
               </li>
               <li className="nav-menu-li">
-                <Link to="/events" onClick={handleNavClick}>
+                <Link to="/events" onClick={handleNavClick} title="Events">
                   Events
                 </Link>
               </li>

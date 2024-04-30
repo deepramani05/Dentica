@@ -285,7 +285,7 @@ body {
 }
 
 .top-nav-data span {
-  color: #12448b;
+  color: #fff;
   margin-top: 5px;
   font-size: 20px;
 }
@@ -774,20 +774,20 @@ body {
 }
 
 .box-1 {
-  left: 85px;
-  top: 40px;
+  left: 75px;
+  top: 60px;
   animation: zoom-fade 4s infinite linear;
 }
 
 .box-2 {
-  top: 50px;
-  right: -160px;
+  top: 65px;
+  right: -100px;
   animation: zoom-fade 5s infinite linear;
 }
 
 .box-3 {
-  left: 85px;
-  bottom: -220px;
+  left: 60px;
+  bottom: -250px;
   animation: zoom-fade 6s infinite linear;
 }
 
@@ -800,9 +800,9 @@ body {
   position: relative;
   display: block;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  width: 100%;
-  left: 90px;
-  top: 135px;
+  width: 75%;
+  left: 125px;
+  top: 125px;
 }
 
 .image img {
@@ -821,8 +821,8 @@ body {
 
 .text {
   position: absolute;
-  right: -190px;
-  bottom: -235px;
+  right: -135px;
+  bottom: -270px;
   width: 165px;
   height: 108px;
   background-color: #ca629d;
