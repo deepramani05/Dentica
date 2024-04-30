@@ -12,6 +12,7 @@ import prod_slider4 from "../img/home_product-4.png";
 import prod_slider5 from "../img/home_product-5.jpg";
 import gal_slider1 from "../img/home_gallary-1.jpg";
 import gal_slider2 from "../img/home-gallary-2.jpg";
+import review_img from "../img/dent_page.png";
 import { FaUser } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
@@ -647,7 +648,11 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section
+        className="home-review-section"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="home-review-main">
           <div className="home-review-sub">
             <div className="home-review-head">
@@ -660,10 +665,11 @@ const Home = () => {
                   slidesPerView={3}
                   spaceBetween={30}
                   loop={true}
-                  pagination={{
-                    clickable: true,
+                  autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
                   }}
-                  modules={[Pagination]}
+                  modules={[Autoplay, Pagination, Navigation]}
                   className="mySwiper"
                 >
                   <SwiperSlide>
@@ -671,11 +677,53 @@ const Home = () => {
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
                       </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>Slide 2</SwiperSlide>
-                  <SwiperSlide>Slide 3</SwiperSlide>
-                  <SwiperSlide>Slide 4</SwiperSlide>
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
                 </Swiper>
               </div>
             </div>

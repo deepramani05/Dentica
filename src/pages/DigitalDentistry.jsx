@@ -21,11 +21,11 @@ const DigitalDentistry = () => {
   const openLightbox = (index) => {
     setSelectedImageIndex(index);
     setLightboxOpen(true);
-    console.log("lightboxOpen",lightboxOpen);
+    console.log("lightboxOpen", lightboxOpen);
   };
   const closeLightbox = () => {
     setLightboxOpen(false);
-    console.log("lightboxOpen",lightboxOpen);
+    console.log("lightboxOpen", lightboxOpen);
   };
 
   return (
@@ -48,55 +48,81 @@ const DigitalDentistry = () => {
             </div>
           </div>
         </div>
-        {/* <div className="dent-page-data-main">
-          <div className="dent-page-data">
-            <div className="dent-page-img">
-              <ModalImage 
-                small={dent_img} 
-                large={dent_img} 
-                onClick={handleModalToggle}
-                />
-                {modalOpen &&(
-                  <button 
-                    ClassName="close-button"
-                    onclick={handleModalToggle}
-                  >
-                      Close
-                  </button>
-                )}
-            </div>
-            <div className="dent-page-img">
-              <ModalImage small={dent_img} large={dent_img} />
-            </div>
-            <div className="dent-page-img">
-              <ModalImage small={dent_img} large={dent_img} />
-            </div>
-          </div>
-        </div> */}
-        <div id="project-block-two">
-          <div className="inner-box">
-            <figure className="image-box"
-             onMouseEnter={() => setHovered(true)}
-             onMouseLeave={() => setHovered(false)}>
-                <img src={dent_img} 
-                     style={{ height:"300px", width:"30%" }}
-                     alt=""
+        <div className="dent-page-content">
+          <div
+            id="project-block-two"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div className="inner-box">
+              <figure
+                className="image-box"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <img
+                  src={dent_img}
+                  style={{ height: "100%", width: "100%" }}
+                  alt=""
                 />
                 {hovered && (
-                <div className="zoom-icon-container" onClick={() => openLightbox(0)}>
-                  <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
-                </div>
+                  <div className="dent-overlay" onClick={() => openLightbox(0)}>
+                    <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
+                  </div>
+                )}
+              </figure>
+              {lightboxOpen && (
+                <Lightbox mainSrc={dent_img} onCloseRequest={closeLightbox} />
               )}
-            </figure>
+            </div>
+            <div className="inner-box">
+              <figure
+                className="image-box"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <img
+                  src={dent_img}
+                  style={{ height: "100%", width: "100%" }}
+                  alt=""
+                />
+                {hovered && (
+                  <div className="dent-overlay" onClick={() => openLightbox(0)}>
+                    <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
+                  </div>
+                )}
+              </figure>
+              {lightboxOpen && (
+                <Lightbox mainSrc={dent_img} onCloseRequest={closeLightbox} />
+              )}
+            </div>
+            <div className="inner-box">
+              <figure
+                className="image-box"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                style={{transition:"all 1s ease-out 0s"}}
+              >
+                <img
+                  src={dent_img}
+                  style={{ height: "100%", width: "100%" }}
+                  alt=""
+                />
+                {hovered && (
+                  <div className="dent-overlay" onClick={() => openLightbox(0)}>
+                    <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
+                  </div>
+                )}
+              </figure>
+              {lightboxOpen && (
+                <Lightbox mainSrc={dent_img} onCloseRequest={closeLightbox} />
+              )}
+            </div>
           </div>
         </div>
-
-        {lightboxOpen && (
-          <Lightbox
-            mainSrc={dent_img}
-            onCloseRequest={closeLightbox}
-          />
-        )}  
       </div>
     </div>
   );
