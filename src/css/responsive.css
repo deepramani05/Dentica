@@ -259,7 +259,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-  
 }
 
 @media screen and (max-width: 991px) {
@@ -2733,6 +2732,24 @@
   .main-footer-p2 {
     width: 100%;
   }
+
+  .home-review-content-box {
+    display: none;
+  }
+
+  .home-review-mobile-content-box {
+    display: block;
+  }
+
+  .home-review-head h3 {
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .home-review-head h1 {
+    font-size: 35px;
+    line-height: 30px;
+  }
 }
 
 @media screen and (max-width: 399px) {
@@ -3465,5 +3482,23 @@
 
   .__react_modal_image__modal_content {
     width: 100% !important;
+  }
+
+  .home-review-head h3 {
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  .home-review-head h1 {
+    font-size: 35px;
+    line-height: 30px;
+  }
+
+  .home-review-content-box {
+    display: none;
+  }
+
+  .home-review-mobile-content-box {
+    display: block;
   }
 }

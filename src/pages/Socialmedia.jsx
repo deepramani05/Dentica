@@ -20,7 +20,9 @@ const Socialmedia = () => {
           </div>
           <div className="sociallinks-link">
             <div className="sociallinks-link-head">
-              <h1>DDS Social Media Channels</h1>
+              <h2>Dentica Dental Studio</h2>
+              <br />
+              <h1>Social Media Channels</h1>
             </div>
             <hr />
             <div class="social-menu">

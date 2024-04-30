@@ -726,6 +726,72 @@ const Home = () => {
                   </SwiperSlide>
                 </Swiper>
               </div>
+              <div className="home-review-mobile-content-box">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={30}
+                  loop={true}
+                  autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                  }}
+                  modules={[Autoplay, Pagination, Navigation]}
+                  className="mySwiper"
+                >
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="home-review-content-inner">
+                      <div className="home-review-inner-head">
+                        <h1>Good Services !</h1>
+                      </div>
+                      <div className="home-review-inner-content">
+                        <div className="home-review-inner-img">
+                          <img src={review_img} alt="Review" />
+                        </div>
+                        <h1>Dr. YashpalSinh</h1>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
             </div>
           </div>
         </div>

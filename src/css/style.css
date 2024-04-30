@@ -2896,3 +2896,41 @@ body.scrolled .back-to-top {
 .social-menu ul li:nth-child(4) a:hover i {
   color: white;
 }
+
+/* Add labels to social icons */
+.social-menu ul li:nth-child(1) a::after {
+  content: "Facebook";
+}
+.social-menu ul li:nth-child(2) a::after {
+  content: "Instagram";
+}
+.social-menu ul li:nth-child(3) a::after {
+  content: "Phone";
+}
+.social-menu ul li:nth-child(4) a::after {
+  content: "WhatsApp";
+}
+
+/* Style for labels */
+.social-menu ul li a::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.social-menu ul li a:hover::after {
+  opacity: 1;
+}
+
+.home-review-mobile-content-box {
+  display: none;
+}
