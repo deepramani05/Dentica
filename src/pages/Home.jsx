@@ -67,7 +67,7 @@ const Home = () => {
               <h3>Smile Bright With</h3>
               <h1>Dentica Dental Studio</h1>
             </div>
-            <hr />
+            <hr data-aos="fade-right" data-aos-duration="1000" />
             <div
               className="banner-text-body"
               data-aos="fade-up"
@@ -746,7 +746,7 @@ const Home = () => {
                   modules={[Autoplay, Pagination, Navigation]}
                   className="mySwiper"
                 >
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -759,7 +759,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -772,7 +772,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -785,7 +785,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>

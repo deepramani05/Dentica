@@ -258,7 +258,145 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1028px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .top-nav-loc p {
+    font-size: 12px;
+  }
+
+  .top-nav-email a {
+    font-size: 12px;
+  }
+
+  .top-nav-btn-sub a {
+    font-size: 11px;
+  }
+
+  .nav-menu-li a {
+    font-size: 10px;
+  }
+
+  .nav-contact-phone a {
+    font-size: 10px;
+  }
+
+  .nav-contact-phone span {
+    font-size: 15px;
+  }
+
+  .nav-logo-main {
+    width: 8%;
+  }
+
+  .banner-text-head h3 {
+    font-size: 15px;
+  }
+
+  .banner-text-head h1 {
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  .banner-text-body p {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .sec-title .sub-title {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .sec-title h1 {
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .sec-text p {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .about-p2-title h1 {
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  .about-p2-txt p {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .dent-content-head a h1 {
+    font-size: 25px;
+    line-height: 25px;
+    margin: 0;
+  }
+
+  .dent-content-txt p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .dent-content-data {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .home-product-slider-txt h1 {
+    font-size: 20px;
+    line-height: 10px;
+    padding: 10px 10px;
+  }
+
+  .home-product-slider-txt p {
+    font-size: 10px;
+    line-height: 16px;
+    margin: 10px 10px;
+  }
+
+  .home-product-slider-img-sub {
+    width: auto;
+  }
+
+  .home-gallary-txt span {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .home-gallary-head h1 {
+    font-size: 30px;
+    line-height: 15px;
+  }
+
+  .home-review-head h3 {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .home-review-head h1 {
+    font-size: 33px;
+    line-height: 25px;
+  }
+
+  .home-msg-head-txt span {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .home-msg-sub h1 {
+    font-size: 25px;
+    line-height: 35px;
+    margin: 10px 0;
+  }
+
+  .home-msg-head h1 br {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -3500,5 +3638,9 @@
 
   .home-review-mobile-content-box {
     display: block;
+  }
+
+  .review-slider {
+    height: 272px;
   }
 }
