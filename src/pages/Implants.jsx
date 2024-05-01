@@ -4,14 +4,40 @@ import implant_img from "../img/product_content-3.jpg";
 import implant1 from "../img/implant_img.png";
 import implant2 from "../img/home_product-1.jpg";
 import ModalImage from "react-modal-image";
+import { FaMagnifyingGlassPlus } from "react-icons/fa6";
+import Lightbox from "react-image-lightbox";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Implants = () => {
+ const [images, setImages] =useState([
+  {src: implant2, lightboxOpen:false,hovered:false},
+  {src:implant1,lightboxOpen:false,hovered:false},
+ ]);
 
-  const [scrolled, setScrolled] = useState(false);
+ const openLightbox = (index) => {
+  const updatedImages = [...images];
+  updatedImages[index].lightboxOpen = true;
+  setImages(updatedImages);
+};
+const closeLightbox = (index) => {
+  const updatedImages = [...images];
+  updatedImages[index].lightboxOpen = false;
+  setImages(updatedImages);
+};
 
+const handleMouseEnter = (index) => {
+  const updatedImages = [...images];
+  updatedImages[index].hovered = true;
+  setImages(updatedImages);
+};
+
+const handleMouseLeave = (index) => {
+  const updatedImages = [...images];
+  updatedImages[index].hovered = false;
+  setImages(updatedImages);
+};
   useEffect(() => {
     AOS.init();
   }, []);
@@ -85,25 +111,40 @@ const Implants = () => {
               </div>
             </div>
           </div>
-          <div className="implant-cntent-p2">
-            <div className="implant-p2-head">
-              <h1>Related Product Images</h1>
-            </div>
-            <div className="implant-p2-img">
-              <div className="implant-p2-img-box">
-                <div className="image-container">
-                  <ModalImage small={implant1} large={implant1} />
-                </div>
-                {/* <div className="implant-p2-overlay"></div> */}
+          
+            <div className="implant-cntent-p2">
+              <div className="implant-p2-head">
+                <h1>Related Product Images</h1>
               </div>
-              <div className="implant-p2-img-box">
-                <div className="image-container">
-                  <ModalImage small={implant2} large={implant2} />
+              <div className="implant-p2-img-row">
+                {images.map((image, index) => (
+                <div className="implant-p2-img">
+                  <div className="implant-p2-img-box">
+                    <div className="image-container">
+                      <figure
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={() => handleMouseLeave(index)}
+                      >
+                        <img
+                          src={image.src}
+                          style={{ height: "100%", width: "100%" }}
+                          alt={`implant-${index}`}
+                        />
+                        {image.hovered && (
+                          <div className="dent-overlay" onClick={() => openLightbox(index)}>
+                            <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
+                          </div>
+                        )}
+                      </figure>
+                      {image.lightboxOpen && (
+                        <Lightbox mainSrc={image.src} onCloseRequest={() => closeLightbox(index)} />
+                      )}
+                    </div>
+                  </div>
                 </div>
-                {/* <div className="implant-p2-overlay"></div> */}
+                ))}
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
