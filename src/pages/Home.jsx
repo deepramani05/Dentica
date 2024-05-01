@@ -89,14 +89,14 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section
-        className="about-section"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
+      <section className="about-section">
         <div className="about-sub">
           <div className="about-p1">
-            <div className="about-p1-txt">
+            <div
+              className="about-p1-txt"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
               <div className="sec-title">
                 <span className="sub-title">ABOUT LAB</span>
                 <h1>Discover the finest in dental lab products</h1>
@@ -140,7 +140,11 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="about-p1-img">
+            <div
+              className="about-p1-img"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
               <div className="image-box">
                 <div className="shape">
                   <div className="shape-1"></div>
@@ -169,7 +173,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="about-p2">
+          <div className="about-p2" data-aos="fade-up" data-aos-duration="1000">
             <div className="about-p2-title">
               <h1>Why Choose Us</h1>
             </div>
@@ -208,14 +212,14 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section
-        className="home-dent-section"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
+      <section className="home-dent-section">
         <div className="home-dent-main">
           <div className="home-dent-sub">
-            <div className="dent-image-column">
+            <div
+              className="dent-image-column"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
               <div className="dent-img-box">
                 <div className="dent-img-main">
                   <Link to="/digital-dentistry" onClick={handleNavClick}>
@@ -224,7 +228,11 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="dent-content-column">
+            <div
+              className="dent-content-column"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
               <div className="dent-content-head">
                 <a href="">
                   <h1>Digital Dentristry</h1>
@@ -672,7 +680,7 @@ const Home = () => {
                   modules={[Autoplay, Pagination, Navigation]}
                   className="mySwiper"
                 >
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -685,7 +693,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -698,7 +706,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -711,7 +719,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -737,9 +745,8 @@ const Home = () => {
                   }}
                   modules={[Autoplay, Pagination, Navigation]}
                   className="mySwiper"
-                  
                 >
-                  <SwiperSlide style={{height:"235px"}}>
+                  <SwiperSlide>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -752,7 +759,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide style={{height:"235px"}}>
+                  <SwiperSlide>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -765,7 +772,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide style={{height:"235px"}}>
+                  <SwiperSlide>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -778,7 +785,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide style={{height:"235px"}}>
+                  <SwiperSlide>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
