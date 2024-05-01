@@ -54,7 +54,7 @@ const Home = () => {
       <section
         className="banner-section"
         data-aos="fade-up"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
       >
         <div className="banner-main">
           <div className="overlay"></div>
@@ -92,7 +92,7 @@ const Home = () => {
       <section
         className="about-section"
         data-aos="fade-up"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
       >
         <div className="about-sub">
           <div className="about-p1">
@@ -211,7 +211,7 @@ const Home = () => {
       <section
         className="home-dent-section"
         data-aos="fade-up"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
       >
         <div className="home-dent-main">
           <div className="home-dent-sub">
@@ -258,7 +258,7 @@ const Home = () => {
       <section
         className="home-product-section"
         data-aos="fade-up"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
       >
         <div className="home-product-main">
           <div className="home-product-sub">
@@ -503,7 +503,7 @@ const Home = () => {
       <section
         className="home-gallery-section"
         data-aos="fade-up"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
       >
         <div className="home-gallary-main">
           <div className="home-gallary-sub">
@@ -521,7 +521,7 @@ const Home = () => {
                   loop={true}
                   centeredSlides={true}
                   autoplay={{
-                    delay: 2000,
+                    delay: 1000,
                     disableOnInteraction: false,
                   }}
                   pagination={{
@@ -587,7 +587,7 @@ const Home = () => {
                   loop={true}
                   centeredSlides={true}
                   autoplay={{
-                    delay: 2000,
+                    delay: 1000,
                     disableOnInteraction: false,
                   }}
                   pagination={{
@@ -651,7 +651,7 @@ const Home = () => {
       <section
         className="home-review-section"
         data-aos="fade-up"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
       >
         <div className="home-review-main">
           <div className="home-review-sub">
@@ -666,7 +666,7 @@ const Home = () => {
                   spaceBetween={30}
                   loop={true}
                   autoplay={{
-                    delay: 2000,
+                    delay: 1000,
                     disableOnInteraction: false,
                   }}
                   modules={[Autoplay, Pagination, Navigation]}
@@ -732,7 +732,7 @@ const Home = () => {
                   spaceBetween={30}
                   loop={true}
                   autoplay={{
-                    delay: 2000,
+                    delay: 1000,
                     disableOnInteraction: false,
                   }}
                   modules={[Autoplay, Pagination, Navigation]}
@@ -799,7 +799,7 @@ const Home = () => {
       <section
         className="home-msg-section"
         data-aos="fade-up"
-        data-aos-duration="2000"
+        data-aos-duration="1000"
       >
         <div className="home-msg-main">
           <div className="home-msg-sub">

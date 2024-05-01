@@ -79,11 +79,11 @@ const Dentalshow = () => {
         <div className="dental-show-content-main">
           <div className="dental-show-content">
             <div
-              className="dental-show-content-box"
+              className="dental-show-content-box dental-show-content-box-1"
               data-aos="fade-up"
               data-aos-duration="1000"
             >
-              <div className="dental-show-img dent-page-img  dent-page-img-1">
+              <div className="dental-show-img dent-page-img">
                 <img src={show1} alt="Show 1" onClick={() => openLightbox(0)} />
                 <div className="dent-show-overlay">
                   <div
@@ -100,7 +100,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show2} alt="Show 2" onClick={() => openLightbox(1)} />
@@ -119,7 +119,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show3} alt="Show 3" onClick={() => openLightbox(2)} />
@@ -138,7 +138,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show4} alt="Show 4" onClick={() => openLightbox(3)} />
@@ -157,7 +157,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show5} alt="Show 5" onClick={() => openLightbox(4)} />
@@ -176,7 +176,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show6} alt="Show 6" onClick={() => openLightbox(5)} />
@@ -195,7 +195,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show7} alt="Show 7" onClick={() => openLightbox(6)} />
@@ -214,7 +214,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show8} alt="Show 8" onClick={() => openLightbox(7)} />
@@ -233,7 +233,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img src={show9} alt="Show 9" onClick={() => openLightbox(8)} />
@@ -252,7 +252,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img
@@ -275,7 +275,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img
@@ -296,9 +296,9 @@ const Dentalshow = () => {
               </div>
             </div>
             <div
-              className="dental-show-content-box"
+              className="dental-show-content-box dental-show-content-box-12"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img
@@ -321,7 +321,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img
@@ -342,9 +342,9 @@ const Dentalshow = () => {
               </div>
             </div>
             <div
-              className="dental-show-content-box"
+              className="dental-show-content-box dental-show-content-box-14"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img
@@ -367,7 +367,7 @@ const Dentalshow = () => {
             <div
               className="dental-show-content-box"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              data-aos-duration="2000"
             >
               <div className="dental-show-img dent-page-img">
                 <img
