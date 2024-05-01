@@ -112,14 +112,14 @@ const Contact = () => {
                       Plot No. 3/3-3/4, Dhuna House, opp. <br /> Patel Nagar,
                       Varachha, Surat, Gujarat <br /> 395008
                     </p>
-                    <div className="contact-icon-a">
-                      <Link>
+                    <h5 className="contact-icon-a">
+                      <Link href="https://goo.gl/maps/eZALb3jJmV5B3CSf7" target="_blank">
                         CHECK LOCATION
                         <span>
                           <FaLongArrowAltRight />
                         </span>
                       </Link>
-                    </div>
+                    </h5>
                   </div>
                 </div>
                 <div className="contact-page-touch-mob">
@@ -127,19 +127,19 @@ const Contact = () => {
                     <div className="contact-icon-main">
                       <MdOutlinePhoneInTalk />
                     </div>
-                    <Link href="">+91 8530101701</Link>
+                    <Link>+91 8530101701</Link>
                   </div>
                   <div className="contact-page-icon-txt">
                     <p>
                       Mon to Sat: 9.00 am to 9.00 pm <br /> Sunday:Closed
                     </p>
                     <div className="contact-icon-a">
-                      <Link>
+                      <a href="tel:+918530101701">
                         GET CALL BACK
                         <span>
                           <FaLongArrowAltRight />
                         </span>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -155,12 +155,12 @@ const Contact = () => {
                       To better connect with our team send <br /> your mail.
                     </p>
                     <div className="contact-icon-a">
-                      <Link>
+                      <a href="mailto:denticadentalstudio@gmail.com">
                         CONTACT FORM
                         <span>
                           <FaLongArrowAltRight />
                         </span>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
