@@ -737,8 +737,9 @@ const Home = () => {
                   }}
                   modules={[Autoplay, Pagination, Navigation]}
                   className="mySwiper"
+                  
                 >
-                  <SwiperSlide>
+                  <SwiperSlide style={{height:"235px"}}>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -751,7 +752,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide style={{height:"235px"}}>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -764,7 +765,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide style={{height:"235px"}}>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -777,7 +778,7 @@ const Home = () => {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide>
+                  <SwiperSlide style={{height:"235px"}}>
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
