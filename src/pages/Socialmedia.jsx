@@ -28,7 +28,7 @@ const Socialmedia = () => {
                   margin: "0 auto",
                 }}
               >
-                <Link>
+                <Link to='/'>
                   <img
                     src={dent_lg}
                     alt=""
