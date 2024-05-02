@@ -5,6 +5,7 @@ import "react-image-lightbox/style.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { SlMagnifierAdd } from "react-icons/sl";
+
 import show1 from "../img/dent_show-1.jpg";
 import show2 from "../img/dent_show-2.jpg";
 import show3 from "../img/dent_show-3.jpg";
@@ -20,6 +21,7 @@ import show12 from "../img/dent_show-12.jpg";
 import show13 from "../img/dent_show-13.jpg";
 import show14 from "../img/dent_show-14.jpg";
 import show15 from "../img/dent_show-15.jpg";
+import { FaMagnifyingGlass, FaMagnifyingGlassPlus } from "react-icons/fa6";
 
 const Dentalshow = () => {
   useEffect(() => {
@@ -43,18 +45,24 @@ const Dentalshow = () => {
     show14,
     show15,
   ];
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(null);
+  const [hovered, setHovered] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const openLightbox = (index) => {
-    setSelectedImageIndex(index);
-    setLightboxOpen(true);
+    setLightboxOpen(index);
   };
 
   const closeLightbox = () => {
-    setLightboxOpen(false);
+    setLightboxOpen(null);
   };
 
+  const handleMouseEnter = (index) =>{
+    setHovered(index)
+  };
+  const handleMouseLeave = () => {
+    setHovered(null);
+  };
   const handleIconClick = (event, index) => {
     event.stopPropagation();
     openLightbox(index);
@@ -78,337 +86,62 @@ const Dentalshow = () => {
         </div>
         <div className="dental-show-content-main">
           <div className="dental-show-content">
-            <div
+            { showImages.map((image, index) =>(
+              <div
               className="dental-show-content-box dental-show-content-box-1"
               data-aos="fade-up"
-              data-aos-duration="1000"
+              key={index}
+              data-aos-duration="2000"
+              style={{ height: "300px" }}
             >
-              <div className="dental-show-img dent-page-img">
-                <img src={show1} alt="Show 1" onClick={() => openLightbox(0)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 0)}
+              <div className="dental-show-img dent-page-img"
+                style={{ height: "300px", position: "relative" }}
+                onClick={() => openLightbox(index)}
+              >
+                <div>
+                  <figure 
+                    onMouseEnter = {()=> handleMouseEnter(index)}
+                    onMouseLeave=  {()=>  handleMouseLeave()}
                   >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
+                    <img 
+                      src={image} 
+                      alt={`show ${index+1}`} 
+                      onClick={() => openLightbox(index)}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                      }}
+                    />
+                    
+                      {hovered === index && (
+                        <div className="dent-show-overlay">
+                          <div className="zoom-icon">
+                            <SlMagnifierAdd className="flaticon-zoom-icon" />
+                          </div>
+                        </div>
+                        )}
+                  </figure>
                 </div>
               </div>
             </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show2} alt="Show 2" onClick={() => openLightbox(1)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 1)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show3} alt="Show 3" onClick={() => openLightbox(2)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 2)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show4} alt="Show 4" onClick={() => openLightbox(3)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 3)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show5} alt="Show 5" onClick={() => openLightbox(4)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 4)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show6} alt="Show 6" onClick={() => openLightbox(5)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 5)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show7} alt="Show 7" onClick={() => openLightbox(6)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 6)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show8} alt="Show 8" onClick={() => openLightbox(7)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 7)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img src={show9} alt="Show 9" onClick={() => openLightbox(8)} />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 8)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img
-                  src={show10}
-                  alt="Show 10"
-                  onClick={() => openLightbox(9)}
-                />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 9)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img
-                  src={show11}
-                  alt="Show 11"
-                  onClick={() => openLightbox(10)}
-                />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 10)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box dental-show-content-box-12"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img
-                  src={show12}
-                  alt="Show 12"
-                  onClick={() => openLightbox(11)}
-                />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 11)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img
-                  src={show13}
-                  alt="Show 13"
-                  onClick={() => openLightbox(12)}
-                />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 12)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box dental-show-content-box-14"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img
-                  src={show14}
-                  alt="Show 14"
-                  onClick={() => openLightbox(13)}
-                />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 13)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="dental-show-content-box"
-              data-aos="fade-up"
-              data-aos-duration="1000"
-            >
-              <div className="dental-show-img dent-page-img">
-                <img
-                  src={show15}
-                  alt="Show 15"
-                  onClick={() => openLightbox(14)}
-                />
-                <div className="dent-show-overlay">
-                  <div
-                    className="zoom-icon"
-                    onClick={(event) => handleIconClick(event, 14)}
-                  >
-                    <i className="fa" aria-hidden="true">
-                      <SlMagnifierAdd />
-                    </i>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-          {lightboxOpen && (
-            <Lightbox
-              mainSrc={showImages[selectedImageIndex]}
-              nextSrc={showImages[(selectedImageIndex + 1) % showImages.length]}
+          {lightboxOpen !== null && (
+            <Lightbox 
+              mainSrc={showImages[lightboxOpen]}
+              nextSrc={showImages[(lightboxOpen  + 1) % showImages.length]}
               prevSrc={
-                showImages[
-                  (selectedImageIndex + showImages.length - 1) %
-                    showImages.length
-                ]
+                showImages[(lightboxOpen + showImages.length-1) % showImages.length]
               }
               onCloseRequest={closeLightbox}
-              onMovePrevRequest={() =>
-                setSelectedImageIndex(
-                  (selectedImageIndex + showImages.length - 1) %
-                    showImages.length
-                )
+              onMovePrevRequest={()=>
+                setLightboxOpen((prev) => (prev + showImages.length - 1) % showImages.length)
               }
-              onMoveNextRequest={() =>
-                setSelectedImageIndex(
-                  (selectedImageIndex + 1) % showImages.length
-                )
+              onMoveNextRequest={()=>
+                setLightboxOpen((prev) => (prev + 1) % showImages.length)
               }
               imageTitle={`Image ${selectedImageIndex + 1}`}
             />
