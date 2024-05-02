@@ -2168,6 +2168,20 @@
   .implant-p2-img {
     flex-wrap: wrap;
   }
+
+  .sociallinks-head-txt h3 br {
+    display: none;
+  }
+
+  .sociallinks-head-txt h3 {
+    font-size: 12px;
+    line-height: 25px;
+  }
+  
+  .sociallinks-head-txt {
+    width: 95%;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 499px) {
@@ -2887,6 +2901,25 @@
   .home-review-head h1 {
     font-size: 35px;
     line-height: 30px;
+  }
+
+  .sociallinks-head-txt h3 br {
+    display: none;
+  }
+
+  .sociallinks-head-txt h3 {
+    font-size: 10px;
+    line-height: 25px;
+  }
+
+  .sociallinks-link {
+    border-radius: 10px;
+    padding: 30px 30px;
+  }
+
+  .sociallinks-head-txt {
+    width: 95%;
+    margin: 0 auto;
   }
 }
 
@@ -3642,5 +3675,40 @@
 
   .review-slider {
     height: 272px;
+  }
+
+  .sociallinks-head-txt h3 {
+    font-size: 10px;
+    line-height: 24px;
+    font-weight: 300;
+    color: rgb(51, 51, 51);
+    font-family: montserrat, sans-serif;
+  }
+
+  .sociallinks-head-txt h3 br {
+    display: none;
+  }
+
+  .sociallinks-link {
+    padding: 30px 0;
+  }
+
+  .sociallinks-link-head h1 {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .social-menu ul {
+    /* transform: translate(-50%, -50%); */
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    flex-direction: column;
+  }
+
+  .social-menu ul li {
+    list-style: none;
+    margin: 0 15px;
+    margin: 10px auto;
   }
 }

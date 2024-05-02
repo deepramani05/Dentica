@@ -160,8 +160,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 20px 10px;
-  /* position: fixed; */
+  padding: 10px 10px;
   z-index: 1;
   background-color: #fff;
 }
@@ -2798,16 +2797,20 @@ body.scrolled .back-to-top {
 
 /* Add labels to social icons */
 .social-menu ul li:nth-child(1) a::after {
-  content: "Facebook";
+  content: "Dentica Dental Lab";
+  width: max-content;
 }
 .social-menu ul li:nth-child(2) a::after {
-  content: "Instagram";
+  content: "dentica_dental_studio";
+  width: max-content;
 }
 .social-menu ul li:nth-child(3) a::after {
-  content: "Phone";
+  content: "+918530101701";
+  width: max-content;
 }
 .social-menu ul li:nth-child(4) a::after {
-  content: "WhatsApp";
+  content: "+91 85301 01701";
+  width: max-content;
 }
 
 /* Style for labels */

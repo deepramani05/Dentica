@@ -1,10 +1,10 @@
 import React from "react";
-import { BsFacebook } from "react-icons/bs";
-import { BiLogoLinkedinSquare } from "react-icons/bi";
+import { CiFacebook } from "react-icons/ci";
 import { BsInstagram } from "react-icons/bs";
 import { FiPhone } from "react-icons/fi";
 import { ImWhatsapp } from "react-icons/im";
 import { Link } from "react-router-dom";
+import dent_lg from "../img/dent-logo.png";
 
 const Socialmedia = () => {
   return (
@@ -20,7 +20,24 @@ const Socialmedia = () => {
           </div>
           <div className="sociallinks-link">
             <div className="sociallinks-link-head">
-              <h2>Dentica Dental Studio</h2>
+              <div
+                style={{
+                  width: "300px",
+                  height: "100px",
+                  overflow: "hidden",
+                  margin: "0 auto",
+                }}
+              >
+                <Link>
+                  <img
+                    src={dent_lg}
+                    alt=""
+                    width={"300px"}
+                    height={"300px"}
+                    style={{ position: "relative", top: "-100px" }}
+                  />
+                </Link>
+              </div>
               <br />
               <h1>Social Media Channels</h1>
             </div>
@@ -33,7 +50,7 @@ const Socialmedia = () => {
                     target="blank"
                   >
                     <i class="fab">
-                      <BsFacebook />
+                      <CiFacebook />
                     </i>
                   </Link>
                 </li>
@@ -55,8 +72,11 @@ const Socialmedia = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio">
-                    <i class="fab fa-codepen" target="blank">
+                  <Link
+                    to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
+                    target="_blank"
+                  >
+                    <i class="fab fa-codepen">
                       <ImWhatsapp />
                     </i>
                   </Link>

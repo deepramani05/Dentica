@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <Nav />
       <AllRoutes />
-      <a href="#" class="back-to-top">
+      <a href="#" class="back-to-top" onClick={backToTopButton}>
         <FaArrowUp />
       </a>
       <Footer />

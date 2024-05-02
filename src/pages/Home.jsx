@@ -14,7 +14,7 @@ import gal_slider1 from "../img/home_gallary-1.jpg";
 import gal_slider2 from "../img/home-gallary-2.jpg";
 import review_img from "../img/dent_page.png";
 import { FaUser } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
@@ -55,6 +55,7 @@ const Home = () => {
         className="banner-section"
         data-aos="fade-up"
         data-aos-duration="1000"
+        style={{ overflow: "hidden" }}
       >
         <div className="banner-main">
           <div className="overlay"></div>
@@ -214,7 +215,7 @@ const Home = () => {
       </section>
       <section className="home-dent-section">
         <div className="home-dent-main">
-          <div className="home-dent-sub">
+          <div className="home-dent-sub" style={{ overflow: "hidden" }}>
             <div
               className="dent-image-column"
               data-aos="fade-left"
@@ -267,6 +268,7 @@ const Home = () => {
         className="home-product-section"
         data-aos="fade-up"
         data-aos-duration="1000"
+        style={{ overflow: "hidden" }}
       >
         <div className="home-product-main">
           <div className="home-product-sub">
@@ -512,6 +514,7 @@ const Home = () => {
         className="home-gallery-section"
         data-aos="fade-up"
         data-aos-duration="1000"
+        style={{ overflow: "hidden" }}
       >
         <div className="home-gallary-main">
           <div className="home-gallary-sub">
@@ -660,6 +663,7 @@ const Home = () => {
         className="home-review-section"
         data-aos="fade-up"
         data-aos-duration="1000"
+        style={{ overflow: "hidden" }}
       >
         <div className="home-review-main">
           <div className="home-review-sub">
@@ -808,6 +812,7 @@ const Home = () => {
         className="home-msg-section"
         data-aos="fade-up"
         data-aos-duration="1000"
+        style={{ overflow: "hidden" }}
       >
         <div className="home-msg-main">
           <div className="home-msg-sub">
@@ -836,7 +841,7 @@ const Home = () => {
                     <div>
                       <input type="text" placeholder="Email" />
                       <span>
-                        <IoIosMail />
+                        <MdEmail />
                       </span>
                     </div>
                   </div>
