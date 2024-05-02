@@ -21,7 +21,6 @@ import show12 from "../img/dent_show-12.jpg";
 import show13 from "../img/dent_show-13.jpg";
 import show14 from "../img/dent_show-14.jpg";
 import show15 from "../img/dent_show-15.jpg";
-import { FaMagnifyingGlass, FaMagnifyingGlassPlus } from "react-icons/fa6";
 
 const Dentalshow = () => {
   useEffect(() => {
@@ -92,7 +91,7 @@ const Dentalshow = () => {
               data-aos="fade-up"
               key={index}
               data-aos-duration="2000"
-              style={{ height: "300px" }}
+              style={{ height: "272px",overflow:"hidden" }}
             >
               <div className="dental-show-img dent-page-img"
                 style={{ height: "300px", position: "relative" }}
@@ -143,7 +142,7 @@ const Dentalshow = () => {
               onMoveNextRequest={()=>
                 setLightboxOpen((prev) => (prev + 1) % showImages.length)
               }
-              imageTitle={`Image ${selectedImageIndex + 1}`}
+              // imageTitle={`Image ${selectedImageIndex + 1}`}
             />
           )}
         </div>
