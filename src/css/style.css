@@ -2468,6 +2468,11 @@ textarea {
   z-index: 1;
 }
 
+.back-to-top:hover.back-to-top svg {
+  transform: rotate(360deg);
+  transition: transform 0.2s;
+}
+
 body.scrolled .back-to-top {
   opacity: 1;
 }
