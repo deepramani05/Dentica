@@ -3,6 +3,7 @@ import { FaUser } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaTextWidth } from "react-icons/fa";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const StlFile = () => {
   let [name, setName] = useState("");
@@ -10,19 +11,24 @@ const StlFile = () => {
   let [message, setMessage] = useState("");
   let [file, setFile] = useState("");
 
-  let obj = {
-    name: name,
-    mail: mail,
-    message: message,
-    file: file,
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formDataToSend = new FormData();
+    formDataToSend.append("fname", name);
+    formDataToSend.append("phone", mail);
+    formDataToSend.append("message", message);
+    formDataToSend.append("file", file);
 
-    axios.post(`http://localhost:5000/stl`,obj)
+    axios.post(`https://denticadentalstudio.com/api/submit-stl`,formDataToSend)
     .then((res) => {
       console.log(res.data);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Data Saved !",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -56,6 +62,7 @@ const StlFile = () => {
                     <input
                       type="text"
                       placeholder="Name"
+                      name="name"
                       onChange={(e) => setName(e.target.value)}
                       value={name}
                     />
@@ -69,6 +76,7 @@ const StlFile = () => {
                   <div>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Email"
                       onChange={(e) => setMail(e.target.value)}
                       value={mail}
@@ -88,6 +96,7 @@ const StlFile = () => {
                       cols="30"
                       rows="7"
                       placeholder="Your Message"
+                      name ="message"
                       onChange={(e) => setMessage(e.target.value)}
                       value={message}
                     />
@@ -103,8 +112,9 @@ const StlFile = () => {
                   <div>
                     <input
                       type="file"
-                      onChange={(e) => setFile(e.target.value)}
-                      value={file}
+                      name = "file"
+                      onChange={(e) => setFile(e.target.files[0])}
+                      // value={file}
                     />
                   </div>
                 </div>
