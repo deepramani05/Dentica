@@ -21,11 +21,9 @@ const DigitalDentistry = () => {
   const openLightbox = (index) => {
     setSelectedImageIndex(index);
     setLightboxOpen(true);
-    console.log("lightboxOpen", lightboxOpen);
   };
   const closeLightbox = () => {
     setLightboxOpen(false);
-    console.log("lightboxOpen", lightboxOpen);
   };
 
   return (
