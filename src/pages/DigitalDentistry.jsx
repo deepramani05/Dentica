@@ -56,6 +56,7 @@ const DigitalDentistry = () => {
               alignItems: "center",
               justifyContent: "center",
             }}
+            className="dent-page-image"
           >
             <div className="inner-box">
               <figure

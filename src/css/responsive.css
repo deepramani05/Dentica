@@ -1963,7 +1963,7 @@
   }
 
   .home-gallary-content-slider {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -2177,7 +2177,7 @@
     font-size: 12px;
     line-height: 25px;
   }
-  
+
   .sociallinks-head-txt {
     width: 95%;
     margin: 0 auto;
@@ -2519,8 +2519,17 @@
     height: auto;
   }
 
+  .dent-page-image {
+    flex-direction: column;
+  }
+
   .image-box {
     margin: 0;
+    width: 100%;
+  }
+
+  .inner-box {
+    margin: 15px 30px;
   }
 
   .shape {
@@ -2534,6 +2543,7 @@
   figure.image {
     left: 0;
     top: 0;
+    margin: 0 auto;
   }
 
   .text {
@@ -2570,7 +2580,7 @@
   .home-product-mobile-content-box {
     text-align: left;
     box-shadow: 0px 5px 15px 0px #e4e9ea;
-    width: 48%;
+    width: 100%;
   }
 
   .home-product-mobile-img-box a {
@@ -2579,7 +2589,7 @@
 
   .home-product-mobile-img {
     width: 100%;
-    height: 170px;
+    height: 100%;
     overflow: hidden;
   }
 
@@ -2873,8 +2883,21 @@
   }
 
   .implant-p2-img-box {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  .implant-p2-img {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .implant-p2-img-p2 {
+    width: 95%;
+  }
+
+  .implant-p2-img-row {
+    flex-wrap: wrap;
   }
 
   .__react_modal_image__modal_content {
@@ -2920,6 +2943,10 @@
   .sociallinks-head-txt {
     width: 95%;
     margin: 0 auto;
+  }
+
+  .contact-page-touch-head-span {
+    margin: 0;
   }
 }
 
@@ -3320,8 +3347,13 @@
     right: 0;
   }
 
+  .inner-box {
+    margin: 20px 30px;
+  }
+
   .image-box {
     margin-right: 0px;
+    width: 100%;
   }
 
   .about-p2-title h1 {
@@ -3378,18 +3410,6 @@
   .home-gallary-head {
     text-align: left;
   }
-
-  .home-gallary-txt span {
-    margin-left: 20px;
-  }
-
-  /* .home-gallary-txt span:after {
-    left: 10px;
-  }
-
-  .home-gallary-txt span:before {
-    left: 15px;
-  } */
 
   .home-gallary-head h1 {
     font-size: 35px;
@@ -3481,11 +3501,6 @@
     display: none;
   }
 
-  .home-msg-sub h1 {
-    font-size: 30px;
-    line-height: 50px;
-  }
-
   .home-msg-form-p1,
   .home-msg-form-p2 {
     flex-direction: column;
@@ -3531,8 +3546,12 @@
   }
 
   .dent-page-img {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  .dent-page-image {
+    flex-direction: column;
   }
 
   .blog-page-data-sub {
@@ -3568,22 +3587,39 @@
   }
 
   .career-page-form-head h1 {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .career-page-form-head p {
-    font-size: 15px;
-    line-height: 25px;
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .contact-page-touch-head-span {
+    margin: 0;
+  }
+
+  .contact-page-touch-head-span span {
+    font-size: 10px;
   }
 
   .contact-page-touch-head h1 {
-    font-size: 40px;
-    line-height: 55px;
+    font-size: 25px;
+    line-height: 35px;
   }
 
   .contact-page-touch-content {
     flex-direction: column;
     gap: 50px;
+  }
+
+  .home-msg-head-txt span {
+    font-size: 10px;
+  }
+
+  .home-msg-sub h1 {
+    font-size: 25px;
+    line-height: 35px;
   }
 
   .dental-show-content {
@@ -3623,6 +3659,8 @@
 
   .implant-p2-img {
     flex-direction: column;
+    width: 100%;
+    margin: 50px 0;
   }
 
   .implant-p2-img-box {
@@ -3710,5 +3748,9 @@
     list-style: none;
     margin: 0 15px;
     margin: 10px auto;
+  }
+
+  .image img {
+    max-width: 80%;
   }
 }

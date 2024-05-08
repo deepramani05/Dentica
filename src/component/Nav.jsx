@@ -375,33 +375,49 @@ const Nav = () => {
               <div className="mobile-nav-menu-main">
                 <ul class="navigation-list">
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/" reloadDocument>
+                      Home
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/about">About</Link>
+                    <Link to="/about" reloadDocument>
+                      About
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/products">
+                    <Link to="/products" reloadDocument>
                       Products <i class="fa fa-chevron-down"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/digital-dentistry">Digital Dentistry</Link>
+                    <Link to="/digital-dentistry" reloadDocument>
+                      Digital Dentistry
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/blog">Blog</Link>
+                    <Link to="/blog" reloadDocument>
+                      Blog
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/carrier">Career</Link>
+                    <Link to="/carrier" reloadDocument>
+                      Career
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contact" reloadDocument>
+                      Contact
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/review">Review</Link>
+                    <Link to="/review" reloadDocument>
+                      Review
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/events">Events</Link>
+                    <Link to="/events" reloadDocument>
+                      Events
+                    </Link>
                   </li>
                 </ul>
                 <div className="mobile-view-nav-btn">
@@ -440,7 +456,9 @@ const Nav = () => {
                     </div>
                   </div>
 
-                  <Link to="/submit-stl-file">Submit STL File</Link>
+                  <Link to="/submit-stl-file" reloadDocument>
+                    Submit STL File
+                  </Link>
                 </div>
               </div>
               <div className="mobile-view-nav-data">
@@ -455,27 +473,39 @@ const Nav = () => {
                   </div>
                   <div className="mobile-view-nav-data-txt-link">
                     <p>
-                      <b>Contact :</b> <Link to="tel:+918530101701">+91 85301 01701</Link>
+                      <b>Contact :</b>{" "}
+                      <Link to="tel:+918530101701">+91 85301 01701</Link>
                     </p>
                     <p>
                       <b>Email :</b>
-                      <Link to="mailto:info@dentco.net">denticadentalstudio@gmail.com</Link>
+                      <Link to="mailto:info@dentco.net">
+                        denticadentalstudio@gmail.com
+                      </Link>
                     </p>
                   </div>
                 </div>
                 <div className="mobile-view-nav-data-icon">
                   <div>
-                    <Link to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio" target="_blank">
+                    <Link
+                      to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
+                      target="_blank"
+                    >
                       <img src={wp} alt="" />
                     </Link>
                   </div>
                   <div style={{ width: "40px" }}>
-                    <Link to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D" target="_blank">
+                    <Link
+                      to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
+                      target="_blank"
+                    >
                       <img src={insta} alt="" />
                     </Link>
                   </div>
                   <div>
-                    <Link to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL" target="_blank">
+                    <Link
+                      to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
+                      target="_blank"
+                    >
                       <img src={fb} alt="" />
                     </Link>
                   </div>
