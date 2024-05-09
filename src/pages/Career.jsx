@@ -44,7 +44,7 @@ const Career = () => {
       formDataToSend.append("file", formData.file);
 
       const response = await fetch(
-        "https://denticadentalstudio.com/api/career",
+        `https://denticadentalstudio.com/api/career/store`,
         {
           method: "POST",
           body: formDataToSend,
