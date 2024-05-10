@@ -62,7 +62,7 @@ const StlFile = () => {
                     <input
                       type="text"
                       placeholder="Name"
-                      name="name"
+                      name="fname"
                       onChange={(e) => setName(e.target.value)}
                       value={name}
                     />
@@ -72,12 +72,12 @@ const StlFile = () => {
                   </div>
                 </div>
                 <div className="home-msg-input-div">
-                  <p>Email</p>
+                  <p>Phone Number</p>
                   <div>
                     <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
+                      type="text"
+                      name="phone"
+                      placeholder="Phone Number"
                       onChange={(e) => setMail(e.target.value)}
                       value={mail}
                     />
