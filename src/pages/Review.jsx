@@ -54,6 +54,12 @@ const Review = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        setFormData({
+          name: "",
+          mobile_number: "",
+          review: "",
+          image: "",
+        });
       } else {
         console.log("Failed to submit");
         Swal.fire({

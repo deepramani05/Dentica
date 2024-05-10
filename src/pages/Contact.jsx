@@ -44,7 +44,7 @@ const Contact = () => {
       formDataSend.append("message", formData.message);
 
       const response = await fetch(
-        "https://denticadentalstudio.com/api/contactus",
+        "https://denticadentalstudio.com/api/contactus/store",
         {
           method: "POST",
           body: formDataSend,
@@ -55,10 +55,17 @@ const Contact = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Review Submitted successfully",
+          title: "Contact details added   successfully",
           showConfirmButton: false,
           timer: 1500,
         });
+        setFormData({
+          name: "",
+          email: "",
+          mobile_number: "",
+          subject: "",
+          message: "",
+        })
       } else {
         console.error("Something Went to Wrong!");
         Swal.fire({

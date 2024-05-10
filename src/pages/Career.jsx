@@ -56,9 +56,16 @@ const Career = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Review Submitted successfully",
+          title: "Data Submitted successfully",
           showConfirmButton: false,
           timer: 1500,
+        });
+        setFormData({
+          name: "",
+          email: "",
+          mobile_number: "",
+          subject: "",
+          file: "",
         });
       } else {
         console.log("Failed to submit application");
