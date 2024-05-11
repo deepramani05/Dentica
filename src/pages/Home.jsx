@@ -34,12 +34,43 @@ import { Link } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 
 const Home = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [productData, setProductData] = useState();
+  const [galleryData, setGalleryData] = useState();
+  const [reviewData, setReviewData] = useState();
+
 
   useEffect(() => {
     AOS.init();
+  }, []);
+  useEffect(() => {
+    axios.get("https://denticadentalstudio.com/api/product")
+      .then((res) => {
+        // console.log(res.data);
+        setProductData(res.data.data.product);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      axios.get("https://denticadentalstudio.com/api/gallery")
+      .then((res) => {
+        // console.log(res.data);
+        setGalleryData(res.data.data.gallery);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      // axios.get("https://denticadentalstudio.com/api/review")
+      // .then((res) => {
+      //   console.log(res.data);
+      //   setReviewData(res.data.data.review);
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      // });
+
   }, []);
 
   const handleNavClick = () => {
@@ -48,7 +79,7 @@ const Home = () => {
       behavior: "smooth",
     });
   };
-
+  console.log("productData", productData);
   return (
     <div className="home-main">
       <section
@@ -90,6 +121,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* about section started */}
       <section className="about-section">
         <div className="about-sub">
           <div className="about-p1">
@@ -213,6 +245,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Digital Dentristry Started */}
       <section className="home-dent-section">
         <div className="home-dent-main">
           <div className="home-dent-sub" style={{ overflow: "hidden" }}>
@@ -262,6 +295,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Product section started */}
       <section
         className="home-product-section"
         data-aos="fade-up"
@@ -286,7 +320,8 @@ const Home = () => {
                   modules={[Pagination]}
                   className="mySwiper"
                 >
-                  <SwiperSlide>
+                  {/* {productData.map((ele,id)=>
+                  <SwiperSlide key={id}>
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
                         <div className="home-product-slider-img-sub">
@@ -294,23 +329,21 @@ const Home = () => {
                             to="/products/implants"
                             onClick={handleNavClick}
                           >
-                            <img src={prod_slider1} alt="" />
+                            <img src={ele.header_image} alt="header_image" />
                           </Link>
                         </div>
                       </div>
                       <div className="home-product-slider-txt">
                         <Link to="/products/implants" onClick={handleNavClick}>
-                          <h1>Implants</h1>
+                          <h1>{ele.title}</h1>
                         </Link>
                         <p>
-                          With our state-of-the-art dental implants, open the
-                          door to a world of confident smiles. With the power
-                          and dependability you can rely on, restore your
-                          natural beauty and functionality.
+                          {ele.short_description}
                         </p>
                       </div>
                     </div>
                   </SwiperSlide>
+                  )} */}
                   <SwiperSlide>
                     <div className="home-product-slider-main">
                       <div className="home-product-slider-img-box">
