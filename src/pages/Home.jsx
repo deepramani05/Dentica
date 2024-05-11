@@ -93,24 +93,24 @@ const Home = () => {
       <section className="about-section">
         <div className="about-sub">
           <div className="about-p1">
-            <div
-              className="about-p1-txt"
-              data-aos="fade-left"
-              data-aos-duration="1000"
-            >
-              <div className="sec-title">
+            <div className="about-p1-txt">
+              <div
+                className="sec-title"
+                data-aos="fade-left"
+                data-aos-duration="2000"
+              >
                 <span className="sub-title">ABOUT LAB</span>
                 <h1>Discover the finest in dental lab products</h1>
               </div>
               <div className="sec-text">
-                <p>
+                <p data-aos="fade-left" data-aos-duration="2000">
                   We at Dentica Dental Studio are your partners in creating
                   amazing smiles and improving lives, not just another dental
                   lab. Our constant objective is to continually provide dental
                   restoration procedures that are above and beyond your
                   expectations.
                 </p>
-                <p>
+                <p data-aos="fade-left" data-aos-duration="2000">
                   We don't simply make crowns, bridges, dentures, or implants;
                   with a team of dedicated specialists at the helm and
                   cutting-edge technology at our disposal, we also carve
@@ -118,7 +118,7 @@ const Home = () => {
                   painstakingly constructed with the best materials available,
                   reflecting our unrelenting quest of excellence.
                 </p>
-                <p>
+                <p data-aos="fade-left" data-aos-duration="2000">
                   Our collaborative attitude is what really distinguishes
                   Dentica Dental Studio. Together with dental professionals, our
                   experts provide specialized treatments that are tailored to
@@ -127,14 +127,14 @@ const Home = () => {
                   beginning of the digital design process until the moment we
                   deliver.
                 </p>
-                <p>
+                <p data-aos="fade-left" data-aos-duration="2000">
                   At Dentica Dental Studio, we are proud of our artistic ability
                   as well as our craftsmanship. We give you the tools you need
                   to give your patients more than simply attractive,
                   self-assured smiles—we give them useful works of art that make
                   an impression.
                 </p>
-                <p>
+                <p data-aos="fade-left" data-aos-duration="2000">
                   Select Dentica Dental Studio to start a journey where dental
                   skill and creative innovation converge to produce genuinely
                   unique smiles.
@@ -174,25 +174,25 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="about-p2" data-aos="fade-up" data-aos-duration="1000">
+          <div className="about-p2" data-aos="fade-up" data-aos-duration="2000">
             <div className="about-p2-title">
               <h1>Why Choose Us</h1>
             </div>
             <div className="about-p2-txt">
-              <p>
+              <p data-aos="fade-up" data-aos-duration="1000">
                 Dentica Dental Studio, which provides everything from the
                 greatest restorations to customer service, serves the dental
                 sector brilliantly. We take great satisfaction in the
                 consistency we provide to each of our clients and their
                 patients.
               </p>
-              <p>
+              <p data-aos="fade-up" data-aos-duration="1000">
                 Given the value of your chair time, we are dedicated to
                 providing you with a flawless, long-lasting repair every time,
                 on schedule. You spend less time in your chair and have fewer
                 headaches with our hassle-free service.
               </p>
-              <p>
+              <p data-aos="fade-up" data-aos-duration="1000">
                 The medical professionals with whom we deal understand the value
                 of a reputable reputation and the advantages it may provide for
                 the growth and extension of their practice. We take pride in and
@@ -201,7 +201,7 @@ const Home = () => {
                 delighted patient, which has assisted our customers in
                 developing a famous reputation and practice.
               </p>
-              <p>
+              <p data-aos="fade-up" data-aos-duration="1000">
                 We are always striving to improve, and we enjoy receiving
                 feedback. By having strong business ties and open lines of
                 communication with our clients, we can continue to be
@@ -219,7 +219,7 @@ const Home = () => {
             <div
               className="dent-image-column"
               data-aos="fade-left"
-              data-aos-duration="1000"
+              data-aos-duration="3000"
             >
               <div className="dent-img-box">
                 <div className="dent-img-main">
@@ -229,25 +229,23 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div
-              className="dent-content-column"
-              data-aos="fade-right"
-              data-aos-duration="1000"
-            >
+            <div className="dent-content-column">
               <div className="dent-content-head">
                 <a href="">
-                  <h1>Digital Dentristry</h1>
+                  <h1 data-aos="fade-right" data-aos-duration="3000">
+                    Digital Dentristry
+                  </h1>
                 </a>
               </div>
               <div className="dent-content-txt">
-                <p>
+                <p data-aos="fade-right" data-aos-duration="3000">
                   Digital dentistry revolutionizes dental care through advanced
                   technologies, enabling precise diagnostics, treatment
                   planning, and patient communication.
                 </p>
               </div>
               <div className="dent-content-data">
-                <p>
+                <p data-aos="fade-right" data-aos-duration="3000">
                   Digital dentistry is the use of computer-aided design and
                   computer-aided manufacturing (CAD/CAM) to produce dental
                   prosthetics and devices. It encompasses a range of digital
@@ -267,7 +265,7 @@ const Home = () => {
       <section
         className="home-product-section"
         data-aos="fade-up"
-        data-aos-duration="1000"
+        data-aos-duration="3000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-product-main">
@@ -513,7 +511,7 @@ const Home = () => {
       <section
         className="home-gallery-section"
         data-aos="fade-up"
-        data-aos-duration="1000"
+        data-aos-duration="3000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-gallary-main">
@@ -662,7 +660,7 @@ const Home = () => {
       <section
         className="home-review-section"
         data-aos="fade-up"
-        data-aos-duration="1000"
+        data-aos-duration="3000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-review-main">
@@ -811,7 +809,7 @@ const Home = () => {
       <section
         className="home-msg-section"
         data-aos="fade-up"
-        data-aos-duration="1000"
+        data-aos-duration="3000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-msg-main">

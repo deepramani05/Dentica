@@ -258,6 +258,162 @@
   }
 }
 
+@media screen and (max-width: 1082px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .top-nav-loc p {
+    font-size: 15px;
+  }
+
+  .top-nav-email a {
+    font-size: 14px;
+  }
+
+  .top-nav-btn-sub a {
+    font-size: 11px;
+  }
+
+  .nav-menu-li a {
+    font-size: 11px;
+  }
+
+  .sec-title h1 {
+    font-size: 33px;
+  }
+
+  .sec-text p {
+    font-size: 10px;
+  }
+
+  .about-p2-title h1 {
+    font-size: 33px;
+  }
+
+  .about-p2-txt p {
+    font-size: 10px;
+  }
+
+  .dent-content-head a h1 {
+    font-size: 33px;
+  }
+
+  .dent-content-txt p {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .dent-content-data {
+    font-size: 10px;
+  }
+
+  .home-product-slider-txt h1 {
+    font-size: 20px;
+    line-height: 15px;
+  }
+
+  .home-product-slider-txt p {
+    font-size: 10px;
+    width: 95%;
+  }
+
+  span.home-product-sub-title {
+    font-size: 13px;
+  }
+
+  .home-product-head h1 {
+    font-size: 33px;
+    line-height: 40px;
+  }
+
+  .home-gallary-txt span {
+    font-size: 13px;
+  }
+
+  .home-gallary-head h1 {
+    font-size: 33px;
+  }
+
+  .home-review-head h3 {
+    font-size: 13px;
+  }
+
+  .home-review-head h1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .home-msg-head-txt span {
+    font-size: 13px;
+  }
+
+  .home-msg-sub h1 {
+    font-size: 33px;
+    line-height: 40px;
+  }
+
+  .home-msg-sub h1 br {
+    display: none;
+  }
+
+  .sec-title .sub-title {
+    font-size: 13px;
+  }
+
+  .product-content-txt a {
+    font-size: 23px;
+    line-height: 40px;
+  }
+
+  .product-content-p p {
+    font-size: 11px;
+    line-height: 20px;
+  }
+
+  .product-page-content-box {
+    height: 450px;
+  }
+
+  .benefit-p1-content-btn a {
+    font-size: 15px;
+  }
+
+  .benefits-data-p2-head {
+    margin: 10px 0;
+  }
+
+  .benefits-data-p2-head h1 {
+    line-height: 20px;
+  }
+
+  .benefits-data-p2-txt p {
+    font-size: 11px;
+  }
+
+  .career-page-form-head h1 {
+    font-size: 33px;
+  }
+
+  .career-page-form-head p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .career-page-form-head p br {
+    display: none;
+  }
+
+  .contact-page-touch-head-span span {
+    font-size: 13px;
+  }
+
+  .contact-page-touch-head h1 {
+    font-size: 33px;
+  }
+}
+
 @media screen and (max-width: 1028px) {
   * {
     margin: 0;
