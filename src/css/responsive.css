@@ -944,7 +944,7 @@
   .dental-show-content {
     grid-template-columns: auto auto;
     width: 96%;
-    gap: 20px;
+    gap: 7px;
     overflow: hidden;
     margin: 20px auto;
   }

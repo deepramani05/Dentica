@@ -91,7 +91,7 @@ const Dentalshow = () => {
               data-aos="fade-up"
               key={index}
               data-aos-duration="2000"
-              style={{ height: "272px",overflow:"hidden" }}
+              style={{ height: "272px",overflow:"hidden", margin: "10px" }}
             >
               <div className="dental-show-img dent-page-img"
                 style={{ height: "300px", position: "relative" }}
