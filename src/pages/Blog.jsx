@@ -1,15 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import blog_img from "../img/dent_page.png";
+import axios from "axios";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Blog = () => {
+  const [blogData, setBlogData] = useState()
 
   useEffect(() => {
     AOS.init();
   }, []);
+
+  useEffect(()=>{
+    axios.get("https://denticadentalstudio.com/api/blogs")
+    .then((res) => {
+      // console.log(res.data);
+      setBlogData(res.data.data.blog);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
 
   return (
     <div className="blog-page-main">
