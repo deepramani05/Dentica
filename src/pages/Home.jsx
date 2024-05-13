@@ -41,6 +41,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 SwiperCore.use([Autoplay, Pagination]);
 
@@ -48,11 +49,19 @@ const Home = () => {
   const [productData, setProductData] = useState();
   const [galleryData, setGalleryData] = useState();
   const [reviewData, setReviewData] = useState();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    mobile_number: '',
+    subject: '',
+    message: ''
+  });
 
   useEffect(() => {
     AOS.init();
   }, []);
   useEffect(() => {
+    // product api
     axios
       .get("https://denticadentalstudio.com/api/product")
       .then((res) => {
@@ -63,6 +72,7 @@ const Home = () => {
         console.log(err);
       });
 
+      // gallery api
     axios
       .get("https://denticadentalstudio.com/api/gallery")
       .then((res) => {
@@ -72,6 +82,13 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
+
+    axios
+     .get("https://denticadentalstudio.com/api/review")
+     .then((res)=> {
+      console.log(res.data);
+      setReviewData(res.data.data.review);
+     }) 
   }, []);
 
   const handleNavClick = () => {
@@ -80,8 +97,54 @@ const Home = () => {
       behavior: "smooth",
     });
   };
-  console.log("productData", productData);
-  console.log("galleryData", galleryData);
+  // console.log("productData", productData);
+  // console.log("galleryData", galleryData);
+
+  const handleChange =(e) =>{
+    const { name, value} = e.target;
+    setFormData({...formData, [name]: value});
+  };
+  const handleSubmit = async(e) =>{
+    e. preventDefault();
+
+    try{
+      const response = await fetch(`https://denticadentalstudio.com/api/contactus/store`,{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok){
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Added Successfully ! ",
+          showConfirmButton: false,
+          timer: 1000
+        })
+        setFormData({
+          name: '',
+          email: '',
+          mobile_number: '',
+          subject: '',
+          message: ''
+        });
+      } else{
+        console.log("something went to wrong");
+      }
+
+    }catch (error) {
+      console.error(error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error ! ",
+        showConfirmButton: false,
+        timer: 1000
+      });
+    }
+  }
   return (
     <div className="home-main">
       <section
@@ -349,6 +412,7 @@ const Home = () => {
                     ))}
                 </Swiper>
               </div>
+              {/* Product moblie view */}
               <div className="home-product-mobile">
                 <div className="home-product-mobile-sub">
                   <div className="home-product-mobile-content-box">
@@ -512,7 +576,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-
+              {/* gallery mobile view */}
             <div className="mobile-home-gallary-content">
               <div className="home-gallary-content-slider">
                 <Swiper
@@ -662,6 +726,7 @@ const Home = () => {
                   </SwiperSlide>
                 </Swiper>
               </div>
+              {/* review moblie view */}
               <div className="home-review-mobile-content-box">
                 <Swiper
                   slidesPerView={1}
@@ -750,12 +815,12 @@ const Home = () => {
               </h1>
             </div>
             <div className="home-msg-form-main">
-              <form className="home-msg-form">
+              <form className="home-msg-form" onSubmit={handleSubmit}>
                 <div className="home-msg-form-p1">
                   <div className="home-msg-input-div">
                     <p>Name</p>
                     <div>
-                      <input type="text" placeholder="Name" />
+                      <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
                       <span>
                         <FaUser />
                       </span>
@@ -764,7 +829,7 @@ const Home = () => {
                   <div className="home-msg-input-div">
                     <p>Email</p>
                     <div>
-                      <input type="text" placeholder="Email" />
+                      <input type="text" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
                       <span>
                         <MdEmail />
                       </span>
@@ -775,7 +840,7 @@ const Home = () => {
                   <div className="home-msg-input-div">
                     <p>Phone</p>
                     <div>
-                      <input type="text" placeholder="Phone" />
+                      <input type="text" name="mobile_number" value={formData.mobile_number} onChange={handleChange} placeholder="Phone" />
                       <span>
                         <FaPhone />
                       </span>
@@ -784,7 +849,7 @@ const Home = () => {
                   <div className="home-msg-input-div">
                     <p>Subject</p>
                     <div>
-                      <input type="text" placeholder="Subject" />
+                      <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Subject" />
                       <span>
                         <FaBook />
                       </span>
@@ -795,11 +860,9 @@ const Home = () => {
                   <div className="home-msg-input-div home-msg-txt-area">
                     <p>Message</p>
                     <div>
-                      <textarea id="" cols="30" rows="10" />
-                      <span>
-                        <FaTextWidth />
-                      </span>
-                    </div>
+                    <textarea name="message" value={formData.message} onChange={handleChange} id="" cols="30" rows="10" />
+                    <span><FaTextWidth /></span>
+                  </div>
                   </div>
                 </div>
                 <div className="home-msg-form-submit">
