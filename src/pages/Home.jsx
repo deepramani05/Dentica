@@ -24,53 +24,54 @@ import { FaTextWidth } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/swiper-bundle.css";
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore from 'swiper';
+import 'swiper/swiper-bundle.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+// import SwiperCore from "swiper";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 
+SwiperCore.use([Autoplay, Pagination]);
+
 const Home = () => {
   const [productData, setProductData] = useState();
   const [galleryData, setGalleryData] = useState();
   const [reviewData, setReviewData] = useState();
 
-
   useEffect(() => {
     AOS.init();
   }, []);
   useEffect(() => {
-    axios.get("https://denticadentalstudio.com/api/product")
+    axios
+      .get("https://denticadentalstudio.com/api/product")
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         setProductData(res.data.data.product);
       })
       .catch((err) => {
         console.log(err);
       });
-      axios.get("https://denticadentalstudio.com/api/gallery")
+
+    axios
+      .get("https://denticadentalstudio.com/api/gallery")
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         setGalleryData(res.data.data.gallery);
       })
       .catch((err) => {
         console.log(err);
       });
-      // axios.get("https://denticadentalstudio.com/api/review")
-      // .then((res) => {
-      //   console.log(res.data);
-      //   setReviewData(res.data.data.review);
-      // })
-      // .catch((err) => {
-      //   console.log(err);
-      // });
-
   }, []);
 
   const handleNavClick = () => {
@@ -80,6 +81,7 @@ const Home = () => {
     });
   };
   console.log("productData", productData);
+  console.log("galleryData", galleryData);
   return (
     <div className="home-main">
       <section
@@ -94,7 +96,7 @@ const Home = () => {
             <div
               className="banner-text-head"
               data-aos="fade-down"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
             >
               <h3>Smile Bright With</h3>
               <h1>Dentica Dental Studio</h1>
@@ -103,7 +105,7 @@ const Home = () => {
             <div
               className="banner-text-body"
               data-aos="fade-up"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
             >
               <p>
                 Enhance your smile with Dentica Dental Studio, where quality
@@ -252,7 +254,7 @@ const Home = () => {
             <div
               className="dent-image-column"
               data-aos="fade-left"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
             >
               <div className="dent-img-box">
                 <div className="dent-img-main">
@@ -265,20 +267,20 @@ const Home = () => {
             <div className="dent-content-column">
               <div className="dent-content-head">
                 <a href="">
-                  <h1 data-aos="fade-right" data-aos-duration="3000">
+                  <h1 data-aos="fade-right" data-aos-duration="2000">
                     Digital Dentristry
                   </h1>
                 </a>
               </div>
               <div className="dent-content-txt">
-                <p data-aos="fade-right" data-aos-duration="3000">
+                <p data-aos="fade-right" data-aos-duration="2000">
                   Digital dentistry revolutionizes dental care through advanced
                   technologies, enabling precise diagnostics, treatment
                   planning, and patient communication.
                 </p>
               </div>
               <div className="dent-content-data">
-                <p data-aos="fade-right" data-aos-duration="3000">
+                <p data-aos="fade-right" data-aos-duration="2000">
                   Digital dentistry is the use of computer-aided design and
                   computer-aided manufacturing (CAD/CAM) to produce dental
                   prosthetics and devices. It encompasses a range of digital
@@ -299,7 +301,7 @@ const Home = () => {
       <section
         className="home-product-section"
         data-aos="fade-up"
-        data-aos-duration="3000"
+        data-aos-duration="2000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-product-main">
@@ -316,131 +318,35 @@ const Home = () => {
                   pagination={{
                     clickable: true,
                   }}
-                  // navigation={true}
                   modules={[Pagination]}
                   className="mySwiper"
                 >
-                  {/* {productData.map((ele,id)=>
-                  <SwiperSlide key={id}>
-                    <div className="home-product-slider-main">
-                      <div className="home-product-slider-img-box">
-                        <div className="home-product-slider-img-sub">
-                          <Link
-                            to="/products/implants"
-                            onClick={handleNavClick}
-                          >
-                            <img src={ele.header_image} alt="header_image" />
-                          </Link>
+                  {productData &&
+                    productData.map((ele, id) => (
+                      <SwiperSlide key={id}>
+                        <div className="home-product-slider-main">
+                          <div className="home-product-slider-img-box">
+                            <div className="home-product-slider-img-sub">
+                              <Link
+                                to={`/products/${ele.slug}`}
+                                onClick={handleNavClick}
+                              >
+                                <img src={ele.header_image} alt={ele.title} />
+                              </Link>
+                            </div>
+                          </div>
+                          <div className="home-product-slider-txt">
+                            <Link
+                              to={`/products/${ele.slug}`}
+                              onClick={handleNavClick}
+                            >
+                              <h1>{ele.title}</h1>
+                            </Link>
+                            <p>{ele.short_description}</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="home-product-slider-txt">
-                        <Link to="/products/implants" onClick={handleNavClick}>
-                          <h1>{ele.title}</h1>
-                        </Link>
-                        <p>
-                          {ele.short_description}
-                        </p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  )} */}
-                  <SwiperSlide>
-                    <div className="home-product-slider-main">
-                      <div className="home-product-slider-img-box">
-                        <div className="home-product-slider-img-sub">
-                          <Link
-                            to="/products/lithium-disilicate"
-                            onClick={handleNavClick}
-                          >
-                            <img src={prod_slider2} alt="" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="home-product-slider-txt">
-                        <Link
-                          to="/products/lithium-disilicate"
-                          onClick={handleNavClick}
-                        >
-                          <h1>Lithium-Disilicate</h1>
-                        </Link>
-                        <p>
-                          Use our high-end lithium disilicate dental products to
-                          enhance the shine of your smile. Discover the ideal
-                          fusion of precision, beauty, and strength for your
-                          ideal smile.
-                        </p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-product-slider-main">
-                      <div className="home-product-slider-img-box">
-                        <div className="home-product-slider-img-sub">
-                          <Link to="/products/den-zir" onClick={handleNavClick}>
-                            <img src={prod_slider3} alt="" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="home-product-slider-txt">
-                        <Link to="/products/den-zir" onClick={handleNavClick}>
-                          <h1>Den-zir</h1>
-                        </Link>
-                        <p>
-                          With Den-Zir, explore the future of dental perfection.
-                          For smiles that truly shine, our cutting-edge Zirconia
-                          dental solutions combine sturdiness, beauty, and
-                          precision.
-                        </p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-product-slider-main">
-                      <div className="home-product-slider-img-box">
-                        <div className="home-product-slider-img-sub">
-                          <Link
-                            to="/products/dmls-pfm"
-                            onClick={handleNavClick}
-                          >
-                            <img src={prod_slider4} alt="" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="home-product-slider-txt">
-                        <Link to="/products/dmls-pfm" onClick={handleNavClick}>
-                          <h1>DMLS PFM</h1>
-                        </Link>
-                        <p>
-                          Introducing DMLS PFM: The Ultimate in Precision,
-                          Aesthetics, and Durability - Crafted to Perfection and
-                          Unveiled: The Future of Dental Excellence.
-                        </p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-product-slider-main">
-                      <div className="home-product-slider-img-box">
-                        <div className="home-product-slider-img-sub">
-                          <Link
-                            to="/products/removable"
-                            onClick={handleNavClick}
-                          >
-                            <img src={prod_slider5} alt="" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="home-product-slider-txt">
-                        <Link to="/products/removable" onClick={handleNavClick}>
-                          <h1>Removable</h1>
-                        </Link>
-                        <p>
-                          Experience the joy of removable orthodontics: Our
-                          products offer perfect comfort and confidence.
-                        </p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
+                      </SwiperSlide>
+                    ))}
                 </Swiper>
               </div>
               <div className="home-product-mobile">
@@ -541,10 +447,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Gallery section started */}
       <section
         className="home-gallery-section"
         data-aos="fade-up"
-        data-aos-duration="3000"
+        data-aos-duration="2000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-gallary-main">
@@ -569,58 +476,37 @@ const Home = () => {
                   pagination={{
                     dynamicBullets: true,
                   }}
-                  // navigation={true}
-                  modules={[Autoplay, Pagination, Navigation]}
                   className="mySwiper"
                 >
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider1} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider2} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider1} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider2} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider1} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider2} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider1} alt="" />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="home-gallary-swiper-sub">
-                      <img src={gal_slider2} alt="" />
-                    </div>
-                  </SwiperSlide>
+                  {galleryData?.map(
+                    (
+                      ele,
+                      index // Use optional chaining here
+                    ) => (
+                      <SwiperSlide key={index}>
+                        <div className="home-gallary-swiper-sub">
+                          <img src={ele.image} alt="" />
+                        </div>
+                      </SwiperSlide>
+                    )
+                  )}
+                  {/* Check if galleryData is not empty before adding the first slide again */}
+                  {galleryData?.length > 0 && ( // Use optional chaining here
+                    <SwiperSlide>
+                      <div className="home-gallary-swiper-sub">
+                        <img src={galleryData[0].image} alt="" />
+                      </div>
+                    </SwiperSlide>
+                  )}
                 </Swiper>
               </div>
               <div className="home-gallary-btn">
-                <Link to="/gallary" onClick={handleNavClick}>
+                <Link to="/gallery" onClick={handleNavClick}>
                   SEE MORE
                 </Link>
               </div>
             </div>
+
             <div className="mobile-home-gallary-content">
               <div className="home-gallary-content-slider">
                 <Swiper
@@ -690,10 +576,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Review section started */}
       <section
         className="home-review-section"
         data-aos="fade-up"
-        data-aos-duration="3000"
+        data-aos-duration="2000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-review-main">
@@ -839,10 +726,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Form section started */}
       <section
         className="home-msg-section"
         data-aos="fade-up"
-        data-aos-duration="3000"
+        data-aos-duration="2000"
         style={{ overflow: "hidden" }}
       >
         <div className="home-msg-main">
