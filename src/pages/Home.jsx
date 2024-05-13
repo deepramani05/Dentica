@@ -26,9 +26,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/swiper-bundle.css";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore from 'swiper';
-import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import "swiper/swiper-bundle.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -165,8 +165,8 @@ const Home = () => {
                   At Dentica Dental Studio, we are proud of our artistic ability
                   as well as our craftsmanship. We give you the tools you need
                   to give your patients more than simply attractive,
-                  self-assured smiles—we give them useful works of art that make
-                  an impression.
+                  self-assured smiles - we give them useful works of art that
+                  make an impression.
                 </p>
                 <p data-aos="fade-left" data-aos-duration="2000">
                   Select Dentica Dental Studio to start a journey where dental
@@ -476,28 +476,34 @@ const Home = () => {
                   pagination={{
                     dynamicBullets: true,
                   }}
+                  loopedSlides={galleryData?.length * 3} // Set loopedSlides to three times the total number of slides
                   className="mySwiper"
                 >
-                  {galleryData?.map(
-                    (
-                      ele,
-                      index // Use optional chaining here
-                    ) => (
-                      <SwiperSlide key={index}>
+                  {galleryData?.map((ele, index) => (
+                    <React.Fragment key={index}>
+                      <SwiperSlide>
                         <div className="home-gallary-swiper-sub">
                           <img src={ele.image} alt="" />
                         </div>
                       </SwiperSlide>
-                    )
-                  )}
-                  {/* Check if galleryData is not empty before adding the first slide again */}
-                  {galleryData?.length > 0 && ( // Use optional chaining here
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={galleryData[0].image} alt="" />
-                      </div>
-                    </SwiperSlide>
-                  )}
+                      <SwiperSlide>
+                        <div className="home-gallary-swiper-sub">
+                          <img
+                            src={
+                              galleryData[(index + 1) % galleryData.length]
+                                .image
+                            }
+                            alt=""
+                          />
+                        </div>
+                      </SwiperSlide>
+                      <SwiperSlide>
+                        <div className="home-gallary-swiper-sub">
+                          <img src={ele.image} alt="" />
+                        </div>
+                      </SwiperSlide>
+                    </React.Fragment>
+                  ))}
                 </Swiper>
               </div>
               <div className="home-gallary-btn">
