@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/style.css";
 import logo from "../img/Logo.png";
 import wp from "../img/whatsapp.png";
@@ -6,9 +6,25 @@ import fb from "../img/facebook.png";
 import insta from "../img/instagra.png";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Footer = () => {
   const [scrolled, setScrolled] = useState(false);
+
+  let [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://denticadentalstudio.com/api/product`)
+      .then((res) => {
+        console.log(res.data);
+        setProductData(res.data.data.product);
+        console.log(productData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleNavClick = () => {
     window.scrollTo({
@@ -25,21 +41,30 @@ const Footer = () => {
             <div className="main-footer-p1-content">
               <h1>Products</h1>
               <hr className="footer-hr" />
-              <Link to="/products/implants" onClick={handleNavClick}>
-                <p>Implants</p>
-              </Link>
-              <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
-                <p>Lithium-Disilicate</p>
-              </Link>
-              <Link to="/products/den-zir" onClick={handleNavClick}>
-                <p>Den-zir</p>
-              </Link>
-              <Link to="/products/dmls-pfm" onClick={handleNavClick}>
-                <p>DMLS PFM</p>
-              </Link>
-              <Link to="/products/removable" onClick={handleNavClick}>
-                <p>Removable</p>
-              </Link>
+              {productData
+                .filter((ele) => ele.product_type === 2)
+                .map((ele) => (
+                  <div className="footer-map-main">
+                    <Link to={`/product/${ele.slug}`} onClick={handleNavClick}>
+                      <p>{ele.title}</p>
+                    </Link>
+                    {/* <Link
+                  to="/products/lithium-disilicate"
+                  onClick={handleNavClick}
+                >
+                  <p>Lithium-Disilicate</p>
+                </Link>
+                <Link to="/products/den-zir" onClick={handleNavClick}>
+                  <p>Den-zir</p>
+                </Link>
+                <Link to="/products/dmls-pfm" onClick={handleNavClick}>
+                  <p>DMLS PFM</p>
+                </Link>
+                <Link to="/products/removable" onClick={handleNavClick}>
+                  <p>Removable</p>
+                </Link> */}
+                  </div>
+                ))}
             </div>
             <div className="main-footer-p1-content">
               <h1>Useful Links</h1>
@@ -112,17 +137,26 @@ const Footer = () => {
               </a>
             </div>
             <div className="footer-icon">
-              <a href="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL" target="_blank">
+              <a
+                href="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
+                target="_blank"
+              >
                 <p className="footer-icon-fb">
                   <img src={fb} alt="" />
                 </p>
               </a>
-              <a href="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D" target="_blank">
+              <a
+                href="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
+                target="_blank"
+              >
                 <p className="footer-icon-insta">
                   <img src={insta} alt="" />
                 </p>
               </a>
-              <a href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio" target="_blank">
+              <a
+                href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
+                target="_blank"
+              >
                 <p className="footer-icon-wp">
                   <img src={wp} alt="" />
                 </p>

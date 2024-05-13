@@ -97,8 +97,6 @@ const Home = () => {
       behavior: "smooth",
     });
   };
-  // console.log("productData", productData);
-  // console.log("galleryData", galleryData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -387,7 +385,9 @@ const Home = () => {
                   className="mySwiper"
                 >
                   {productData &&
-                    productData.map((ele, id) => (
+                    productData
+                    .filter((ele) => ele.product_type === 2)
+                    .map((ele, id) => (
                       <SwiperSlide key={id}>
                         <div className="home-product-slider-main">
                           <div className="home-product-slider-img-box">

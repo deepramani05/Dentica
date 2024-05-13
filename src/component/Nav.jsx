@@ -197,7 +197,7 @@ const Nav = () => {
               </li>
               <li className="nav-menu-li dropdown">
                 <Link
-                  to="/products"
+                  to="/product"
                   className="dropbtn"
                   onClick={handleNavClick}
                   title="Products"
@@ -212,7 +212,7 @@ const Nav = () => {
                       .map((ele) => (
                         <ul key={ele.slug}>
                           <Link
-                            to={`/products/${ele.slug}`}
+                            to={`/product/${ele.slug}`}
                             onClick={handleNavClick}
                             // title="Implants"
                           >
@@ -313,9 +313,8 @@ const Nav = () => {
                 <Link to="/about">About</Link>
               </li>
               <li className="nav-menu-li dropdown">
-                <Link to="/products" className="dropbtn">
+                <Link to="/product" className="dropbtn">
                   Products
-                  <IoIosArrowDown />
                 </Link>
               </li>
               <li className="nav-menu-li">
@@ -382,8 +381,8 @@ const Nav = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/products" reloadDocument>
-                      Products <i class="fa fa-chevron-down"></i>
+                    <Link to="/product" reloadDocument>
+                      Products
                     </Link>
                   </li>
                   <li>

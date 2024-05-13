@@ -18,29 +18,27 @@ const DigitalDentistry = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
-  const [productData, setProductData] = useState([])
+  const [productData, setProductData] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     axios
       .get("https://denticadentalstudio.com/api/product")
-      .then((res)=>{
+      .then((res) => {
         // console.log(res.data);
-        if(res.data && res.data.data && Array.isArray(res.data.data.product)){
+        if (res.data && res.data.data && Array.isArray(res.data.data.product)) {
           const filteredData = res.data.data.product.find(
-                    (item) => item.title === "Digital Dentristry"
-                  );
-                  if (filteredData){
-                    setProductData(filteredData.product_images);
-                  }
-                  
+            (item) => item.title === "Digital Dentristry"
+          );
+          if (filteredData) {
+            setProductData(filteredData.product_images);
+          }
         }
-        
       })
-      .catch((err)=>{
-        console.log(err)
-      })
-  },[]);
-  console.log("product",productData)
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log("product", productData);
   const openLightbox = (index) => {
     setSelectedImageIndex(index);
     setLightboxOpen(true);
@@ -79,77 +77,38 @@ const DigitalDentistry = () => {
             }}
             className="dent-page-image"
           >
-            <div className="inner-box">
+            <div className="inner-box" style={{ display: "flex" }}>
               {productData.map((image, imgIndex) => (
-                  <figure
-                    key = {imgIndex}
-                    className="image-box"
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
-                    style={{ transition: "all 1s ease-out 0s" }}
-                  >
-                <img
-                  src={image}
-                  style={{ height: "100%", width: "100%" }}
-                  alt={`Image ${imgIndex}`}
+                <figure
+                  key={imgIndex}
+                  className="image-box"
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                  style={{ transition: "all 1s ease-out 0s" }}
+                >
+                  <img
+                    src={image}
+                    style={{ height: "100%", width: "100%" }}
+                    alt={`Image ${imgIndex}`}
+                  />
+                  {hovered && (
+                    <div
+                      className="dent-overlay"
+                      onClick={() => openLightbox(0)}
+                    >
+                      <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
+                    </div>
+                  )}
+              {lightboxOpen && (
+                <Lightbox
+                  mainSrc={productData[selectedImageIndex]?.image}
+                  onCloseRequest={closeLightbox}
                 />
-                {hovered && (
-                  <div className="dent-overlay" onClick={() => openLightbox(0)}>
-                    <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
-                  </div>
-                )}
-              </figure>
-              
+              )}
+                </figure>
               ))}
-              {lightboxOpen && (
-                <Lightbox mainSrc={productData[selectedImageIndex]?.image} onCloseRequest={closeLightbox} />
-              )}
             </div>
-            {/* <div className="inner-box">
-              <figure
-                className="image-box"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-              >
-                <img
-                  src={dent_img}
-                  style={{ height: "100%", width: "100%" }}
-                  alt=""
-                />
-                {hovered && (
-                  <div className="dent-overlay" onClick={() => openLightbox(0)}>
-                    <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
-                  </div>
-                )}
-              </figure>
-              {lightboxOpen && (
-                <Lightbox mainSrc={dent_img} onCloseRequest={closeLightbox} />
-              )}
-            </div>
-            <div className="inner-box">
-              <figure
-                className="image-box"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                style={{transition:"all 1s ease-out 0s"}}
-              >
-                <img
-                  src={dent_img}
-                  style={{ height: "100%", width: "100%" }}
-                  alt=""
-                />
-                {hovered && (
-                  <div className="dent-overlay" onClick={() => openLightbox(0)}>
-                    <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
-                  </div>
-                )}
-              </figure>
-              {lightboxOpen && (
-                <Lightbox mainSrc={dent_img} onCloseRequest={closeLightbox} />
-              )}
-            </div> */}
           </div>
-
         </div>
       </div>
     </div>

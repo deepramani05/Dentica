@@ -1444,20 +1444,18 @@ textarea {
 
 .product-page-content-main {
   text-align: left;
-}
-
-.product-page-content-p1 {
   display: flex;
-  align-items: start;
-  justify-content: space-evenly;
-  margin: 0 15px;
-  padding-bottom: 20px;
   flex-wrap: wrap;
 }
 
-.product-page-content-box {
+.product-page-content-p1 {
+  margin: 0 15px;
+  padding-bottom: 20px;
   width: 30%;
-  height: 530px;
+}
+
+.product-page-content-box {
+  height: 470px;
   margin: 10px;
   background-color: #fff;
 }
@@ -1479,7 +1477,7 @@ textarea {
 .product-content-txt a {
   text-decoration: none;
   font-size: 25px;
-  line-height: 32px;
+  line-height: 40px;
   font-weight: 500;
   color: rgb(18, 68, 139);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -1487,8 +1485,8 @@ textarea {
 }
 
 .product-content-p p {
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 25px;
   font-weight: 400;
   color: rgb(124, 128, 131);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
