@@ -10,9 +10,26 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaEnvelope } from "react-icons/fa6";
 import $ from "jquery";
 import { IoClose } from "react-icons/io5";
+import axios from "axios";
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://denticadentalstudio.com/api/product`)
+      .then((res) => {
+        console.log(res.data);
+        setProductData(res.data); // Assuming res.data is an array
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(productData);
 
   useEffect(() => {
     const handleToggleNav = () => {
@@ -188,41 +205,17 @@ const Nav = () => {
                   <IoIosArrowDown />
                 </Link>
                 <div className="dropdown-content">
-                  <Link
-                    to="/products/implants"
-                    onClick={handleNavClick}
-                    title="Implants"
-                  >
-                    IMPLANTS{" "}
-                  </Link>
-                  <Link
-                    to="/products/lithium-disilicate"
-                    onClick={handleNavClick}
-                    title="Lithium-Disilicate"
-                  >
-                    Lithium-Disilicate
-                  </Link>
-                  <Link
-                    to="/products/den-zir"
-                    onClick={handleNavClick}
-                    title="Dez-zir"
-                  >
-                    Den-zir{" "}
-                  </Link>
-                  <Link
-                    to="/products/dmls-pfm"
-                    onClick={handleNavClick}
-                    title="DMLS PFM"
-                  >
-                    DMLS PFM{" "}
-                  </Link>
-                  <Link
-                    to="/products/removable"
-                    onClick={handleNavClick}
-                    title="Removable"
-                  >
-                    Removable{" "}
-                  </Link>
+                  {productData.map(({ slug, title }) => (
+                    <ul key={slug}>
+                      <Link
+                        to={`/products/${slug}`}
+                        onClick={handleNavClick}
+                        // title="Implants"
+                      >
+                        {title}
+                      </Link>
+                    </ul>
+                  ))}
                 </div>
               </li>
               <li className="nav-menu-li">
@@ -421,10 +414,6 @@ const Nav = () => {
                   </li>
                 </ul>
                 <div className="mobile-view-nav-btn">
-                  {/* <div className="mobile-view-nav-form-btn">
-                  <Link to="">Verify Warranty</Link>
-                </div> */}
-
                   <button id="btnOpenForm" className="mob-verify-pop">
                     Verify Warranty
                   </button>

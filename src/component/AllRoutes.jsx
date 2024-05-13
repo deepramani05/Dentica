@@ -45,7 +45,7 @@ const AllRoutes = () => {
         <Route path="/products/removable" element={<Removable />} />
 
         <Route
-          path="/blog/Top-5-benefits-of-digital-dentistry"
+          path="/blog/:slug"
           element={<Dentbenefit />}
         />
 
