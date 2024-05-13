@@ -15,21 +15,22 @@ import axios from "axios";
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
 
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState({});
+
+  // const dataArray = Object.values(productData);
 
   useEffect(() => {
     axios
       .get(`https://denticadentalstudio.com/api/product`)
       .then((res) => {
         console.log(res.data);
-        setProductData(res.data); // Assuming res.data is an array
+        setProductData(res.data.data.product);
+        console.log(productData);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
-  console.log(productData);
 
   useEffect(() => {
     const handleToggleNav = () => {
@@ -205,17 +206,20 @@ const Nav = () => {
                   <IoIosArrowDown />
                 </Link>
                 <div className="dropdown-content">
-                  {productData.map(({ slug, title }) => (
-                    <ul key={slug}>
-                      <Link
-                        to={`/products/${slug}`}
-                        onClick={handleNavClick}
-                        // title="Implants"
-                      >
-                        {title}
-                      </Link>
-                    </ul>
-                  ))}
+                  {Array.isArray(productData) &&
+                    productData
+                      .filter((ele) => ele.product_type === 2)
+                      .map((ele) => (
+                        <ul key={ele.slug}>
+                          <Link
+                            to={`/products/${ele.slug}`}
+                            onClick={handleNavClick}
+                            // title="Implants"
+                          >
+                            {ele.title}
+                          </Link>
+                        </ul>
+                      ))}
                 </div>
               </li>
               <li className="nav-menu-li">

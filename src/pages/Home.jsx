@@ -50,11 +50,11 @@ const Home = () => {
   const [galleryData, setGalleryData] = useState();
   const [reviewData, setReviewData] = useState();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile_number: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    mobile_number: "",
+    subject: "",
+    message: "",
   });
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const Home = () => {
         console.log(err);
       });
 
-      // gallery api
+    // gallery api
     axios
       .get("https://denticadentalstudio.com/api/gallery")
       .then((res) => {
@@ -83,13 +83,13 @@ const Home = () => {
         console.log(err);
       });
 
-    axios
-     .get("https://denticadentalstudio.com/api/review")
-     .then((res)=> {
+    axios.get("https://denticadentalstudio.com/api/review").then((res) => {
       console.log(res.data);
       setReviewData(res.data.data.review);
-     }) 
+    });
   }, []);
+
+  console.log(reviewData);
 
   const handleNavClick = () => {
     window.scrollTo({
@@ -100,51 +100,53 @@ const Home = () => {
   // console.log("productData", productData);
   // console.log("galleryData", galleryData);
 
-  const handleChange =(e) =>{
-    const { name, value} = e.target;
-    setFormData({...formData, [name]: value});
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
-  const handleSubmit = async(e) =>{
-    e. preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    try{
-      const response = await fetch(`https://denticadentalstudio.com/api/contactus/store`,{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      if (response.ok){
+    try {
+      const response = await fetch(
+        `https://denticadentalstudio.com/api/contactus/store`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (response.ok) {
         Swal.fire({
           position: "top-end",
           icon: "success",
           title: "Added Successfully ! ",
           showConfirmButton: false,
-          timer: 1000
-        })
-        setFormData({
-          name: '',
-          email: '',
-          mobile_number: '',
-          subject: '',
-          message: ''
+          timer: 1000,
         });
-      } else{
+        setFormData({
+          name: "",
+          email: "",
+          mobile_number: "",
+          subject: "",
+          message: "",
+        });
+      } else {
         console.log("something went to wrong");
       }
-
-    }catch (error) {
+    } catch (error) {
       console.error(error);
       Swal.fire({
         position: "top-end",
         icon: "error",
         title: "Error ! ",
         showConfirmButton: false,
-        timer: 1000
+        timer: 1000,
       });
     }
-  }
+  };
   return (
     <div className="home-main">
       <section
@@ -576,7 +578,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-              {/* gallery mobile view */}
+            {/* gallery mobile view */}
             <div className="mobile-home-gallary-content">
               <div className="home-gallary-content-slider">
                 <Swiper
@@ -651,7 +653,10 @@ const Home = () => {
         className="home-review-section"
         data-aos="fade-up"
         data-aos-duration="2000"
-        style={{ overflow: "hidden" }}
+        style={{
+          overflow: "hidden",
+          display: reviewData && reviewData.length > 0 ? "block" : "none",
+        }}
       >
         <div className="home-review-main">
           <div className="home-review-sub">
@@ -672,7 +677,58 @@ const Home = () => {
                   modules={[Autoplay, Pagination, Navigation]}
                   className="mySwiper"
                 >
-                  <SwiperSlide className="review-slider">
+                  {reviewData &&
+                    reviewData.map((ele, index) => (
+                      <React.Fragment key={index}>
+                        <SwiperSlide className="review-slider">
+                          <div className="home-review-content-inner">
+                            <div className="home-review-inner-head">
+                              <h1>{ele.review}</h1>
+                            </div>
+                            <div className="home-review-inner-content">
+                              <div className="home-review-inner-img">
+                                <img src={ele.image} alt={ele.name} />
+                              </div>
+                              <h1>{ele.name}</h1>
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide className="review-slider">
+                          <div className="home-review-content-inner">
+                            <div className="home-review-inner-head">
+                              <h1>{ele.review}</h1>
+                            </div>
+                            <div className="home-review-inner-content">
+                              <div className="home-review-inner-img">
+                                <img
+                                  src={
+                                    reviewData[(index + 1) % reviewData.length]
+                                      .image
+                                  }
+                                  alt=""
+                                />
+                              </div>
+                              <h1>{ele.name}</h1>
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide className="review-slider">
+                          <div className="home-review-content-inner">
+                            <div className="home-review-inner-head">
+                              <h1>{ele.review}</h1>
+                            </div>
+                            <div className="home-review-inner-content">
+                              <div className="home-review-inner-img">
+                                <img src={ele.image} alt={ele.name} />
+                              </div>
+                              <h1>{ele.name}</h1>
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                      </React.Fragment>
+                    ))}
+
+                  {/* <SwiperSlide className="review-slider">
                     <div className="home-review-content-inner">
                       <div className="home-review-inner-head">
                         <h1>Good Services !</h1>
@@ -710,20 +766,7 @@ const Home = () => {
                         <h1>Dr. YashpalSinh</h1>
                       </div>
                     </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="review-slider">
-                    <div className="home-review-content-inner">
-                      <div className="home-review-inner-head">
-                        <h1>Good Services !</h1>
-                      </div>
-                      <div className="home-review-inner-content">
-                        <div className="home-review-inner-img">
-                          <img src={review_img} alt="Review" />
-                        </div>
-                        <h1>Dr. YashpalSinh</h1>
-                      </div>
-                    </div>
-                  </SwiperSlide>
+                  </SwiperSlide> */}
                 </Swiper>
               </div>
               {/* review moblie view */}
@@ -820,7 +863,13 @@ const Home = () => {
                   <div className="home-msg-input-div">
                     <p>Name</p>
                     <div>
-                      <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Name"
+                      />
                       <span>
                         <FaUser />
                       </span>
@@ -829,7 +878,13 @@ const Home = () => {
                   <div className="home-msg-input-div">
                     <p>Email</p>
                     <div>
-                      <input type="text" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
+                      <input
+                        type="text"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email"
+                      />
                       <span>
                         <MdEmail />
                       </span>
@@ -840,7 +895,13 @@ const Home = () => {
                   <div className="home-msg-input-div">
                     <p>Phone</p>
                     <div>
-                      <input type="text" name="mobile_number" value={formData.mobile_number} onChange={handleChange} placeholder="Phone" />
+                      <input
+                        type="text"
+                        name="mobile_number"
+                        value={formData.mobile_number}
+                        onChange={handleChange}
+                        placeholder="Phone"
+                      />
                       <span>
                         <FaPhone />
                       </span>
@@ -849,7 +910,13 @@ const Home = () => {
                   <div className="home-msg-input-div">
                     <p>Subject</p>
                     <div>
-                      <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="Subject" />
+                      <input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        placeholder="Subject"
+                      />
                       <span>
                         <FaBook />
                       </span>
@@ -860,9 +927,18 @@ const Home = () => {
                   <div className="home-msg-input-div home-msg-txt-area">
                     <p>Message</p>
                     <div>
-                    <textarea name="message" value={formData.message} onChange={handleChange} id="" cols="30" rows="10" />
-                    <span><FaTextWidth /></span>
-                  </div>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        id=""
+                        cols="30"
+                        rows="10"
+                      />
+                      <span>
+                        <FaTextWidth />
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div className="home-msg-form-submit">
