@@ -28,7 +28,7 @@ const AllRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Products />} />
-        <Route path="/product/:slug" element={<SubProducts />} />
+        <Route path="/product/:id" element={<SubProducts />} />
         <Route path="/digital-dentistry" element={<DigitalDentistry />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/carrier" element={<Career />} />
@@ -37,14 +37,14 @@ const AllRoutes = () => {
         <Route path="/events" element={<Events />} />
         <Route path="/gallary" element={<Gallary />} />
 
-        {/* <Route path="/products/implants" element={<Implants />} />
+        <Route path="/product/implants" element={<Implants />} />
         <Route
-          path="/products/lithium-disilicate"
+          path="/product/lithium-disilicate"
           element={<LithiumDisilicate />}
         />
-        <Route path="/products/den-zir" element={<DenZir />} />
-        <Route path="/products/dmls-pfm" element={<DmlsPfm />} />
-        <Route path="/products/removable" element={<Removable />} /> */}
+        <Route path="/product/den-zir" element={<DenZir />} />
+        <Route path="/product/dmls-pfm" element={<DmlsPfm />} />
+        <Route path="/product/removable" element={<Removable />} />
 
         <Route
           path="/blog/:slug"

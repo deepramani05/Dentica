@@ -79,21 +79,21 @@ const Removable = () => {
               <h1>Our products</h1>
               <div className="implant-p1-link-sub">
                 <div className="implant-p1-link">
-                  <Link to="/products/lithium-disilicate" onClick={handleNavClick}>
+                  <Link to="/product/lithium-disilicate" onClick={handleNavClick}>
                     Lithium-Disilicate
                   </Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link re">
-                  <Link to="/products/removable" onClick={handleNavClick}>Removable</Link>
+                  <Link to="/product/removable" onClick={handleNavClick}>Removable</Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link">
-                  <Link to="/products/implants" onClick={handleNavClick}>Implants</Link>
+                  <Link to="/product/implants" onClick={handleNavClick}>Implants</Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link">
-                  <Link to="/products/den-zir" onClick={handleNavClick}>Den-zir</Link>
+                  <Link to="/product/den-zir" onClick={handleNavClick}>Den-zir</Link>
                 </div>
                 <hr />
                 <div className="implant-p1-link">

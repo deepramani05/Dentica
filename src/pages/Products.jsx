@@ -57,14 +57,14 @@ const Products = () => {
                   <div className="product-page-content-box">
                     <div className="product-content-img home-product-slider-img-sub">
                       <Link
-                        to={`/product/${ele.slug}`}
+                        to={`/product/${ele.id}`}
                         onClick={handleNavClick}
                       >
                         <img src={ele.image} alt={ele.title} />
                       </Link>
                     </div>
                     <div className="product-content-txt">
-                      <Link to={`/product/${ele.slug}`}>{ele.title}</Link>
+                      <Link to={`/product/${ele.id}`}>{ele.title}</Link>
                       <div className="product-content-p">
                         <p>{ele.short_description}</p>
                       </div>
