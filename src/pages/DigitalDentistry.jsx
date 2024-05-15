@@ -87,7 +87,29 @@ const DigitalDentistry = () => {
             </div>
           </div>
         </div>
-        <div className="dent-page-content">
+        <div className="dent-page-content"
+           style={{
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          <div
+             style={{
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage: `url(${dent_img})`,
+              backgroundSize: 'cover',
+              height: '100%vh',
+              backgroundPosition: 'center',
+              opacity: 0.5, // Adjust the opacity here
+              zIndex: -1
+            }}
+          >
+          </div>
           <div
             id="project-block-two"
             style={{
