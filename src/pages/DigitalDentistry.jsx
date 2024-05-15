@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import dent_img from "../img/dent_page.png";
+import dent_img from "../img/home_dentistery.jpg";
 import { FaMagnifyingGlassPlus } from "react-icons/fa6";
 import ModalImage from "react-modal-image";
 import Lightbox from "react-image-lightbox";
@@ -17,8 +17,9 @@ const DigitalDentistry = () => {
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [hovered, setHovered] = useState(false);
-  const [productData, setProductData] = useState([]);
+  // const [hovered, setHovered] = useState(false);
+  // const [productData, setProductData] = useState([]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     axios
@@ -30,7 +31,13 @@ const DigitalDentistry = () => {
             (item) => item.title === "Digital Dentristry"
           );
           if (filteredData) {
-            setProductData(filteredData.product_images);
+            const images = filteredData.product_images.map((src)=>({
+              src,
+              lightboxOpen:false,
+              hovered:false,
+            }))
+            setImages(images);
+            // setProductData(filteredData);
           }
         }
       })
@@ -38,13 +45,26 @@ const DigitalDentistry = () => {
         console.log(err);
       });
   }, []);
-  console.log("product", productData);
   const openLightbox = (index) => {
-    setSelectedImageIndex(index);
-    setLightboxOpen(true);
+    const updatedImages = [...images];
+    updatedImages[index].lightboxOpen = true;
+    setImages(updatedImages)
   };
-  const closeLightbox = () => {
-    setLightboxOpen(false);
+  const closeLightbox = (index) => {
+    const updatedImages =[...images];
+    updatedImages[selectedImageIndex].lightboxOpen = false;
+    setImages(updatedImages);
+  };
+  const handleMouseEnter = (index) =>{
+    const updatedImages = [...images];
+    updatedImages[index].hovered = true;
+    setImages(updatedImages);
+  }
+
+  const handleMouseLeave =(index) =>{
+    const updatedImages = [...images];
+    updatedImages[index].hovered = false;
+    setImages(updatedImages);
   };
 
   return (
@@ -78,31 +98,46 @@ const DigitalDentistry = () => {
             className="dent-page-image"
           >
             <div className="inner-box" style={{ display: "flex" }}>
-              {productData.map((image, imgIndex) => (
+              {images.map((image, imgIndex) => (
                 <figure
                   key={imgIndex}
                   className="image-box"
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
-                  style={{ transition: "all 1s ease-out 0s" }}
+                  onMouseEnter={() => handleMouseEnter(imgIndex)}
+                  onMouseLeave={() => handleMouseLeave(imgIndex)}
+                  style={{ transition: "all 1s ease-out 0s", margin:'1rem'}}
                 >
                   <img
-                    src={image}
+                    src={image.src}
                     style={{ height: "100%", width: "100%" }}
                     alt={`Image ${imgIndex}`}
+                    onClick={() => openLightbox(imgIndex)}
                   />
-                  {hovered && (
+                  {image.hovered && (
                     <div
                       className="dent-overlay"
-                      onClick={() => openLightbox(0)}
+                      onClick={() => openLightbox(imgIndex)}
                     >
                       <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
                     </div>
                   )}
-              {lightboxOpen && (
+                {image.lightboxOpen && (
                 <Lightbox
-                  mainSrc={productData[selectedImageIndex]?.image}
+                  mainSrc={images[selectedImageIndex].src}
                   onCloseRequest={closeLightbox}
+                  nextSrc={
+                    images[(selectedImageIndex + 1) % images.length].src
+                  }
+                  prevSrc={
+                    images[(selectedImageIndex  + images.length - 1) % images.length].src
+                  }
+                  onMovePrevRequest={() =>
+                    setSelectedImageIndex(
+                      (selectedImageIndex  + images.length - 1) % images.length
+                    )
+                  }
+                  onMoveNextRequest={() =>
+                    setSelectedImageIndex((selectedImageIndex + 1) % images.length)
+                  }
                 />
               )}
                 </figure>
