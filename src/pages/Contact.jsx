@@ -23,8 +23,12 @@ const Contact = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     AOS.init();
+
+    setLoading(false);
   }, []);
 
   const handleChange = (e) => {
@@ -65,7 +69,7 @@ const Contact = () => {
           mobile_number: "",
           subject: "",
           message: "",
-        })
+        });
       } else {
         console.error("Something Went to Wrong!");
         Swal.fire({
@@ -83,6 +87,14 @@ const Contact = () => {
 
   return (
     <div className="contact-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div className="contact-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">
@@ -120,7 +132,10 @@ const Contact = () => {
                       Varachha, Surat, Gujarat <br /> 395008
                     </p>
                     <h5 className="contact-icon-a">
-                      <Link href="https://goo.gl/maps/eZALb3jJmV5B3CSf7" target="_blank">
+                      <Link
+                        href="https://goo.gl/maps/eZALb3jJmV5B3CSf7"
+                        target="_blank"
+                      >
                         CHECK LOCATION
                         <span>
                           <FaLongArrowAltRight />

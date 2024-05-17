@@ -7,6 +7,8 @@ import axios from "axios";
 const Dentbenefit = () => {
   let [blogData, setBlogData] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios
       .post(`https://denticadentalstudio.com/api/show/blog`)
@@ -16,6 +18,10 @@ const Dentbenefit = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        // Set loading to false when fetching data completes
+        setLoading(false);
       });
   }, []);
 
@@ -23,6 +29,14 @@ const Dentbenefit = () => {
 
   return (
     <div className="benefit-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div className="benefit-sub">
         <div className="pages-banner">
           <div className="pages-banner-sub">
@@ -49,7 +63,7 @@ const Dentbenefit = () => {
                     <div className="benefit-p1-content-cat">
                       <h1>Categories</h1>
                       <Link>
-                        <span>  
+                        <span>
                           <FaArrowRight />
                         </span>
                         Latest Blog

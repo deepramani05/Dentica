@@ -5,6 +5,8 @@ import axios from "axios";
 const Products = () => {
   const [productData, setProductData] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios
       .get(`https://denticadentalstudio.com/api/product`)
@@ -15,6 +17,10 @@ const Products = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        // Set loading to false when fetching data completes
+        setLoading(false);
       });
   }, []);
 
@@ -27,6 +33,14 @@ const Products = () => {
 
   return (
     <div className="product-page-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div
         className="product-page-sub"
         data-aos="fade-up"
@@ -56,10 +70,7 @@ const Products = () => {
                 <div className="product-page-content-p1" key={ele.id}>
                   <div className="product-page-content-box">
                     <div className="product-content-img home-product-slider-img-sub">
-                      <Link
-                        to={`/product/${ele.id}`}
-                        onClick={handleNavClick}
-                      >
+                      <Link to={`/product/${ele.id}`} onClick={handleNavClick}>
                         <img src={ele.image} alt={ele.title} />
                       </Link>
                     </div>

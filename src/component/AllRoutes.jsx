@@ -31,13 +31,8 @@ const AllRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/review" element={<Review />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/events/:slug" element={<Dentalshow  />} />
         <Route path="/gallary" element={<Gallary />} />
-
-
-        <Route
-          path="/events/gujarat-dental-show-2024"
-          element={<Dentalshow />}
-        />
 
         <Route path="/submit-stl-file" element={<StlFile />} />
 

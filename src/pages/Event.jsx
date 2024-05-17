@@ -1,17 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import event_img from "../img/event_img.jpg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 
 const Event = () => {
+  const [loading, setLoading] = useState(true);
+
+  let [eventCat, setEventCat] = useState([]);
+
   useEffect(() => {
     AOS.init();
+
+    axios
+      .get(`https://denticadentalstudio.com/api/event_category`)
+      .then((res) => {
+        console.log(res.data.data.event_category);
+        setEventCat(res.data.data.event_category);
+        console.log(eventCat);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    setLoading(false);
   }, []);
 
   return (
     <div className="event-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div className="event-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">
@@ -26,19 +52,21 @@ const Event = () => {
             </div>
           </div>
         </div>
-        <div className="event-page-content-main">
-          <div className="blog-page-data-sub event-page-data-sub">
-            <div className="blog-page-data-img">
-              <img src={event_img} alt="" />
-            </div>
-            <div className="blog-page-content-main-txt">
-              <div className="blog-page-data-txt">
-                <Link to="/events/gujarat-dental-show-2024">
-                  <h1>Gujarat Dental Show 2024</h1>
-                </Link>
+        <div className="event-page-content-main" style={{display:"flex"}}>
+          {eventCat.map((ele) => (
+            <div className="blog-page-data-sub event-page-data-sub">
+              <div className="blog-page-data-img">
+                <img src={ele.image} alt="" />
+              </div>
+              <div className="blog-page-content-main-txt">
+                <div className="blog-page-data-txt">
+                  <Link to={`/events/${ele.slug}`}>
+                    <h1>{ele.name}</h1>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

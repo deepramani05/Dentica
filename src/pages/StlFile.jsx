@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaTextWidth } from "react-icons/fa";
@@ -11,6 +11,12 @@ const StlFile = () => {
   let [message, setMessage] = useState("");
   let [file, setFile] = useState("");
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formDataToSend = new FormData();
@@ -19,30 +25,38 @@ const StlFile = () => {
     formDataToSend.append("message", message);
     formDataToSend.append("file", file);
 
-    axios.post(`https://denticadentalstudio.com/api/stl/store`,formDataToSend)
-    .then((res) => {
-      console.log(res.data);
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Data Saved !",
-        showConfirmButton: false,
-        timer: 1000,
+    axios
+      .post(`https://denticadentalstudio.com/api/stl/store`, formDataToSend)
+      .then((res) => {
+        console.log(res.data);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Data Saved !",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    })
 
-    setName("")
-    setMail("")
-    setMessage("")
-    setFile("")
-
+    setName("");
+    setMail("");
+    setMessage("");
+    setFile("");
   };
 
   return (
     <div className="stl-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div className="stl-sub">
         <div className="home-msg-sub">
           <div className="home-msg-head">
@@ -96,7 +110,7 @@ const StlFile = () => {
                       cols="30"
                       rows="7"
                       placeholder="Your Message"
-                      name ="message"
+                      name="message"
                       onChange={(e) => setMessage(e.target.value)}
                       value={message}
                     />
@@ -112,7 +126,7 @@ const StlFile = () => {
                   <div>
                     <input
                       type="file"
-                      name = "file"
+                      name="file"
                       onChange={(e) => setFile(e.target.files[0])}
                       // value={file}
                     />

@@ -17,9 +17,9 @@ const DigitalDentistry = () => {
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  // const [hovered, setHovered] = useState(false);
-  // const [productData, setProductData] = useState([]);
   const [images, setImages] = useState([]);
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -31,11 +31,11 @@ const DigitalDentistry = () => {
             (item) => item.title === "Digital Dentristry"
           );
           if (filteredData) {
-            const images = filteredData.product_images.map((src)=>({
+            const images = filteredData.product_images.map((src) => ({
               src,
-              lightboxOpen:false,
-              hovered:false,
-            }))
+              lightboxOpen: false,
+              hovered: false,
+            }));
             setImages(images);
             // setProductData(filteredData);
           }
@@ -43,25 +43,29 @@ const DigitalDentistry = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        // Set loading to false when fetching data completes
+        setLoading(false);
       });
   }, []);
   const openLightbox = (index) => {
     const updatedImages = [...images];
     updatedImages[index].lightboxOpen = true;
-    setImages(updatedImages)
+    setImages(updatedImages);
   };
   const closeLightbox = (index) => {
-    const updatedImages =[...images];
+    const updatedImages = [...images];
     updatedImages[selectedImageIndex].lightboxOpen = false;
     setImages(updatedImages);
   };
-  const handleMouseEnter = (index) =>{
+  const handleMouseEnter = (index) => {
     const updatedImages = [...images];
     updatedImages[index].hovered = true;
     setImages(updatedImages);
-  }
+  };
 
-  const handleMouseLeave =(index) =>{
+  const handleMouseLeave = (index) => {
     const updatedImages = [...images];
     updatedImages[index].hovered = false;
     setImages(updatedImages);
@@ -69,6 +73,14 @@ const DigitalDentistry = () => {
 
   return (
     <div className="dent-page-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div
         className="dent-page-sub"
         data-aos="fade-up"
@@ -87,29 +99,29 @@ const DigitalDentistry = () => {
             </div>
           </div>
         </div>
-        <div className="dent-page-content"
-           style={{
-            position: 'relative',
-            overflow: 'hidden'
+        <div
+          className="dent-page-content"
+          style={{
+            position: "relative",
+            overflow: "hidden",
           }}
         >
           <div
-             style={{
+            style={{
               content: '""',
-              position: 'absolute',
+              position: "absolute",
               top: 0,
               left: 0,
               right: 0,
               bottom: 0,
               backgroundImage: `url(${dent_img})`,
-              backgroundSize: 'cover',
-              height: '100%vh',
-              backgroundPosition: 'center',
+              backgroundSize: "cover",
+              height: "100%vh",
+              backgroundPosition: "center",
               opacity: 0.5, // Adjust the opacity here
-              zIndex: -1
+              zIndex: -1,
             }}
-          >
-          </div>
+          ></div>
           <div
             id="project-block-two"
             style={{
@@ -126,7 +138,7 @@ const DigitalDentistry = () => {
                   className="image-box"
                   onMouseEnter={() => handleMouseEnter(imgIndex)}
                   onMouseLeave={() => handleMouseLeave(imgIndex)}
-                  style={{ transition: "all 1s ease-out 0s", margin:'1rem'}}
+                  style={{ transition: "all 1s ease-out 0s", margin: "1rem" }}
                 >
                   <img
                     src={image.src}
@@ -142,26 +154,32 @@ const DigitalDentistry = () => {
                       <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
                     </div>
                   )}
-                {image.lightboxOpen && (
-                <Lightbox
-                  mainSrc={images[selectedImageIndex].src}
-                  onCloseRequest={closeLightbox}
-                  nextSrc={
-                    images[(selectedImageIndex + 1) % images.length].src
-                  }
-                  prevSrc={
-                    images[(selectedImageIndex  + images.length - 1) % images.length].src
-                  }
-                  onMovePrevRequest={() =>
-                    setSelectedImageIndex(
-                      (selectedImageIndex  + images.length - 1) % images.length
-                    )
-                  }
-                  onMoveNextRequest={() =>
-                    setSelectedImageIndex((selectedImageIndex + 1) % images.length)
-                  }
-                />
-              )}
+                  {image.lightboxOpen && (
+                    <Lightbox
+                      mainSrc={images[selectedImageIndex].src}
+                      onCloseRequest={closeLightbox}
+                      nextSrc={
+                        images[(selectedImageIndex + 1) % images.length].src
+                      }
+                      prevSrc={
+                        images[
+                          (selectedImageIndex + images.length - 1) %
+                            images.length
+                        ].src
+                      }
+                      onMovePrevRequest={() =>
+                        setSelectedImageIndex(
+                          (selectedImageIndex + images.length - 1) %
+                            images.length
+                        )
+                      }
+                      onMoveNextRequest={() =>
+                        setSelectedImageIndex(
+                          (selectedImageIndex + 1) % images.length
+                        )
+                      }
+                    />
+                  )}
                 </figure>
               ))}
             </div>

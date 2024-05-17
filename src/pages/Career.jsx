@@ -18,8 +18,12 @@ const Career = () => {
     file: "",
   });
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     AOS.init();
+    
+    setLoading(false);
   }, []);
 
   const handleChange = (e) => {
@@ -83,6 +87,14 @@ const Career = () => {
   };
   return (
     <div className="career-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div className="career-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiFacebook } from "react-icons/ci";
 import { BsInstagram } from "react-icons/bs";
 import { FiPhone } from "react-icons/fi";
@@ -7,8 +7,23 @@ import { Link } from "react-router-dom";
 import dent_lg from "../img/dent-logo.png";
 
 const Socialmedia = () => {
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   return (
     <div>
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div className="sociallinks-main">
         <div className="sociallinks-sub">
           <div className="sociallinks-head-txt">

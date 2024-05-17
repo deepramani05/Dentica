@@ -23,8 +23,12 @@ import show14 from "../img/dent_show-14.jpg";
 import show15 from "../img/dent_show-15.jpg";
 
 const Dentalshow = () => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     AOS.init();
+
+    setLoading(false);
   }, []);
 
   const showImages = [
@@ -56,8 +60,8 @@ const Dentalshow = () => {
     setLightboxOpen(null);
   };
 
-  const handleMouseEnter = (index) =>{
-    setHovered(index)
+  const handleMouseEnter = (index) => {
+    setHovered(index);
   };
   const handleMouseLeave = () => {
     setHovered(null);
@@ -69,6 +73,14 @@ const Dentalshow = () => {
 
   return (
     <div className="dental-show-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div className="dental-show-sub">
         <div className="pages-banner">
           <div className="pages-banner-sub">
@@ -85,61 +97,66 @@ const Dentalshow = () => {
         </div>
         <div className="dental-show-content-main">
           <div className="dental-show-content">
-            { showImages.map((image, index) =>(
+            {showImages.map((image, index) => (
               <div
-              className="dental-show-content-box dental-show-content-box-1"
-              data-aos="fade-up"
-              key={index}
-              data-aos-duration="2000"
-              style={{ height: "272px",overflow:"hidden", margin: "10px" }}
-            >
-              <div className="dental-show-img dent-page-img"
-                style={{ height: "300px", position: "relative" }}
-                onClick={() => openLightbox(index)}
+                className="dental-show-content-box dental-show-content-box-1"
+                data-aos="fade-up"
+                key={index}
+                data-aos-duration="2000"
+                style={{ height: "272px", overflow: "hidden", margin: "10px" }}
               >
-                <div>
-                  <figure 
-                    onMouseEnter = {()=> handleMouseEnter(index)}
-                    onMouseLeave=  {()=>  handleMouseLeave()}
-                  >
-                    <img 
-                      src={image} 
-                      alt={`show ${index+1}`} 
-                      onClick={() => openLightbox(index)}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                      }}
-                    />
-                    
+                <div
+                  className="dental-show-img dent-page-img"
+                  style={{ height: "300px", position: "relative" }}
+                  onClick={() => openLightbox(index)}
+                >
+                  <div>
+                    <figure
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={() => handleMouseLeave()}
+                    >
+                      <img
+                        src={image}
+                        alt={`show ${index + 1}`}
+                        onClick={() => openLightbox(index)}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                        }}
+                      />
+
                       {hovered === index && (
                         <div className="dent-show-overlay">
                           <div className="zoom-icon">
                             <SlMagnifierAdd className="flaticon-zoom-icon" />
                           </div>
                         </div>
-                        )}
-                  </figure>
+                      )}
+                    </figure>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
           </div>
           {lightboxOpen !== null && (
-            <Lightbox 
+            <Lightbox
               mainSrc={showImages[lightboxOpen]}
-              nextSrc={showImages[(lightboxOpen  + 1) % showImages.length]}
+              nextSrc={showImages[(lightboxOpen + 1) % showImages.length]}
               prevSrc={
-                showImages[(lightboxOpen + showImages.length-1) % showImages.length]
+                showImages[
+                  (lightboxOpen + showImages.length - 1) % showImages.length
+                ]
               }
               onCloseRequest={closeLightbox}
-              onMovePrevRequest={()=>
-                setLightboxOpen((prev) => (prev + showImages.length - 1) % showImages.length)
+              onMovePrevRequest={() =>
+                setLightboxOpen(
+                  (prev) => (prev + showImages.length - 1) % showImages.length
+                )
               }
-              onMoveNextRequest={()=>
+              onMoveNextRequest={() =>
                 setLightboxOpen((prev) => (prev + 1) % showImages.length)
               }
               // imageTitle={`Image ${selectedImageIndex + 1}`}

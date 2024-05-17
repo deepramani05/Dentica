@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import box1 from "../img/thumb_box-1.png";
 import box2 from "../img/thumb_box-2.png";
@@ -9,12 +9,24 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const About = () => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     AOS.init();
+
+    setLoading(false);
   }, []);
 
   return (
     <div className="about-page-main">
+      {loading && (
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+          </div>
+        </div>
+      )}
       <div
         className="about-page-sub"
         data-aos="fade-up"
