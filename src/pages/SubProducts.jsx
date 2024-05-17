@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaMagnifyingGlassPlus } from "react-icons/fa6";
 import Lightbox from "react-image-lightbox";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 
@@ -11,7 +10,9 @@ const SubProducts = () => {
   const [productData, setProductData] = useState(null);
   const [bgImageLoaded, setBgImageLoaded] = useState(false);
   const { id } = useParams();
-  // console.log("id...........", id);
+
+  let [apdata, ApData] = useState([]);
+
   useEffect(() => {
     if (id) {
       axios
@@ -25,16 +26,27 @@ const SubProducts = () => {
             hovered: false,
           }));
           setImages(imageObjects);
-            const img = new Image();
-            img.src = data.background_image;
-            img.onload = () => {
-              setBgImageLoaded(true);
-            };
+          const img = new Image();
+          img.src = data.background_image;
+          img.onload = () => {
+            setBgImageLoaded(true);
+          };
         })
         .catch((err) => {
           console.error("Error fetching product data:", err);
         });
     }
+
+    axios
+      .get(`https://denticadentalstudio.com/api/product`)
+      .then((res) => {
+        console.log(res.data.data.product);
+        ApData(res.data.data.product);
+        console.log(apdata);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id]);
 
   const openLightbox = (index) => {
@@ -61,10 +73,6 @@ const SubProducts = () => {
     setImages(updatedImages);
   };
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
-
   const handleNavClick = () => {
     window.scrollTo({
       top: 0,
@@ -72,22 +80,35 @@ const SubProducts = () => {
     });
   };
 
-  if (!productData) {
-    return <div>Loading...</div>;
+  if (!productData || !apdata) {
+    return (
+      <div>
+        <div className="preloaderContainer">
+          <div className="preloaderBg">
+            <div className="preloader"></div>
+            <div className="preloader2"></div>
+            {/* <img src={logo} alt="Logo" className="loaderLogo" /> */}
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div>
       <div className="implant-main">
-        <div className="implant-sub" data-aos="fade-up" data-aos-duration="2000">
-          <div className="pages-banner implant-banner"
-                style={{
-                  backgroundImage: bgImageLoaded
-                    ? `url(${productData.background_image})`
-                    : `url(/path/to/low-res-placeholder.jpg)`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
+        <div
+          className="implant-sub"
+        >
+          <div
+            className="pages-banner implant-banner"
+            style={{
+              backgroundImage: bgImageLoaded
+                ? `url(${productData.background_image})`
+                : `url(/path/to/low-res-placeholder.jpg)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
             <div className="pages-banner-sub">
               <div className="pages-content-box implant-banner-box">
@@ -116,37 +137,21 @@ const SubProducts = () => {
               </div>
               <div className="implant-p1-link-main">
                 <h1>Our products</h1>
-                <div className="implant-p1-link-sub">
-                  <div className="implant-p1-link">
-                    <Link to="/product/lithium-disilicate" onClick={handleNavClick}>
-                      Lithium-Disilicate
-                    </Link>
-                  </div>
-                  <hr />
-                  <div className="implant-p1-link">
-                    <Link to="/product/removable" onClick={handleNavClick}>
-                      Removable
-                    </Link>
-                  </div>
-                  <hr />
-                  <div className="implant-p1-link im">
-                    <Link to="/product/implants" onClick={handleNavClick}>
-                      Implants
-                    </Link>
-                  </div>
-                  <hr />
-                  <div className="implant-p1-link">
-                    <Link to="/product/den-zir" onClick={handleNavClick}>
-                      Den-zir
-                    </Link>
-                  </div>
-                  <hr />
-                  <div className="implant-p1-link">
-                    <Link to="/product/dmls-pfm" onClick={handleNavClick}>
-                      DMLS PFM
-                    </Link>
-                  </div>
-                </div>
+                {apdata
+                  .filter((item) => item.product_type === 2)
+                  .map((ele) => (
+                    <div className="implant-p1-link-sub">
+                      <div className="implant-p1-link">
+                        <Link
+                          to={`/product/${ele.id}`}
+                          onClick={handleNavClick}
+                        >
+                          {ele.title}
+                        </Link>
+                      </div>
+                      <hr />
+                    </div>
+                  ))}
               </div>
             </div>
 
@@ -159,15 +164,30 @@ const SubProducts = () => {
                   <div className="implant-p2-img" key={index}>
                     <div className="implant-p2-img-box">
                       <div className="image-container">
-                        <figure onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)}>
-                          <img src={image.src} style={{ height: "100%", width: "100%" }} alt={`implant-${index}`} />
+                        <figure
+                          onMouseEnter={() => handleMouseEnter(index)}
+                          onMouseLeave={() => handleMouseLeave(index)}
+                        >
+                          <img
+                            src={image.src}
+                            style={{ height: "100%", width: "100%" }}
+                            alt={`implant-${index}`}
+                          />
                           {image.hovered && (
-                            <div className="dent-overlay" onClick={() => openLightbox(index)}>
+                            <div
+                              className="dent-overlay"
+                              onClick={() => openLightbox(index)}
+                            >
                               <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
                             </div>
                           )}
                         </figure>
-                        {image.lightboxOpen && <Lightbox mainSrc={image.src} onCloseRequest={() => closeLightbox(index)} />}
+                        {image.lightboxOpen && (
+                          <Lightbox
+                            mainSrc={image.src}
+                            onCloseRequest={() => closeLightbox(index)}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

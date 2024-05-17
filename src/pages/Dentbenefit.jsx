@@ -9,7 +9,7 @@ const Dentbenefit = () => {
 
   useEffect(() => {
     axios
-      .get("https://denticadentalstudio.com/api/blogs")
+      .post(`https://denticadentalstudio.com/api/show/blog`)
       .then((res) => {
         console.log(res.data);
         setBlogData(res.data.data.blog);
@@ -49,7 +49,7 @@ const Dentbenefit = () => {
                     <div className="benefit-p1-content-cat">
                       <h1>Categories</h1>
                       <Link>
-                        <span>
+                        <span>  
                           <FaArrowRight />
                         </span>
                         Latest Blog

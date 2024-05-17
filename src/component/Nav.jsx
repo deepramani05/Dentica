@@ -212,9 +212,8 @@ const Nav = () => {
                       .map((ele) => (
                         <ul key={ele.slug}>
                           <Link
-                            to={`/product/${ele.slug}`}
+                            to={`/product/${ele.id}`}
                             onClick={handleNavClick}
-                            // title="Implants"
                           >
                             {ele.title}
                           </Link>
