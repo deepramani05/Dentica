@@ -15,6 +15,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Contact = () => {
+  const [submitButton, setSubmitButton] = useState(true);
+  const [verified, setVerified] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,6 +33,19 @@ const Contact = () => {
     setLoading(false);
   }, []);
 
+  const excuteRecaptcha = async () =>{
+    return new Promise((resolve, reject)=>{
+      window.grecaptcha.ready(async ()=>{
+        try {
+          const token = await window.grecaptcha.execute('6Lc7q98pAAAAANTVtph_4Mg5Jyb1TJWcDrIHJDMS',{action: 'contact_form'})
+          resolve(token);
+        } catch(error){
+          reject(error);
+        }
+      });
+    });
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -40,12 +55,18 @@ const Contact = () => {
     console.log(formData);
     e.preventDefault();
     try {
+      if (!verified) {
+        console.error("Please complete the manual verification.");
+        return;
+      }
+      const token = await excuteRecaptcha();
       const formDataSend = new FormData();
       formDataSend.append("name", formData.name);
       formDataSend.append("email", formData.email);
       formDataSend.append("mobile_number", formData.mobile_number);
       formDataSend.append("subject", formData.subject);
       formDataSend.append("message", formData.message);
+      formDataSend.append("recaptcha_token", token);
 
       const response = await fetch(
         "https://denticadentalstudio.com/api/contactus/store",
@@ -81,9 +102,18 @@ const Contact = () => {
         });
       }
     } catch (error) {
-      console.error("Network error: ", error);
+      console.error("reCAPTCHA error: ", error);
     }
   };
+ useEffect(()=>{
+  const enableSubmitButton = async () =>{
+    const token = await excuteRecaptcha();
+    if(token){
+      setSubmitButton(false);
+    }
+  };
+   enableSubmitButton();
+ }, []);
 
   return (
     <div className="contact-main">
@@ -107,6 +137,7 @@ const Contact = () => {
                 <li>Contact</li>
               </ul>
             </div>
+
           </div>
         </div>
         <div className="contact-page-data-main">
@@ -294,8 +325,17 @@ const Contact = () => {
                         </div>
                       </div>
                     </div>
+                    <input
+                      type="checkbox"
+                      checked={verified}
+                      onChange={(e) => setVerified(e.target.checked)}
+                      style={{ marginRight: '5px' }}
+                    />
+                    <label htmlFor="verified" style={{ fontSize: '16px', fontFamily: 'Arial', color: '#333' }}>
+                      I am not a robot
+                    </label>
                     <div className="home-msg-form-submit">
-                      <input type="submit" value="SEND MESSAGE" />
+                      <input type="submit" value="SEND MESSAGE" disabled={submitButton}/>
                     </div>
                   </form>
                 </div>
