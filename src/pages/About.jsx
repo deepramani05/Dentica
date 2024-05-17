@@ -7,6 +7,7 @@ import about_center from "../img/home_about-center.png";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 
 const About = () => {
   const [loading, setLoading] = useState(true);
@@ -14,7 +15,17 @@ const About = () => {
   useEffect(() => {
     AOS.init();
 
-    setLoading(false);
+    axios
+      .get(`https://denticadentalstudio.com/api/abouts`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (

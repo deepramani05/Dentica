@@ -23,9 +23,10 @@ const Event = () => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-
-    setLoading(false);
   }, []);
 
   return (
@@ -52,7 +53,7 @@ const Event = () => {
             </div>
           </div>
         </div>
-        <div className="event-page-content-main" style={{display:"flex"}}>
+        <div className="event-page-content-main" style={{ display: "flex" }}>
           {eventCat.map((ele) => (
             <div className="blog-page-data-sub event-page-data-sub">
               <div className="blog-page-data-img">
