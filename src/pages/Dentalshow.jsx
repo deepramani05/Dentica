@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import { SlMagnifierAdd } from "react-icons/sl";
@@ -11,21 +11,23 @@ const Dentalshow = () => {
   const [lightboxOpen, setLightboxOpen] = useState(null);
   const [hovered, setHovered] = useState(null);
 
+  let { slug } = useParams();
+
   useEffect(() => {
     axios
       .get(`https://denticadentalstudio.com/api/event`)
       .then((res) => {
         console.log(res.data.data.event);
-        // Filter the data where category_id is 1
+        // Filter the data where dimension is 0
         const filteredEventData = res.data.data.event.filter(
           (item) => item.dimension === 0
         );
-        setEventData(filteredEventData)
-        console.log(eventData);
-        setLoading(false);
+        setEventData(filteredEventData);
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, []);
@@ -72,47 +74,49 @@ const Dentalshow = () => {
         </div>
         <div className="dental-show-content-main">
           <div className="dental-show-content">
-            {eventData.map((event, index) => (
-              <div
-                className="dental-show-content-box dental-show-content-box-1"
-                key={event.id}
-                style={{
-                  height: "272px",
-                  overflow: "hidden",
-                  margin: "10px",
-                }}
-              >
+            {eventData
+              .filter((ele) => ele.category_id === slug) // Filter out items with category_id other than "demo"
+              .map((ele, index) => (
                 <div
-                  className="dental-show-img dent-page-img"
-                  style={{ height: "300px", position: "relative" }}
-                  onClick={() => openLightbox(index)}
+                  className="dental-show-content-box dental-show-content-box-1"
+                  key={ele.id}
+                  style={{
+                    height: "272px",
+                    overflow: "hidden",
+                    margin: "10px",
+                  }}
                 >
-                  <figure
-                    onMouseEnter={() => handleMouseEnter(index)}
-                    onMouseLeave={() => handleMouseLeave()}
+                  <div
+                    className="dental-show-img dent-page-img"
+                    style={{ height: "300px", position: "relative" }}
+                    onClick={() => openLightbox(index)}
                   >
-                    <img
-                      src={event.image}
-                      alt={`show ${event.id}`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                      }}
-                    />
-                    {hovered === index && (
-                      <div className="dent-show-overlay">
-                        <div className="zoom-icon">
-                          <SlMagnifierAdd className="flaticon-zoom-icon" />
+                    <figure
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={() => handleMouseLeave()}
+                    >
+                      <img
+                        src={ele.image}
+                        alt={ele.category_id}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                        }}
+                      />
+                      {hovered === index && (
+                        <div className="dent-show-overlay">
+                          <div className="zoom-icon">
+                            <SlMagnifierAdd className="flaticon-zoom-icon" />
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </figure>
+                      )}
+                    </figure>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
           {lightboxOpen !== null && (
