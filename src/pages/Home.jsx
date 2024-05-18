@@ -637,46 +637,33 @@ const Home = () => {
                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                   >
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider1} alt="" />
+                    {galleryData?.map((ele, index) => (
+                      <div>
+                        <React.Fragment key={index}>
+                          <SwiperSlide>
+                            <div className="home-gallary-swiper-sub">
+                              <img src={ele.image} alt="" />
+                            </div>
+                          </SwiperSlide>
+                          <SwiperSlide>
+                            <div className="home-gallary-swiper-sub">
+                              <img
+                                src={
+                                  galleryData[(index + 1) % galleryData.length]
+                                    .image
+                                }
+                                alt=""
+                              />
+                            </div>
+                          </SwiperSlide>
+                          <SwiperSlide>
+                            <div className="home-gallary-swiper-sub">
+                              <img src={ele.image} alt="" />
+                            </div>
+                          </SwiperSlide>
+                        </React.Fragment>
                       </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider2} alt="" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider1} alt="" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider2} alt="" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider1} alt="" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider2} alt="" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider1} alt="" />
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="home-gallary-swiper-sub">
-                        <img src={gal_slider2} alt="" />
-                      </div>
-                    </SwiperSlide>
+                    ))}
                   </Swiper>
                 </div>
                 <div className="home-gallary-btn">

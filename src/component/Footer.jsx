@@ -45,24 +45,9 @@ const Footer = () => {
                 .filter((ele) => ele.product_type === 2)
                 .map((ele) => (
                   <div className="footer-map-main">
-                    <Link to={`/product/${ele.slug}`} onClick={handleNavClick}>
+                    <Link to={`/product/${ele.id}`} onClick={handleNavClick}>
                       <p>{ele.title}</p>
                     </Link>
-                    {/* <Link
-                  to="/products/lithium-disilicate"
-                  onClick={handleNavClick}
-                >
-                  <p>Lithium-Disilicate</p>
-                </Link>
-                <Link to="/products/den-zir" onClick={handleNavClick}>
-                  <p>Den-zir</p>
-                </Link>
-                <Link to="/products/dmls-pfm" onClick={handleNavClick}>
-                  <p>DMLS PFM</p>
-                </Link>
-                <Link to="/products/removable" onClick={handleNavClick}>
-                  <p>Removable</p>
-                </Link> */}
                   </div>
                 ))}
             </div>

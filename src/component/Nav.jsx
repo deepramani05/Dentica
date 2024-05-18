@@ -280,19 +280,19 @@ const Nav = () => {
             <div className="nav-contact-main">
               <div className="nav-contact-icon">
                 <div className="nav-contact-img nav-wp">
-                  <a href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio">
+                  <Link to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio" target="_blank">
                     <img src={wp} alt="" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="nav-contact-img nav-insta">
-                  <a href="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D">
+                  <Link to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D" target="_blank">
                     <img src={insta} alt="" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="nav-contact-img nav-fb">
-                  <a href="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL">
+                  <Link to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL" target="_blank">
                     <img src={fb} alt="" />
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="nav-contact-phone">
