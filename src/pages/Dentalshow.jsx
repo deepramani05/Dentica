@@ -20,9 +20,10 @@ const Dentalshow = () => {
         console.log(res.data.data.event);
         // Filter the data where dimension is 0
         const filteredEventData = res.data.data.event.filter(
-          (item) => item.dimension === 0
+          (item) => item.category_id === slug
         );
         setEventData(filteredEventData);
+        console.log(eventData);
       })
       .catch((err) => {
         console.log(err);
@@ -137,6 +138,16 @@ const Dentalshow = () => {
               onMoveNextRequest={() =>
                 setLightboxOpen((prev) => (prev + 1) % eventData.length)
               }
+              imageTitle={eventData[lightboxOpen].category_id} // Add image title
+              imageCaption={eventData[lightboxOpen].description} // Add image caption
+              imagePadding={100} // Adjust image padding as per your requirement
+              enableZoom={true} // Enable zoom
+              reactModalStyle={{
+                // Style for lightbox modal
+                overlay: {
+                  zIndex: 9999,
+                },
+              }}
             />
           )}
         </div>

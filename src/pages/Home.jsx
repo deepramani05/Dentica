@@ -49,7 +49,7 @@ const Home = () => {
   const [galleryData, setGalleryData] = useState();
   const [reviewData, setReviewData] = useState();
 
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -62,6 +62,7 @@ const Home = () => {
   useEffect(() => {
     AOS.init();
   }, []);
+
   useEffect(() => {
     // product api
     axios
