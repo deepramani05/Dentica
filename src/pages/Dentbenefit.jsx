@@ -11,7 +11,7 @@ const Dentbenefit = () => {
 
   useEffect(() => {
     axios
-      .post(`https://denticadentalstudio.com/api/show/blog`)
+      .get(`https://denticadentalstudio.com/api/blogs`)
       .then((res) => {
         console.log(res.data);
         setBlogData(res.data.data.blog);
