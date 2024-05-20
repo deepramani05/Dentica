@@ -1,38 +1,58 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "react-image-lightbox/style.css";
-import gallary1 from "../img/home_gallary-1.jpg";
-import gallary2 from "../img/home-gallary-2.jpg";
 import Lightbox from "react-image-lightbox";
 import { SlMagnifierAdd } from "react-icons/sl";
+import axios from "axios";
 
 const Gallary = () => {
-  const categories = ["All", "BeforeAfter", "Product"];
-
+  const [galleryData, setGalleryData] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
-  const initialImages = {
-    All: [
-      { src: gallary1, lightboxOpen: false },
-      { src: gallary2, lightboxOpen: false },
-    ],
-    BeforeAfter: [{ src: gallary2, lightboxOpen: false }],
-    Product: [{ src: gallary1, lightboxOpen: false }],
-  };
-
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [images, setImages] = useState(initialImages[selectedCategory]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [images, setImages] = useState([]);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
 
+  useEffect(() => {
+    axios
+      .get(`https://denticadentalstudio.com/api/gallery`)
+      .then((res) => {
+        console.log(res.data.data.gallery);
+        setGalleryData(res.data.data.gallery);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (galleryData.length > 0) {
+      const categories = [...new Set(galleryData.map((item) => item.category))];
+      setCategories(["All", ...categories]);
+      setSelectedCategory("All");
+      setImages(
+        galleryData.map((item) => ({ src: item.image, lightboxOpen: false }))
+      );
+    }
+  }, [galleryData]);
+
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    setImages(initialImages[category]);
+    if (category === "All") {
+      setImages(
+        galleryData.map((item) => ({ src: item.image, lightboxOpen: false }))
+      );
+    } else {
+      setImages(
+        galleryData
+          .filter((item) => item.category === category)
+          .map((item) => ({ src: item.image, lightboxOpen: false }))
+      );
+    }
   };
 
   const openLightbox = (index) => {
@@ -99,6 +119,8 @@ const Gallary = () => {
                   <button
                     key={category}
                     onClick={() => handleCategoryChange(category)}
+                    className={selectedCategory === category ? "active" : ""}
+                    style={{cursor:"pointer"}}
                   >
                     {category}
                   </button>
@@ -113,17 +135,9 @@ const Gallary = () => {
                     onClick={() => openLightbox(index)}
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={() => handleMouseLeave()}
-                    style={{ position: "relative" }}
+                    style={{ position: "relative",cursor:"pointer" }}
                   >
                     <img src={image.src} alt={selectedCategory} />
-                    {hovered === index && (
-                      <div
-                        className="zoom-icon"
-                        onClick={(event) => handleIconClick(event, index)}
-                      >
-                        <SlMagnifierAdd />
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>

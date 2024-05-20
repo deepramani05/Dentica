@@ -32,7 +32,7 @@ const AllRoutes = () => {
         <Route path="/review" element={<Review />} />
         <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<Dentalshow  />} />
-        <Route path="/gallary" element={<Gallary />} />
+        <Route path="/gallery" element={<Gallary />} />
 
         <Route path="/submit-stl-file" element={<StlFile />} />
 

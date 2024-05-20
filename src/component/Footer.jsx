@@ -83,7 +83,7 @@ const Footer = () => {
               <Link to="/contact" onClick={handleNavClick}>
                 <p>Contact</p>
               </Link>
-              <Link to="/gallary" onClick={handleNavClick}>
+              <Link to="/gallery" onClick={handleNavClick}>
                 <p>Gallery</p>
               </Link>
               <Link to="/digital-dentistry" onClick={handleNavClick}>
