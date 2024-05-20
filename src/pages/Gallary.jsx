@@ -120,7 +120,7 @@ const Gallary = () => {
                     key={category}
                     onClick={() => handleCategoryChange(category)}
                     className={selectedCategory === category ? "active" : ""}
-                    style={{cursor:"pointer"}}
+                    style={{ cursor: "pointer" }}
                   >
                     {category}
                   </button>
@@ -135,7 +135,7 @@ const Gallary = () => {
                     onClick={() => openLightbox(index)}
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={() => handleMouseLeave()}
-                    style={{ position: "relative",cursor:"pointer" }}
+                    style={{ position: "relative", cursor: "pointer" }}
                   >
                     <img src={image.src} alt={selectedCategory} />
                   </div>
