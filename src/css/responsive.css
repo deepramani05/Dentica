@@ -71,12 +71,13 @@
 
   figure.image {
     top: 0;
+    left: 20%;
   }
 
   .text {
     top: 0;
     right: 0;
-    left: 100px;
+    left: 0;
   }
 
   .about-p2-title h1 {
@@ -3478,7 +3479,7 @@
   }
 
   .image-box {
-    margin-right: 0px;
+    margin: 10px 0px !important;
     width: 100%;
   }
 
@@ -3878,5 +3879,13 @@
 
   .image img {
     max-width: 80%;
+  }
+
+  .inner-box {
+    flex-direction: column;
+  }
+
+  .product-page-content-p1 {
+    width: 100%;
   }
 }

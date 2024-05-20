@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import benefit_img from "../img/dent_page.png";
 import { FaArrowRight } from "react-icons/fa";
 import axios from "axios";
 
 const Dentbenefit = () => {
-  let [blogData, setBlogData] = useState([]);
-
+  const [blogData, setBlogData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { id } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     axios
-      .get(`https://denticadentalstudio.com/api/blogs`)
+      .post(`https://denticadentalstudio.com/api/show/blog`, { id })
       .then((res) => {
         console.log(res.data);
         setBlogData(res.data.data.blog);
@@ -20,12 +21,9 @@ const Dentbenefit = () => {
         console.log(err);
       })
       .finally(() => {
-        // Set loading to false when fetching data completes
         setLoading(false);
       });
-  }, []);
-
-  console.log(blogData);
+  }, [id]);
 
   return (
     <div className="benefit-main">
@@ -51,75 +49,60 @@ const Dentbenefit = () => {
             </div>
           </div>
         </div>
-        <div className="blog-map-main">
-          {blogData &&
-            blogData.map((ele) => (
-              <div className="benefit-data-main">
-                <div className="benefits-data-p1">
-                  <div className="benefit-p1-img">
-                    <img src={ele.image} alt="" />
+        {blogData && (
+          <div className="blog-map-main">
+            <div className="benefit-data-main">
+              <div className="benefits-data-p1">
+                <div className="benefit-p1-img">
+                  <img src={blogData.image} alt="" />
+                </div>
+                <div className="benefit-p1-content">
+                  <div className="benefit-p1-content-cat">
+                    <h1>Categories</h1>
+                    <Link to="#">
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                      Latest Blog
+                    </Link>
                   </div>
-                  <div className="benefit-p1-content">
-                    <div className="benefit-p1-content-cat">
-                      <h1>Categories</h1>
-                      <Link>
-                        <span>
-                          <FaArrowRight />
-                        </span>
-                        Latest Blog
-                      </Link>
-                    </div>
-                    <div className="benefit-p1-content-btn-main">
-                      <h1>Tags :</h1>
-                      <div className="benefit-p1-content-btn">
-                        <div>
-                          <Link to="/blog/Top-5-benefits-of-digital-dentistry">
-                            Top 5 benefits of digital dentistry
-                          </Link>
-                          <br />
-                        </div>
-                        <div>
-                          <Link to="/blog/Top-5-benefits-of-digital-dentistry">
-                            Digital Dentristry
-                          </Link>
-                        </div>
-                        <div>
-                          <Link to="/blog/Top-5-benefits-of-digital-dentistry">
-                            Digital Dentristry
-                          </Link>
-                          <Link to="/blog/Top-5-benefits-of-digital-dentistry">
-                            PFM
-                          </Link>
-                          <Link to="/blog/Top-5-benefits-of-digital-dentistry">
-                            Den-zir
-                          </Link>
-                        </div>
+                  <div className="benefit-p1-content-btn-main">
+                    <h1>Tags :</h1>
+                    <div className="benefit-p1-content-btn">
+                      <div style={{ display: "flex", flexWrap: "wrap" }}>
+                        {blogData.meta_tag &&
+                          blogData.meta_tag.map((tag, index) => (
+                            <Link to="#" key={index} style={{ margin: "5px" }}>
+                              <p>{tag}</p>
+                            </Link>
+                          ))}
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="benefits-data-p2">
-                  <div className="benefits-data-p2-head">
-                    <h1>{ele.meta_title}</h1>
-                  </div>
-                  <div className="benefits-data-p2-txt">
-                    <p
-                      dangerouslySetInnerHTML={{ __html: ele.description }}
-                    ></p>
-                  </div>
+              </div>
+              <div className="benefits-data-p2">
+                <div className="benefits-data-p2-head">
+                  <h1>{blogData.meta_title}</h1>
                 </div>
-                <div className="benefits-data-p3">
-                  <h1>Latest Blog</h1>
-                  <div className="benefits-data-p3-inner-box">
-                    <img src={benefit_img} alt="" />
-                    <div>
-                      <Link to="#">{ele.short_description}</Link>
-                    </div>
+                <div className="benefits-data-p2-txt">
+                  <p
+                    dangerouslySetInnerHTML={{ __html: blogData.description }}
+                  ></p>
+                </div>
+              </div>
+              <div className="benefits-data-p3">
+                <h1>Latest Blog</h1>
+                <div className="benefits-data-p3-inner-box">
+                  <img src={benefit_img} alt="" />
+                  <div>
+                    <Link to="#">{blogData.short_description}</Link>
                   </div>
                 </div>
               </div>
-            ))}
-        </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

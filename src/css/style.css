@@ -1678,10 +1678,6 @@ textarea {
   padding: 5px 10px;
 }
 
-.benefit-p1-content-btn div {
-  margin: 10px;
-}
-
 .benefit-p1-content-btn div:last-child {
   display: flex;
   align-items: center;

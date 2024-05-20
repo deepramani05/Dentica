@@ -26,7 +26,7 @@ const AllRoutes = () => {
         <Route path="/product/:id" element={<SubProducts />} />
         <Route path="/digital-dentistry" element={<DigitalDentistry />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<Dentbenefit />} />
+        <Route path="/blog/:id" element={<Dentbenefit />} />
         <Route path="/carrier" element={<Career />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/review" element={<Review />} />

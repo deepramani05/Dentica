@@ -33,59 +33,59 @@ const Products = () => {
 
   return (
     <div className="product-page-main">
-      {loading && (
+      {loading ? (
         <div className="preloaderContainer">
           <div className="preloaderBg">
             <div className="preloader"></div>
             <div className="preloader2"></div>
           </div>
         </div>
-      )}
-      <div
-        className="product-page-sub"
-        data-aos="fade-up"
-        data-aos-duration="2000"
-      >
-        <div className="pages-banner">
-          <div className="pages-banner-sub">
-            <div className="pages-content-box">
-              <h1>Products</h1>
-              <ul className="pages-ul">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>Product</li>
-              </ul>
+      ) : (
+        <div className="product-page-sub">
+          <div className="pages-banner">
+            <div className="pages-banner-sub">
+              <div className="pages-content-box">
+                <h1>Products</h1>
+                <ul className="pages-ul">
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>Product</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="product-page-data">
-          <div className="product-page-data-head">
-            <h1>Dentica Products</h1>
-          </div>
-          <div className="product-page-content-main">
-            {productData
-              .filter((ele) => ele.product_type === 2)
-              .map((ele) => (
-                <div className="product-page-content-p1" key={ele.id}>
-                  <div className="product-page-content-box">
-                    <div className="product-content-img home-product-slider-img-sub">
-                      <Link to={`/product/${ele.id}`} onClick={handleNavClick}>
-                        <img src={ele.image} alt={ele.title} />
-                      </Link>
-                    </div>
-                    <div className="product-content-txt">
-                      <Link to={`/product/${ele.id}`}>{ele.title}</Link>
-                      <div className="product-content-p">
-                        <p>{ele.short_description}</p>
+          <div className="product-page-data">
+            <div className="product-page-data-head">
+              <h1>Dentica Products</h1>
+            </div>
+            <div className="product-page-content-main">
+              {productData
+                .filter((ele) => ele.product_type === 2)
+                .map((ele) => (
+                  <div className="product-page-content-p1" key={ele.id}>
+                    <div className="product-page-content-box">
+                      <div className="product-content-img home-product-slider-img-sub">
+                        <Link
+                          to={`/product/${ele.id}`}
+                          onClick={handleNavClick}
+                        >
+                          <img src={ele.image} alt={ele.title} />
+                        </Link>
+                      </div>
+                      <div className="product-content-txt">
+                        <Link to={`/product/${ele.id}`}>{ele.title}</Link>
+                        <div className="product-content-p">
+                          <p>{ele.short_description}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

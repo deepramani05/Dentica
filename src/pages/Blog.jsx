@@ -85,7 +85,7 @@ const Blog = () => {
                   </div>
                   <div className="blog-page-data-btn">
                     <h1>{ele.created_at}</h1>
-                    <Link to={`/blog/${ele.slug}`}>Read More</Link>
+                    <Link to={`/blog/${ele.id}`}>Read More</Link>
                   </div>
                 </div>
               </div>
