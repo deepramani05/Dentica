@@ -100,19 +100,9 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-
-    // About API
-    axios
-      .get(`https://denticadentalstudio.com/api/abouts`)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    
   }, []);
 
-  console.log(reviewData);
 
   const handleNavClick = () => {
     window.scrollTo({

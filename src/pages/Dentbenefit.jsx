@@ -8,9 +8,9 @@ const Dentbenefit = () => {
   const [blogData, setBlogData] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  let [allblog, setAllBlog] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
     axios
       .post(`https://denticadentalstudio.com/api/show/blog`, { id })
       .then((res) => {
@@ -19,11 +19,22 @@ const Dentbenefit = () => {
       })
       .catch((err) => {
         console.log(err);
+      });
+
+    axios
+      .get(`https://denticadentalstudio.com/api/blogs`)
+      .then((res) => {
+        console.log(res.data.data.blog);
+        setAllBlog(res.data.data.blog);
+        console.log(allblog);
+      })
+      .catch((err) => {
+        console.log(err);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, [id]);
+  }, []);
 
   return (
     <div className="benefit-main">
@@ -93,11 +104,15 @@ const Dentbenefit = () => {
               </div>
               <div className="benefits-data-p3">
                 <h1>Latest Blog</h1>
-                <div className="benefits-data-p3-inner-box">
-                  <img src={benefit_img} alt="" />
-                  <div>
-                    <Link to="#">{blogData.short_description}</Link>
-                  </div>
+                <div style={{display:"grid",gridTemplateColumns:"auto auto auto",gap:"10px"}}>
+                  {allblog.map((ele) => (
+                    <div className="benefits-data-p3-inner-box">
+                      <img src={ele.image} alt="" />
+                      <div>
+                        <Link to={`/blog/${ele.id}`} reloadDocument>{ele.short_description}</Link>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -13,6 +13,8 @@ const Footer = () => {
 
   let [productData, setProductData] = useState([]);
 
+  let [aboutData, setAboutData] = useState([]);
+
   useEffect(() => {
     axios
       .get(`https://denticadentalstudio.com/api/product`)
@@ -20,6 +22,18 @@ const Footer = () => {
         console.log(res.data);
         setProductData(res.data.data.product);
         console.log(productData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // About API
+    axios
+      .get(`https://denticadentalstudio.com/api/abouts`)
+      .then((res) => {
+        console.log(res.data.data.about);
+        setAboutData(res.data.data.about);
+        console.log(aboutData);
       })
       .catch((err) => {
         console.log(err);
@@ -76,78 +90,78 @@ const Footer = () => {
                 <p>Digital-dentistry</p>
               </Link>
             </div>
-            <div className="main-footer-p1-content">
-              <h1>Lab Opening Hrs</h1>
+            {aboutData.map((ele) => (
+              <div className="main-footer-p1-content">
+                <h1>Lab Opening Hrs</h1>
+                <hr className="footer-hr" />
+                <h3>
+                  Mon-Saturday: <br />
+                  <span>{ele.monday_saturday}</span>
+                </h3>
+                <h3 style={{ margin: "20px 0" }}>
+                  Sunday: <br />
+                  <span>{ele.sunday}</span>
+                </h3>
+              </div>
+            ))}
+          </div>
+          {aboutData.map((ele) => (
+            <div className="main-footer-p2">
+              <h1>Get in touch</h1>
               <hr className="footer-hr" />
-              <h3>
-                Mon-Saturday: <br />
-                <span>9.00 am to 9.00 pm</span>
-              </h3>
-              <h3 style={{ margin: "20px 0" }}>
-                Sunday: <br />
-                <span>Closed</span>
-              </h3>
+              <div className="footer-add">
+                <h3>Our Location :</h3>
+                <p>{ele.address}</p>
+              </div>
+              <div className="footer-num">
+                <a href="mailto:info@dentco.net">
+                  <p>Email : {ele.email}</p>
+                </a>
+                <a href="tel:+918530101701">
+                  <p className="footer-cont-icon">
+                    <span>
+                      <FaPhoneAlt />
+                    </span>
+                    {ele.phone_number1}
+                  </p>
+                </a>
+                <a href="tel:+918487838383">
+                  <p className="footer-cont-icon">
+                    <span>
+                      <FaPhoneAlt />
+                    </span>
+                    {ele.phone_number2}
+                  </p>
+                </a>
+              </div>
+              <div className="footer-icon">
+                <a
+                  href="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
+                  target="_blank"
+                >
+                  <p className="footer-icon-fb">
+                    <img src={fb} alt="" />
+                  </p>
+                </a>
+                <a
+                  href="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
+                  target="_blank"
+                >
+                  <p className="footer-icon-insta">
+                    <img src={insta} alt="" />
+                  </p>
+                </a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
+                  target="_blank"
+                >
+                  <p className="footer-icon-wp">
+                    <img src={wp} alt="" />
+                  </p>
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="main-footer-p2">
-            <h1>Get in touch</h1>
-            <hr className="footer-hr" />
-            <div className="footer-add">
-              <h3>Our Location :</h3>
-              <p>
-                Plot No. 3/3-3/4, Dhuna House, <br /> opp. Patel Nagar,
-                Varachha, <br />
-                Surat, Gujarat 395008
-              </p>
-            </div>
-            <div className="footer-num">
-              <a href="mailto:info@dentco.net">
-                <p>Email : denticadentalstudio@gmail.com</p>
-              </a>
-              <a href="tel:+918530101701">
-                <p className="footer-cont-icon">
-                  <span>
-                    <FaPhoneAlt />
-                  </span>
-                  +91 8530101701
-                </p>
-              </a>
-              <a href="tel:+918487838383">
-                <p className="footer-cont-icon">
-                  <span>
-                    <FaPhoneAlt />
-                  </span>
-                  +91 8487838383
-                </p>
-              </a>
-            </div>
-            <div className="footer-icon">
-              <a
-                href="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
-                target="_blank"
-              >
-                <p className="footer-icon-fb">
-                  <img src={fb} alt="" />
-                </p>
-              </a>
-              <a
-                href="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
-                target="_blank"
-              >
-                <p className="footer-icon-insta">
-                  <img src={insta} alt="" />
-                </p>
-              </a>
-              <a
-                href="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
-                target="_blank"
-              >
-                <p className="footer-icon-wp">
-                  <img src={wp} alt="" />
-                </p>
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
         <div className="footer-low">
           <div className="low-footer-img">

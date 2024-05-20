@@ -61,7 +61,7 @@ const Event = () => {
               </div>
               <div className="blog-page-content-main-txt">
                 <div className="blog-page-data-txt">
-                  <Link to={`/events/${ele.slug}`}>
+                  <Link to={`/events/${ele.id}`}>
                     <h1>{ele.name}</h1>
                   </Link>
                 </div>

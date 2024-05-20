@@ -31,7 +31,7 @@ const AllRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/review" element={<Review />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/events/:slug" element={<Dentalshow  />} />
+        <Route path="/events/:id" element={<Dentalshow  />} />
         <Route path="/gallary" element={<Gallary />} />
 
         <Route path="/submit-stl-file" element={<StlFile />} />

@@ -28,7 +28,7 @@ const DigitalDentistry = () => {
         // console.log(res.data);
         if (res.data && res.data.data && Array.isArray(res.data.data.product)) {
           const filteredData = res.data.data.product.find(
-            (item) => item.title === "Digital Dentristry"
+            (item) => item.product_type === 1
           );
           if (filteredData) {
             const images = filteredData.product_images.map((src) => ({

@@ -10,23 +10,24 @@ const Dentalshow = () => {
   const [eventData, setEventData] = useState([]);
   const [lightboxOpen, setLightboxOpen] = useState(null);
   const [hovered, setHovered] = useState(null);
+  const [error, setError] = useState(null);
 
-  let { slug } = useParams();
+  let { id } = useParams();
 
   useEffect(() => {
     axios
-      .get(`https://denticadentalstudio.com/api/event`)
+      .get(`https://denticadentalstudio.com/api/event`, { id })
       .then((res) => {
         console.log(res.data.data.event);
-        // Filter the data where dimension is 0
-        const filteredEventData = res.data.data.event.filter(
-          (item) => item.category_id === slug
+        // Filter the data where category_id is 1
+        let filteredData = res.data.data.event.filter(
+          (item) => item.category_id === id
         );
-        setEventData(filteredEventData);
-        console.log(eventData);
+        setEventData(filteredData);
       })
       .catch((err) => {
         console.log(err);
+        setError("Failed to fetch data");
       })
       .finally(() => {
         setLoading(false);
@@ -59,6 +60,7 @@ const Dentalshow = () => {
           </div>
         </div>
       )}
+      {error && <div>Error: {error}</div>}
       <div className="dental-show-sub">
         <div className="pages-banner">
           <div className="pages-banner-sub">
@@ -73,23 +75,78 @@ const Dentalshow = () => {
             </div>
           </div>
         </div>
-        <div className="dental-show-content-main">
+        <div
+          className="dental-show-content-main"
+          style={{ margin: "30px 20px" }}
+        >
           <div className="dental-show-content">
             {eventData
-              .filter((ele) => ele.category_id === slug) // Filter out items with category_id other than "demo"
+              .filter((item) => item.dimension === 0)
               .map((ele, index) => (
                 <div
                   className="dental-show-content-box dental-show-content-box-1"
                   key={ele.id}
                   style={{
-                    height: "272px",
+                    height: "fit-content",
+                    width: "100%",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    className="dental-show-img dent-page-img"
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      position: "relative",
+                    }}
+                    onClick={() => openLightbox(index)}
+                  >
+                    <figure
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={() => handleMouseLeave()}
+                    >
+                      <img
+                        src={ele.image}
+                        alt={ele.category_id}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                        }}
+                      />
+                      {hovered === index && (
+                        <div className="dent-show-overlay">
+                          <div className="zoom-icon">
+                            <SlMagnifierAdd className="flaticon-zoom-icon" />
+                          </div>
+                        </div>
+                      )}
+                    </figure>
+                  </div>
+                </div>
+              ))}
+            {eventData
+              .filter((item) => item.dimension === 1)
+              .map((ele, index) => (
+                <div
+                  className="dental-show-content-box dental-show-content-box-1"
+                  key={ele.id}
+                  style={{
+                    height: "100%",
+                    width: "100%",
                     overflow: "hidden",
                     margin: "10px",
                   }}
                 >
                   <div
                     className="dental-show-img dent-page-img"
-                    style={{ height: "300px", position: "relative" }}
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      position: "relative",
+                    }}
                     onClick={() => openLightbox(index)}
                   >
                     <figure
@@ -138,8 +195,8 @@ const Dentalshow = () => {
               onMoveNextRequest={() =>
                 setLightboxOpen((prev) => (prev + 1) % eventData.length)
               }
-              imageTitle={eventData[lightboxOpen].category_id} // Add image title
-              imageCaption={eventData[lightboxOpen].description} // Add image caption
+              // imageTitle={eventData[lightboxOpen].category_id} // Add image title
+              // imageCaption={eventData[lightboxOpen].description} // Add image caption
               imagePadding={100} // Adjust image padding as per your requirement
               enableZoom={true} // Enable zoom
               reactModalStyle={{

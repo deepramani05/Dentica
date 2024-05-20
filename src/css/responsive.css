@@ -71,7 +71,6 @@
 
   figure.image {
     top: 0;
-    left: 20%;
   }
 
   .text {
@@ -1310,10 +1309,6 @@
   .sec-title h1 {
     font-size: 33px;
     line-height: 35px;
-  }
-
-  .image-box {
-    margin-left: 100px;
   }
 
   .about-p2-title h1 {
