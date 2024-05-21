@@ -142,7 +142,7 @@ const Career = () => {
                       <p>Email</p>
                       <div>
                         <input
-                          type="text"
+                          type="email"
                           placeholder="Email"
                           name="email"
                           value={formData.email}
@@ -159,7 +159,7 @@ const Career = () => {
                       <p>Phone</p>
                       <div>
                         <input
-                          type="text"
+                          type="number"
                           placeholder="Phone"
                           name="mobile_number"
                           value={formData.mobile_number}

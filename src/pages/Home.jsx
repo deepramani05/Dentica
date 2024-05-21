@@ -850,7 +850,7 @@ const Home = () => {
                       <p>Email</p>
                       <div>
                         <input
-                          type="text"
+                          type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
@@ -867,7 +867,7 @@ const Home = () => {
                       <p>Phone</p>
                       <div>
                         <input
-                          type="text"
+                          type="number"
                           name="mobile_number"
                           value={formData.mobile_number}
                           onChange={handleChange}

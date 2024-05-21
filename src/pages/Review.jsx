@@ -135,7 +135,7 @@ const Review = () => {
                     <p>Phone</p>
                     <div>
                       <input
-                        type="text"
+                        type="number"
                         name="mobile_number"
                         placeholder="Enter Contact Nuber Here ..."
                         value={formData.mobile_number}
