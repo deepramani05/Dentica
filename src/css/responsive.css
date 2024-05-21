@@ -971,6 +971,10 @@
   .product-page-content-p1 {
     width: 45%;
   }
+
+  .preloader {
+    top: 20%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1572,6 +1576,10 @@
   .implant-p1-link a {
     text-decoration: none;
     font-size: 14px;
+  }
+
+  .preloader {
+    top: 21%;
   }
 }
 
@@ -2303,6 +2311,10 @@
   .sociallinks-head-txt {
     width: 95%;
     margin: 0 auto;
+  }
+
+  .preloader {
+    top: 25%;
   }
 }
 
@@ -3069,6 +3081,10 @@
 
   .contact-page-touch-head-span {
     margin: 0;
+  }
+
+  .preloader {
+    top: 25%;
   }
 }
 
@@ -3890,5 +3906,9 @@
 
   .event-page-content-main {
     flex-direction: column;
+  }
+
+  .preloader {
+    top: 25%;
   }
 }
