@@ -411,7 +411,7 @@ const Home = () => {
                               <div className="home-product-slider-img-box">
                                 <div className="home-product-slider-img-sub">
                                   <Link
-                                    to={`/products/${ele.slug}`}
+                                    to={`/product/${ele.id}`}
                                     onClick={handleNavClick}
                                   >
                                     <img
@@ -444,7 +444,7 @@ const Home = () => {
                         <div className="home-product-mobile-content-box">
                           <div className="home-product-mobile-img-box">
                             <Link
-                              to="/products/implants"
+                              to={`/product/${ele.id}`}
                               onClick={handleNavClick}
                             >
                               <div className="home-product-mobile-img">
@@ -565,7 +565,7 @@ const Home = () => {
                     pagination={{
                       dynamicBullets: true,
                     }}
-                    loopedSlides={galleryData?.length * 3} // Set loopedSlides to three times the total number of slides
+                    loopedSlides={galleryData?.length * 3} 
                     className="mySwiper"
                   >
                     {galleryData?.map((ele, index) => (

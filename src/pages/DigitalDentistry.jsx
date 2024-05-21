@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import dent_img from "../img/home_dentistery.jpg";
-import { FaMagnifyingGlassPlus } from "react-icons/fa6";
 import ModalImage from "react-modal-image";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
@@ -36,7 +35,7 @@ const DigitalDentistry = () => {
               item.product_images.map((src) => ({
                 src,
                 lightboxOpen: false,
-                hovered: false,
+                hovered: false, // Add a hovered state
               }))
             );
             setImages(images);
@@ -52,15 +51,14 @@ const DigitalDentistry = () => {
   }, []);
 
   const openLightbox = (index) => {
-    const updatedImages = [...images];
-    updatedImages[index].lightboxOpen = true;
-    setImages(updatedImages);
+    setLightboxOpen(true);
+    setSelectedImageIndex(index);
   };
-  const closeLightbox = (index) => {
-    const updatedImages = [...images];
-    updatedImages[selectedImageIndex].lightboxOpen = false;
-    setImages(updatedImages);
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
   };
+
   const handleMouseEnter = (index) => {
     const updatedImages = [...images];
     updatedImages[index].hovered = true;
@@ -133,30 +131,37 @@ const DigitalDentistry = () => {
             }}
             className="dent-page-image"
           >
-            <div className="inner-box" style={{ display: "grid",gridTemplateColumns:"auto auto auto",gap:"20px" }}>
+            <div
+              className="inner-box"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "auto auto auto",
+                gap: "20px",
+              }}
+            >
               {images.map((image, imgIndex) => (
                 <figure
                   key={imgIndex}
                   className="image-box"
-                  onMouseEnter={() => handleMouseEnter(imgIndex)}
-                  onMouseLeave={() => handleMouseLeave(imgIndex)}
-                  style={{ transition: "all 1s ease-out 0s", margin: "1rem" }}
+                  onMouseEnter={() => handleMouseEnter(imgIndex)} // Track mouse enter event
+                  onMouseLeave={() => handleMouseLeave(imgIndex)} // Track mouse leave event
+                  onClick={() => openLightbox(imgIndex)}
+                  style={{
+                    cursor:"pointer",
+                    transition: "all 0.3s ease",
+                    margin: "1rem",
+                    width: "250px",
+                    boxShadow: image.hovered
+                      ? "0 6px 10px rgba(0, 0, 0, 0.6)"
+                      : "none", // Apply box shadow on hover
+                  }}
                 >
                   <img
                     src={image.src}
                     style={{ height: "100%", width: "100%" }}
                     alt={`Image ${imgIndex}`}
-                    onClick={() => openLightbox(imgIndex)}
                   />
-                  {image.hovered && (
-                    <div
-                      className="dent-overlay"
-                      onClick={() => openLightbox(imgIndex)}
-                    >
-                      <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
-                    </div>
-                  )}
-                  {image.lightboxOpen && (
+                  {lightboxOpen && (
                     <Lightbox
                       mainSrc={images[selectedImageIndex].src}
                       onCloseRequest={closeLightbox}

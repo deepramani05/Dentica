@@ -33,13 +33,16 @@ const Contact = () => {
     setLoading(false);
   }, []);
 
-  const excuteRecaptcha = async () =>{
-    return new Promise((resolve, reject)=>{
-      window.grecaptcha.ready(async ()=>{
+  const excuteRecaptcha = async () => {
+    return new Promise((resolve, reject) => {
+      window.grecaptcha.ready(async () => {
         try {
-          const token = await window.grecaptcha.execute('6Lc7q98pAAAAANTVtph_4Mg5Jyb1TJWcDrIHJDMS',{action: 'contact_form'})
+          const token = await window.grecaptcha.execute(
+            "6Lc7q98pAAAAANTVtph_4Mg5Jyb1TJWcDrIHJDMS",
+            { action: "contact_form" }
+          );
           resolve(token);
-        } catch(error){
+        } catch (error) {
           reject(error);
         }
       });
@@ -105,15 +108,15 @@ const Contact = () => {
       console.error("reCAPTCHA error: ", error);
     }
   };
- useEffect(()=>{
-  const enableSubmitButton = async () =>{
-    const token = await excuteRecaptcha();
-    if(token){
-      setSubmitButton(false);
-    }
-  };
-   enableSubmitButton();
- }, []);
+  useEffect(() => {
+    const enableSubmitButton = async () => {
+      const token = await excuteRecaptcha();
+      if (token) {
+        setSubmitButton(false);
+      }
+    };
+    enableSubmitButton();
+  }, []);
 
   return (
     <div className="contact-main">
@@ -137,7 +140,6 @@ const Contact = () => {
                 <li>Contact</li>
               </ul>
             </div>
-
           </div>
         </div>
         <div className="contact-page-data-main">
@@ -263,7 +265,7 @@ const Contact = () => {
                         <p>Email</p>
                         <div>
                           <input
-                            type="text"
+                            type="email"
                             placeholder="Email"
                             value={formData.email}
                             name="email"
@@ -280,7 +282,7 @@ const Contact = () => {
                         <p>Phone</p>
                         <div>
                           <input
-                            type="text"
+                            type="number"
                             placeholder="Phone"
                             value={formData.mobile_number}
                             name="mobile_number"
@@ -329,13 +331,24 @@ const Contact = () => {
                       type="checkbox"
                       checked={verified}
                       onChange={(e) => setVerified(e.target.checked)}
-                      style={{ marginRight: '5px' }}
+                      style={{ marginRight: "5px" }}
                     />
-                    <label htmlFor="verified" style={{ fontSize: '16px', fontFamily: 'Arial', color: '#333' }}>
+                    <label
+                      htmlFor="verified"
+                      style={{
+                        fontSize: "16px",
+                        fontFamily: "Arial",
+                        color: "#333",
+                      }}
+                    >
                       I am not a robot
                     </label>
                     <div className="home-msg-form-submit">
-                      <input type="submit" value="SEND MESSAGE" disabled={submitButton}/>
+                      <input
+                        type="submit"
+                        value="SEND MESSAGE"
+                        disabled={submitButton}
+                      />
                     </div>
                   </form>
                 </div>
