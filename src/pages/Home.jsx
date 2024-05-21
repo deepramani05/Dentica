@@ -16,8 +16,6 @@ import { FaTextWidth } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "swiper/swiper-bundle.css";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import "swiper/swiper-bundle.css";
@@ -290,7 +288,7 @@ const Home = () => {
               data-aos-duration="2000"
             >
               <div className="about-p2-title">
-                <h1>Why Choose Us</h1>
+                <h1>Why Choose Us?</h1>
               </div>
               <div className="about-p2-txt">
                 <p data-aos="fade-up" data-aos-duration="1000">
@@ -565,7 +563,8 @@ const Home = () => {
                     pagination={{
                       dynamicBullets: true,
                     }}
-                    loopedSlides={galleryData?.length * 3} 
+                     loopedSlides={galleryData?.length * 3} 
+                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                   >
                     {galleryData?.map((ele, index) => (
