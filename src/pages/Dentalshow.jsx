@@ -8,7 +8,8 @@ import axios from "axios";
 const Dentalshow = () => {
   const [loading, setLoading] = useState(true);
   const [eventData, setEventData] = useState([]);
-  const [lightboxOpen, setLightboxOpen] = useState(null);
+  const [lightboxOpen0, setLightboxOpen0] = useState(null);
+  const [lightboxOpen1, setLightboxOpen1] = useState(null);
   const [hovered, setHovered] = useState(null);
   const [error, setError] = useState(null);
 
@@ -16,7 +17,9 @@ const Dentalshow = () => {
 
   useEffect(() => {
     axios
-      .get(`https://denticadentalstudio.com/api/event`, { id })
+      .get(`https://denticadentalstudio.com/api/event`, { 
+        params: { id }
+       })
       .then((res) => {
         console.log(res.data.data.event);
         // Filter the data where category_id is 1
@@ -34,12 +37,20 @@ const Dentalshow = () => {
       });
   }, []);
 
-  const openLightbox = (index) => {
-    setLightboxOpen(index);
+  const openLightbox = (index, dimension) => {
+    if (dimension === 0){
+      setLightboxOpen0(index);
+    } else if (dimension === 1){
+    setLightboxOpen1(index);
+    };
   };
 
-  const closeLightbox = () => {
-    setLightboxOpen(null);
+  const closeLightbox = (dimension) => {
+    if (dimension === 0){
+      setLightboxOpen0(null);
+    }else if(dimension === 1){
+      setLightboxOpen1(null);
+    }
   };
 
   const handleMouseEnter = (index) => {
@@ -49,7 +60,37 @@ const Dentalshow = () => {
   const handleMouseLeave = () => {
     setHovered(null);
   };
-
+  const renderLightbox = (lightboxOpen, dimension) =>{
+    const images = eventData.filter((item) => item.dimension === dimension);
+    if (lightboxOpen !== null){
+        return (
+        <Lightbox 
+            mainSrc={images[lightboxOpen].image}
+            nextSrc={images[(lightboxOpen + 1 ) % images.length].images}
+            prevSrc={images[(lightboxOpen + images.length-1)  %images. length].images}
+            onCloseRequest={()=> closeLightbox(dimension)} 
+            onMovePrevRequest={() =>
+              dimension === 0
+              ? setLightboxOpen0((lightboxOpen + images.length -1) % images.length )
+              : setLightboxOpen1((lightboxOpen + images.length -1) % images.length )
+            }
+            onMoveNextRequest ={() => 
+              dimension === 0
+              ? setLightboxOpen0((lightboxOpen + 1) % images.length)
+              : setLightboxOpen1((lightboxOpen + 1) % images.length)
+            }
+            imagePadding ={100}
+            enableZoom = {true}
+            reactModalStyle={{
+              overlay:{
+                zIndex: 9999,
+              }
+            }}
+        />  
+      );
+    }
+    return null;
+  }
   return (
     <div className="dental-show-main">
       {loading && (
@@ -99,7 +140,7 @@ const Dentalshow = () => {
                       width: "100%",
                       position: "relative",
                     }}
-                    onClick={() => openLightbox(index)}
+                    onClick={() => openLightbox(index,0)}
                   >
                     <figure
                       onMouseEnter={() => handleMouseEnter(index)}
@@ -148,7 +189,7 @@ const Dentalshow = () => {
                       width: "100%",
                       position: "relative",
                     }}
-                    onClick={() => openLightbox(index)}
+                    onClick={() => openLightbox(index, 1)}
                   >
                     <figure
                       onMouseEnter={() => handleMouseEnter(index)}
@@ -178,37 +219,8 @@ const Dentalshow = () => {
                 </div>
               ))}
           </div>
-
-          {lightboxOpen !== null && (
-            <Lightbox
-              mainSrc={eventData[lightboxOpen].image}
-              nextSrc={eventData[(lightboxOpen + 1) % eventData.length].image}
-              prevSrc={
-                eventData[
-                  (lightboxOpen + eventData.length - 1) % eventData.length
-                ].image
-              }
-              onCloseRequest={closeLightbox}
-              onMovePrevRequest={() =>
-                setLightboxOpen(
-                  (prev) => (prev + eventData.length - 1) % eventData.length
-                )
-              }
-              onMoveNextRequest={() =>
-                setLightboxOpen((prev) => (prev + 1) % eventData.length)
-              }
-              // imageTitle={eventData[lightboxOpen].category_id} // Add image title
-              // imageCaption={eventData[lightboxOpen].description} // Add image caption
-              imagePadding={100} // Adjust image padding as per your requirement
-              enableZoom={true} // Enable zoom
-              reactModalStyle={{
-                // Style for lightbox modal
-                overlay: {
-                  zIndex: 9999,
-                },
-              }}
-            />
-          )}
+          {renderLightbox(lightboxOpen0, 0)}
+          {renderLightbox(lightboxOpen1, 1)}
         </div>
       </div>
     </div>
