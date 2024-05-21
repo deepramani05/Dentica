@@ -25,19 +25,21 @@ const DigitalDentistry = () => {
     axios
       .get("https://denticadentalstudio.com/api/product")
       .then((res) => {
-        // console.log(res.data);
-        if (res.data && res.data.data && Array.isArray(res.data.data.product)) {
-          const filteredData = res.data.data.product.find(
+        console.log(res.data);
+        if (res.data.data.product) {
+          const filteredData = res.data.data.product.filter(
             (item) => item.product_type === 1
           );
+          console.log(filteredData);
           if (filteredData) {
-            const images = filteredData.product_images.map((src) => ({
-              src,
-              lightboxOpen: false,
-              hovered: false,
-            }));
+            const images = filteredData.flatMap((item) =>
+              item.product_images.map((src) => ({
+                src,
+                lightboxOpen: false,
+                hovered: false,
+              }))
+            );
             setImages(images);
-            // setProductData(filteredData);
           }
         }
       })
@@ -45,10 +47,10 @@ const DigitalDentistry = () => {
         console.log(err);
       })
       .finally(() => {
-        // Set loading to false when fetching data completes
         setLoading(false);
       });
   }, []);
+
   const openLightbox = (index) => {
     const updatedImages = [...images];
     updatedImages[index].lightboxOpen = true;
@@ -131,7 +133,7 @@ const DigitalDentistry = () => {
             }}
             className="dent-page-image"
           >
-            <div className="inner-box" style={{ display: "flex" }}>
+            <div className="inner-box" style={{ display: "grid",gridTemplateColumns:"auto auto auto",gap:"20px" }}>
               {images.map((image, imgIndex) => (
                 <figure
                   key={imgIndex}
