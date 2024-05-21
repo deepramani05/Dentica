@@ -14,18 +14,13 @@ import axios from "axios";
 
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
-
   const [productData, setProductData] = useState({});
-
-  // const dataArray = Object.values(productData);
 
   useEffect(() => {
     axios
       .get(`https://denticadentalstudio.com/api/product`)
       .then((res) => {
-        console.log(res.data);
         setProductData(res.data.data.product);
-        console.log(productData);
       })
       .catch((err) => {
         console.log(err);
@@ -61,26 +56,6 @@ const Nav = () => {
     };
   }, []);
 
-  const handleCloseForm = () => {
-    $(".form-popup-bg").removeClass("is-visible");
-  };
-
-  const handleOpenForm = (event) => {
-    event.preventDefault();
-    $(".form-popup-bg").addClass("is-visible");
-  };
-
-  const handleClosePopup = (event) => {
-    if (
-      $(event.target).is(".form-popup-bg") ||
-      $(event.target).is("#btnCloseForm")
-    ) {
-      event.preventDefault();
-      $(".form-popup-bg").removeClass("is-visible");
-    }
-  };
-
-  // Header postion fixed
   useEffect(() => {
     const handleScroll = () => {
       const navData = document.getElementById("navData");
@@ -122,6 +97,18 @@ const Nav = () => {
   const handleWarrantySubmit = (e) => {
     e.preventDefault();
   };
+
+  // jQuery click event handler for opening the form
+  $(document).on("click", "#btnOpenForm", function (event) {
+    event.preventDefault();
+    $(".form-popup-bg").addClass("is-visible");
+  });
+
+  // jQuery click event handler for closing the form
+  $(document).on("click", "#btnCloseForm, .form-popup-bg", function (event) {
+    event.preventDefault();
+    $(".form-popup-bg").removeClass("is-visible");
+  });
 
   return (
     <div className="nav-main">
@@ -280,17 +267,26 @@ const Nav = () => {
             <div className="nav-contact-main">
               <div className="nav-contact-icon">
                 <div className="nav-contact-img nav-wp">
-                  <Link to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio" target="_blank">
+                  <Link
+                    to="https://api.whatsapp.com/send?phone=918530101701&text=Hello%2C%20Dentica%20Dental%20Studio"
+                    target="_blank"
+                  >
                     <img src={wp} alt="" />
                   </Link>
                 </div>
                 <div className="nav-contact-img nav-insta">
-                  <Link to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D" target="_blank">
+                  <Link
+                    to="https://www.instagram.com/dentica_dental_studio/?igshid=NzZhOTFlYzFmZQ%3D%3D"
+                    target="_blank"
+                  >
                     <img src={insta} alt="" />
                   </Link>
                 </div>
                 <div className="nav-contact-img nav-fb">
-                  <Link to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL" target="_blank">
+                  <Link
+                    to="https://www.facebook.com/denticadental.dental?mibextid=ZbWKwL"
+                    target="_blank"
+                  >
                     <img src={fb} alt="" />
                   </Link>
                 </div>

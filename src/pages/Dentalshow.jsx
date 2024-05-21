@@ -87,7 +87,7 @@ const Dentalshow = () => {
                   className="dental-show-content-box dental-show-content-box-1"
                   key={ele.id}
                   style={{
-                    height: "fit-content",
+                    height: "auto",
                     width: "100%",
                     overflow: "hidden",
                   }}
@@ -104,6 +104,7 @@ const Dentalshow = () => {
                     <figure
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={() => handleMouseLeave()}
+                      style={{width:"100%",height:"100%"}}
                     >
                       <img
                         src={ele.image}
@@ -152,6 +153,7 @@ const Dentalshow = () => {
                     <figure
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={() => handleMouseLeave()}
+                      style={{height:"100%",width:"100%"}}
                     >
                       <img
                         src={ele.image}

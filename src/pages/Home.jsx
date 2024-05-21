@@ -5,13 +5,6 @@ import box2 from "../img/thumb_box-2.png";
 import box3 from "../img/thumb_box-3.png";
 import about_center from "../img/home_about-center.png";
 import dent from "../img/home_dentistery.jpg";
-import prod_slider1 from "../img/home_product-1.jpg";
-import prod_slider2 from "../img/home_product-2.png";
-import prod_slider3 from "../img/home_product-3.jpg";
-import prod_slider4 from "../img/home_product-4.png";
-import prod_slider5 from "../img/home_product-5.jpg";
-import gal_slider1 from "../img/home_gallary-1.jpg";
-import gal_slider2 from "../img/home-gallary-2.jpg";
 import review_img from "../img/dent_page.png";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -45,9 +38,9 @@ import Swal from "sweetalert2";
 SwiperCore.use([Autoplay, Pagination]);
 
 const Home = () => {
-  const [productData, setProductData] = useState();
-  const [galleryData, setGalleryData] = useState();
-  const [reviewData, setReviewData] = useState();
+  const [productData, setProductData] = useState([]);
+  const [galleryData, setGalleryData] = useState([]);
+  const [reviewData, setReviewData] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -100,9 +93,7 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-    
   }, []);
-
 
   const handleNavClick = () => {
     window.scrollTo({
@@ -447,25 +438,27 @@ const Home = () => {
                 {/* Product moblie view */}
                 <div className="home-product-mobile">
                   <div className="home-product-mobile-sub">
-                    <div className="home-product-mobile-content-box">
-                      <div className="home-product-mobile-img-box">
-                        <Link to="/products/implants" onClick={handleNavClick}>
-                          <div className="home-product-mobile-img">
-                            <img src={prod_slider1} alt="" />
+                    {productData
+                      .filter((item) => item.product_type === 2)
+                      .map((ele) => (
+                        <div className="home-product-mobile-content-box">
+                          <div className="home-product-mobile-img-box">
+                            <Link
+                              to="/products/implants"
+                              onClick={handleNavClick}
+                            >
+                              <div className="home-product-mobile-img">
+                                <img src={ele.image} alt="" />
+                              </div>
+                              <h1>{ele.meta_title}</h1>
+                            </Link>
                           </div>
-                          <h1>Implants</h1>
-                        </Link>
-                      </div>
-                      <div className="home-product-mobile-txt">
-                        <p>
-                          With our state-of-the-art dental implants, open the
-                          door to a world of confident smiles. With the power
-                          and dependability you can rely on, restore your
-                          natural beauty and functionality.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="home-product-mobile-content-box">
+                          <div className="home-product-mobile-txt">
+                            <p>{ele.short_description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    {/* <div className="home-product-mobile-content-box">
                       <div className="home-product-mobile-img-box">
                         <Link
                           to="/products/lithium-disilicate"
@@ -536,7 +529,7 @@ const Home = () => {
                           products offer perfect comfort and confidence.
                         </p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -745,46 +738,6 @@ const Home = () => {
                           </SwiperSlide>
                         </React.Fragment>
                       ))}
-
-                    {/* <SwiperSlide className="review-slider">
-                    <div className="home-review-content-inner">
-                      <div className="home-review-inner-head">
-                        <h1>Good Services !</h1>
-                      </div>
-                      <div className="home-review-inner-content">
-                        <div className="home-review-inner-img">
-                          <img src={review_img} alt="Review" />
-                        </div>
-                        <h1>Dr. YashpalSinh</h1>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="review-slider">
-                    <div className="home-review-content-inner">
-                      <div className="home-review-inner-head">
-                        <h1>Good Services !</h1>
-                      </div>
-                      <div className="home-review-inner-content">
-                        <div className="home-review-inner-img">
-                          <img src={review_img} alt="Review" />
-                        </div>
-                        <h1>Dr. YashpalSinh</h1>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="review-slider">
-                    <div className="home-review-content-inner">
-                      <div className="home-review-inner-head">
-                        <h1>Good Services !</h1>
-                      </div>
-                      <div className="home-review-inner-content">
-                        <div className="home-review-inner-img">
-                          <img src={review_img} alt="Review" />
-                        </div>
-                        <h1>Dr. YashpalSinh</h1>
-                      </div>
-                    </div>
-                  </SwiperSlide> */}
                   </Swiper>
                 </div>
                 {/* review moblie view */}
@@ -960,7 +913,11 @@ const Home = () => {
                     </div>
                   </div>
                   <div className="home-msg-form-submit">
-                    <input type="submit" value="SEND MESSAGE" />
+                    <input
+                      type="submit"
+                      value="SEND MESSAGE"
+                      style={{ cursor: "pointer" }}
+                    />
                   </div>
                 </form>
               </div>

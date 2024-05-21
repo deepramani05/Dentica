@@ -3883,4 +3883,12 @@
   .product-page-content-p1 {
     width: 100%;
   }
+
+  .blog-page-data {
+    flex-direction: column;
+  }
+
+  .event-page-content-main {
+    flex-direction: column;
+  }
 }
