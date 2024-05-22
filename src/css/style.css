@@ -2735,12 +2735,7 @@ body.scrolled .back-to-top {
 }
 
 .not-found-title {
-  font-size: 3em;
+  font-size: 2em;
   color: #ddd5d5;
-}
-
-.not-found-text {
-  font-size: 1.2em;
-  color: #ad9494;
-  margin-top: 20px;
+  font-weight: 400;
 }

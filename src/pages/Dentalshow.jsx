@@ -189,7 +189,7 @@ const Dentalshow = () => {
                   <div
                     className="dental-show-img dent-page-img"
                     style={{
-                      height: "272px",
+                      height: "100%",
                       width: "100%",
                       overflow: "hidden",
                       position: "relative",
@@ -199,7 +199,7 @@ const Dentalshow = () => {
                     <figure
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={() => handleMouseLeave()}
-                      style={{ height: "500px", width: "100%" }}
+                      style={{ height: "100%", width: "100%" }}
                     >
                       <img
                         src={ele.image}
@@ -207,10 +207,6 @@ const Dentalshow = () => {
                         style={{
                           width: "100%",
                           height: "100%",
-                          maxWidth: "100%",
-                          maxHeight: "100%",
-                          bottom: "10%",
-                          position: "relative",
                         }}
                       />
                       {hovered === index && (
