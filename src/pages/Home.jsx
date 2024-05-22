@@ -421,7 +421,7 @@ const Home = () => {
                               </div>
                               <div className="home-product-slider-txt">
                                 <Link
-                                  to={`/products/${ele.slug}`}
+                                  to={`/product/${ele.id}`}
                                   onClick={handleNavClick}
                                 >
                                   <h1>{ele.title}</h1>
