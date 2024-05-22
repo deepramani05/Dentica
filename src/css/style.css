@@ -2721,18 +2721,26 @@ body.scrolled .back-to-top {
 
 /* Not Found Page */
 
+.not-found-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+
 .not-found-container {
   text-align: center;
-  margin-top: 50px;
+  margin: auto;
 }
 
 .not-found-title {
   font-size: 3em;
-  color: #333;
+  color: #ddd5d5;
 }
 
 .not-found-text {
   font-size: 1.2em;
-  color: #666;
+  color: #ad9494;
   margin-top: 20px;
 }
