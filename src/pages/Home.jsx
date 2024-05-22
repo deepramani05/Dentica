@@ -539,7 +539,10 @@ const Home = () => {
           className="home-gallery-section"
           data-aos="fade-up"
           data-aos-duration="2000"
-          style={{ overflow: "hidden" }}
+          style={{ 
+                   overflow: "hidden",
+                   display: galleryData && galleryData.length > 0 ? "block" : "none", 
+           }}
         >
           <div className="home-gallary-main">
             <div className="home-gallary-sub">
@@ -567,7 +570,7 @@ const Home = () => {
                      modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                   >
-                    {galleryData?.map((ele, index) => (
+                    {galleryData&& galleryData.map((ele, index) => (
                       <React.Fragment key={index}>
                         <SwiperSlide>
                           <div className="home-gallary-swiper-sub">
@@ -619,7 +622,7 @@ const Home = () => {
                     modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                   >
-                    {galleryData?.map((ele, index) => (
+                    {galleryData && galleryData.map((ele, index) => (
                       <div>
                         <React.Fragment key={index}>
                           <SwiperSlide>
