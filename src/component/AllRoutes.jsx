@@ -34,12 +34,9 @@ const AllRoutes = () => {
         <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<Dentalshow  />} />
         <Route path="/gallery" element={<Gallary />} />
-
         <Route path="/submit-stl-file" element={<StlFile />} />
-
         <Route path="/quick-Links" element={<Socialmedia />} />
-
-        <Route path="/*" element={<NotFound/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
   );
