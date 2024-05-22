@@ -17,9 +17,9 @@ const Dentalshow = () => {
 
   useEffect(() => {
     axios
-      .get(`https://denticadentalstudio.com/api/event`, { 
-        params: { id }
-       })
+      .get(`https://denticadentalstudio.com/api/event`, {
+        params: { id },
+      })
       .then((res) => {
         console.log(res.data.data.event);
         // Filter the data where category_id is 1
@@ -38,17 +38,17 @@ const Dentalshow = () => {
   }, []);
 
   const openLightbox = (index, dimension) => {
-    if (dimension === 0){
+    if (dimension === 0) {
       setLightboxOpen0(index);
-    } else if (dimension === 1){
-    setLightboxOpen1(index);
-    };
+    } else if (dimension === 1) {
+      setLightboxOpen1(index);
+    }
   };
 
   const closeLightbox = (dimension) => {
-    if (dimension === 0){
+    if (dimension === 0) {
       setLightboxOpen0(null);
-    }else if(dimension === 1){
+    } else if (dimension === 1) {
       setLightboxOpen1(null);
     }
   };
@@ -60,37 +60,43 @@ const Dentalshow = () => {
   const handleMouseLeave = () => {
     setHovered(null);
   };
-  const renderLightbox = (lightboxOpen, dimension) =>{
+  const renderLightbox = (lightboxOpen, dimension) => {
     const images = eventData.filter((item) => item.dimension === dimension);
-    if (lightboxOpen !== null){
-        return (
-        <Lightbox 
-            mainSrc={images[lightboxOpen].image}
-            nextSrc={images[(lightboxOpen + 1 ) % images.length].images}
-            prevSrc={images[(lightboxOpen + images.length-1)  %images. length].images}
-            onCloseRequest={()=> closeLightbox(dimension)} 
-            onMovePrevRequest={() =>
-              dimension === 0
-              ? setLightboxOpen0((lightboxOpen + images.length -1) % images.length )
-              : setLightboxOpen1((lightboxOpen + images.length -1) % images.length )
-            }
-            onMoveNextRequest ={() => 
-              dimension === 0
+    if (lightboxOpen !== null) {
+      return (
+        <Lightbox
+          mainSrc={images[lightboxOpen].image}
+          nextSrc={images[(lightboxOpen + 1) % images.length].images}
+          prevSrc={
+            images[(lightboxOpen + images.length - 1) % images.length].images
+          }
+          onCloseRequest={() => closeLightbox(dimension)}
+          onMovePrevRequest={() =>
+            dimension === 0
+              ? setLightboxOpen0(
+                  (lightboxOpen + images.length - 1) % images.length
+                )
+              : setLightboxOpen1(
+                  (lightboxOpen + images.length - 1) % images.length
+                )
+          }
+          onMoveNextRequest={() =>
+            dimension === 0
               ? setLightboxOpen0((lightboxOpen + 1) % images.length)
               : setLightboxOpen1((lightboxOpen + 1) % images.length)
-            }
-            imagePadding ={100}
-            enableZoom = {true}
-            reactModalStyle={{
-              overlay:{
-                zIndex: 9999,
-              }
-            }}
-        />  
+          }
+          imagePadding={100}
+          enableZoom={true}
+          reactModalStyle={{
+            overlay: {
+              zIndex: 9999,
+            },
+          }}
+        />
       );
     }
     return null;
-  }
+  };
   return (
     <div className="dental-show-main">
       {loading && (
@@ -140,12 +146,12 @@ const Dentalshow = () => {
                       width: "100%",
                       position: "relative",
                     }}
-                    onClick={() => openLightbox(index,0)}
+                    onClick={() => openLightbox(index, 0)}
                   >
                     <figure
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={() => handleMouseLeave()}
-                      style={{width:"100%",height:"100%"}}
+                      style={{ width: "100%", height: "100%" }}
                     >
                       <img
                         src={ele.image}
@@ -153,7 +159,6 @@ const Dentalshow = () => {
                         style={{
                           width: "100%",
                           height: "100%",
-                          objectFit: "cover",
                           maxWidth: "100%",
                           maxHeight: "100%",
                         }}
@@ -179,14 +184,14 @@ const Dentalshow = () => {
                     height: "100%",
                     width: "100%",
                     overflow: "hidden",
-                    margin: "10px",
                   }}
                 >
                   <div
                     className="dental-show-img dent-page-img"
                     style={{
-                      height: "100%",
+                      height: "272px",
                       width: "100%",
+                      overflow: "hidden",
                       position: "relative",
                     }}
                     onClick={() => openLightbox(index, 1)}
@@ -194,7 +199,7 @@ const Dentalshow = () => {
                     <figure
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={() => handleMouseLeave()}
-                      style={{height:"100%",width:"100%"}}
+                      style={{ height: "500px", width: "100%" }}
                     >
                       <img
                         src={ele.image}
@@ -202,9 +207,10 @@ const Dentalshow = () => {
                         style={{
                           width: "100%",
                           height: "100%",
-                          objectFit: "cover",
                           maxWidth: "100%",
                           maxHeight: "100%",
+                          bottom: "10%",
+                          position: "relative",
                         }}
                       />
                       {hovered === index && (
