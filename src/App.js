@@ -9,10 +9,15 @@ import { useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
-  const validRoutes = [ "/","/about","/product","/product/:id",
-    "/digital-dentistry","/blog","/blog/:id","/carrier","/contact","/review",
-    "/events","/events/:id","/gallery","/quick-Links"];
-  const isNotFoundpage = !validRoutes.includes(location.pathname) && location.pathname !== "/notfound";
+  const validRoutes = [ "/","/about","/product",
+    "/digital-dentistry","/blog","/carrier","/contact","/review",
+    "/events","/gallery","/quick-Links"];
+
+  const isPathValid =(pathname) =>{
+    return validRoutes.includes(pathname) || pathname.match(/^\/(product|blog|events)\/[^/]+$/);
+  }
+  const isNotFoundpage = !isPathValid(location.pathname);
+  // const isNotFoundpage = !validRoutes.includes(location.pathname) && location.pathname !== "/notfound";
   const backToTopButton = document.querySelector(".back-to-top")  ;
 
   window.addEventListener("scroll", () => {
