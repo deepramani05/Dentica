@@ -2685,8 +2685,7 @@ body.scrolled .back-to-top {
   height: 250px;
   position: absolute;
   transform: translateY(-50%);
-  background: url(../img/Logo.png)
-    no-repeat;
+  background: url(../img/Logo.png) no-repeat;
   background-size: contain;
   background-position: center center;
   left: 0;
@@ -2718,4 +2717,22 @@ body.scrolled .back-to-top {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Not Found Page */
+
+.not-found-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.not-found-title {
+  font-size: 3em;
+  color: #333;
+}
+
+.not-found-text {
+  font-size: 1.2em;
+  color: #666;
+  margin-top: 20px;
 }

@@ -15,6 +15,7 @@ import Gallary from "../pages/Gallary.jsx";
 import StlFile from "../pages/StlFile.jsx";
 import Socialmedia from "../pages/Socialmedia.jsx";
 import SubProducts from "../pages/SubProducts.jsx";
+import NotFound from "../pages/NotFound.jsx";
 
 const AllRoutes = () => {
   return (
@@ -37,6 +38,8 @@ const AllRoutes = () => {
         <Route path="/submit-stl-file" element={<StlFile />} />
 
         <Route path="/quick-Links" element={<Socialmedia />} />
+
+        <Route path="/*" element={<NotFound/>}/>
       </Routes>
     </div>
   );
