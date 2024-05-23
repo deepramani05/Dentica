@@ -13,6 +13,7 @@
     "framer-motion": "^11.1.7",
     "git": "^0.1.5",
     "jquery": "^3.7.1",
+    "js-cookie": "^3.0.5",
     "json-server": "^1.0.0-alpha.23",
     "mixitup": "^3.3.1",
     "react": "^18.2.0",

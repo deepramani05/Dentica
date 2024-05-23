@@ -3,7 +3,8 @@ import './css/style.css';
 import Nav from "./component/Nav";
 import Footer from "./component/Footer";
 import AllRoutes from "./component/AllRoutes";
-import './css/responsive.css'
+import './css/responsive.css';
+import './css/admin.css';
 import { FaArrowUp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 

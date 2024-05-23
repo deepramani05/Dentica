@@ -16,6 +16,7 @@ import StlFile from "../pages/StlFile.jsx";
 import Socialmedia from "../pages/Socialmedia.jsx";
 import SubProducts from "../pages/SubProducts.jsx";
 import NotFound from "../pages/NotFound.jsx";
+import Login from "../pages/Login.jsx";
 
 const AllRoutes = () => {
   return (
@@ -37,6 +38,8 @@ const AllRoutes = () => {
         <Route path="/submit-stl-file" element={<StlFile />} />
         <Route path="/quick-Links" element={<Socialmedia />} />
         <Route path="*" element={<NotFound/>}/>
+        {/* adminroutes */}
+        <Route path="/admin" element={<Login />} />
       </Routes>
     </div>
   );
