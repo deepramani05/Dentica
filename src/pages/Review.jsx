@@ -27,13 +27,21 @@ const Review = () => {
 
   const handleChange = (e) => {
     if (e.target.name === "image") {
-      setFormData({ ...formData, image: e.target.files[0] });
+      const selectedFile = e.target.files[0];
+      if (selectedFile && !["image/png", "image/jpg", "image/jpeg"].includes(selectedFile.type)){
+        Swal.fire({
+          icon:"error",
+          title:"Invalid file type",
+          text:"Please Upload an image file Only"
+        })
+      }
+      setFormData({ ...formData, image: selectedFile });
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
   };
   const handleSubmit = async (e) => {
-    console.log(formData);
+    // console.log(formData);
     e.preventDefault();
     try {
       const formDataSend = new FormData();
@@ -173,12 +181,9 @@ const Review = () => {
                       <input
                         type="file"
                         name="image"
-                        // value={formData.image}
+                        accept="image/png, image/jpg, image/jpeg"
                         onChange={(e) => handleChange(e)}
                       />
-                      {/* <span>
-                        <FaTextWidth />
-                      </span> */}
                     </div>
                   </div>
                 </div>
