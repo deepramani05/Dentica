@@ -28,7 +28,16 @@ const Career = () => {
 
   const handleChange = (e) => {
     if (e.target.name === "file") {
-      setFormData({ ...formData, file: e.target.files[0] });
+      const selectedFile = e.target.files[0];
+      if (selectedFile && selectedFile.type !== "application/pdf"){
+        Swal.fire({
+          icon: "error",
+          title: "Invalid File Type",
+          text:"Please select a PDF file.",
+        });
+        return;
+      }
+      setFormData({ ...formData, file: selectedFile });
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
@@ -48,7 +57,7 @@ const Career = () => {
       formDataToSend.append("file", formData.file);
 
       const response = await fetch(
-        `https://denticadentalstudio.com/api/career/store`,
+        `https://denticadentalstudio.com/webapp/api/career/store`,
         {
           method: "POST",
           body: formDataToSend,
@@ -192,6 +201,7 @@ const Career = () => {
                         <input
                           type="file"
                           name="file"
+                          accept="application/pdf"
                           onChange={(e) => handleChange(e)}
                         />
                       </div>

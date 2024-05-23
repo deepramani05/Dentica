@@ -9,7 +9,7 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get(`https://denticadentalstudio.com/api/product`)
+      .get(`https://denticadentalstudio.com/webapp/api/product`)
       .then((res) => {
         console.log(res.data);
         setProductData(res.data.data.product);

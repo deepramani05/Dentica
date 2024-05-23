@@ -17,7 +17,7 @@ const Dentalshow = () => {
 
   useEffect(() => {
     axios
-      .get(`https://denticadentalstudio.com/api/event`, {
+      .get(`https://denticadentalstudio.com/webapp/api/event`, {
         params: { id },
       })
       .then((res) => {

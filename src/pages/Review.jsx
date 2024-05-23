@@ -43,7 +43,7 @@ const Review = () => {
       formDataSend.append("image", formData.image);
 
       const response = await fetch(
-        `https://denticadentalstudio.com/api/review/store`,
+        `https://denticadentalstudio.com/webapp/api/review/store`,
         {
           method: "POST",
           body: formDataSend,

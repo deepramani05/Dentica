@@ -15,7 +15,7 @@ const Event = () => {
     AOS.init();
 
     axios
-      .get(`https://denticadentalstudio.com/api/event_category`)
+      .get(`https://denticadentalstudio.com/webapp/api/event_category`)
       .then((res) => {
         console.log(res.data.data.event_category);
         setEventCat(res.data.data.event_category);

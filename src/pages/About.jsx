@@ -18,7 +18,7 @@ const About = () => {
     AOS.init();
 
     axios
-      .get(`https://denticadentalstudio.com/api/abouts`)
+      .get(`https://denticadentalstudio.com/webapp/api/abouts`)
       .then((res) => {
         console.log(res.data.data.about);
         setAboutData(res.data.data.about);

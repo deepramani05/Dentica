@@ -57,7 +57,7 @@ const Home = () => {
   useEffect(() => {
     // product api
     axios
-      .get("https://denticadentalstudio.com/api/product")
+      .get("https://denticadentalstudio.com/webapp/api/product")
       .then((res) => {
         console.log(res.data);
         setProductData(res.data.data.product);
@@ -72,7 +72,7 @@ const Home = () => {
 
     // gallery api
     axios
-      .get("https://denticadentalstudio.com/api/gallery")
+      .get("https://denticadentalstudio.com/webapp/api/gallery")
       .then((res) => {
         console.log(res.data);
         setGalleryData(res.data.data.gallery);
@@ -83,7 +83,7 @@ const Home = () => {
 
     // Review API
     axios
-      .get("https://denticadentalstudio.com/api/review")
+      .get("https://denticadentalstudio.com/webapp/api/review")
       .then((res) => {
         console.log(res.data);
         setReviewData(res.data.data.review);
@@ -109,7 +109,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        `https://denticadentalstudio.com/api/contactus/store`,
+        `https://denticadentalstudio.com/webapp/api/contactus/store`,
         {
           method: "POST",
           headers: {

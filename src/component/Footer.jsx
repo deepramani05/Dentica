@@ -17,7 +17,7 @@ const Footer = () => {
 
   useEffect(() => {
     axios
-      .get(`https://denticadentalstudio.com/api/product`)
+      .get(`https://denticadentalstudio.com/webapp/api/product`)
       .then((res) => {
         console.log(res.data);
         setProductData(res.data.data.product);
@@ -29,7 +29,7 @@ const Footer = () => {
 
     // About API
     axios
-      .get(`https://denticadentalstudio.com/api/abouts`)
+      .get(`https://denticadentalstudio.com/webapp/api/abouts`)
       .then((res) => {
         console.log(res.data.data.about);
         setAboutData(res.data.data.about);

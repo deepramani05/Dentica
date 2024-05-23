@@ -72,7 +72,7 @@ const Contact = () => {
       formDataSend.append("recaptcha_token", token);
 
       const response = await fetch(
-        "https://denticadentalstudio.com/api/contactus/store",
+        "https://denticadentalstudio.com/webapp/api/contactus/store",
         {
           method: "POST",
           body: formDataSend,

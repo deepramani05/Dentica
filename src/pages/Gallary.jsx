@@ -17,7 +17,7 @@ const Gallary = () => {
 
   useEffect(() => {
     axios
-      .get(`https://denticadentalstudio.com/api/gallery`)
+      .get(`https://denticadentalstudio.com/webapp/api/gallery`)
       .then((res) => {
         console.log(res.data.data.gallery);
         setGalleryData(res.data.data.gallery);

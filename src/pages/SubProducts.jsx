@@ -16,7 +16,7 @@ const SubProducts = () => {
   useEffect(() => {
     if (id) {
       axios
-        .post(`https://denticadentalstudio.com/api/show/product`, { id })
+        .post(`https://denticadentalstudio.com/webapp/api/show/product`, { id })
         .then((res) => {
           const data = res.data.data.product;
           setProductData(data);

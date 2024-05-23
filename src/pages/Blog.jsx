@@ -17,7 +17,7 @@ const Blog = () => {
 
   useEffect(() => {
     axios
-      .get("https://denticadentalstudio.com/api/blogs")
+      .get("https://denticadentalstudio.com/webapp/api/blogs")
       .then((res) => {
         console.log(res.data);
         setBlogData(res.data.data.blog);
