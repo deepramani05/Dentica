@@ -2794,3 +2794,15 @@ body.scrolled .back-to-top {
   color: #ddd5d5;
   font-weight: 400;
 }
+
+/* Missed */
+
+.all-blog-part {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+}
+
+.image-container figure {
+  margin: 0;
+}

@@ -111,11 +111,9 @@ const Dentbenefit = () => {
               </div>
               <div className="benefits-data-p3">
                 <h1>Latest Blog</h1>
-                <div
+                <div className="all-blog-part"
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "auto auto auto",
-                    gap: "10px",
+                    
                   }}
                 >
                   {allblog.map((ele) => (

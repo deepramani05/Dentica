@@ -3802,7 +3802,6 @@
   .implant-p2-img {
     flex-direction: column;
     width: 100%;
-    margin: 50px 0;
   }
 
   .implant-p2-img-box {
@@ -3897,7 +3896,7 @@
   }
 
   .inner-box {
-    flex-direction: column;
+    display: block !important;
   }
 
   .product-page-content-p1 {
@@ -3914,5 +3913,9 @@
 
   .preloader {
     top: 25%;
+  }
+
+  .all-blog-part {
+    grid-template-columns: auto;
   }
 }
