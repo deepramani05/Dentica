@@ -22,6 +22,14 @@ import Adminhome from "../pages/Adminhome.jsx";
 import User from "../pages/User.jsx";
 import AdminAboutUs from "../pages/AdminAboutUs.jsx";
 import AdminAboutEdit from "../pages/AdminAboutEdit.jsx";
+import AdminGallery from "../pages/AdminGallery.jsx";
+import AdminGalleryedit from "../pages/AdminGalleryedit.jsx";
+import AdminContact from "../pages/AdminContact.jsx";
+import AdminContactView from "../pages/AdminContactView.jsx";
+import AdminCareer from "../pages/AdminCareer.jsx";
+import AdminBlog from "../pages/AdminBlog.jsx";
+import AdminBlogAdd from "../pages/AdminBlogAdd.jsx";
+import AdminBlogEdit from "../pages/AdminBlogEdit.jsx";
 
 const AllRoutes = () => {
   return (
@@ -50,6 +58,14 @@ const AllRoutes = () => {
         <Route path="/admin/users" element={<User />}/>
         <Route path="/admin/about-us" element={<AdminAboutUs/>}/>
         <Route path="/admin/about/edit/:id" element={<AdminAboutEdit/>}/>
+        <Route path="/admin/gallery" element={<AdminGallery/>}/>
+        <Route path="/admin/gallery/edit/:id" element={<AdminGalleryedit />} />
+        <Route path="/admin/contact" element={<AdminContact/>}/>
+        <Route path="/admin/contact/:id" element={<AdminContactView/>}/>
+        <Route path="/admin/career" element={<AdminCareer/>}/>
+        <Route path="/admin/blog" element={<AdminBlog/>}/>
+        <Route path="/admin/blog/add" element={<AdminBlogAdd/>}/>
+        <Route path="/admin/blog/edit/:id" element={<AdminBlogEdit/>}/>
       </Routes>
     </div>
   );
