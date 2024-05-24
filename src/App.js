@@ -7,18 +7,26 @@ import './css/responsive.css';
 import './css/admin.css';
 import { FaArrowUp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import Header from "./component/Header";
+import SideNav from "./component/SideNav";
+import AdminFooter from "./component/AdminFooter";
 
 function App() {
   const location = useLocation();
-  const validRoutes = [ "/","/about","/product",
-    "/digital-dentistry","/blog","/carrier","/contact","/review",
-    "/events","/gallery","/quick-Links"];
+  /* check for url start */
+    const validRoutes = [ "/","/about","/product",
+      "/digital-dentistry","/blog","/carrier","/contact","/review",
+      "/events","/gallery","/quick-Links"];
+    const isPathValid =(pathname) =>{
+      return validRoutes.includes(pathname) || pathname.match(/^\/(product|blog|events)\/[^/]+$/);
+    }
+    const isNotFoundpage = !isPathValid(location.pathname);
+  /* url checking over */
+  
+  /*checking for Admin url */
+  const isAdminRoute = location.pathname.match('/admin') && location.pathname !== "/admin";
+  const isDashboardPage = location.pathname === "/admin/dashboard";
 
-  const isPathValid =(pathname) =>{
-    return validRoutes.includes(pathname) || pathname.match(/^\/(product|blog|events)\/[^/]+$/);
-  }
-  const isNotFoundpage = !isPathValid(location.pathname);
-  // const isNotFoundpage = !validRoutes.includes(location.pathname) && location.pathname !== "/notfound";
   const backToTopButton = document.querySelector(".back-to-top")  ;
 
   window.addEventListener("scroll", () => {
@@ -31,12 +39,16 @@ function App() {
 
   return (
     <div className="App">
+      {isAdminRoute && <Header />}
+      {isAdminRoute && <SideNav />}
       {!isNotFoundpage && <Nav />}
       <AllRoutes />
       <a href="#" class="back-to-top" onClick={backToTopButton} >
         <FaArrowUp />
       </a>
       {!isNotFoundpage && <Footer />}
+      {isAdminRoute && isDashboardPage && <AdminFooter />}
+
     </div>
   );
 }

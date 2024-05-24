@@ -21,7 +21,7 @@ const Login = () => {
               if(token){
                  Cookies.set("token",token);
                  console.log("Login Sucessful");
-                 setTimeout(() => window.location.href = "/",1000)
+                 setTimeout(() => window.location.href = "/admin/home",1000)
               }else{
                 console.error("Token is not fond in data")
                 setError("Token ID is missing.");

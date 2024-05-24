@@ -17,6 +17,8 @@ import Socialmedia from "../pages/Socialmedia.jsx";
 import SubProducts from "../pages/SubProducts.jsx";
 import NotFound from "../pages/NotFound.jsx";
 import Login from "../pages/Login.jsx";
+import Dashboard from "../pages/Dashboard.jsx";
+import Adminhome from "../pages/Adminhome.jsx";
 
 const AllRoutes = () => {
   return (
@@ -40,6 +42,8 @@ const AllRoutes = () => {
         <Route path="*" element={<NotFound/>}/>
         {/* adminroutes */}
         <Route path="/admin" element={<Login />} />
+        <Route path="/admin/dashboard" element={<Dashboard/>} />
+        <Route path="/admin/home" element={<Adminhome />} />
       </Routes>
     </div>
   );
