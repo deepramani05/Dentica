@@ -8,6 +8,7 @@ import { OutlinedInput } from "@mui/material";
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 
+
 const AdminAboutUs = () => {
     const [data, setData] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
@@ -231,14 +232,14 @@ const AdminAboutUs = () => {
 
                               <td className="align-middle">
                                 <Link
-                                  to="https://denticadentalstudio.com/about"
+                                  to="/about"
                                   className="form-btn"
                                   style={{
                                     border: "1px solid #17a2b8",
                                     backgroundColor: "white",
                                     padding: "2px 5px",
                                   }}
-                                //   target="_blank"
+                                  target="_blank"
                                   rel="noopener noreferrer"
                                 >
                                   <span style={{ color: "#17a2b8" }}>
