@@ -11,7 +11,6 @@ import axios from "axios";
 
 const About = () => {
   const [loading, setLoading] = useState(true);
-
   let [aboutData, setAboutData] = useState([]);
 
   useEffect(() => {
@@ -20,13 +19,13 @@ const About = () => {
     axios
       .get(`https://denticadentalstudio.com/webapp/api/abouts`)
       .then((res) => {
-        console.log(res.data.data.about);
+        // console.log(res.data.data.about);
         setAboutData(res.data.data.about);
         console.log(aboutData);
       })
       .catch((err) => {
         console.log(err);
-      })
+      })  
       .finally(() => {
         setLoading(false);
       });

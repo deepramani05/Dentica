@@ -19,6 +19,9 @@ import NotFound from "../pages/NotFound.jsx";
 import Login from "../pages/Login.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import Adminhome from "../pages/Adminhome.jsx";
+import User from "../pages/User.jsx";
+import AdminAboutUs from "../pages/AdminAboutUs.jsx";
+import AdminAboutEdit from "../pages/AdminAboutEdit.jsx";
 
 const AllRoutes = () => {
   return (
@@ -44,6 +47,9 @@ const AllRoutes = () => {
         <Route path="/admin" element={<Login />} />
         <Route path="/admin/dashboard" element={<Dashboard/>} />
         <Route path="/admin/home" element={<Adminhome />} />
+        <Route path="/admin/users" element={<User />}/>
+        <Route path="/admin/about-us" element={<AdminAboutUs/>}/>
+        <Route path="/admin/about/edit/:id" element={<AdminAboutEdit/>}/>
       </Routes>
     </div>
   );
