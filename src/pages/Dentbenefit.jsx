@@ -109,7 +109,7 @@ const Dentbenefit = () => {
                     <div className="benefits-data-p3-inner-box">
                       <img src={ele.image} alt="" />
                       <div>
-                        <Link to={`/blog/${ele.id}`} reloadDocument>{ele.short_description}</Link>
+                        <Link to={`/blog/${ele.id}`} >{ele.short_description}</Link>
                       </div>
                     </div>
                   ))}

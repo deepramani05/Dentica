@@ -366,47 +366,47 @@ const Nav = () => {
               <div className="mobile-nav-menu-main">
                 <ul class="navigation-list">
                   <li>
-                    <Link to="/" reloadDocument>
+                    <Link to="/" class="button-nav">
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link to="/about" reloadDocument>
+                    <Link to="/about" class="button-nav">
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link to="/product" reloadDocument>
+                    <Link to="/product" class="button-nav">
                       Products
                     </Link>
                   </li>
                   <li>
-                    <Link to="/digital-dentistry" reloadDocument>
+                    <Link to="/digital-dentistry" class="button-nav">
                       Digital Dentistry
                     </Link>
                   </li>
                   <li>
-                    <Link to="/blog" reloadDocument>
+                    <Link to="/blog" class="button-nav">
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link to="/carrier" reloadDocument>
+                    <Link to="/carrier" class="button-nav">
                       Career
                     </Link>
                   </li>
                   <li>
-                    <Link to="/contact" reloadDocument>
+                    <Link to="/contact" class="button-nav">
                       Contact
                     </Link>
                   </li>
                   <li>
-                    <Link to="/review" reloadDocument>
+                    <Link to="/review" class="button-nav">
                       Review
                     </Link>
                   </li>
                   <li>
-                    <Link to="/events" reloadDocument>
+                    <Link to="/events" class="button-nav">
                       Events
                     </Link>
                   </li>

@@ -36,7 +36,6 @@ function App() {
       document.body.classList.remove("scrolled");
     }
   });
-
   return (
     <div className="App">
       {isAdminRoute && <Header />}
@@ -47,7 +46,7 @@ function App() {
         <FaArrowUp />
       </a>
       {!isNotFoundpage && <Footer />}
-      {isAdminRoute && isDashboardPage && <AdminFooter />}
+      {isAdminRoute && <AdminFooter isDashboardPage={isDashboardPage} />}
 
     </div>
   );

@@ -70,7 +70,7 @@ const SideNav = () => {
       >
         {/* Brand Logo */}
         <a
-          href="/"
+          href="/admin/home"
           className="brand-link sidebar-light-primary"
           onClick={isMobile ? toggleSidebar : undefined}
           style={{padding:"0" }}
@@ -91,13 +91,13 @@ const SideNav = () => {
               {/* Dashboard */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/dashboard" ? "menu-open" : ""
+                  location.pathname === "/admin/dashboard" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/dashboard"
+                  href="/admin/dashboard"
                   className={`nav-link ${
-                    location.pathname === "/dashboard" ? "active" : ""
+                    location.pathname === "/admin/dashboard" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon fas fa-tachometer-alt"></i>
@@ -108,13 +108,13 @@ const SideNav = () => {
               {/* Users */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/users" ? "menu-open" : ""
+                  location.pathname === "/admin/users" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/users"
+                  href="/admin/users"
                   className={`nav-link ${
-                    location.pathname === "/users" ? "active" : ""
+                    location.pathname === "/admin/users" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -127,13 +127,13 @@ const SideNav = () => {
               {/* Home */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/" ? "menu-open" : ""
+                  location.pathname === "/admin/home" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/"
+                  href="/admin/home"
                   className={`nav-link ${
-                    location.pathname === "/" ? "active" : ""
+                    location.pathname === "/admin/home" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -146,13 +146,13 @@ const SideNav = () => {
               {/* About Us */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/about-us" ? "menu-open" : ""
+                  location.pathname === "/admin/about-us" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/about-us"
+                  href="/admin/about-us"
                   className={`nav-link ${
-                    location.pathname === "/about-us" ? "active" : ""
+                    location.pathname === "/admin/about-us" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -165,13 +165,13 @@ const SideNav = () => {
               {/* Gallery */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/gallery" ? "menu-open" : ""
+                  location.pathname === "/admin/gallery" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/gallery"
+                  href="/admin/gallery"
                   className={`nav-link ${
-                    location.pathname === "/gallery" ? "active" : ""
+                    location.pathname === "/admin/galleryy" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -184,13 +184,13 @@ const SideNav = () => {
               {/* Contacts */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/contact" ? "menu-open" : ""
+                  location.pathname === "/admin/contact" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/contact"
+                  href="/admin/contact"
                   className={`nav-link ${
-                    location.pathname === "/contact" ? "active" : ""
+                    location.pathname === "/admin/contact" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -203,13 +203,13 @@ const SideNav = () => {
               {/* Career */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/career" ? "menu-open" : ""
+                  location.pathname === "/admin/career" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/career"
+                  href="/admin/career"
                   className={`nav-link ${
-                    location.pathname === "/career" ? "active" : ""
+                    location.pathname === "/admin/career" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -222,13 +222,13 @@ const SideNav = () => {
               {/* Blog */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/blog" ? "menu-open" : ""
+                  location.pathname === "/admin/blog" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/blog"
+                  href="/admin/blog"
                   className={`nav-link ${
-                    location.pathname === "/blog" ? "active" : ""
+                    location.pathname === "/admin/blog" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -241,13 +241,13 @@ const SideNav = () => {
               {/* Products */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/product" ? "menu-open" : ""
+                  location.pathname === "/admin/product" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/product"
+                  href="/admin/product"
                   className={`nav-link ${
-                    location.pathname === "/product" ? "active" : ""
+                    location.pathname === "/admin/product" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -260,13 +260,13 @@ const SideNav = () => {
               {/* Review */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/review" ? "menu-open" : ""
+                  location.pathname === "/admin/review" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/review"
+                  href="/admin/review"
                   className={`nav-link ${
-                    location.pathname === "/review" ? "active" : ""
+                    location.pathname === "/admin/review" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -279,13 +279,13 @@ const SideNav = () => {
               {/* Meta */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/meta" ? "menu-open" : ""
+                  location.pathname === "/admin/meta" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/meta"
+                  href="/admin/meta"
                   className={`nav-link ${
-                    location.pathname === "/meta" ? "active" : ""
+                    location.pathname === "/admin/meta" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -298,13 +298,13 @@ const SideNav = () => {
               {/* Team */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/team" ? "menu-open" : ""
+                  location.pathname === "/admin/team" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/team"
+                  href="/admin/team"
                   className={`nav-link ${
-                    location.pathname === "/team" ? "active" : ""
+                    location.pathname === "/admin/team" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -317,13 +317,13 @@ const SideNav = () => {
               {/* STL */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/stl" ? "menu-open" : ""
+                  location.pathname === "/admin/stl" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/stl"
+                  href="/admin/stl"
                   className={`nav-link ${
-                    location.pathname === "/stl" ? "active" : ""
+                    location.pathname === "/admin/stl" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -336,13 +336,13 @@ const SideNav = () => {
               {/* Event Category */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/event-catagory" ? "menu-open" : ""
+                  location.pathname === "/admin/event-catagory" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/event-catagory"
+                  href="/admin/event-catagory"
                   className={`nav-link ${
-                    location.pathname === "/event-catagory" ? "active" : ""
+                    location.pathname === "/admin/event-catagory" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
@@ -355,13 +355,13 @@ const SideNav = () => {
               {/* Event */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/event" ? "menu-open" : ""
+                  location.pathname === "/admin/event" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/event"
+                  href="/admin/event"
                   className={`nav-link ${
-                    location.pathname === "/event" ? "active" : ""
+                    location.pathname === "/admin/event" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">
