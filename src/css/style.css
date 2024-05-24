@@ -163,13 +163,15 @@ body {
   position: fixed;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(90deg,
-      rgba(202, 98, 157, 1) 29%,
-      rgba(8, 68, 152, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(202, 98, 157, 1) 29%,
+    rgba(8, 68, 152, 1) 100%
+  );
 }
 
 .nav-logo-main {
-  width: 10%;
+  width: 13%;
 }
 
 .nav-logo-sub {
@@ -198,6 +200,7 @@ body {
   align-items: center;
   list-style-type: none;
   gap: 19px;
+  margin: 0;
 }
 
 .nav-menu-li a {
@@ -225,34 +228,25 @@ body {
 
 .nav-menu-li {
   position: relative;
-  /* Ensure proper positioning of the pseudo-element */
 }
 
 .nav-menu-li::before {
   content: "";
   position: absolute;
   top: 50%;
-  /* Position the pseudo-element at the center vertically */
   left: 0;
   width: 100%;
   height: 2px;
-  /* Height of the hover effect */
   background-color: #12448b;
-  /* Color of the hover effect */
   transform: scaleX(0);
-  /* Initially, scale the pseudo-element to 0 width */
   transform-origin: center;
-  /* Ensure transform origin is at the right edge */
   transition: transform 0.3s ease-out;
-  /* Add transition for smooth animation */
   margin-top: 20px;
 }
 
 .nav-menu-li:hover::before {
   transform: scaleX(1);
-  /* Scale the pseudo-element to full width on hover */
   transform-origin: center;
-  /* Ensure transform origin is at the left edge */
 }
 
 .tab-nav {
@@ -267,9 +261,11 @@ body {
   justify-content: space-between;
   padding: 10px 30px;
   background-color: #12448b;
-  background: linear-gradient(90deg,
-      rgba(202, 98, 157, 1) 29%,
-      rgba(8, 68, 152, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(202, 98, 157, 1) 29%,
+    rgba(8, 68, 152, 1) 100%
+  );
   z-index: 0;
 }
 
@@ -282,13 +278,12 @@ body {
 .top-nav-loc,
 .top-nav-email {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
 }
 
 .top-nav-data span {
   color: #fff;
-  margin-top: 5px;
   font-size: 20px;
 }
 
@@ -302,6 +297,7 @@ body {
   line-height: 19px;
   font-weight: 400;
   color: rgb(255, 255, 255);
+  margin: 0;
 }
 
 .top-nav-email a {
@@ -588,9 +584,11 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: -webkit-linear-gradient(0deg,
-      #12448b,
-      rgba(100, 100, 100, 0.3) 100%);
+  background: -webkit-linear-gradient(
+    0deg,
+    #12448b,
+    rgba(100, 100, 100, 0.3) 100%
+  );
 }
 
 .banner-data {
@@ -652,8 +650,13 @@ body {
 
 .banner-btn :hover {
   background-color: #12448b;
-  /* Change the color to whatever you want */
   transition: all 0.3s ease-in-out 0s;
+}
+
+.home-banner-hr {
+  background-color: #d1dbe5;
+  height: 1px;
+  border: 0;
 }
 
 /* Home About */
@@ -781,8 +784,8 @@ body {
   display: block;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   width: 75%;
-  left: 125px;
-  top: 125px;
+  left: 135px;
+  top: 145px;
 }
 
 .image img {
@@ -803,8 +806,8 @@ body {
   position: absolute;
   right: -135px;
   bottom: -270px;
-  width: 165px;
-  height: 108px;
+  width: 160px;
+  height: 160px;
   background-color: #ca629d;
   text-align: center;
   border-radius: 75%;
@@ -905,14 +908,16 @@ body {
 .dent-img-box {
   width: 100%;
   position: relative;
-  clip-path: polygon(30% 5%,
-      70% 5%,
-      89% 25%,
-      89% 65%,
-      70% 90%,
-      30% 90%,
-      11% 64%,
-      11% 26%);
+  clip-path: polygon(
+    30% 5%,
+    70% 5%,
+    89% 25%,
+    89% 65%,
+    70% 90%,
+    30% 90%,
+    11% 64%,
+    11% 26%
+  );
 }
 
 .dent-img-box img {
@@ -1284,6 +1289,7 @@ textarea {
   color: #d1dbe5;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 5px 0;
 }
 
 .main-footer-p1-content a:hover p {
@@ -1419,7 +1425,7 @@ textarea {
 
 .footer-cont-icon {
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 
 /* About Page */
@@ -1671,7 +1677,7 @@ textarea {
 }
 
 .benefit-p1-content-cat span {
-  margin: 5px 10px 0 0;
+  margin: 0px 10px;
 }
 
 .benefit-p1-content-btn-main h1 {
@@ -1747,6 +1753,7 @@ textarea {
   color: rgb(124, 128, 131);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
 }
 
 .benefits-data-p3 {
@@ -1904,6 +1911,9 @@ textarea {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .contact-page-map-section {
@@ -2324,6 +2334,7 @@ textarea {
 .back-to-top:hover.back-to-top svg {
   transform: rotate(360deg);
   transition: transform 0.2s;
+  color: white;
 }
 
 body.scrolled .back-to-top {

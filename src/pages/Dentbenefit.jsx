@@ -10,6 +10,13 @@ const Dentbenefit = () => {
   const { id } = useParams();
   let [allblog, setAllBlog] = useState([]);
 
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
     axios
       .post(`https://denticadentalstudio.com/webapp/api/show/blog`, { id })
@@ -84,7 +91,7 @@ const Dentbenefit = () => {
                         {blogData.meta_tag &&
                           blogData.meta_tag.map((tag, index) => (
                             <Link to="#" key={index} style={{ margin: "5px" }}>
-                              <p>{tag}</p>
+                              <p style={{ margin: "0" }}>{tag}</p>
                             </Link>
                           ))}
                       </div>
@@ -104,12 +111,20 @@ const Dentbenefit = () => {
               </div>
               <div className="benefits-data-p3">
                 <h1>Latest Blog</h1>
-                <div style={{display:"grid",gridTemplateColumns:"auto auto auto",gap:"10px"}}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "auto auto auto",
+                    gap: "10px",
+                  }}
+                >
                   {allblog.map((ele) => (
                     <div className="benefits-data-p3-inner-box">
                       <img src={ele.image} alt="" />
                       <div>
-                        <Link to={`/blog/${ele.id}`} >{ele.short_description}</Link>
+                        <Link to={`/blog/${ele.id}`} onClick={handleNavClick}>
+                          {ele.short_description}
+                        </Link>
                       </div>
                     </div>
                   ))}

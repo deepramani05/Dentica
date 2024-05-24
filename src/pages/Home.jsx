@@ -175,7 +175,7 @@ const Home = () => {
                 <h3>Smile Bright With</h3>
                 <h1>Dentica Dental Studio</h1>
               </div>
-              <hr data-aos="fade-right" data-aos-duration="1000" />
+              <hr data-aos="fade-right" data-aos-duration="1000" className="home-banner-hr" />
               <div
                 className="banner-text-body"
                 data-aos="fade-up"
@@ -185,7 +185,7 @@ const Home = () => {
                   Enhance your smile with Dentica Dental Studio, where quality
                   meets compassionate care. Our <br /> experienced team offers
                   tailored dental services to boost your oral health and
-                  confidence. Discover <br /> exceptional treatment in a
+                  confidence. Discover exceptional treatment in a
                   welcoming and comforting environment..
                 </p>
                 <div className="banner-btn">

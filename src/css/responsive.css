@@ -4,6 +4,10 @@
     padding: 0;
   }
 
+  .home-product-mobile-img-box {
+    overflow: hidden;
+  }
+
   .nav-menu-li a {
     font-size: 12px;
   }
