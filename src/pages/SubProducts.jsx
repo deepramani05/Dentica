@@ -38,11 +38,11 @@ const SubProducts = () => {
     }
 
     axios
-      .get(`https://denticadentalstudio.com/api/product`)
+      .get(`https://denticadentalstudio.com/webapp/api/product`)
       .then((res) => {
-        console.log(res.data.data.product);
+        // console.log(res.data.data.product);
         ApData(res.data.data.product);
-        console.log(apdata);
+        // console.log(apdata);
       })
       .catch((err) => {
         console.log(err);

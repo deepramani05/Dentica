@@ -30,6 +30,13 @@ import AdminCareer from "../pages/AdminCareer.jsx";
 import AdminBlog from "../pages/AdminBlog.jsx";
 import AdminBlogAdd from "../pages/AdminBlogAdd.jsx";
 import AdminBlogEdit from "../pages/AdminBlogEdit.jsx";
+import AdminProduct from "../pages/AdminProduct.jsx";
+import AdminProductAdd from "../pages/AdminProductAdd.jsx";
+import AdminProductEdit from "../pages/AdminProductEdit.jsx";
+import AdminReview from "../pages/AdminReview.jsx";
+import AdminReviewEdit from "../pages/AdminReviewEdit.jsx";
+import AdminMeta from "../pages/AdminMeta.jsx";
+import AdminMetaEdit from "../pages/AdminMetaEdit.jsx";
 
 const AllRoutes = () => {
   return (
@@ -51,7 +58,7 @@ const AllRoutes = () => {
         <Route path="/submit-stl-file" element={<StlFile />} />
         <Route path="/quick-Links" element={<Socialmedia />} />
         <Route path="*" element={<NotFound/>}/>
-        {/* adminroutes */}
+        {/* admin-routes */}
         <Route path="/admin" element={<Login />} />
         <Route path="/admin/dashboard" element={<Dashboard/>} />
         <Route path="/admin/home" element={<Adminhome />} />
@@ -66,6 +73,13 @@ const AllRoutes = () => {
         <Route path="/admin/blog" element={<AdminBlog/>}/>
         <Route path="/admin/blog/add" element={<AdminBlogAdd/>}/>
         <Route path="/admin/blog/edit/:id" element={<AdminBlogEdit/>}/>
+        <Route path="/admin/Product" element={<AdminProduct/>}/>
+        <Route path="/admin/Product/add" element={<AdminProductAdd/>}/>
+        <Route path="/admin/Product/edit/:id" element={<AdminProductEdit/>}/>
+        <Route path="/admin/Review" element={<AdminReview/>}/>
+        <Route path="/admin/Review/edit/:id" element={<AdminReviewEdit/>}/>
+        <Route path="/admin/Meta" element={<AdminMeta/>}/>
+        <Route path="/admin/Meta/edit/:id" element={<AdminMetaEdit/>}/>
       </Routes>
     </div>
   );

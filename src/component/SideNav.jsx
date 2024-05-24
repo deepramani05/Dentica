@@ -171,7 +171,7 @@ const SideNav = () => {
                 <a
                   href="/admin/gallery"
                   className={`nav-link ${
-                    location.pathname === "/admin/galleryy" ? "active" : ""
+                    location.pathname === "/admin/gallery" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">

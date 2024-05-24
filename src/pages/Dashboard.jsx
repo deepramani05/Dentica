@@ -66,7 +66,7 @@ const Dashboard = () => {
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item">
-                    <Link to="/">Home</Link>
+                    <Link to="/admin/home">Home</Link>
                   </li>
                   <li
                     className="breadcrumb-item active"
