@@ -34,7 +34,7 @@ const Header = () => {
     })
       .then(response => {
         if (response.status === 200) {
-          window.location.href = "/login";
+          window.location.href = "/admin";
 
         } else {
           throw new Error("LogOut failed");
@@ -81,7 +81,7 @@ const Header = () => {
               </span>
               {/* <div class="dropdown-divider"></div> */}
               <a
-                href="/login"
+                href="/admin"
                 class="dropdown-item dropdown-footer"
                 onClick={handleLogout}>
                 Log Out !

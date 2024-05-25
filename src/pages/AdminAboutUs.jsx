@@ -34,7 +34,11 @@ const AdminAboutUs = () => {
           setData(res.data.data.about || []); // Update data with response if available, or empty array
         })
         .catch((err) => {
-          console.log("Error fetching data:", err);
+          if (err.response && err.response.status === 401) {
+            window.location.href="/admin"
+          } else {
+            console.log("Error fetching data:", err);
+          }
         })
         .finally(() => {
           setLoading(false);
