@@ -336,13 +336,13 @@ const SideNav = () => {
               {/* Event Category */}
               <li
                 className={`nav-item ${
-                  location.pathname === "/admin/event-catagory" ? "menu-open" : ""
+                  location.pathname === "/admin/event-category" ? "menu-open" : ""
                 }`}
               >
                 <a
-                  href="/admin/event-catagory"
+                  href="/admin/event-category"
                   className={`nav-link ${
-                    location.pathname === "/admin/event-catagory" ? "active" : ""
+                    location.pathname === "/admin/event-category" ? "active" : ""
                   }`}
                 >
                   <i className="nav-icon">

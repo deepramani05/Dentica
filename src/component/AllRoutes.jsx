@@ -37,6 +37,14 @@ import AdminReview from "../pages/AdminReview.jsx";
 import AdminReviewEdit from "../pages/AdminReviewEdit.jsx";
 import AdminMeta from "../pages/AdminMeta.jsx";
 import AdminMetaEdit from "../pages/AdminMetaEdit.jsx";
+import AdminTeamEdit from "../pages/AdminTeamEdit.jsx";
+import AdminTeam from "../pages/Adminteam.jsx";
+import AdminStl from "../pages/AdminStl.jsx";
+import AdminEventCat from "../pages/AdminEventCat.jsx";
+import AdminEventCatEdit from "../pages/AdminEventCatEdit.jsx";
+import AdminEvent from "../pages/AdminEvent.jsx";
+import AdminEventAdd from "../pages/AdminEventAdd.jsx";
+import AdminEventEdit from "../pages/AdminEventEdit.jsx";
 
 const AllRoutes = () => {
   return (
@@ -80,6 +88,14 @@ const AllRoutes = () => {
         <Route path="/admin/Review/edit/:id" element={<AdminReviewEdit/>}/>
         <Route path="/admin/Meta" element={<AdminMeta/>}/>
         <Route path="/admin/Meta/edit/:id" element={<AdminMetaEdit/>}/>
+        <Route path="/admin/team" element={<AdminTeam />}/>
+        <Route path="/admin/team/edit/:id" element={<AdminTeamEdit/>}/>
+        <Route path="/admin/stl" element={<AdminStl/>}/>
+        <Route path="/admin/event-category" element={<AdminEventCat />}/>
+        <Route path="/admin/event-category/edit/:id" element={<AdminEventCatEdit/>}/>
+        <Route path="/admin/event" element={<AdminEvent />} />
+        <Route path="/admin/event/add" element={<AdminEventAdd />} />
+        <Route path="/admin/event/edit/:id" element={<AdminEventEdit/>}/>
       </Routes>
     </div>
   );
