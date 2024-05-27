@@ -395,7 +395,7 @@ const AdminEventCat = () => {
                                       </td>
                                       <td className="align-middle">
                                         <Link
-                                          to={'/event-category'}
+                                          to={`/events/${ele.id}`}
                                           className="form-btn"
                                           style={{
                                             border: "1px solid #17a2b8",

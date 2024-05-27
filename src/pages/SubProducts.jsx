@@ -11,7 +11,8 @@ const SubProducts = () => {
   const [bgImageLoaded, setBgImageLoaded] = useState(false);
   const { id } = useParams();
 
-  let [apdata, ApData] = useState([]);
+  const [apData, setApData] = useState([]);
+ 
 
   useEffect(() => {
     if (id) {
@@ -41,7 +42,7 @@ const SubProducts = () => {
       .get(`https://denticadentalstudio.com/webapp/api/product`)
       .then((res) => {
         // console.log(res.data.data.product);
-        ApData(res.data.data.product);
+        setApData(res.data.data.product);
         // console.log(apdata);
       })
       .catch((err) => {
@@ -80,7 +81,7 @@ const SubProducts = () => {
     });
   };
 
-  if (!productData || !apdata) {
+  if (!productData || !apData) {
     return (
       <div>
         <div className="preloaderContainer">
@@ -137,7 +138,7 @@ const SubProducts = () => {
               </div>
               <div className="implant-p1-link-main">
                 <h1>Our products</h1>
-                {apdata
+                {apData
                   .filter((item) => item.product_type === 2)
                   .map((ele) => (
                     <div className="implant-p1-link-sub">

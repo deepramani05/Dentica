@@ -290,10 +290,7 @@ const AdminBlog = () => {
                               ></td>
                               <td width={"15%"}>
                                 <Link
-                                  to={`/blog/${ele.slug.replace(
-                                    /\s+/g,
-                                    "-"
-                                  )}`}
+                                  to={`/blog/${ele.id}`}
                                   className="form-btn"
                                   style={{
                                     border: "1px solid #17a2b8",

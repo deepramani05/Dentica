@@ -15,7 +15,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Contact = () => {
-  const [submitButton, setSubmitButton] = useState(true);
+  // const [submitButton, setSubmitButton] = useState(true);
   const [verified, setVerified] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -33,21 +33,21 @@ const Contact = () => {
     setLoading(false);
   }, []);
 
-  const excuteRecaptcha = async () => {
-    return new Promise((resolve, reject) => {
-      window.grecaptcha.ready(async () => {
-        try {
-          const token = await window.grecaptcha.execute(
-            "6Lc7q98pAAAAANTVtph_4Mg5Jyb1TJWcDrIHJDMS",
-            { action: "contact_form" }
-          );
-          resolve(token);
-        } catch (error) {
-          reject(error);
-        }
-      });
-    });
-  };
+  // const excuteRecaptcha = async () => {
+  //   return new Promise((resolve, reject) => {
+  //     window.grecaptcha.ready(async () => {
+  //       try {
+  //         const token = await window.grecaptcha.execute(
+  //           "6Lc7q98pAAAAANTVtph_4Mg5Jyb1TJWcDrIHJDMS",
+  //           { action: "contact_form" }
+  //         );
+  //         resolve(token);
+  //       } catch (error) {
+  //         reject(error);
+  //       }
+  //     });
+  //   });
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,14 +62,14 @@ const Contact = () => {
         console.error("Please complete the manual verification.");
         return;
       }
-      const token = await excuteRecaptcha();
+      // const token = await excuteRecaptcha();
       const formDataSend = new FormData();
       formDataSend.append("name", formData.name);
       formDataSend.append("email", formData.email);
       formDataSend.append("mobile_number", formData.mobile_number);
       formDataSend.append("subject", formData.subject);
       formDataSend.append("message", formData.message);
-      formDataSend.append("recaptcha_token", token);
+      // formDataSend.append("recaptcha_token", token);
 
       const response = await fetch(
         "https://denticadentalstudio.com/webapp/api/contactus/store",
@@ -108,15 +108,15 @@ const Contact = () => {
       console.error("reCAPTCHA error: ", error);
     }
   };
-  useEffect(() => {
-    const enableSubmitButton = async () => {
-      const token = await excuteRecaptcha();
-      if (token) {
-        setSubmitButton(false);
-      }
-    };
-    enableSubmitButton();
-  }, []);
+  // useEffect(() => {
+  //   const enableSubmitButton = async () => {
+  //     const token = await excuteRecaptcha();
+  //     if (token) {
+  //       setSubmitButton(false);
+  //     }
+  //   };
+  //   enableSubmitButton();
+  // }, []);
 
   return (
     <div className="contact-main">
@@ -333,7 +333,7 @@ const Contact = () => {
                       onChange={(e) => setVerified(e.target.checked)}
                       style={{ marginRight: "5px" }}
                     />
-                    <label
+                    {/* <label
                       htmlFor="verified"
                       style={{
                         fontSize: "16px",
@@ -342,12 +342,12 @@ const Contact = () => {
                       }}
                     >
                       I am not a robot
-                    </label>
+                    </label> */}
                     <div className="home-msg-form-submit">
                       <input
                         type="submit"
                         value="SEND MESSAGE"
-                        disabled={submitButton}
+                        // disabled={submitButton}
                       />
                     </div>
                   </form>

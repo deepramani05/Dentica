@@ -290,14 +290,8 @@ const AdminProduct = () => {
                                   <Link
                                     to={
                                       ele.title === "Digital Dentristry"
-                                        ? `/digital-dentistry/${ele.title.replace(
-                                            /\s+/g,
-                                            "-"
-                                          )}`
-                                        : `/product/${ele.title.replace(
-                                            /\s+/g,
-                                            "-"
-                                          )}`
+                                        ? `/digital-dentistry`
+                                        : `/product/${ele.id}`
                                     }
                                     className="form-btn"
                                     style={{
