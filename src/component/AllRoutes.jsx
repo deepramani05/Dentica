@@ -45,6 +45,7 @@ import AdminEventCatEdit from "../pages/AdminEventCatEdit.jsx";
 import AdminEvent from "../pages/AdminEvent.jsx";
 import AdminEventAdd from "../pages/AdminEventAdd.jsx";
 import AdminEventEdit from "../pages/AdminEventEdit.jsx";
+import ProtectedRoute from "./ProtectedRoute.jsx";
 
 const AllRoutes = () => {
   return (
@@ -66,36 +67,36 @@ const AllRoutes = () => {
         <Route path="/submit-stl-file" element={<StlFile />} />
         <Route path="/quick-Links" element={<Socialmedia />} />
         <Route path="*" element={<NotFound/>}/>
-        {/* admin-routes */}
         <Route path="/admin" element={<Login />} />
-        <Route path="/admin/dashboard" element={<Dashboard/>} />
-        <Route path="/admin/home" element={<Adminhome />} />
-        <Route path="/admin/users" element={<User />}/>
-        <Route path="/admin/about-us" element={<AdminAboutUs/>}/>
-        <Route path="/admin/about/edit/:id" element={<AdminAboutEdit/>}/>
-        <Route path="/admin/gallery" element={<AdminGallery/>}/>
-        <Route path="/admin/gallery/edit/:id" element={<AdminGalleryedit />} />
-        <Route path="/admin/contact" element={<AdminContact/>}/>
-        <Route path="/admin/contact/:id" element={<AdminContactView/>}/>
-        <Route path="/admin/career" element={<AdminCareer/>}/>
-        <Route path="/admin/blog" element={<AdminBlog/>}/>
-        <Route path="/admin/blog/add" element={<AdminBlogAdd/>}/>
-        <Route path="/admin/blog/edit/:id" element={<AdminBlogEdit/>}/>
-        <Route path="/admin/Product" element={<AdminProduct/>}/>
-        <Route path="/admin/Product/add" element={<AdminProductAdd/>}/>
-        <Route path="/admin/Product/edit/:id" element={<AdminProductEdit/>}/>
-        <Route path="/admin/Review" element={<AdminReview/>}/>
-        <Route path="/admin/Review/edit/:id" element={<AdminReviewEdit/>}/>
-        <Route path="/admin/Meta" element={<AdminMeta/>}/>
-        <Route path="/admin/Meta/edit/:id" element={<AdminMetaEdit/>}/>
-        <Route path="/admin/team" element={<AdminTeam />}/>
-        <Route path="/admin/team/edit/:id" element={<AdminTeamEdit/>}/>
-        <Route path="/admin/stl" element={<AdminStl/>}/>
-        <Route path="/admin/event-category" element={<AdminEventCat />}/>
-        <Route path="/admin/event-category/edit/:id" element={<AdminEventCatEdit/>}/>
-        <Route path="/admin/event" element={<AdminEvent />} />
-        <Route path="/admin/event/add" element={<AdminEventAdd />} />
-        <Route path="/admin/event/edit/:id" element={<AdminEventEdit/>}/>
+        {/* admin-routes */}
+        <Route path="/admin/dashboard" element={<ProtectedRoute element={<Dashboard/>}/>} />
+        <Route path="/admin/home" element={<ProtectedRoute element={<Adminhome/>} />} />
+        <Route path="/admin/users" element={<ProtectedRoute element={<User />} />}/>
+        <Route path="/admin/about-us" element={<ProtectedRoute element={<AdminAboutUs/>}/>}/>
+        <Route path="/admin/about/edit/:id" element={<ProtectedRoute element={<AdminAboutEdit/>}/>}/>
+        <Route path="/admin/gallery" element={<ProtectedRoute element={<AdminGallery/>}/>}/>
+        <Route path="/admin/gallery/edit/:id" element={<ProtectedRoute element={<AdminGalleryedit/>} />} />
+        <Route path="/admin/contact" element={<ProtectedRoute element={<AdminContact/>}/>}/>
+        <Route path="/admin/contact/:id" element={<ProtectedRoute element={<AdminContactView/>}/>}/>
+        <Route path="/admin/career" element={<ProtectedRoute element={<AdminCareer/>}/>}/>
+        <Route path="/admin/blog" element={<ProtectedRoute element={<AdminBlog/>}/>}/>
+        <Route path="/admin/blog/add" element={<ProtectedRoute element={<AdminBlogAdd/>}/>}/>
+        <Route path="/admin/blog/edit/:id" element={<ProtectedRoute element={<AdminBlogEdit/>}/>}/>
+        <Route path="/admin/Product" element={<ProtectedRoute element={<AdminProduct/>}/>}/>
+        <Route path="/admin/Product/add" element={<ProtectedRoute element={<AdminProductAdd/>}/>}/>
+        <Route path="/admin/Product/edit/:id" element={<ProtectedRoute element={<AdminProductEdit/>}/>}/>
+        <Route path="/admin/Review" element={<ProtectedRoute element={<AdminReview/>}/>}/>
+        <Route path="/admin/Review/edit/:id" element={<ProtectedRoute element={<AdminReviewEdit/>}/>}/>
+        <Route path="/admin/Meta" element={<ProtectedRoute element={<AdminMeta/>}/>}/>
+        <Route path="/admin/Meta/edit/:id" element={<ProtectedRoute element={<AdminMetaEdit/>}/>}/>
+        <Route path="/admin/team" element={<ProtectedRoute element={<AdminTeam />} />}/>
+        <Route path="/admin/team/edit/:id" element={<ProtectedRoute element={<AdminTeamEdit/>}/>}/>
+        <Route path="/admin/stl" element={<ProtectedRoute element={<AdminStl/>}/>}/>
+        <Route path="/admin/event-category" element={<ProtectedRoute element={<AdminEventCat/>} />}/>
+        <Route path="/admin/event-category/edit/:id" element={<ProtectedRoute element={<AdminEventCatEdit/>}/>}/>
+        <Route path="/admin/event" element={<ProtectedRoute element={<AdminEvent/>} />} />
+        <Route path="/admin/event/add" element={<ProtectedRoute element={<AdminEventAdd/>} />} />
+        <Route path="/admin/event/edit/:id" element={<ProtectedRoute element={<AdminEventEdit/>}/>}/>
       </Routes>
     </div>
   );
