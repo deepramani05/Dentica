@@ -4,6 +4,7 @@ import box1 from "../img/thumb_box-1.png";
 import box2 from "../img/thumb_box-2.png";
 import box3 from "../img/thumb_box-3.png";
 import about_center from "../img/home_about-center.png";
+import about_center2 from "../img/123.png"
 import dent from "../img/home_dentistery.jpg";
 import review_img from "../img/dent_page.png";
 import { FaUser } from "react-icons/fa";
@@ -22,16 +23,14 @@ import "swiper/swiper-bundle.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-// import SwiperCore from "swiper";
-
-// Import Swiper React components
-// import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+
+import sideimage from "../img/experience1.png"
 
 SwiperCore.use([Autoplay, Pagination]);
 
@@ -254,12 +253,12 @@ const Home = () => {
                 data-aos="fade-right"
                 data-aos-duration="1000"
               >
-                <div className="image-box">
-                  <div className="shape">
+                <div className="image-box-about">
+                  {/* <div className="shape">
                     <div className="shape-1"></div>
                     <div className="shape-2"></div>
-                  </div>
-                  <div className="box">
+                  </div> */}
+                  {/* <div className="box">
                     <figure className="box-1 thumb">
                       <img src={box1} alt="" />
                     </figure>
@@ -269,15 +268,16 @@ const Home = () => {
                     <figure className="box-3 thumb">
                       <img src={box3} alt="" />
                     </figure>
-                  </div>
+                  </div> */}
                   <figure className="image">
-                    <img src={about_center} alt="" />
+                    <img src={about_center2} alt="" />
                   </figure>
                   <div className="text">
-                    <h2>
+                    {/* <h2>
                       12 <span>+</span>
                     </h2>
-                    <h6>Years of Experience</h6>
+                    <h6>Years of Experience</h6> */}
+                    <img src={sideimage} alt="" />
                   </div>
                 </div>
               </div>
@@ -548,7 +548,7 @@ const Home = () => {
             <div className="home-gallary-sub">
               <div className="home-gallary-head">
                 <div className="home-gallary-txt">
-                  <span>GALLARY</span>
+                  <span>GALLERY</span>
                 </div>
                 <h1>Dentica Dental Studio</h1>
               </div>
