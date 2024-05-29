@@ -7,7 +7,7 @@ import axios from "axios";
 
 const AdminProductEdit = () => {
     const [formData, setFormData] = useState({
-        header_image: [],
+        headerimage: [],
         background_image: [],
         image: [],
         product_images: [],
@@ -18,6 +18,7 @@ const AdminProductEdit = () => {
         meta_keyword: "",
         product_type: "",
         description: "",
+        preloaded_images: []
       });
       const [loading, setLoading] = useState(true);
     
@@ -45,6 +46,7 @@ const AdminProductEdit = () => {
               meta_keyword: data.meta_keyword,
               product_type: data.product_type,
               description: data.description,
+              preloaded_images: data.product_images,
             };
             setFormData(productData);
             setLoading(false);
@@ -93,11 +95,13 @@ const AdminProductEdit = () => {
     
         const appendFileData = (formDataArray, key, formDataObject) => {
           if (formDataArray && formDataArray.length > 0) {
-            formDataObject.append(key, formDataArray[0]);
+            formDataArray.forEach((file)=>{
+              formDataObject.append(key,file);
+            })
           }
         };
     
-        appendFileData(formData.header_image, "header_image", updatedProductData);
+        appendFileData(formData.headerimage, "headerimage", updatedProductData);
         appendFileData(
           formData.background_image,
           "background_image",
@@ -106,7 +110,7 @@ const AdminProductEdit = () => {
         appendFileData(formData.image, "image", updatedProductData);
         appendFileData(
           formData.product_images,
-          "product_images",
+          "productimages[]",
           updatedProductData
         );
     
@@ -140,7 +144,7 @@ const AdminProductEdit = () => {
               showConfirmButton: false,
               timer: 1500,
             }).then(() => {
-               window.location.href = "/admin/product";
+              //  window.location.href = "/admin/product";
             });
           })
           .catch((err) => {
@@ -291,7 +295,7 @@ const AdminProductEdit = () => {
                             type="file"
                             className="form-control-file"
                             id="exampleInputHeaderImage"
-                            name="header_image"
+                            name="headerimage"
                             onChange={handleChange}
                           />
                         </div>
@@ -329,6 +333,16 @@ const AdminProductEdit = () => {
                             onChange={handleChange}
                             multiple // Add this line to allow multiple file selection
                           />
+                           <div className="preloaded-images">
+                            {formData.preloaded_images.map((image, index) => (
+                              <img
+                                key={index}
+                                src={image}
+                                alt={`preloaded-${index}`}
+                                style={{ width: "100px", marginRight: "10px" }}
+                              />
+                            ))}
+                          </div>
                         </div>
                         <div className="form-group">
                           <label htmlFor="exampleInputDescription">
