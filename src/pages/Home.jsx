@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../css/style.css";
 import box1 from "../img/thumb_box-1.png";
 import box2 from "../img/thumb_box-2.png";
@@ -9,7 +9,7 @@ import dent from "../img/home_dentistery.jpg";
 import review_img from "../img/dent_page.png";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { FaPhone } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaMagnifyingGlassPlus, FaPhone } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
 
@@ -17,7 +17,7 @@ import { FaTextWidth } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import SwiperCore from "swiper";
 import "swiper/swiper-bundle.css";
 
@@ -31,6 +31,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 import sideimage from "../img/experience1.png"
+import abc from "../img/home-gallary-2.jpg"
+import { Lightbox } from "react-modal-image";
 
 SwiperCore.use([Autoplay, Pagination]);
 
@@ -38,9 +40,9 @@ const Home = () => {
   const [productData, setProductData] = useState([]);
   const [galleryData, setGalleryData] = useState([]);
   const [reviewData, setReviewData] = useState([]);
-
+  const [images, setImages] = useState([]); 
   const [loading, setLoading] = useState(true);
-
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,6 +50,7 @@ const Home = () => {
     subject: "",
     message: "",
   });
+  const swiperRef = useRef(null);
 
   useEffect(() => {
     AOS.init();
@@ -74,7 +77,14 @@ const Home = () => {
       .get("https://denticadentalstudio.com/webapp/api/gallery")
       .then((res) => {
         console.log(res.data);
-        setGalleryData(res.data.data.gallery);
+        const data = res.data.data.gallery
+        setGalleryData(data);
+        const imageObjects = data.image.map((image) => ({
+          src : image,
+          lightboxOpen : false,
+          hovered : false,
+        }));
+        setImages(imageObjects);  
       })
       .catch((err) => {
         console.log(err);
@@ -102,6 +112,22 @@ const Home = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const openLightbox = (index) => {
+    console.log(`Opening lightbox for image index: ${index}`);
+    setLightboxIndex(index);
+    if (swiperRef.current){
+        swiperRef.current.autoplay.stop();
+    }
+  };
+
+  const closeLightbox = () => {
+    console.log('Closing lightbox');
+    setLightboxIndex(-1);
+    if (swiperRef.current){
+      swiperRef.current.autoplay.start();
+    }
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -148,14 +174,14 @@ const Home = () => {
   };
   return (
     <div className="home">
-      {loading && (
+      {/* {loading && (
         <div className="preloaderContainer">
           <div className="preloaderBg">
             <div className="preloader"></div>
             <div className="preloader2"></div>
           </div>
         </div>
-      )}
+      )} */}
       <div className="home-main">
         <section
           className="banner-section"
@@ -559,8 +585,9 @@ const Home = () => {
                     spaceBetween={20}
                     loop={true}
                     centeredSlides={true}
+                    onSwiper={(swiper) => (swiperRef.current = swiper)}
                     autoplay={{
-                      delay: 1000,
+                      delay: 1500,
                       disableOnInteraction: false,
                     }}
                     pagination={{
@@ -574,10 +601,25 @@ const Home = () => {
                       <React.Fragment key={index}>
                         <SwiperSlide>
                           <div className="home-gallary-swiper-sub">
-                            <img src={ele.image} alt="" />
+                            <figure className="-gallery-image-wrapper">
+                              <img 
+                               src={ele.image} 
+                               alt={`gallery-${index}`} 
+                               style={{ height: "100vh", width: "100%" }}
+                               onClick={()=> openLightbox(index)}
+                               />
+                      
+                                <div
+                                    className="dent-overlay"
+                                    onClick={()=> openLightbox(index)}
+                                >
+                                  <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
+                                </div>
+                              
+                            </figure>
                           </div>
                         </SwiperSlide>
-                        <SwiperSlide>
+                        {/* <SwiperSlide>
                           <div className="home-gallary-swiper-sub">
                             <img
                               src={
@@ -587,12 +629,12 @@ const Home = () => {
                               alt=""
                             />
                           </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
+                        </SwiperSlide> */}
+                        {/* <SwiperSlide>
                           <div className="home-gallary-swiper-sub">
                             <img src={ele.image} alt="" />
                           </div>
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                       </React.Fragment>
                     ))}
                   </Swiper>
@@ -659,6 +701,18 @@ const Home = () => {
               </div>
             </div>
           </div>
+          {lightboxIndex >= 0 && (
+        <Lightbox
+          medium={galleryData[lightboxIndex].image}
+          large={galleryData[lightboxIndex].image}  
+          alt={`gallery-${lightboxIndex}`}
+          onClose={closeLightbox}
+          style={{
+            Width: '90vw',
+            Height: '90vh',
+          }}
+        />
+      )}
         </section>
         {/* Review section started */}
         <section

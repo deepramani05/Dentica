@@ -33,14 +33,14 @@ const About = () => {
 
   return (
     <div className="about-page-main">
-      {loading && (
+      {/* {loading && (
         <div className="preloaderContainer">
           <div className="preloaderBg">
             <div className="preloader"></div>
             <div className="preloader2"></div>
           </div>
         </div>
-      )}
+      )} */}
       <div
         className="about-page-sub"
         data-aos="fade-up"
@@ -88,15 +88,15 @@ const About = () => {
                       <img src={box3} alt="" />
                     </figure>
                   </div>
-                  <figure className="image">
+                  <figure className="image-about">
                     <img src={ele.image} alt="" />
                   </figure>
-                  <div className="text">
+                  {/* <div className="text">
                     <h2>
                       12 <span>+</span>
                     </h2>
                     <h6>Years of Experience</h6>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

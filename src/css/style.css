@@ -785,6 +785,15 @@ body {
   position: relative;
 }
 
+.image-about{
+ position: relative;
+ display: block;
+ clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+ width: 75%;
+ left: 135px;
+ top: 100px; 
+}s
+
 .image {
   position: relative;
   display: block;
@@ -811,8 +820,8 @@ body {
 
 .text {
   position: absolute;
-  right: -335px;
-  bottom: 0px;
+  right: 0px;
+  bottom: -100px;
   width: 200px; 
   height: 200px;
   text-align: center;
@@ -1115,6 +1124,7 @@ span.home-product-sub-title {
   width: 100%;
   margin: 10px 20px;
   padding: 0 0 30px 0;
+  position: relative;
 }
 
 .home-gallary-swiper-sub img {
@@ -2592,6 +2602,9 @@ body.scrolled .back-to-top {
   z-index: 1;
 }
 
+.gallery-image-wrapper {
+  max-width: 100%;
+}
 /* Dent Hover */
 
 .inner-box {
