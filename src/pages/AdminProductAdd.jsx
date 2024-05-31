@@ -92,7 +92,7 @@ const AdminProductAdd = () => {
                 <div className="col-sm-6">
                   <ol className="breadcrumb float-sm-right">
                     <li className="breadcrumb-item">
-                      <Link to="/product">Products</Link>
+                      <Link to="/admin/product">Products</Link>
                     </li>
                     <li
                       className="breadcrumb-item active"

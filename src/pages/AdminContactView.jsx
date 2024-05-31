@@ -53,7 +53,7 @@ const AdminContactView = () => {
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item">
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/admin/contact">Contact</Link>
                   </li>
                   <li
                     className="breadcrumb-item"

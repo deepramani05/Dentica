@@ -21,6 +21,7 @@ const AdminProductEdit = () => {
         preloaded_images: []
       });
       const [loading, setLoading] = useState(true);
+      const [images, setImages] = useState([]);
     
       const { id } = useParams();
     
@@ -81,6 +82,11 @@ const AdminProductEdit = () => {
           });
         }
       };
+
+      const handleImageChange = (e) => {
+        const filesArray = Array.from(e.target.files);
+        setImages([...images, ...filesArray]);
+      };
     
       const handleChange1 = (content) => {
         setFormData({
@@ -108,12 +114,9 @@ const AdminProductEdit = () => {
           updatedProductData
         );
         appendFileData(formData.image, "image", updatedProductData);
-        appendFileData(
-          formData.product_images,
-          "productimages[]",
-          updatedProductData
-        );
-    
+        images.forEach((image, index) => {
+          updatedProductData.append(`productimage[${index}]`, image);
+        });
         // Append other form data fields
         updatedProductData.append("title", formData.title);
         updatedProductData.append("sdescription", formData.sdescription);
@@ -144,7 +147,7 @@ const AdminProductEdit = () => {
               showConfirmButton: false,
               timer: 1500,
             }).then(() => {
-              //  window.location.href = "/admin/product";
+                window.location.href = "/admin/product";
             });
           })
           .catch((err) => {
@@ -177,7 +180,7 @@ const AdminProductEdit = () => {
                 <div className="col-sm-6">
                   <ol className="breadcrumb float-sm-right">
                     <li className="breadcrumb-item">
-                      <Link to="/product">Products</Link>
+                      <Link to="/admin/product">Products</Link>
                     </li>
                     <li
                       className="breadcrumb-item active"
@@ -330,7 +333,7 @@ const AdminProductEdit = () => {
                             className="form-control-file"
                             id="exampleInputImages"
                             name="product_images"
-                            onChange={handleChange}
+                            onChange={handleImageChange}
                             multiple // Add this line to allow multiple file selection
                           />
                            <div className="preloaded-images">

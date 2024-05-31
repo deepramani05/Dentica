@@ -129,7 +129,7 @@ const AdminGalleryedit = () => {
                 <div className="col-sm-6">
                   <ol className="breadcrumb float-sm-right">
                     <li className="breadcrumb-item">
-                      <Link to="/gallery">Gallery</Link>
+                      <Link to="/admin/gallery">Gallery</Link>
                     </li>
                     <li
                       className="breadcrumb-item active"
