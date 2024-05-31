@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "react-image-lightbox/style.css";
 import Lightbox from "react-image-lightbox";
-import { SlMagnifierAdd } from "react-icons/sl";
 import axios from "axios";
+import "../css/style.css";
 
 const Gallary = () => {
   const [galleryData, setGalleryData] = useState([]);
@@ -88,7 +88,7 @@ const Gallary = () => {
   };
 
   return (
-    <div className="gallary-main">
+    <div className="gallery-main">
       {loading && (
         <div className="preloaderContainer">
           <div className="preloaderBg">
@@ -97,7 +97,7 @@ const Gallary = () => {
           </div>
         </div>
       )}
-      <div className="gallary-sub">
+      <div className="gallery-sub">
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">
@@ -113,8 +113,8 @@ const Gallary = () => {
         </div>
         <div className="gallary-page-content">
           <div className="gallary-page-content-sub">
-            <ul className="gallary-content-menu">
-              <div className="gallary-content-menu-btn">
+            <ul className="gallery-content-menu">
+              <div className="gallery-content-menu-btn">
                 {categories.map((category) => (
                   <button
                     key={category}
@@ -127,8 +127,8 @@ const Gallary = () => {
                 ))}
               </div>
             </ul>
-            <ul className="gallary-content-img">
-              <div className="gallary-content-img-main">
+            <ul className="gallery-content-img">
+              <div className="gallery-content-img-main">
                 {images.map((image, index) => (
                   <div
                     key={index}

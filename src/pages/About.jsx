@@ -4,7 +4,6 @@ import box1 from "../img/thumb_box-1.png";
 import box2 from "../img/thumb_box-2.png";
 import box3 from "../img/thumb_box-3.png";
 import about_center from "../img/home_about-center.png";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";

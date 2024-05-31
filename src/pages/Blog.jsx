@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import blog_img from "../img/dent_page.png";
 import axios from "axios";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     AOS.init();
@@ -26,22 +24,23 @@ const Blog = () => {
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        // Set loading to false when fetching data completes
-        setLoading(false);
-      });
+      // .finally(() => {
+      //   // Set loading to false when fetching data completes
+      //   setLoading(false);
+      // });
   }, []);
 
   return (
     <div className="blog-page-main">
-      {loading && (
+      {/* loading  */}
+      {/* {loading && (
         <div className="preloaderContainer">
           <div className="preloaderBg">
             <div className="preloader"></div>
             <div className="preloader2"></div>
           </div>
         </div>
-      )}
+      )} */}
       <div
         className="blog-page-sub"
         data-aos="fade-up"

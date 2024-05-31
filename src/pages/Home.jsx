@@ -1,17 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../css/style.css";
-import box1 from "../img/thumb_box-1.png";
-import box2 from "../img/thumb_box-2.png";
-import box3 from "../img/thumb_box-3.png";
 import about_center from "../img/home_about-center.png";
 import about_center2 from "../img/123.png"
 import dent from "../img/home_dentistery.jpg";
 import review_img from "../img/dent_page.png";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { FaMagnifyingGlass, FaMagnifyingGlassPlus, FaPhone } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa";
 import { FaTextWidth } from "react-icons/fa";
+import Lightbox from 'react-image-lightbox';
 
 // Import Swiper styles
 import "swiper/css";
@@ -27,12 +25,10 @@ import { Link } from "react-router-dom"
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+// import 'react-image-lightbox/style.css';
 import axios from "axios";
 import Swal from "sweetalert2";
-
 import sideimage from "../img/experience1.png"
-import abc from "../img/home-gallary-2.jpg"
-import { Lightbox } from "react-modal-image";
 
 SwiperCore.use([Autoplay, Pagination]);
 
@@ -40,9 +36,8 @@ const Home = () => {
   const [productData, setProductData] = useState([]);
   const [galleryData, setGalleryData] = useState([]);
   const [reviewData, setReviewData] = useState([]);
-  const [images, setImages] = useState([]); 
-  const [loading, setLoading] = useState(true);
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -67,10 +62,6 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        // Set loading to false when fetching data completes
-        setLoading(false);
-      });
 
     // gallery api
     axios
@@ -79,12 +70,6 @@ const Home = () => {
         console.log(res.data);
         const data = res.data.data.gallery
         setGalleryData(data);
-        const imageObjects = data.image.map((image) => ({
-          src : image,
-          lightboxOpen : false,
-          hovered : false,
-        }));
-        setImages(imageObjects);  
       })
       .catch((err) => {
         console.log(err);
@@ -115,20 +100,28 @@ const Home = () => {
   };
 
   const openLightbox = (index) => {
-    console.log(`Opening lightbox for image index: ${index}`);
-    setLightboxIndex(index);
+    console.log("Opening lightbox for index:", index);
+    setLightboxOpen(true);
+    setSelectedImageIndex(index);
     if (swiperRef.current){
         swiperRef.current.autoplay.stop();
     }
   };
 
   const closeLightbox = () => {
-    console.log('Closing lightbox');
-    setLightboxIndex(-1);
+    setLightboxOpen(false);
     if (swiperRef.current){
       swiperRef.current.autoplay.start();
     }
   };
+
+  const moveNext = () => {
+    setSelectedImageIndex((prevIndex) => (prevIndex + 1) % galleryData.length);
+  };
+
+  const movePrev = () =>{
+    setSelectedImageIndex((prevIndex) => (prevIndex + galleryData.length -1) % galleryData.length);
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -597,46 +590,23 @@ const Home = () => {
                      modules={[Autoplay, Pagination, Navigation]}
                     className="mySwiper"
                   >
-                    {galleryData&& galleryData.map((ele, index) => (
-                      <React.Fragment key={index}>
-                        <SwiperSlide>
-                          <div className="home-gallary-swiper-sub">
-                            <figure className="-gallery-image-wrapper">
-                              <img 
-                               src={ele.image} 
-                               alt={`gallery-${index}`} 
-                               style={{ height: "100vh", width: "100%" }}
-                               onClick={()=> openLightbox(index)}
-                               />
-                      
-                                <div
-                                    className="dent-overlay"
-                                    onClick={()=> openLightbox(index)}
-                                >
-                                  <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
-                                </div>
-                              
-                            </figure>
-                          </div>
-                        </SwiperSlide>
-                        {/* <SwiperSlide>
-                          <div className="home-gallary-swiper-sub">
-                            <img
-                              src={
-                                galleryData[(index + 1) % galleryData.length]
-                                  .image
-                              }
-                              alt=""
-                            />
-                          </div>
-                        </SwiperSlide> */}
-                        {/* <SwiperSlide>
-                          <div className="home-gallary-swiper-sub">
-                            <img src={ele.image} alt="" />
-                          </div>
-                        </SwiperSlide> */}
-                      </React.Fragment>
-                    ))}
+                    {galleryData &&
+                      galleryData.map((ele, index) => (
+                        <React.Fragment key={index}>
+                          <SwiperSlide>
+                            <div className="home-gallary-swiper-sub">
+                              <figure className="-gallery-image-wrapper">
+                                <img
+                                  src={ele.image}
+                                  alt={`gallery-${index}`}
+                                  style={{ width: '100%', height: '500px' }}
+                                  onClick={() => openLightbox(index)}
+                                />
+                              </figure>
+                            </div>
+                          </SwiperSlide>
+                        </React.Fragment>
+                      ))}
                   </Swiper>
                 </div>
                 <div className="home-gallary-btn">
@@ -701,18 +671,19 @@ const Home = () => {
               </div>
             </div>
           </div>
-          {lightboxIndex >= 0 && (
-        <Lightbox
-          medium={galleryData[lightboxIndex].image}
-          large={galleryData[lightboxIndex].image}  
-          alt={`gallery-${lightboxIndex}`}
-          onClose={closeLightbox}
-          style={{
-            Width: '90vw',
-            Height: '90vh',
-          }}
-        />
-      )}
+          {lightboxOpen && (
+            <Lightbox
+              mainSrc={galleryData[selectedImageIndex].image}
+              nextSrc={galleryData[(selectedImageIndex + 1) % galleryData.length].image}
+              prevSrc={galleryData[(selectedImageIndex + galleryData.length - 1) % galleryData.length].image}
+              onCloseRequest={closeLightbox}
+              onMovePrevRequest={movePrev}
+              onMoveNextRequest={moveNext}
+              imageLoadErrorMessage="Failed to load image"
+              imageAlt={`gallery-${selectedImageIndex}`}
+              className="custom-lightbox-image"
+            />
+          )}
         </section>
         {/* Review section started */}
         <section

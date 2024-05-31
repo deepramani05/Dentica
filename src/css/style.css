@@ -1581,6 +1581,49 @@ textarea {
   opacity: 0.3;
   z-index: -1;
 }
+ /* gallery page single page url */
+ .gallery-main{
+  padding : 20px;
+ }
+ .gallery-sub{
+  max-width: 100%;
+  margin: 0 auto;
+ }
+ .gallery-content-menu{
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+ }
+ .gallery-content-menu-btn button{
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+ }
+ .gallery-content-menu-btn button.active{
+  background-color: #007bff;
+  color: white;
+ }
+ .gallery-content-img-main{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+ }
+ .gallery-content-img-main div {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+ .gallery-content-img-main img{
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 300px; /* Adjust this value as needed */
+  object-fit: cover;
+ }
 
 /* Blog Page */
 
@@ -2604,6 +2647,11 @@ body.scrolled .back-to-top {
 
 .gallery-image-wrapper {
   max-width: 100%;
+}
+.custom-lightbox-image img {
+  max-width: 500px;
+  max-height: 500px;
+  height: auto; /* Ensure aspect ratio is maintained */
 }
 /* Dent Hover */
 
