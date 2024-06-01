@@ -55,7 +55,7 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData);
+    // console.log(formData);
     e.preventDefault();
     try {
       if (!verified) {
@@ -327,12 +327,12 @@ const Contact = () => {
                         </div>
                       </div>
                     </div>
-                    <input
+                    {/* <input
                       type="checkbox"
                       checked={verified}
                       onChange={(e) => setVerified(e.target.checked)}
                       style={{ marginRight: "5px" }}
-                    />
+                    /> */}
                     {/* <label
                       htmlFor="verified"
                       style={{
