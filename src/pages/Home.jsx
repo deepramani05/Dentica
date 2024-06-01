@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "../css/style.css";
 import about_center from "../img/home_about-center.png";
 import about_center2 from "../img/123.png"
-import dent from "../img/home_dentistery.jpg";
+import dent from "../img/Home-digital.png";
 import review_img from "../img/dent_page.png";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -288,7 +288,7 @@ const Home = () => {
                       <img src={box3} alt="" />
                     </figure>
                   </div> */}
-                  <figure className="image">
+                  <figure className="home-image">
                     <img src={about_center2} alt="" />
                   </figure>
                   <div className="text">
@@ -595,7 +595,7 @@ const Home = () => {
                         <React.Fragment key={index}>
                           <SwiperSlide>
                             <div className="home-gallary-swiper-sub">
-                              <figure className="-gallery-image-wrapper">
+                              <figure >
                                 <img
                                   src={ele.image}
                                   alt={`gallery-${index}`}

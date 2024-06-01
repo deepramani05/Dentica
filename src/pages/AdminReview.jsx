@@ -373,7 +373,7 @@ const AdminReview = () => {
                                         }}
                                       />
                                     </td>
-                                    <td className="align-middle">
+                                    <td className="align-middle text-center">
                                       <Link
                                         to={`/admin/review/edit/${ele.id}`}
                                         className="form-btn"
@@ -394,6 +394,7 @@ const AdminReview = () => {
                                           border: "1px solid red",
                                           backgroundColor: "white",
                                           padding: "1px 5px",
+                                          marginLeft:"10px"
                                         }}
                                       >
                                         <span style={{ color: "red" }}>

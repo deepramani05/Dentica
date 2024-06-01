@@ -72,7 +72,7 @@ const About = () => {
               </div>
               <div className="about-p1-img">
                 <div className="image-box">
-                  <div className="shape">
+                  {/* <div className="shape">
                     <div className="shape-1"></div>
                     <div className="shape-2"></div>
                   </div>
@@ -86,8 +86,8 @@ const About = () => {
                     <figure className="box-3 thumb">
                       <img src={box3} alt="" />
                     </figure>
-                  </div>
-                  <figure className="image-about">
+                  </div> */}
+                  <figure className="image">
                     <img src={ele.image} alt="" />
                   </figure>
                   {/* <div className="text">

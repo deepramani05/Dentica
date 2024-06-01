@@ -288,7 +288,7 @@ const AdminBlog = () => {
                                   __html: ele.description,
                                 }}
                               ></td>
-                              <td width={"15%"}>
+                              <td width={"15%"} className="text-center">
                                 <Link
                                   to={`/blog/${ele.id}`}
                                   className="form-btn"
@@ -310,6 +310,7 @@ const AdminBlog = () => {
                                     border: "1px solid #17a2b8",
                                     padding: "5px",
                                     backgroundColor: "white",
+                                    marginLeft: "10px",
                                   }}
                                 >
                                   <span style={{ color: "#17a2b8" }}>
@@ -323,6 +324,7 @@ const AdminBlog = () => {
                                     border: "1px solid red",
                                     padding: "4px",
                                     backgroundColor: "white",
+                                    marginLeft:"10px"
                                   }}
                                 >
                                   <span style={{ color: "red" }}>

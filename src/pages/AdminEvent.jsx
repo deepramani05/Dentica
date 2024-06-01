@@ -292,7 +292,7 @@ const AdminEvent = () => {
                                     height={"100%"}
                                   />
                                 </td>
-                                <td className="align-middle">
+                                <td className="align-middle text-center">
                                   <Link
                                     to={`/admin/event/edit/${ele.id}`}
                                     className="form-btn"
@@ -313,6 +313,7 @@ const AdminEvent = () => {
                                       border: "1px solid red",
                                       backgroundColor: "white",
                                       padding: "1px 5px",
+                                      marginLeft:"10px"
                                     }}
                                   >
                                     <span style={{ color: "red" }}>

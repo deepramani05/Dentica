@@ -113,7 +113,7 @@ const AdminProductEdit = () => {
           "background_image",
           updatedProductData
         );
-        appendFileData(formData.image, "image", updatedProductData);
+        appendFileData(formData.  image, "image", updatedProductData);
         images.forEach((image, index) => {
           updatedProductData.append(`productimage[${index}]`, image);
         });

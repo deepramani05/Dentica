@@ -399,7 +399,7 @@ const AdminMeta = () => {
                                         <td>{ele.meta_title}</td>
                                         <td>{ele.meta_keyword}</td>
                                         <td>{ele.meta_description}</td>
-                                        <td className="align-middle d-flex">
+                                        <td className="align-middle d-flex text-center">
                                           <Link
                                             to={`/admin/Meta/edit/${ele.id}`}
                                             className="form-btn"
@@ -420,6 +420,7 @@ const AdminMeta = () => {
                                               border: "1px solid red",
                                               backgroundColor: "white",
                                               padding: "2px 5px",
+                                              marginLeft:"10px"
                                             }}
                                           >
                                             <span style={{ color: "red" }}>

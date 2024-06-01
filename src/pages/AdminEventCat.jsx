@@ -393,7 +393,7 @@ const AdminEventCat = () => {
                                           }}
                                         />
                                       </td>
-                                      <td className="align-middle">
+                                      <td className="align-middle text-center">
                                         <Link
                                           to={`/events/${ele.id}`}
                                           className="form-btn"
@@ -414,6 +414,7 @@ const AdminEventCat = () => {
                                             border: "1px solid #17a2b8",
                                             backgroundColor: "white",
                                             padding: "2px 5px",
+                                            marginLeft:"10px"
                                           }}
                                         >
                                           <span style={{ color: "#17a2b8" }}>

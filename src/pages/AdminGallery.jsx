@@ -407,7 +407,7 @@ const AdminGallery = () => {
                                           />
                                         </td>
                                         <td>{ele.category}</td>
-                                        <td className="align-middle">
+                                        <td className="align-middle text-center">
                                           <Link
                                             to={`/admin/gallery/edit/${ele.id}`}
                                             className="form-btn"
@@ -427,6 +427,7 @@ const AdminGallery = () => {
                                               border: "1px solid red",
                                               backgroundColor: "white",
                                               padding: "2px 5px",
+                                              marginLeft:"10px"
                                             }}
                                             onClick={() => {
                                               handleDelete(ele.id);

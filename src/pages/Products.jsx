@@ -33,14 +33,6 @@ const Products = () => {
 
   return (
     <div className="product-page-main">
-      {loading ? (
-        <div className="preloaderContainer">
-          <div className="preloaderBg">
-            <div className="preloader"></div>
-            <div className="preloader2"></div>
-          </div>
-        </div>
-      ) : (
         <div className="product-page-sub">
           <div className="pages-banner">
             <div className="pages-banner-sub">
@@ -85,7 +77,7 @@ const Products = () => {
             </div>
           </div>
         </div>
-      )}
+      
     </div>
   );
 };

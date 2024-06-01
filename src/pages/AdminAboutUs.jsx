@@ -234,7 +234,7 @@ const AdminAboutUs = () => {
                                 }}
                               ></td>
 
-                              <td className="align-middle">
+                              <td className="align-middle text-center">
                                 <Link
                                   to="/about"
                                   className="form-btn"
@@ -257,6 +257,7 @@ const AdminAboutUs = () => {
                                     border: "1px solid #17a2b8",
                                     backgroundColor: "white",
                                     padding: "2px 5px",
+                                    marginLeft: "7px"
                                   }}
                                 >
                                   <span style={{ color: "#17a2b8" }}>
@@ -270,6 +271,7 @@ const AdminAboutUs = () => {
                                     border: "1px solid red",
                                     backgroundColor: "white",
                                     padding: "1px 5px",
+                                    marginLeft:"7px"
                                   }}
                                 >
                                   <span style={{ color: "red" }}>

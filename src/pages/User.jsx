@@ -329,7 +329,7 @@ const User = () => {
                                 <td>{startIndex + index + 1}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>
+                                <td className="text-center">
                                   <Link
                                     to={`/admin/users/edit/${user.id}`}
                                     className="form-btn"
@@ -351,6 +351,7 @@ const User = () => {
                                       padding: "4px",
                                       backgroundColor: "white",
                                       color: "red",
+                                      marginLeft:"10px"
                                     }}
                                   >
                                     <MdDelete />

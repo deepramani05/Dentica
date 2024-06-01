@@ -272,7 +272,7 @@ const AdminCareer = () => {
                                   </p>
                                 </td>
                                 <td>{ele.subject}</td>
-                                <td>
+                                <td className="align-middle text-center">
                                   <button
                                     className="form-btn-dlt"
                                     style={{
@@ -297,6 +297,7 @@ const AdminCareer = () => {
                                     style={{
                                       backgroundColor: "white",
                                       border: "1px solid red",
+                                      marginLeft: "10px",
                                     }}
                                   >
                                     <span

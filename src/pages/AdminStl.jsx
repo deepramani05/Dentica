@@ -296,7 +296,7 @@ const AdminStl = () => {
                                 <td>{ele.fname}</td>
                                 <td>{ele.phone_number}</td>
                                 <td>{ele.message}</td>
-                                <td>
+                                <td className="text-center">
                                   <button
                                     className="form-btn-dlt"
                                     style={{
@@ -321,6 +321,7 @@ const AdminStl = () => {
                                     style={{
                                       backgroundColor: "white",
                                       border: "1px solid red",
+                                      marginLeft: "10px"
                                     }}
                                   >
                                     <span

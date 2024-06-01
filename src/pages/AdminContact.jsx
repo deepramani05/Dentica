@@ -280,7 +280,7 @@ const AdminContact = () => {
                                   </p>
                                 </td>
                                 <td>{ele.subject}</td>
-                                <td className="align-middle">
+                                <td className="align-middle text-center">
                                   <Link
                                     to={`/admin/contact/${ele.id}`}
                                     className="form-btn"
@@ -304,6 +304,7 @@ const AdminContact = () => {
                                       border: "1px solid red",
                                       backgroundColor: "white",
                                       padding: "1px 5px",
+                                      marginLeft:"10px"
                                     }}
                                   >
                                     <span style={{ color: "red" }}>

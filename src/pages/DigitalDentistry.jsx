@@ -73,14 +73,14 @@ const DigitalDentistry = () => {
 
   return (
     <div className="dent-page-main">
-      {loading && (
+      {/* {loading && (
         <div className="preloaderContainer">
           <div className="preloaderBg">
             <div className="preloader"></div>
             <div className="preloader2"></div>
           </div>
         </div>
-      )}
+      )} */}
       <div
         className="dent-page-sub"
         data-aos="fade-up"

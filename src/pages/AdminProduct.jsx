@@ -286,7 +286,7 @@ const AdminProduct = () => {
                                     __html: ele.description,
                                   }}
                                 ></td>
-                                <td>
+                                <td className="text-center">
                                   <Link
                                     to={
                                       ele.title === "Digital Dentristry"
@@ -312,6 +312,7 @@ const AdminProduct = () => {
                                       border: "1px solid #17a2b8",
                                       padding: "5px",
                                       backgroundColor: "white",
+                                      marginLeft:"7px"
                                     }}
                                   >
                                     <span style={{ color: "#17a2b8" }}>
@@ -325,6 +326,7 @@ const AdminProduct = () => {
                                       border: "1px solid red",
                                       padding: "4px",
                                       backgroundColor: "white",
+                                      marginLeft:"7px"
                                     }}
                                   >
                                     <span style={{ color: "red" }}>

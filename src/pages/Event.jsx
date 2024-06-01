@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import event_img from "../img/event_img.jpg";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 
 const Event = () => {
-  const [loading, setLoading] = useState(true);
-
-  let [eventCat, setEventCat] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  const [eventCat, setEventCat] = useState([]);
 
   useEffect(() => {
     AOS.init();
@@ -17,28 +14,28 @@ const Event = () => {
     axios
       .get(`https://denticadentalstudio.com/webapp/api/event_category`)
       .then((res) => {
-        console.log(res.data.data.event_category);
+        // console.log(res.data.data.event_category);
         setEventCat(res.data.data.event_category);
-        console.log(eventCat);
+        // console.log(eventCat);
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      // .finally(() => {
+      //   setLoading(false);
+      // });
   }, []);
 
   return (
     <div className="event-main">
-      {loading && (
+      {/* {loading && (
         <div className="preloaderContainer">
           <div className="preloaderBg">
             <div className="preloader"></div>
             <div className="preloader2"></div>
           </div>
         </div>
-      )}
+      )} */}
       <div className="event-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">

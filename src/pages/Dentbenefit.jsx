@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Dentbenefit = () => {
   const [blogData, setBlogData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const { id } = useParams();
   let [allblog, setAllBlog] = useState([]);
 
@@ -21,7 +21,7 @@ const Dentbenefit = () => {
     axios
       .post(`https://denticadentalstudio.com/webapp/api/show/blog`, { id })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setBlogData(res.data.data.blog);
       })
       .catch((err) => {
@@ -31,28 +31,28 @@ const Dentbenefit = () => {
     axios
       .get(`https://denticadentalstudio.com/webapp/api/blogs`)
       .then((res) => {
-        console.log(res.data.data.blog);
+        // console.log(res.data.data.blog);
         setAllBlog(res.data.data.blog);
-        console.log(allblog);
+        // console.log(allblog);
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      // .finally(() => {
+      //   setLoading(false);
+      // });
   }, []);
 
   return (
     <div className="benefit-main">
-      {loading && (
+      {/* {loading && (
         <div className="preloaderContainer">
           <div className="preloaderBg">
             <div className="preloader"></div>
             <div className="preloader2"></div>
           </div>
         </div>
-      )}
+      )} */}
       <div className="benefit-sub">
         <div className="pages-banner">
           <div className="pages-banner-sub">
