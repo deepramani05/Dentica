@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import dent_img from "../img/home_dentistery.jpg";
-import ModalImage from "react-modal-image";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import "../css/style.css";
@@ -27,23 +25,23 @@ const DigitalDentistry = () => {
     axios
       .get("https://denticadentalstudio.com/webapp/api/product")
       .then((res) => {
-        // console.log(res.data);
         const data = res.data.data.product;
-        setContent(data)
+        setContent(data);
         if (data) {
           const filteredData = data.filter((item) => item.product_type === 1);
-          // console.log(filteredData);
           if (filteredData) {
             const images = filteredData.flatMap((item) =>
               item.product_images.map((src) => ({
                 src,
                 lightboxOpen: false,
-                hovered: false, 
+                hovered: false,
               }))
             );
             setImages(images);
             setProductData(filteredData);
-            const related = data.filter((item)=> item.product_type !== 1).flatMap((item)=> item.product_images.map((src)=> src));
+            const related = data
+              .filter((item) => item.product_type !== 1)
+              .flatMap((item) => item.product_images.map((src) => src));
             setRelatedImages(related);
           }
         }
@@ -57,8 +55,8 @@ const DigitalDentistry = () => {
   }, []);
 
   const openLightbox = (index) => {
-    setLightboxOpen(true);
     setSelectedImageIndex(index);
+    setLightboxOpen(true);
   };
 
   const closeLightbox = () => {
@@ -76,6 +74,7 @@ const DigitalDentistry = () => {
     updatedImages[index].hovered = false;
     setImages(updatedImages);
   };
+
   const moveNext = () => {
     setSelectedImageIndex((selectedImageIndex + 1) % images.length);
   };
@@ -85,28 +84,17 @@ const DigitalDentistry = () => {
       (selectedImageIndex + images.length - 1) % images.length
     );
   };
+
   const handleNavClick = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-  // console.log(".....ProductData.....", productData);
+
   return (
     <div className="dent-page-main">
-      {/* {loading && (
-        <div className="preloaderContainer">
-          <div className="preloaderBg">
-            <div className="preloader"></div>
-            <div className="preloader2"></div>
-          </div>
-        </div>
-      )} */}
-      <div
-        className="dent-page-sub"
-        data-aos="fade-up"
-        data-aos-duration="2000"
-      >
+      <div className="dent-page-sub" data-aos="fade-up" data-aos-duration="2000">
         <div className="pages-banner">
           <div className="pages-banner-sub">
             <div className="pages-content-box">
@@ -120,87 +108,42 @@ const DigitalDentistry = () => {
             </div>
           </div>
         </div>
-        <div
-          className="dent-page-content"
-          style={{
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
+        <div className="dent-page-content" style={{ position: "relative", overflow: "hidden" }}>
           <div className="implant-content-p1">
-              <div className="implant-p1-img">
-                <h1>{productData.title}</h1>
-                {productData.map((product, index) => (
-                  <div key={index} style={{ marginBottom: "2rem" }}>
-                    {/* <h2>{product.title}</h2> */}
-                    <div className="implant-p1-img-box">
-                      <img src ={product.image} alt ={product.title} />
-                    </div>
-                    <div
-                      className="implant-p1-img-txt"
-                      dangerouslySetInnerHTML={{ __html: product.description }}
-                    ></div>
+            <div className="implant-p1-img">
+              <h1>{productData.title}</h1>
+              {productData.map((product, index) => (
+                <div key={index} style={{ marginBottom: "2rem" }}>
+                  <div className="implant-p1-img-box">
+                    <img src={product.image} alt={product.title} />
                   </div>
-                ))}
+                  <div
+                    className="implant-p1-img-txt"
+                    dangerouslySetInnerHTML={{ __html: product.description }}
+                  ></div>
+                </div>
+              ))}
             </div>
             <div className="implant-p1-link-main">
-                  <h1>Our products</h1>
-                  {content
-                    .filter((item) => item.product_type === 2)
-                    .map((ele) => (
-                      <div className="implant-p1-link-sub">
-                        <div className="implant-p1-link">
-                          <Link
-                            to={`/product/${ele.id}`}
-                            onClick={handleNavClick}
-                          >
-                            {ele.title}
-                          </Link>
-                        </div>
-                        <hr />
-                      </div>
-                    ))}
+              <h1>Our products</h1>
+              {content
+                .filter((item) => item.product_type === 2)
+                .map((ele) => (
+                  <div className="implant-p1-link-sub" key={ele.id}>
+                    <div className="implant-p1-link">
+                      <Link to={`/product/${ele.id}`} onClick={handleNavClick}>
+                        {ele.title}
+                      </Link>
+                    </div>
+                    <hr />
+                  </div>
+                ))}
             </div>
           </div>
           <div className="implant-content-p2">
             <div className="implant-p2-head">
               <h1>Related Product Images</h1>
             </div>
-            {/* <div className="implant-p2-img-row">
-              {images.map((image, index)=>(
-                <div className="implant-p2-img" key={index}>
-                <div className="implant-p2-img-box">
-                  <div className="image-container">
-                    <figure
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={() => handleMouseLeave(index)}
-                    >
-                      <img
-                        src={image.src}
-                        style={{ height: "100%", width: "100%" }}
-                        alt={`implant-${index}`}
-                      />
-                      {image.hovered && (
-                        <div
-                          className="dent-overlay"
-                          onClick={() => openLightbox(index)}
-                        >
-                          <FaMagnifyingGlassPlus className="flaticon-zoom-icon" />
-                        </div>
-                      )}
-                    </figure>
-                    {image.lightboxOpen && (
-                      <Lightbox
-                        mainSrc={image.src}
-                        onCloseRequest={() => closeLightbox(index)}
-                      />
-                    )}
-                  </div>
-                </div>
-              </div>
-              ))}
-            </div> */}
-          
             <div
               id="project-block-two"
               style={{
@@ -208,7 +151,8 @@ const DigitalDentistry = () => {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              className="dent-page-image">
+              className="dent-page-image"
+            >
               <div
                 className="inner-box"
                 style={{
@@ -221,17 +165,17 @@ const DigitalDentistry = () => {
                   <figure
                     key={imgIndex}
                     className="image-box"
-                    onMouseEnter={() => handleMouseEnter(imgIndex)} // Track mouse enter event
-                    onMouseLeave={() => handleMouseLeave(imgIndex)} // Track mouse leave event
+                    onMouseEnter={() => handleMouseEnter(imgIndex)}
+                    onMouseLeave={() => handleMouseLeave(imgIndex)}
                     onClick={() => openLightbox(imgIndex)}
                     style={{
-                      cursor:"pointer",
+                      cursor: "pointer",
                       transition: "all 0.3s ease",
                       margin: "1rem",
                       width: "250px",
                       boxShadow: image.hovered
                         ? "0 6px 10px rgba(0, 0, 0, 0.6)"
-                        : "none", // Apply box shadow on hover
+                        : "none",
                     }}
                   >
                     <img
@@ -239,23 +183,6 @@ const DigitalDentistry = () => {
                       style={{ height: "100%", width: "100%" }}
                       alt={`Image ${imgIndex}`}
                     />
-                    {lightboxOpen && (
-                      <Lightbox
-                        mainSrc={images[selectedImageIndex].src}
-                        onCloseRequest={closeLightbox}
-                        nextSrc={
-                          images[(selectedImageIndex + 1) % images.length].src
-                        }
-                        prevSrc={
-                          images[
-                            (selectedImageIndex + images.length - 1) %
-                              images.length
-                          ].src
-                        }
-                        onMovePrevRequest={movePrev}
-                        onMoveNextRequest={moveNext}
-                      />
-                    )}
                   </figure>
                 ))}
               </div>
@@ -263,6 +190,20 @@ const DigitalDentistry = () => {
           </div>
         </div>
       </div>
+      {lightboxOpen && (
+        <Lightbox
+          mainSrc={images[selectedImageIndex].src}
+          nextSrc={images[(selectedImageIndex + 1) % images.length].src}
+          prevSrc={
+            images[
+              (selectedImageIndex + images.length - 1) % images.length
+            ].src
+          }
+          onCloseRequest={closeLightbox}
+          onMovePrevRequest={movePrev}
+          onMoveNextRequest={moveNext}
+        />
+      )}
     </div>
   );
 };

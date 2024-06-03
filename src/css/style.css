@@ -452,7 +452,7 @@ body {
 /* All Pages Banner */
 
 .pages-banner {
-  background-image: url("../img/future\ web\ img\ 2-01.jpg");
+  background-image: url("../img/future-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -970,7 +970,7 @@ body {
   width: 100%; /* Set the desired width for the image */
   height: auto; /* Maintain aspect ratio */
   display: block;
-  border-radius: 100px;
+  border-radius: 50px;
   transition: all 0.7s ease-in-out 0.1s;
 }
 
