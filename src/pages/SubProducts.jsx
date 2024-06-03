@@ -98,9 +98,7 @@ const SubProducts = () => {
   return (
     <div>
       <div className="implant-main">
-        <div
-          className="implant-sub"
-        >
+        <div className="implant-sub">
           <div
             className="pages-banner implant-banner"
             style={{
@@ -156,7 +154,7 @@ const SubProducts = () => {
               </div>
             </div>
 
-            <div className="implant-cntent-p2">
+            <div className="implant-content-p2">
               <div className="implant-p2-head">
                 <h1>Related Product Images</h1>
               </div>
