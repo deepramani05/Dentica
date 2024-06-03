@@ -58,7 +58,7 @@ const Review = () => {
         }
       );
       if (response.ok) {
-        console.log("Review Submitted success");
+        // console.log("Review Submitted success");
         Swal.fire({
           position: "center",
           icon: "success",

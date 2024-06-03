@@ -30,7 +30,7 @@ const Adminhome = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -104,7 +104,7 @@ const Adminhome = () => {
         `https://denticadentalstudio.com/webapp/api/home`
       );
       if (response.data.status === "success") {
-        console.log(response.data);
+        // console.log(response.data);
         const homeData = response.data.data.home;
         setTitle(homeData.title);
         setSubtitle(homeData.subtitle);

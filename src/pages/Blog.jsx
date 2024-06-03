@@ -17,9 +17,9 @@ const Blog = () => {
     axios
       .get("https://denticadentalstudio.com/webapp/api/blogs")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setBlogData(res.data.data.blog);
-        console.log(blogData);
+        // console.log(blogData);
       })
       .catch((err) => {
         console.log(err);

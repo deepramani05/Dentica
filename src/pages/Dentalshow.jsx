@@ -21,7 +21,7 @@ const Dentalshow = () => {
         params: { id },
       })
       .then((res) => {
-        console.log(res.data.data.event);
+        // console.log(res.data.data.event);
         // Filter the data where category_id is 1
         let filteredData = res.data.data.event.filter(
           (item) => item.category_id === id

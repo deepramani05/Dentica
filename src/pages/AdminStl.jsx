@@ -74,7 +74,7 @@ const AdminStl = () => {
             }
           )
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             // After successful deletion, update the state to remove the deleted item
             setData(data.filter((item) => item.id !== id));
             setFilteredData(filteredData.filter((item) => item.id !== id)); // Also update filtered data

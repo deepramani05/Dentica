@@ -19,7 +19,7 @@ const Gallary = () => {
     axios
       .get(`https://denticadentalstudio.com/webapp/api/gallery`)
       .then((res) => {
-        console.log(res.data.data.gallery);
+        // console.log(res.data.data.gallery);
         setGalleryData(res.data.data.gallery);
         setLoading(false);
       })

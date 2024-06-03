@@ -65,7 +65,7 @@ const Career = () => {
       );
 
       if (response.ok) {
-        console.log("Application submitted successfully");
+        // console.log("Application submitted successfully");
         Swal.fire({
           position: "center",
           icon: "success",

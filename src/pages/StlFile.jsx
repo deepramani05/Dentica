@@ -28,7 +28,7 @@ const StlFile = () => {
     axios
       .post(`https://denticadentalstudio.com/webapp/api/stl/store`, formDataToSend)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         Swal.fire({
           position: "top-end",
           icon: "success",

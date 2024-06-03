@@ -304,7 +304,6 @@ const AdminContact = () => {
                                       border: "1px solid red",
                                       backgroundColor: "white",
                                       padding: "1px 5px",
-                                      marginLeft:"10px"
                                     }}
                                   >
                                     <span style={{ color: "red" }}>

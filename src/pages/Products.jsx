@@ -11,9 +11,9 @@ const Products = () => {
     axios
       .get(`https://denticadentalstudio.com/webapp/api/product`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProductData(res.data.data.product);
-        console.log(productData);
+        // console.log(productData);
       })
       .catch((err) => {
         console.log(err);
