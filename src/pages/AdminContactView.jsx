@@ -5,9 +5,7 @@ import axios from "axios";
 
 const AdminContactView = () => {
     const [contactDetail, setContectDetail] = useState({}); // Change initial state to object
-
     const [loading, setLoading] = useState(true);
-  
     const { id } = useParams();
     useEffect(() => {
         axios

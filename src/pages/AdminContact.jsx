@@ -68,7 +68,7 @@ const AdminContact = () => {
               )
               .then((res) => {
                 // Handle success response
-                console.log("Contact deleted successfully:", res.data);
+                // console.log("Contact deleted successfully:", res.data);
                 // Optionally, you can perform additional actions here
                 Swal.fire({
                   title: "Deleted!",
@@ -81,7 +81,7 @@ const AdminContact = () => {
               })
               .catch((err) => {
                 // Handle error
-                console.error("An error occurred while deleting the contact:", err);
+                // console.error("An error occurred while deleting the contact:", err);
                 Swal.fire({
                   title: "Error",
                   text: "An error occurred while deleting the contact.",

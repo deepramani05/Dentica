@@ -8,9 +8,7 @@ import Cookies from "js-cookie";
 
 const AdminEventEdit = () => {
     const { id } = useParams();
-
     const [loading, setLoading] = useState(true);
-  
     const [data, setData] = useState([]);
     const [formData, setFormData] = useState({
       category_id: "",
@@ -79,7 +77,7 @@ const AdminEventEdit = () => {
         // For file input
         setFormData({
           ...formData,
-          [name]: e.target.files[0], // Store the file object directly
+          [name]: e.target.files[0], 
         });
       } else if (name === "category_id") {
         // For category select input
@@ -119,14 +117,12 @@ const AdminEventEdit = () => {
             showConfirmButton: false,
             timer: 1000,
           })
-            // Handle success, maybe redirect or show a success message
             .then(() => {
               window.location.href = "/admin/event";
             });
         })
         .catch((err) => {
           console.log(err);
-          // Handle error, show an error message maybe
         });
     };
   return (
