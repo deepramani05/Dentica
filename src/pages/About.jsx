@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import box1 from "../img/thumb_box-1.png";
-import box2 from "../img/thumb_box-2.png";
-import box3 from "../img/thumb_box-3.png";
-import about_center from "../img/home_about-center.png";
+// import box1 from "../img/thumb_box-1.png";
+// import box2 from "../img/thumb_box-2.png";
+// import box3 from "../img/thumb_box-3.png";
+// import about_center from "../img/home_about-center.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 
 const About = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   let [aboutData, setAboutData] = useState([]);
 
   useEffect(() => {
@@ -20,14 +20,14 @@ const About = () => {
       .then((res) => {
         // console.log(res.data.data.about);
         setAboutData(res.data.data.about);
-        console.log(aboutData);
+        // console.log(aboutData);
       })
       .catch((err) => {
         console.log(err);
       })  
-      .finally(() => {
-        setLoading(false);
-      });
+      // .finally(() => {
+      //   setLoading(false);
+      // });
   }, []);
 
   return (

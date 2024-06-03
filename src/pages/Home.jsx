@@ -421,7 +421,7 @@ const Home = () => {
                   >
                     {productData &&
                       productData
-                        .filter((ele) => ele.product_type === 2)
+                        // .filter((ele) => ele.product_type === 2)
                         .map((ele, id) => (
                           <SwiperSlide key={id}>
                             <div className="home-product-slider-main">

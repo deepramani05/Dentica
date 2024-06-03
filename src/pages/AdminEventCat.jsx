@@ -52,7 +52,7 @@ const AdminEventCat = () => {
   };
 
   const handleDelete = (id) => {
-    console.log("Deleting item with ID:", id); // Check if function is triggered and ID is received
+    // console.log("Deleting item with ID:", id); // Check if function is triggered and ID is received
 
     Swal.fire({
       title: "Are you sure?",

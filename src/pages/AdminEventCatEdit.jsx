@@ -5,11 +5,10 @@ import Swal from "sweetalert2";
 import Cookies from "js-cookie";
 
 const AdminEventCatEdit = () => {
-    const { id } = useParams(); // Assuming you have an id parameter for the event category
+    const { id } = useParams(); 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // State variables to hold form data
   const [formData, setFormData] = useState({
     name: "",
     image: null,
@@ -79,12 +78,9 @@ const AdminEventCatEdit = () => {
     const formDataToUpdate = new FormData();
 
     for (const key in formData) {
-      // Check if the field is a file
       if (formData[key] instanceof File) {
-        // Append the file to formDataToUpdate
         formDataToUpdate.append(key, formData[key]);
       } else {
-        // For non-file inputs, update formDataToUpdate normally
         formDataToUpdate.append(key, formData[key]);
       }
     }
@@ -117,7 +113,7 @@ const AdminEventCatEdit = () => {
       })
       .catch((err) => {
         console.error("Error updating data:", err);
-        alert("Error updating data:", err);
+        // alert("Error updating data:", err);
       });
   };
   return (

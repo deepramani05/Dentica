@@ -181,7 +181,6 @@ const AdminBlogEdit = () => {
               </div>
             </div>
           </section>
-
           <section className="content col-md-12">
             <div className="container-fluid">
               <div className="row">
