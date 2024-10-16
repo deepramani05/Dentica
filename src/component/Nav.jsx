@@ -119,7 +119,7 @@ const Nav = () => {
               <span>
                 <FaLocationDot />
               </span>
-              <p>Patel Nagar, Varachha, Surat, Gujarat 395008</p>
+              <p>Marutidham Industrial Estate, Umra, Surat, Gujarat 394130</p>
             </div>
             <div className="top-nav-email">
               <span>
@@ -454,8 +454,8 @@ const Nav = () => {
                   <div className="mobile-view-nav-data-txt-loc">
                     <p>
                       <b>Our Location :</b> <br />
-                      Plot No. 3/3-3/4, Dhuna House, opp. Patel Nagar, Varachha,
-                      Surat, Gujarat 395008
+                      Plot No. 1 to 8, Marutidham Industrial Estate, Behind Hotel
+                      Royal, Velanja Road, Umra, Surat-394130, Gujarat
                     </p>
                   </div>
                   <div className="mobile-view-nav-data-txt-link">

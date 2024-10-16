@@ -79,7 +79,7 @@ const Contact = () => {
         }
       );
       if (response.ok) {
-        console.log("Data Saved Successfully");
+        // console.log("Data Saved Successfully");
         Swal.fire({
           position: "center",
           icon: "success",
@@ -161,8 +161,11 @@ const Contact = () => {
                   </div>
                   <div className="contact-page-icon-txt">
                     <p>
-                      Plot No. 3/3-3/4, Dhuna House, opp. <br /> Patel Nagar,
-                      Varachha, Surat, Gujarat <br /> 395008
+                    Plot No. 1 to 8, Marutidham Industrial Estate,<br />
+                    Behind Hotel Royal, Velanja Road, Umra, <br/>Surat-394130, 
+                    Gujarat
+                      {/* Plot No. 3/3-3/4, Dhuna House, opp. <br /> Patel Nagar,
+                      Varachha, Surat, Gujarat <br /> 395008 */}
                     </p>
                     <h5 className="contact-icon-a">
                       <Link
@@ -224,7 +227,7 @@ const Contact = () => {
             <div className="contact-page-map-section">
               <div className="contact-page-map-sub">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.643197926084!2d72.847981415625!3d21.219814804678947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f4aed51f57b%3A0xff6e17b909111bb1!2sDhuna%20House!5e0!3m2!1sen!2sin!4v1681180800!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22653.660484652923!2d72.893032!3d21.29031055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0474f4845eac3%3A0x15ce59a9f50ccaf5!2sAdvance%20Dental%20Export!5e1!3m2!1sen!2sin!4v1724932357670!5m2!1sen!2sin"
                   width="100%"
                   height="450"
                   style={{ border: "0" }}

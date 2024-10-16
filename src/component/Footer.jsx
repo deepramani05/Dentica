@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Footer = () => {
-  const [scrolled, setScrolled] = useState(false);
 
   let [productData, setProductData] = useState([]);
 
@@ -31,9 +30,9 @@ const Footer = () => {
     axios
       .get(`https://denticadentalstudio.com/webapp/api/abouts`)
       .then((res) => {
-        console.log(res.data.data.about);
+        // console.log(res.data.data.about);
         setAboutData(res.data.data.about);
-        console.log(aboutData);
+        // console.log(aboutData);
       })
       .catch((err) => {
         console.log(err);
@@ -111,7 +110,8 @@ const Footer = () => {
               <hr className="footer-hr" />
               <div className="footer-add">
                 <h3>Our Location :</h3>
-                <p>{ele.address}</p>
+                <p>Plot No. 1 to 8, Marutidham Industrial Estate, <br />Behind Hotel Royal, 
+                Velanja Road, Umra, <br />Surat-394130, Gujarat</p>
               </div>
               <div className="footer-num">
                 <a href="mailto:info@dentco.net">
